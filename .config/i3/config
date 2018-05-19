@@ -205,9 +205,9 @@ bar {
 
 			 # border    inside    text
         focused_workspace  $color240 $color2a0 $color040
-        active_workspace   $color340 $color3a0 $color040
+        active_workspace   $color340 $color5a0 $color040
         inactive_workspace $color740 $color7a0 $color040
-        urgent_workspace   $color540 $color5a0 $color040
+        urgent_workspace   $color540 $color3a0 $color040
         binding_mode       $color140 $color1a0 $color040
    	}
 
