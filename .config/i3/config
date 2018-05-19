@@ -252,7 +252,7 @@ exec --no-startup-id "mpd ~/.config/mpd/mpdconf"
 exec --no-startup-id "unclutter -idle 3 -root"
 
 # wallpaper
-bindsym Control+$mod+w exec "~/.wallpaper/space/random_wallpaper.sh"
+bindsym Control+$mod+w exec "~/.wallpaper/set_wallpaper.sh"
 
 # lock
 bindsym Control+$mod+l exec "xautolock -locknow"
