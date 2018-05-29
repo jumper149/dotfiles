@@ -1,0 +1,37 @@
+# i3bar settings
+interval=1
+signal=10
+separator_block_width=20
+align=right
+
+# blocks
+#[test]
+#command=~/.config/i3blocks/scripts/test.sh
+
+[music]
+command=~/.config/i3blocks/scripts/music.sh
+
+[weather]
+command=~/.config/i3blocks/scripts/weather.sh
+interval=1800
+
+[space]
+command=~/.config/i3blocks/scripts/space.sh
+interval=1800
+
+[wifi]
+command=~/.config/i3blocks/scripts/wifi.sh
+interval=30
+
+[cpu]
+command=~/.config/i3blocks/scripts/cpu.sh
+
+[battery]
+command=~/.config/i3blocks/scripts/battery.sh
+interval=30
+
+[date]
+command=~/.config/i3blocks/scripts/date.sh
+
+[time]
+command=~/.config/i3blocks/scripts/time.sh

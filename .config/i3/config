@@ -41,7 +41,7 @@ client.background       #ffffff
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: Noto Sans Bold 10
+font pango: Noto Sans Bold 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -214,7 +214,8 @@ bar {
 	position bottom
 	tray_output none
 
-	status_command i3status -c .config/i3/i3status.conf
+	#status_command i3status -c ~/.config/i3status/config
+	status_command i3blocks -c ~/.config/i3blocks/config
 }
 
 # gaps
@@ -274,3 +275,7 @@ bindsym $mod+$mod2+a workspace $ws2; exec "atom"
 bindsym $mod+$mod2+v workspace $ws3; exec "vlc"
 bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e ncmpcpp"
 bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop "
+
+# window specifications
+
+for_window [class="matplotlib"] floating enable

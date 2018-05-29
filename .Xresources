@@ -49,3 +49,8 @@ URxvt.scrollBar: false
 URxvt.saveLines: 1000
 URxvt.urlLauncher: qutebrowser
 URxvt.depth: 32
+
+! perl extensions
+URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
