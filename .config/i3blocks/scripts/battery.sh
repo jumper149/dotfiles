@@ -13,7 +13,7 @@ case "$STATE2" in
 		STATE3=FULL
 		;;
 	Charging)
-		STATE3=CHAR
+		STATE3=LOAD
 		;;
 	Discharging)
 		STATE3=BATT

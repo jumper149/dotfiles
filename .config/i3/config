@@ -121,6 +121,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# mouse
+focus_follows_mouse no
+mouse_warping none
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws0 "0 Desktop"
