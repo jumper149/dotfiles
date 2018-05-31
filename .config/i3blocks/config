@@ -26,6 +26,9 @@ interval=30
 [cpu]
 command=~/.config/i3blocks/scripts/cpu.sh
 
+[volume]
+command=~/.config/i3blocks/scripts/volume.sh
+
 [battery]
 command=~/.config/i3blocks/scripts/battery.sh
 interval=30
