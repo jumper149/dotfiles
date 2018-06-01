@@ -125,6 +125,10 @@ bindsym $mod+a focus parent
 focus_follows_mouse no
 mouse_warping none
 
+# move workspace to output
+bindsym $mod+mod2+Shift+h i3-msg move workspace to output left
+bindsym $mod+mod2+Shift+h i3-msg move workspace to output right
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws0 "0 Desktop"
