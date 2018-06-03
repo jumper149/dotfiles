@@ -58,7 +58,7 @@ font pango: Noto Sans Bold 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec "urxvtc"
+bindsym $mod+Return exec "urxvtc -e 'tmux'"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -269,21 +269,21 @@ bindsym Control+$mod+w exec "~/.wallpaper/set_wallpaper.sh"
 bindsym Control+$mod+l exec "xautolock -locknow"
 
 # mount hdd
-bindsym Control+$mod+h exec "urxvtc -e ~/.config/i3/scripts/hdd_mount.sh"
+bindsym Control+$mod+h exec "urxvtc -e '~/.config/i3/scripts/hdd_mount.sh'"
 
 # scrot
 bindsym Print exec "scrot"
 
 # start applications
 bindsym $mod+grave [urgent=latest] focus
-bindsym $mod+Shift+Return exec "urxvtc -e ranger"
+bindsym $mod+Shift+Return exec "urxvtc -e 'ranger'"
 bindsym $mod+$mod2+d workspace $ws1; exec "dolphin"
 bindsym $mod+$mod2+c workspace $ws1; exec "chromium"
 bindsym $mod+$mod2+q workspace $ws1; exec "qutebrowser"
 bindsym $mod+$mod2+m workspace $ws2; exec "mathematica"
 bindsym $mod+$mod2+a workspace $ws2; exec "atom"
 bindsym $mod+$mod2+v workspace $ws3; exec "vlc"
-bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e ncmpcpp"
+bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e 'ncmpcpp'"
 bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop "
 
 # window specifications
