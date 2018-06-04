@@ -2,10 +2,12 @@
 
 i3-msg floating enable 
 
-mountspot='/home/jumper/Storage'
+MOUNTSPOT='/home/jumper/Storage'
 
 clear
 
-echo "gimme password to mount HDD to $mountspot"
+echo "gimme password to mount HDD to $MOUNTSPOT"
 
-sudo mount '/dev/sda1' $mountspot
+sudo mount '/dev/sda1' $MOUNTSPOT
+
+exit
