@@ -1,13 +1,3 @@
-" The default vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2017 Jun 13
-"
-" This is loaded if no vimrc file was found.
-" Except when Vim is run with "-u NONE" or "-C".
-" Individual settings can be reverted with ":set option&".
-" Other commands can be reverted as mentioned below.
-
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -48,7 +38,7 @@ set display=truncate
 
 " Show a few lines of context around the cursor.  Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
+set scrolloff=8
 
 " Do incremental searching when it's possible to timeout.
 if has('reltime')
@@ -134,20 +124,23 @@ if has('langmap') && exists('+langremap')
   set nolangremap
 endif
 
+" Sets line numbers relative to the current line
 set number
 set relativenumber
 
-set scrolloff=8
+" Activates 256-color-terminal support
+set t_Co=256
 
-" for vim-latexsuite
+" Sets colorscheme
+colorscheme wombat256
+
+" Keeps terminal background transparent (comment for being productive)
+"highlight Normal ctermbg=none
+
+" For vim-latexsuite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
-"
 
-colorscheme darkblue
-highlight Normal ctermbg=none
-
-" hotkeys
+" Hotkeys
 nmap mp :w <Enter>:!python % <Enter>
 nmap mt :w <Enter>:!pdflatex % <Enter>
-"
