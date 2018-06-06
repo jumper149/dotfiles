@@ -43,7 +43,7 @@ Xcursor.theme: breeze_cursors
 
 ! URxvt
 
-URxvt.background:   rgba:1100/1010/1001/e200
+URxvt.background:   rgba:1100/1010/1001/d000
 URxvt.font: xft:inconsolata:size=13
 URxvt.scrollBar: false
 URxvt.saveLines: 1000
