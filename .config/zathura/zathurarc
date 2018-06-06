@@ -1,4 +1,6 @@
 set selection-clipboard clipboard
 
-set recolor "true"
 set recolor-keephue "true"
+set recolor-darkcolor "#FFFFFF"
+set recolor-lightcolor "#111111"
+set recolor "true"

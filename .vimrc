@@ -128,11 +128,17 @@ endif
 set number
 set relativenumber
 
+" Provides X-clipboard support (requires gvim)
+vmap <C-c> "+yi<ESC>
+vmap <C-x> "+c<ESC>
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
 " Activates 256-color-terminal support
 set t_Co=256
 
 " Sets colorscheme
-colorscheme wombat256
+colorscheme wombat256mod
 
 " Keeps terminal background transparent (comment for being productive)
 "highlight Normal ctermbg=none
