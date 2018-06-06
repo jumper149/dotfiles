@@ -148,5 +148,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
 " Hotkeys
+nmap mm :w <Enter>:!./% <Enter>
 nmap mp :w <Enter>:!python % <Enter>
 nmap mt :w <Enter>:!pdflatex % <Enter>
+nmap mcs :w <Enter>:!chez-scheme --script % <Enter>
