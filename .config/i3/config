@@ -206,6 +206,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 	i3bar_command i3bar -t
+
+	mode hide
+	modifier $mod
 	
 	colors {
         background $color780
@@ -229,8 +232,8 @@ bar {
 }
 
 # gaps
-gaps inner 7 
-gaps outer 7
+gaps inner 12 
+gaps outer 18
 
 # window decoration
 default_border pixel 4
