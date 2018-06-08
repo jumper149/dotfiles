@@ -254,7 +254,7 @@ bindsym $mod2+Shift+a exec "~/.config/i3/scripts/kblayout.sh"
 # startup scripts
 exec_always --no-startup-id "xset r rate 200 30"
 exec_always --no-startup-id "setxkbmap -option caps:escape"
-exec_always --no-startup-id "synclient TapButton1=1 TapButton2=3 TapButton3=2 VertScrollDelta=-75 HorizScrollDelta=-75 HorizTwoFingerScroll=1"
+exec_always --no-startup-id "~/.config/i3/scripts/touchpad.sh"
 exec_always --no-startup-id "xrdb ~/.Xresources"
 exec_always --no-startup-id "xset b off"
 exec --no-startup-id "urxvtd -f"
