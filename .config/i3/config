@@ -175,6 +175,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# distance for resizing and moving windows
+set $dist 7
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -183,16 +186,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width $dist px or $dist ppt
+        bindsym j resize grow height $dist px or $dist ppt
+        bindsym k resize shrink height $dist px or $dist ppt
+        bindsym l resize grow width $dist px or $dist ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
+        bindsym Left resize shrink width $dist px or $dist ppt
+        bindsym Down resize grow height $dist px or $dist ppt
+        bindsym Up resize shrink height $dist px or $dist ppt
+        bindsym Right resize grow width $dist px or $dist ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -202,8 +205,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Start i3bar to display a workspace bar (plus i3blocks)
 bar {
 	i3bar_command i3bar -t
 
@@ -227,7 +229,6 @@ bar {
 	position bottom
 	tray_output none
 
-	#status_command i3status -c ~/.config/i3status/config
 	status_command i3blocks -c ~/.config/i3blocks/config
 }
 
@@ -274,6 +275,12 @@ bindsym Control+$mod+l exec "xautolock -locknow"
 # mount hdd
 bindsym Control+$mod+h exec "urxvtc -e ~/.config/i3/scripts/hdd_mount.sh"
 
+# control mpd
+bindsym XF86AudioPlay exec "mpc toggle"
+bindsym XF86AudioStop exec "mpc stop"
+bindsym XF86AudioNext exec "mpc next"
+bindsym XF86AudioPrev exec "mpc prev"
+
 # scrot
 bindsym Print exec "scrot"
 
@@ -292,3 +299,4 @@ bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop "
 # window specifications
 
 for_window [class="matplotlib"] floating enable
+for_window [class="Gnuplot"] floating enable
