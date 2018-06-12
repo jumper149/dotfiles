@@ -214,19 +214,19 @@ bar {
 	
 	colors {
         background $color780
-        focused_background $color480
+        focused_background $colore80
         statusline $color040
         separator  $color040
 
 			 # border    inside    text
         focused_workspace  $color240 $color2a0 $color040
-        active_workspace   $color340 $color5a0 $color040
+        active_workspace   $color540 $color5a0 $color040
         inactive_workspace $color740 $color7a0 $color040
-        urgent_workspace   $color540 $color3a0 $color040
-        binding_mode       $color140 $color1a0 $color040
+        urgent_workspace   $color140 $color1a0 $color040
+        binding_mode       $color340 $color3a0 $color040
    	}
 
-	position bottom
+	position top
 	tray_output none
 
 	status_command i3blocks -c ~/.config/i3blocks/config
