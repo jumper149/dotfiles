@@ -58,7 +58,7 @@ font pango: Noto Sans Bold 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec "urxvtc -e 'tmux'"
+bindsym $mod+Return exec "urxvtc"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -96,7 +96,6 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+g split h
-
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -155,6 +154,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
+bindsym $mod+Tab workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+0 move container to workspace $ws0
@@ -167,6 +167,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+Tab move container to workspace back_and_forth
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -197,10 +198,11 @@ mode "resize" {
         bindsym Up resize shrink height $dist px or $dist ppt
         bindsym Right resize grow width $dist px or $dist ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: Enter or Escape or $mod+r or q
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
+        bindsym q mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -297,6 +299,5 @@ bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e 'ncmpcpp'"
 bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop "
 
 # window specifications
-
 for_window [class="matplotlib"] floating enable
 for_window [class="Gnuplot"] floating enable
