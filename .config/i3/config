@@ -281,6 +281,9 @@ bindsym Control+$mod+l exec "xautolock -locknow"
 # mount hdd
 bindsym Control+$mod+h exec "urxvtc -e ~/.config/i3/scripts/hdd_mount.sh"
 
+# backup system to hdd
+bindsym Control+$mod+b exec "urxvtc -e ~/.config/i3/scripts/backup_to_hdd.sh"
+
 # control mpd
 bindsym XF86AudioPlay exec "mpc toggle"
 bindsym XF86AudioStop exec "mpc stop"

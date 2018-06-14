@@ -7,4 +7,5 @@ STATE=${STRING:$(expr ${#STRING} - 1):1}
 
 NEWSTATE=$(( $(($STATE + 1)) % 2))
 
+xdotool mousemove 0 0
 xinput set-prop "$DEVICE" 142 $NEWSTATE
