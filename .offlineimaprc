@@ -1,0 +1,41 @@
+[general]
+# List of accounts to be synced, separated by a comma.
+accounts = gmail
+# for access to gmail
+pythonfile = ~/.offlineimap/offlineimap_pass.py
+# tls and ssl options found on Luke Smiths Youtube Channel
+# (ssl automatic on, tls dont know)
+starttls = yes
+ssl = yes
+
+#####
+
+[Account gmail]
+# Identifier for the local repository; e.g. the maildir to be synced via IMAP.
+localrepository = gmail-local
+# Identifier for the remote repository; i.e. the actual IMAP, usually non-local.
+remoterepository = gmail-remote
+
+[Repository gmail-local]
+# OfflineIMAP supports Maildir, GmailMaildir, and IMAP for local repositories.
+type = Maildir
+# Where should the mail be placed?
+localfolders = ~/.mail/gmail
+
+[Repository gmail-remote]
+# Remote repos can be IMAP or Gmail, the latter being a preconfigured IMAP.
+type = Gmail
+remoteuser = felixspringer149@gmail.com
+# Password for gmail account usage of apps is in the application pass
+remotepasseval = get_pass("gmail")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+#####
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
