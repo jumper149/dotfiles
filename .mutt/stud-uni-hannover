@@ -1,0 +1,34 @@
+set imap_user 		= "felix.springer@stud.uni-hannover.de"
+
+set from 		= "felix.springer@stud.uni-hannover.de"
+set realname 		= "Felix Springer"
+
+set edit_headers 	= yes
+set mbox_type 		= Maildir
+
+set use_from 		= yes
+set envelope_from 	= yes
+set sendmail 		= "/usr/bin/msmtp -a stud-uni-hannover"
+
+set folder = "~/.mail/stud-uni-hannover"
+
+set spoolfile = "+INBOX"
+
+set mbox = "+[Gmail].All Mail"
+set record = "/dev/null"
+set postponed = "+[Gmail].Drafts"
+
+set editor=`echo \$EDITOR`
+
+# <space>s in foldernames dont work, set up symlinks
+macro index gi "<change-folder>=INBOX<enter>" "go to inbox"
+macro index ga "<change-folder>=../[Gmail].All_Mail_gmail<enter>" "go to all mail"
+macro index gd "<change-folder>=[Gmail].Drafts<enter>" "go to draft"
+macro index gm "<change-folder>=[Gmail].Important<enter>" "go to important"
+macro index go "<change-folder>=../[Gmail].Sent_Mail_gmail<enter>" "go to sent mail"
+macro index gs "<change-folder>=[Gmail].Spam<enter>" "go to spam"
+macro index gn "<change-folder>=[Gmail].Starred<enter>" "go to starred"
+macro index gt "<change-folder>=[Gmail].Trash<enter>" "go to trash"
+
+# hook important
+account-hook $folder "set imap_user=felix.springer@stud.uni-hannover.de"

@@ -1,11 +1,11 @@
 [general]
 # List of accounts to be synced, separated by a comma.
-accounts = gmail
+accounts = gmail,stud-uni-hannover
 # for access to gmail
 pythonfile = ~/.offlineimap/offlineimap_pass.py
 # tls and ssl options found on Luke Smiths Youtube Channel
-# (ssl automatic on, tls dont know)
-starttls = yes
+# (ssl automatic on, starttls dont know)
+#starttls = yes
 ssl = yes
 
 #####
@@ -32,10 +32,18 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 #####
 
-[mbnames]
-enabled = yes
-filename = ~/.mutt/mailboxes
-header = "mailboxes "
-peritem = "+%(accountname)s/%(foldername)s"
-sep = " "
-footer = "\n"
+[Account stud-uni-hannover]
+localrepository = stud-uni-hannover-local
+remoterepository = stud-uni-hannover-remote
+
+[Repository stud-uni-hannover-local]
+type = Maildir
+localfolders = ~/.mail/stud-uni-hannover
+
+[Repository stud-uni-hannover-remote]
+type = IMAP
+remotehost = mail.uni-hannover.de
+remoteport = 993
+remoteuser = felix.springer@stud.uni-hannover.de
+remotepasseval = get_pass("stud-uni-hannover")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
