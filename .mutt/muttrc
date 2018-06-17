@@ -1,19 +1,22 @@
 set imap_user 		= "felixspringer149@gmail.com"
 
-set smtp_url 		= "smtp://felixspringer149@gmail.com:465/"
 set from 		= "felixspringer149@gmail.com"
 set realname 		= "Felix Springer"
 
 set edit_headers 	= yes
 set mbox_type 		= Maildir
-set sendmail 		= /usr/bin/msmtp
+
+set use_from 		= yes
+set envelope_from 	= yes
+set sendmail 		= "/usr/bin/msmtp"
 
 set folder = "~/.mail/gmail"
 #source ~/.mutt/mailboxes
 
 set spoolfile = "+INBOX"
+
 set mbox = "+[Gmail].All Mail"
-set record = "+[Gmail].Sent Mail"
+set record = "/dev/null"
 set postponed = "+[Gmail].Drafts"
 
 set editor=`echo \$EDITOR`
