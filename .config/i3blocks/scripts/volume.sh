@@ -7,4 +7,9 @@ VOLUME=${INFO:$STARTINDEX:$LENFROMINDEX}
 
 OUTSTRING=$(echo $VOLUME | sed 's/ //g')
 
-echo "VOL $OUTSTRING"
+MUTEQ=$(pactl list sinks | grep Mute: -m 1)
+
+if [[ $MUTEQ = *"yes"* ]] ;
+	then echo "MUTED"
+	else echo "VOL $OUTSTRING"
+fi
