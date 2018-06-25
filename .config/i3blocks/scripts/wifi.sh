@@ -1,9 +1,10 @@
 #!/bin/bash
 
-# written for NetworkManager
+# written for ip (which is standard installed)
 
 DEVICE=wlp3s0
-INFO=$(nmcli connection | grep $DEVICE)
-ESSID=${INFO:0:$(expr index "$INFO" \ )}
+INFO=$(ip address show dev $DEVICE | grep inet\ )
+IPADR=${INFO:$(expr index "$INFO" inet + 4)}
+IPADRFORMAT=${IPADR:0:$(expr index "$IPADR" \  - 1)}
 
-echo $ESSID
+echo $IPADRFORMAT
