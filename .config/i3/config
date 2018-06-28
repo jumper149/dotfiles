@@ -235,8 +235,8 @@ bar {
 }
 
 # gaps
-gaps inner 12 
-gaps outer 18
+gaps inner 6
+gaps outer 16
 
 # window decoration
 default_border pixel 4
@@ -268,7 +268,6 @@ exec --no-startup-id "inputattach -w8001 /dev/ttyS0"
 exec --no-startup-id "compton -b --config ~/.config/compton.conf"
 exec --no-startup-id "~/.wallpaper/set_wallpaper.sh"
 exec --no-startup-id "xautolock -locker 'i3lock -c 000000 -f' -notify 3 -notifier ~/.config/i3/scripts/locknotify.sh -bell 0 -time 10"
-#exec --no-startup-id "conky -d pause=1 -c ~/.config/conkyrc"
 exec --no-startup-id "mpd ~/.config/mpd/mpdconf"
 exec --no-startup-id "xdotool mousemove 0 0"
 exec --no-startup-id "unclutter -idle 3 -root"
@@ -280,10 +279,10 @@ bindsym Control+$mod+w exec "~/.wallpaper/set_wallpaper.sh"
 bindsym Control+$mod+l exec "xautolock -locknow"
 
 # mount hdd
-bindsym Control+$mod+h exec "urxvtc -e ~/.config/i3/scripts/hdd_mount.sh"
+#bindsym Control+$mod+h exec "urxvtc -e ~/.config/i3/scripts/hdd_mount.sh"
 
 # backup system to hdd
-bindsym Control+$mod+b exec "urxvtc -e ~/.config/i3/scripts/backup_to_hdd.sh"
+#bindsym Control+$mod+b exec "urxvtc -e ~/.config/i3/scripts/backup_to_hdd.sh"
 
 # control mpd
 bindsym XF86AudioPlay exec "mpc toggle"
@@ -298,11 +297,11 @@ bindsym Print exec "scrot"
 bindsym $mod+grave [urgent=latest] focus
 bindsym $mod+Shift+Return exec "urxvtc -e 'ranger'"
 bindsym $mod+$mod2+w workspace $ws0; exec "urxvtc -e ~/.config/i3/scripts/weatherreport.sh"
-bindsym $mod+$mod2+d workspace $ws1; exec "dolphin"
+#bindsym $mod+$mod2+d workspace $ws1; exec "dolphin"
 bindsym $mod+$mod2+c workspace $ws1; exec "chromium"
 bindsym $mod+$mod2+q workspace $ws1; exec "qutebrowser"
-bindsym $mod+$mod2+m workspace $ws2; exec "mathematica"
-bindsym $mod+$mod2+a workspace $ws2; exec "atom"
+#bindsym $mod+$mod2+m workspace $ws2; exec "mathematica"
+#bindsym $mod+$mod2+a workspace $ws2; exec "atom"
 bindsym $mod+$mod2+v workspace $ws3; exec "vlc"
 bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e 'ncmpcpp'"
 bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop "

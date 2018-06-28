@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DEVICE="ELAN0501:00 04F3:3019 Touchpad"
+DEVICE="SynPS/2 Synaptics TouchPad"
 
-xinput set-prop "$DEVICE" 283 1 # Tapping
-xinput set-prop "$DEVICE" 291 1 # Natural Scrolling
-xinput set-prop "$DEVICE" 146 0 # on/off, disable dis shit (vim op), needs to be last option
+xinput set-prop "$DEVICE" "libinput Tapping Enabled" 1
+xinput set-prop "$DEVICE" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "$DEVICE" "Device Enabled" 0
