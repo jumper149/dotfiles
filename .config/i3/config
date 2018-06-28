@@ -237,6 +237,7 @@ bar {
 # gaps
 gaps inner 6
 gaps outer 16
+bindsym Ctrl+$mod+g exec --no-startup-id "~/.config/i3/scripts/gaps.sh"
 
 # window decoration
 default_border pixel 4
