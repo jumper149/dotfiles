@@ -174,7 +174,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "$(~/.config/i3/scripts/decide.sh 'shutdown now' 'reboot' 'i3-msg exit')"
 
 # distance for resizing and moving windows
 set $dist 7
@@ -256,7 +256,7 @@ bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 1"
 bindsym $mod2+Shift+a exec "~/.config/i3/scripts/kblayout.sh"
 
 # toggle touchpad
-bindsym Ctrl+$mod+t exec "~/.config/i3/scripts/toggle_touchpad.sh"
+bindsym XF86TouchpadToggle exec "~/.config/i3/scripts/toggle_touchpad.sh"
 
 # startup scripts
 exec_always --no-startup-id "xset r rate 200 30"
