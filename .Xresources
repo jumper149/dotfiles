@@ -51,4 +51,4 @@ URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.depth: 32
 
 ! perl extensions
-URxvt.perl-ext-common: default,resize-font
+URxvt.perl-ext-common: default,matcher,resize-font

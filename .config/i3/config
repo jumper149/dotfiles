@@ -136,7 +136,7 @@ set $ws0 "0 Desktop"
 set $ws1 "1 Browser"
 set $ws2 "2 Hacking"
 set $ws3 "3 Media"
-set $ws4 "4 Communication"
+set $ws4 "4 Social"
 set $ws5 "5 LaTeX"
 set $ws6 "6"
 set $ws7 "7"
@@ -235,8 +235,8 @@ bar {
 }
 
 # gaps
-gaps inner 6
-gaps outer 16
+gaps inner 0
+gaps outer 0
 bindsym Ctrl+$mod+g exec --no-startup-id "~/.config/i3/scripts/gaps.sh"
 
 # window decoration
