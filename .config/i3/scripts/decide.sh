@@ -17,4 +17,9 @@ do
 	LIST="$LIST$arg\n"
 done
 
+if [ ${#LIST} -gt 0 ] ;
+then
+	LIST=${LIST:0:$((${#LIST} - 2))} ;
+fi
+
 echo -e "$LIST" | dmenu -b -i -fn 'Inconsolata:style=Bold' -nb "$colore" -nf "$color8" -sb "$color2" -sf "$color0"
