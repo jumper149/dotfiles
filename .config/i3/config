@@ -215,17 +215,17 @@ bar {
 	modifier $mod
 	
 	colors {
-        background $color780
-        focused_background $colore80
-        statusline $color040
-        separator  $color040
+        background $color7a0
+        focused_background $coloreff
+        statusline $color8a0
+        separator  $color8a0
 
-			 # border    inside    text
-        focused_workspace  $color240 $color2a0 $color040
-        active_workspace   $color540 $color5a0 $color040
-        inactive_workspace $color740 $color7a0 $color040
-        urgent_workspace   $color140 $color1a0 $color040
-        binding_mode       $color340 $color3a0 $color040
+			 # border ff inside ff text   a0
+        focused_workspace  $color8ff $color2ff $color0a0
+        active_workspace   $color8ff $color5ff $color0a0
+        inactive_workspace $color8ff $color7ff $color0a0
+        urgent_workspace   $color8ff $color1ff $color0a0
+        binding_mode       $color8ff $color3ff $color0a0
    	}
 
 	position top
