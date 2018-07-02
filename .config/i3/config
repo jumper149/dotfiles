@@ -235,8 +235,8 @@ bar {
 }
 
 # gaps
-gaps inner 6
-gaps outer 16
+gaps inner 0
+gaps outer 0
 bindsym Ctrl+$mod+g exec --no-startup-id "~/.config/i3/scripts/gaps.sh"
 
 # window decoration
