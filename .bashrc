@@ -19,3 +19,6 @@ export EDITOR='$VISUAL'
 export PAGER='vimpager'
 alias less='$PAGER'
 alias zless='$PAGER'
+
+alias usbmount='~/.config/i3/scripts/mount_known.sh'
+alias usbumount='~/.config/i3/scripts/umount.sh'
