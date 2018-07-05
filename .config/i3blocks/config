@@ -1,5 +1,5 @@
 # i3bar settings
-interval=100
+interval=1
 signal=10
 separator_block_width=20
 align=right
