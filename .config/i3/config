@@ -244,13 +244,13 @@ default_border pixel 4
 default_floating_border pixel 2
 
 # brightness
-#bindsym XF86MonBrightnessUp exec --no-startup-id "~/.config/i3/scripts/brightnessup.sh"
-#bindsym XF86MonBrightnessDown exec --no-startup-id "~/.config/i3/scripts/brightnessdown.sh"
+#bindsym XF86MonBrightnessUp exec --no-startup-id "~/.config/i3/scripts/brightness_up.sh"
+#bindsym XF86MonBrightnessDown exec --no-startup-id "~/.config/i3/scripts/brightness_down.sh"
 
 # audio volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/raisevolume.sh"
-bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/lowervolume.sh"
-bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 1"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
+bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
 
 # keyboard layout
 bindsym $mod2+Shift+a exec "~/.config/i3/scripts/kblayout.sh"

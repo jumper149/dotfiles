@@ -1,5 +1,5 @@
 # i3bar settings
-interval=1
+interval=100
 signal=10
 separator_block_width=20
 align=right
@@ -10,31 +10,41 @@ align=right
 
 [music]
 command=~/.config/i3blocks/scripts/music.sh
+signal=19
 
 [weather]
 command=~/.config/i3blocks/scripts/weather.sh
 interval=1800
+signal=18
 
 [space]
 command=~/.config/i3blocks/scripts/space.sh
 interval=1800
+signal=17
 
 [wifi]
 command=~/.config/i3blocks/scripts/wifi.sh
 interval=30
+signal=16
 
 [cpu]
 command=~/.config/i3blocks/scripts/cpu.sh
+signal=15
 
 [volume]
 command=~/.config/i3blocks/scripts/volume.sh
+interval=30
+signal=14 # from "~/.config/i3/scripts/volume_{down,mute,up}.sh"
 
 [battery]
 command=~/.config/i3blocks/scripts/battery.sh
 interval=30
+signal=13
 
 [date]
 command=~/.config/i3blocks/scripts/date.sh
+signal=12
 
 [time]
 command=~/.config/i3blocks/scripts/time.sh
+signal=11
