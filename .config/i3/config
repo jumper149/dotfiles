@@ -138,7 +138,7 @@ set $ws2 "2 Hacking"
 set $ws3 "3 Media"
 set $ws4 "4 Social"
 set $ws5 "5 LaTeX"
-set $ws6 "6"
+set $ws6 "6 GIMP"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -235,8 +235,8 @@ bar {
 }
 
 # gaps
-gaps inner 0
-gaps outer 0
+gaps inner 6
+gaps outer 16
 bindsym Ctrl+$mod+g exec --no-startup-id "~/.config/i3/scripts/gaps.sh"
 
 # window decoration
@@ -305,7 +305,8 @@ bindsym $mod+$mod2+q workspace $ws1; exec "qutebrowser"
 #bindsym $mod+$mod2+a workspace $ws2; exec "atom"
 bindsym $mod+$mod2+v workspace $ws3; exec "vlc"
 bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e 'ncmpcpp'"
-bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop "
+bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop"
+bindsym $mod+$mod2+g workspace $ws6; exec "gimp"
 
 # window specifications
 for_window [class="matplotlib"] floating enable
