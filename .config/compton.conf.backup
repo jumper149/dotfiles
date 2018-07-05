@@ -98,7 +98,9 @@ shadow-exclude = [
     "class_g ?= 'Cairo-dock'",
     "class_g ?= 'Xfce4-notifyd'",
     "class_g ?= 'Xfce4-power-manager'",
-    "_GTK_FRAME_EXTENTS@:c"
+    "_GTK_FRAME_EXTENTS@:c",
+
+    "class_g = 'Gimp'"
 ];
 # Avoid drawing shadow on all shaped windows (see also: --detect-rounded-corners)
 shadow-ignore-shaped = false;
