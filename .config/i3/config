@@ -231,7 +231,7 @@ bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
 bindsym $mod2+Shift+a exec "~/.config/i3/scripts/kblayout.sh"
 
 # toggle touchpad
-bindsym XF86TouchpadToggle exec "~/.config/i3/scripts/toggle_touchpad.sh"
+bindsym XF86TouchpadToggle exec "~/.config/i3/scripts/touchpad_toggle.sh"
 
 # startup scripts
 exec_always --no-startup-id "xset r rate 200 30"
