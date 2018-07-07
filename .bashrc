@@ -13,12 +13,14 @@ PS1='\[\e[35m\][\[\e[34m\]\u\[\e[32m\]@\[\e[33m\]\h \[\e[31m\]\W\[\e[35m\]]\[\e[
 
 set -o vi
 
-export VISUAL='vim'
-export EDITOR='$VISUAL'
+export VISUAL='vim -p'
+export EDITOR="$VISUAL"
+alias vi="$EDITOR"
+alias vim="$EDITOR"
 
 export PAGER='vimpager'
-alias less='$PAGER'
-alias zless='$PAGER'
+alias less="$PAGER"
+alias zless="$PAGER"
 
 alias usbmount='~/.config/i3/scripts/mount_known.sh'
 alias usbumount='~/.config/i3/scripts/umount.sh'
