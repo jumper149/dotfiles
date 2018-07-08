@@ -242,14 +242,14 @@ exec_always --no-startup-id "xset b off"
 exec --no-startup-id "urxvtd -f"
 exec --no-startup-id "inputattach -w8001 /dev/ttyS0"
 exec --no-startup-id "compton -b --config ~/.config/compton.conf"
-exec --no-startup-id "~/.wallpaper/set_wallpaper.sh"
+exec --no-startup-id "~/.wallpaper/wallpaper_set.sh"
 exec --no-startup-id "xautolock -locker 'i3lock -c 000000 -f' -notify 3 -notifier ~/.config/i3/scripts/locknotify.sh -bell 0 -time 10"
 exec --no-startup-id "mpd ~/.config/mpd/mpdconf"
 exec --no-startup-id "xdotool mousemove 0 0"
 exec --no-startup-id "unclutter -idle 3 -root"
 
 # wallpaper
-bindsym Control+$mod+w exec "~/.wallpaper/set_wallpaper.sh"
+bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
 
 # lock
 bindsym Control+$mod+l exec "xautolock -locknow"
