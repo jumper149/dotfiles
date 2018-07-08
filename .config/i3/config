@@ -94,7 +94,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+#bindsym $mod+c focus child
 
 # mouse
 focus_follows_mouse no
@@ -227,8 +227,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_u
 bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
 bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
 
-# keyboard layout
-bindsym $mod2+Shift+a exec "~/.config/i3/scripts/kblayout.sh"
+# toggle keyboard layout
+bindsym $mod2+Shift+a exec "~/.config/i3/scripts/keyboard_toggle.sh"
 
 # toggle touchpad
 bindsym XF86TouchpadToggle exec "~/.config/i3/scripts/touchpad_toggle.sh"
@@ -253,12 +253,6 @@ bindsym Control+$mod+w exec "~/.wallpaper/set_wallpaper.sh"
 
 # lock
 bindsym Control+$mod+l exec "xautolock -locknow"
-
-# mount hdd
-#bindsym Control+$mod+h exec "urxvtc -e ~/.config/i3/scripts/hdd_mount.sh"
-
-# backup system to hdd
-#bindsym Control+$mod+b exec "urxvtc -e ~/.config/i3/scripts/backup_to_hdd.sh"
 
 # sync mail
 bindsym Control+$mod+m exec  "offlineimap"
