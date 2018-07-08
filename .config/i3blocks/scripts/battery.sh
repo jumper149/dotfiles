@@ -10,16 +10,16 @@ STATE2=${STATE1:1:$(expr index "$STATE1" , - 2)}
 
 case "$STATE2" in
 	Full)
-		STATE3=FULL
+		STATE3="FULL"
 		;;
 	Charging)
-		STATE3=LOAD
+		STATE3="LOAD"
 		;;
 	Discharging)
-		STATE3=BATT
+		STATE3="BATT"
 		;;
 	*)
-		STATE3=????
+		STATE3=" ????"
 		;;
 esac
 
