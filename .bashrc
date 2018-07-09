@@ -25,3 +25,5 @@ alias zless="$PAGER"
 alias usbmount='~/.config/i3/scripts/usb_mount.sh'
 alias usbumount='~/.config/i3/scripts/usb_umount.sh'
 alias usbbackup='~/.config/i3/scripts/usb_backup.sh'
+
+export MAIL="$HOME/.mail/"
