@@ -13,12 +13,11 @@ $ dotgit checkout
 
 archlinux pkg dependencies for utilising the dotfiles:
 
-
 [Groups]
 base
 base-devel
-xorg
 texlive-most
+xorg
 
 [Core]
 acpi
@@ -28,6 +27,7 @@ atool
 baobab
 breeze-gtk
 chromium
+cmake
 compton
 dmenu
 feh
@@ -110,6 +110,7 @@ linux-lts
 linux-lts-headers
 linuxconsole
 tp_smapi
+thinkfan libatasmart
 xf86-input-wacom
 
 -----------------------------------------------------------------
