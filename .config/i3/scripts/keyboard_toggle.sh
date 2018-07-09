@@ -6,3 +6,5 @@ if [ "$(setxkbmap -query | grep layout)" == "layout:     us" ];
 	else
 		setxkbmap us
 fi
+
+setxkbmap -option caps:escape
