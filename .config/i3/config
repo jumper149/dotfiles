@@ -44,7 +44,7 @@ bindsym $mod+Return exec "urxvtc"
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher); should be the same as in '~/.config/i3/scripts/decide.sh'
-bindsym $mod+d exec i3-dmenu-desktop --dmenu='dmenu -b -i -fn "Inconsolata:style=Bold" -nb "$colore" -nf "$color8" -sb "$color2" -sf "$color0"'
+bindsym $mod+d exec dmenu_run -b -i -fn "Inconsolata:style=Bold" -nb "$colore" -nf "$color8" -sb "$color2" -sf "$color0"
 
 # change focus
 bindsym $mod+h focus left
