@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# needs to be adapted for non thinkpads
-# this is for an X201t
+# needs to be adapted
 
 INFO=$(cat /proc/acpi/ibm/thermal)
 INFO=${INFO:14}

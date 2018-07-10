@@ -10,21 +10,25 @@ align=right
 
 [music]
 command=~/.config/i3blocks/scripts/music.sh
-signal=20
+signal=21
 
 [weather]
 command=~/.config/i3blocks/scripts/weather.sh
 interval=1800
-signal=19
+signal=20
 
 [space]
 command=~/.config/i3blocks/scripts/space.sh
 interval=1800
-signal=18
+signal=19
 
 [wifi]
 command=~/.config/i3blocks/scripts/wifi.sh
 interval=30
+signal=18
+
+[fan]
+command=~/.config/i3blocks/scripts/fan.sh
 signal=17
 
 [temperature]
