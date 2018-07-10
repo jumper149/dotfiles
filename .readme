@@ -29,6 +29,7 @@ breeze-gtk
 chromium
 cmake
 compton
+cpulimit
 dmenu
 feh
 ffmpegthumbnailer
