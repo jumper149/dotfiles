@@ -6,7 +6,7 @@ INFO=$(cat /proc/acpi/ibm/fan | grep "speed" -m 1)
 
 SPEED=${INFO:8}
 if [ $SPEED = 0 ] ; then
-	$SPEED="----"
+	SPEED="----"
 	exit
 fi
 SPEED="0000$SPEED"
