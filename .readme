@@ -91,6 +91,7 @@ vim-supertab
 vimpager
 vlc
 w3m
+wget
 wpa_supplicant
 xautolock
 xdg-user-dirs
