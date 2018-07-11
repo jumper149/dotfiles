@@ -3,6 +3,8 @@ set realname 		= "Felix Springer"
 set editor=`echo \$EDITOR`
 set send_charset="utf-8"
 
+source ~/.mutt/colors
+
 # stud-uni-hannover
 source "~/.mutt/stud-uni-hannover"
 folder-hook $folder 'source ~/.mutt/stud-uni-hannover'
