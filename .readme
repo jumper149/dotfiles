@@ -36,6 +36,7 @@ ffmpegthumbnailer
 gimp
 git
 gnuplot
+gsl
 gvim
 haveged
 highlight
@@ -106,6 +107,8 @@ zziplib
 
 [Maybe]
 chez-scheme-git
+guile-lib
+g-wrap
 intel-ucode
 linux-headers
 linux-lts
