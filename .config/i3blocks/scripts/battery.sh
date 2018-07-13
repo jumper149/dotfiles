@@ -19,7 +19,7 @@ case "$STATE2" in
 		STATE3="BATT"
 		;;
 	*)
-		STATE3=" ????"
+		STATE3="????"
 		;;
 esac
 
