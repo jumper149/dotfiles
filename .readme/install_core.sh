@@ -5,4 +5,5 @@ GROUPSLIST="$(cat ~/.readme/groups | tr '\n' ' ')"
 
 PKGLIST="$GROUPSLIST $CORELIST"
 
+echo $PKGLIST
 sudo pacman -S $PKGLIST --needed
