@@ -4,7 +4,7 @@
 # author: Felix Springer
 # email: felixspringer149@gmail.com
 
------------------------------------------------------------------
+#----------------------------------------------------------------
 
 # to use these dotfiles
 
@@ -13,126 +13,25 @@ $ git clone --bare https://github.com/jumper149/dotfiles.git $HOME/.dotfiles
 $ dotgit config --local status.showUntrackedFiles no
 $ dotgit checkout
 
------------------------------------------------------------------
+#----------------------------------------------------------------
 
 # archlinux pkg dependencies for utilising the dotfiles
+# are found in files:
 
-[Groups]
-base
-base-devel
-texlive-most
-xorg
+# ~/.readme/groups
+# ~/.readme/core
+# ~/.readme/maybe
 
-[Core]
-acpi
-alsa-utils
-arandr
-atool
-baobab
-breeze-gtk
-chromium
-cmake
-compton
-cpulimit
-dmenu
-feh
-ffmpegthumbnailer
-gimp
-git
-gnuplot
-gsl
-gvim
-haveged
-highlight
-htop
-i3-gaps
-i3blocks
-i3lock
-imagemagick
-lm_sensors
-lostfiles
-mediainfo
-mpc
-mpd
-msmtp
-mutt
-ncmpcpp
-neofetch
-ntfs-3g
-offlineimap
-openssh
-p7zip
-pass
-pavucontrol
-polkit
-poppler
-pulseaudio
-pulseaudio-alsa
-python-matplotlib
-python-numpy
-python-scipy
-python-tldextract
-qutebrowser
-ranger
-rsync
-rxvt-unicode
-scrot
-sddm
-syslinux
-teamspeak3
-telegram-desktop
-tmux
-ttf-inconsolata
-udevil
-ufw
-unclutter
-unrar
-unzip
-urxvt-resize-font-git
-vim-colorsamplerpack
-vim-latexsuite
-vim-spell-de
-vim-supertab
-vimpager
-vlc
-w3m
-wget
-wpa_supplicant
-xautolock
-xdg-user-dirs
-xdotool
-youtube-dl
-zathura
-zathura-pdf-mupdf
-zathura-ps
-zip
-zlib
-zziplib
+# groups and core are necessary
 
-[Maybe]
-acpi_call
-chez-scheme-git
-guile-lib
-g-wrap
-intel-ucode
-linux-headers
-linux-lts
-linux-lts-headers
-linuxconsole
-tlp
-tpacpi_bat
-tp_smapi
-thinkfan libatasmart
-xf86-input-wacom
-
------------------------------------------------------------------
+#----------------------------------------------------------------
 
 # services and other stuff that needs to be done after installing
 
-[Networking]
+# [Networking]
 $ ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
 $ systemctl enable dhcpcd.service
 
------------------------------------------------------------------
+#----------------------------------------------------------------
 
-now you are set up :)
+# now you are set up :)

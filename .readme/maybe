@@ -1,0 +1,14 @@
+acpi_call
+chez-scheme-git
+guile-lib
+g-wrap
+intel-ucode
+linux-headers
+linux-lts
+linux-lts-headers
+linuxconsole
+tlp
+tpacpi_bat
+tp_smapi
+thinkfan libatasmart
+xf86-input-wacom
