@@ -26,14 +26,23 @@ $ dotgit checkout
 # ~/.readme/maybe
 
 # groups and core are necessary
+# there is '~/.readme/install_core.sh' to install groups and core
 
 #----------------------------------------------------------------
 
-# services and other stuff that needs to be done after installing
+# services and other stuff that needs to be done by root after installing
+# set $NONROOTUSER
+
+$ NONROOTUSER=jumper
 
 # [Networking]
 $ ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
 $ systemctl enable dhcpcd.service
+
+# [sudo]
+# allow group wheel with
+$ visudo
+$ gpasswd --add $NONROOTUSER wheel
 
 #----------------------------------------------------------------
 
