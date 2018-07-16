@@ -1,8 +1,9 @@
-author: Felix Springer
-email: felixspringer149@gmail.com
+# author: Felix Springer
+# email: felixspringer149@gmail.com
 
+-----------------------------------------------------------------
 
-to use these dotfiles:
+# to use these dotfiles
 
 $ alias dotgit="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 $ git clone --bare https://github.com/jumper149/dotfiles.git $HOME/.dotfiles
@@ -11,7 +12,7 @@ $ dotgit checkout
 
 -----------------------------------------------------------------
 
-archlinux pkg dependencies for utilising the dotfiles:
+# archlinux pkg dependencies for utilising the dotfiles
 
 [Groups]
 base
@@ -106,6 +107,7 @@ zlib
 zziplib
 
 [Maybe]
+acpi_call
 chez-scheme-git
 guile-lib
 g-wrap
@@ -114,9 +116,19 @@ linux-headers
 linux-lts
 linux-lts-headers
 linuxconsole
+tlp
+tpacpi_bat
 tp_smapi
 thinkfan libatasmart
 xf86-input-wacom
+
+-----------------------------------------------------------------
+
+# services and other stuff that needs to be done after installing
+
+[Networking]
+$ ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
+$ systemctl enable dhcpcd.service
 
 -----------------------------------------------------------------
 
