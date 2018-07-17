@@ -36,6 +36,7 @@ $ dotgit checkout
 $ NONROOTUSER=jumper
 $ NONROOTHOME=/home/jumper
 
+# [haveged]
 $ systemctl enable haveged.service
 
 # [Networking]
@@ -49,6 +50,12 @@ $ gpasswd --add $NONROOTUSER wheel
 
 # [xorg]
 $ systemctl enable sddm.service
+
+# [ufw]
+$ systemctl enable ufw.service
+$ ufw default deny
+$ ufw limit SSH
+$ ufw enable
 
 # [mpd]
 # as user
