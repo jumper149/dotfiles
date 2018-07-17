@@ -30,10 +30,13 @@ $ dotgit checkout
 
 #----------------------------------------------------------------
 
-# services and other stuff that needs to be done by root after installing
-# set $NONROOTUSER
+# services and other stuff that needs to be done by (mostly) root after installing
+# set $NONROOTUSER and $NONROOTHOME (no '/' at the end)
 
 $ NONROOTUSER=jumper
+$ NONROOTHOME=/home/jumper
+
+$ systemctl enable haveged.service
 
 # [Networking]
 $ ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
@@ -44,6 +47,20 @@ $ systemctl enable dhcpcd.service
 $ visudo
 $ gpasswd --add $NONROOTUSER wheel
 
+# [xorg]
+$ systemctl enable sddm.service
+
+# [mpd]
+# as user
+$ systemctl enable mpd.service --user
+
 #----------------------------------------------------------------
+
+# configuration outside of homedirectory
+
+# [example in ~/.readme/root-config/]
+# check these out by yourself
+$ cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_supplicant.conf
+$ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
 
 # now you are set up :)
