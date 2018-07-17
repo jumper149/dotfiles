@@ -57,6 +57,9 @@ $ ufw default deny
 $ ufw limit SSH
 $ ufw enable
 
+# [sensors]
+$ sensors-detect
+
 # [mpd]
 # as user
 $ systemctl enable mpd.service --user
