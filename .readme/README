@@ -30,7 +30,7 @@ $ dotgit checkout
 
 #----------------------------------------------------------------
 
-# services and other stuff that needs to be done by (mostly) root after installing
+# services and other stuff that needs to be done by root after installing
 # set $NONROOTUSER and $NONROOTHOME (no '/' at the end)
 
 $ NONROOTUSER=jumper
@@ -44,7 +44,7 @@ $ ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
 $ systemctl enable dhcpcd.service
 
 # [sudo]
-# allow group wheel with
+# allow sudo for group wheel with
 $ visudo
 $ gpasswd --add $NONROOTUSER wheel
 
@@ -60,10 +60,7 @@ $ ufw enable
 # [sensors]
 $ sensors-detect
 
-# [mpd]
-# as user
-$ systemctl enable mpd.service --user
-
+#----------------------------------------------------------------
 
 # configuration outside of homedirectory
 
@@ -86,6 +83,13 @@ $ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
 # 	temperature.sh
 # 	fan.sh
 # 	battery.sh
+
+# [mpd]
+$ systemctl enable mpd.service --user
+
+# [trash]
+# ~/.trash is being used by ranger
+$ mkdir ~/.trash
 
 #----------------------------------------------------------------
 

@@ -44,6 +44,7 @@ pulseaudio
 pulseaudio-alsa
 python-matplotlib
 python-numpy
+python-pyside
 python-scipy
 python-tldextract
 qutebrowser
