@@ -1,6 +1,7 @@
 #!/bin/bash
 
-HARDDRIVE=/dev/sda2
+# set main partition (probably root- or home-partition)
+HARDDRIVE=/dev/sda3
 
 FREE1=$(df $HARDDRIVE -h --output=avail)
 FREE2=${FREE1:6}

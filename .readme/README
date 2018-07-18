@@ -64,7 +64,6 @@ $ sensors-detect
 # as user
 $ systemctl enable mpd.service --user
 
-#----------------------------------------------------------------
 
 # configuration outside of homedirectory
 
@@ -72,5 +71,22 @@ $ systemctl enable mpd.service --user
 # check these out by yourself
 $ cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_supplicant.conf
 $ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
+
+#----------------------------------------------------------------
+
+# extra configuration
+
+# set up following files
+
+# [i3bar]
+# check everything in i3blocks
+# especially:
+# 	wifi.sh
+# 	space.sh
+# 	temperature.sh
+# 	fan.sh
+# 	battery.sh
+
+#----------------------------------------------------------------
 
 # now you are set up :)
