@@ -1,7 +1,8 @@
 #!/bin/bash
 
 value=$(cat /sys/class/backlight/intel_backlight/brightness)
-
-if [ $value -lt 95 ]; then 
-	tee /sys/class/backlight/intel_backlight/brightness <<< "$(($value + 5))"
+maxval=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+delta=100
+if [ $value -lt $(($maxval - delta)) ]; then 
+	tee /sys/class/backlight/intel_backlight/brightness <<< "$(($value + $delta))"
 fi

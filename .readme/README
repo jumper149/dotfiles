@@ -60,14 +60,22 @@ $ ufw enable
 # [sensors]
 $ sensors-detect
 
+# [backlight]
+$ gpasswd --add $NONROOTUSER video
+
 #----------------------------------------------------------------
 
 # configuration outside of homedirectory
 
 # [example in ~/.readme/root-config/]
 # check these out by yourself
+
 $ cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_supplicant.conf
+
 $ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
+
+# maybe change KERNEL in backlight.rules
+$ cp $NONROOTHOME/.readme/root-config/backlight.rules /etc/udev/rules.d/backlight.rules
 
 #----------------------------------------------------------------
 
