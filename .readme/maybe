@@ -1,18 +1,17 @@
-acpi_call
 chez-scheme-git
 guile-lib
 g-wrap
-intel-ucode
 linux-headers
 linux-lts
 linux-lts-headers
+urxvt-resize-font-git
+
+acpi_call
+intel-ucode
 linuxconsole
 tlp
 tpacpi_bat
 tp_smapi
-thinkfan libatasmart
-urxvt-resize-font-git
+thinkfan
+libatasmart
 xf86-input-wacom
-
-
-

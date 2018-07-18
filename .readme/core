@@ -9,6 +9,7 @@ cmake
 compton
 cpulimit
 dmenu
+ethtool
 feh
 ffmpegthumbnailer
 gimp
