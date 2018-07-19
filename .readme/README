@@ -76,7 +76,7 @@ $ systemctl enable sshd.socket
 
 #----------------------------------------------------------------
 
-# configuration outside of homedirectory
+# configuration outside of homedirectory by root
 
 # [example in ~/.readme/root-config/]
 # check these out by yourself
@@ -95,7 +95,7 @@ $ cp $NONROOTHOME/.readme/root-config/backlight.rules /etc/udev/rules.d/backligh
 # set up following files
 
 # [i3bar]
-# check everything in i3blocks
+# check everything in $HOME/.config/i3blocks
 # especially:
 # 	wifi.sh
 # 	space.sh
@@ -109,6 +109,9 @@ $ systemctl enable mpd.service --user
 # [trash]
 # ~/.trash is being used by ranger
 $ mkdir ~/.trash
+
+# [pass]
+# copy your .password-store into $HOME
 
 #----------------------------------------------------------------
 
