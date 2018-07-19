@@ -43,6 +43,10 @@ $ systemctl enable haveged.service
 $ ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
 $ systemctl enable dhcpcd.service
 
+# [ca-certs]
+$ cp $NONROOTHOME/.readme/root-config/deutsche-telekom-root-ca-2.crt /usr/share/ca-certificates/trust-source/anchors/
+$ trust extract-compat /usr/share/ca-certificates/trust-source/anchors/deutsche-telekom-root-ca-2.crt
+
 # [sudo]
 # allow sudo for group wheel with
 $ visudo
