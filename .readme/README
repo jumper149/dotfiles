@@ -67,6 +67,13 @@ $ sensors-detect
 # [backlight]
 $ gpasswd --add $NONROOTUSER video
 
+# [sshd]
+# uncomment:
+# 	ln13: Port 22
+# 	ln15: ListenAddress 192.168.1.19*
+$ vim /etc/ssh/sshd_config
+$ systemctl enable sshd.socket
+
 #----------------------------------------------------------------
 
 # configuration outside of homedirectory
