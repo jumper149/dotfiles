@@ -112,6 +112,7 @@ $ mkdir ~/.trash
 
 # [pass]
 # copy your .password-store into $HOME
+# copy everything necessary into $HOME/.gnupg
 
 #----------------------------------------------------------------
 
