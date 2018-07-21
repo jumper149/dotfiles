@@ -1,5 +1,5 @@
 # dotfiles
-# dotfiles originating from 'x201arch'
+# dotfiles originating from 'x220arch'
 
 # author: Felix Springer
 # email: felixspringer149@gmail.com
@@ -8,7 +8,9 @@
 
 # to use these dotfiles
 
-# have a user with homedirectory
+# have a user with homedirectory or create one as root with
+$ useradd -m -U $NONROOTUSER 
+
 # then
 
 $ alias dotgit="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
