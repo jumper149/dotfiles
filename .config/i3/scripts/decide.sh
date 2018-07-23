@@ -26,7 +26,6 @@ if [ -n "$DISPLAY" ] ;
 then
 	echo -e "$LIST" | dmenu -b -i -fn 'Inconsolata:style=Bold' -nb "$colore" -nf "$color8" -sb "$color2" -sf "$color0" ;
 else
-	echo ""
 	exit 1 ;
 fi
 
