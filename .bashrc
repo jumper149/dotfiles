@@ -33,6 +33,12 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
-
 # mail
 export MAIL="$HOME/.mail/"
+
+# ssh and local ip
+IPDESK='192.168.1.199'
+IPJUMP='192.168.1.198'
+IPPI='192.168.1.197'
+IPX201='192.168.1.196'
+IPX220='192.168.1.195'
