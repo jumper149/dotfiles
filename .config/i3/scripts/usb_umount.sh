@@ -31,7 +31,10 @@ done
 
 CHOSEN_LABEL="$(~/.config/i3/scripts/decide.sh $LABEL_LIST)"
 
-if [ "$CHOSEN_LABEL" == "all" ] ; then
+if [ "$CHOSEN_LABEL" == "" ] ; then
+	echo "ERROR: didn't choose anything to unmount, is dmenu working?"
+	exit 1 ;
+elif [ "$CHOSEN_LABEL" == "all" ] ; then
 	for UUID in $UUID_LIST ; do
 		echo "Unmounting $(lsblk -no NAME,LABEL,UUID $UUID)"
 		udevil umount "$UUID"
