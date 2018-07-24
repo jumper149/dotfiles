@@ -22,10 +22,12 @@ then
 	LIST=${LIST:0:$((${#LIST} - 2))} ;
 fi
 
+SPACEDLIST=$(echo "$LIST" | sed 's/\\n/ /g')
+
 if [ -n "$DISPLAY" ] ;
 then
 	echo -e "$LIST" | dmenu -b -i -fn 'Inconsolata:style=Bold' -nb "$colore" -nf "$color8" -sb "$color2" -sf "$color0" ;
 else
-	exit 1 ;
+	python ~/.config/i3/scripts/menu.py $SPACEDLIST ;
 fi
 
