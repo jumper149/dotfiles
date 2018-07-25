@@ -10,8 +10,10 @@
 
 # have a user with homedirectory or create one as root with
 $ useradd -m -U $NONROOTUSER 
+# enter password with
+$ passwd $NONROOTUSER
 
-# then
+# then as $NONROOTUSER
 
 $ alias dotgit="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 $ git clone --bare https://github.com/jumper149/dotfiles.git $HOME/.dotfiles

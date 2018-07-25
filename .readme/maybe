@@ -9,6 +9,7 @@ urxvt-resize-font-git
 acpi_call
 intel-ucode
 linuxconsole
+syslinux
 tlp
 tpacpi_bat
 tp_smapi
