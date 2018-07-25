@@ -219,8 +219,8 @@ default_border pixel 4
 default_floating_border pixel 2
 
 # brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id "~/.config/i3/scripts/brightness_up.sh"
-bindsym XF86MonBrightnessDown exec --no-startup-id "~/.config/i3/scripts/brightness_down.sh"
+#bindsym XF86MonBrightnessUp exec --no-startup-id "~/.config/i3/scripts/brightness_up.sh"
+#bindsym XF86MonBrightnessDown exec --no-startup-id "~/.config/i3/scripts/brightness_down.sh"
 
 # audio volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"

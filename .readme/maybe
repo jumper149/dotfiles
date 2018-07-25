@@ -1,19 +1,27 @@
-chez-scheme-git
-guile-lib
-g-wrap
+# standard
+gptfdisk
+intel-ucode
 linux-headers
 linux-lts
 linux-lts-headers
+syslinux
+
+# aur
+chez-scheme-git
+guile-lib
+g-wrap
 urxvt-resize-font-git
 
-acpi_call
-gptfdisk
-intel-ucode
+# x201 vendor bios
 linuxconsole
-syslinux
-tlp
-tpacpi_bat
 tp_smapi
+xf86-input-wacom
 thinkfan
 libatasmart
-xf86-input-wacom
+
+# x220 vendor bios
+acpi_call
+tlp
+tpacpi_bat
+
+
