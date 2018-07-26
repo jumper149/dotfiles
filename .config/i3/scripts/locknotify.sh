@@ -1,41 +1,30 @@
 #!/bin/bash
 
-#value=$(cat /sys/class/backlight/intel_backlight/brightness)
-value=$(xbacklight -get)
+MODULE='intel_backlight'
+MODPATH="/sys/class/backlight/$MODULE"
+
+value=$(cat $MODPATH/actual_brightness)
+#value=$(xbacklight -get)
 
 slptime=0.25
 lowbri=1
-highbri=99
+highbri=$(cat $MODPATH/max_brightness)
 
-#tee /sys/class/backlight/intel_backlight/brightness <<< "$lowbri"
-xbacklight -set "$lowbri"
+function cycle {
+	tee $MODPATH/brightness <<< "$lowbri"
+	#xbacklight -set "$lowbri"
+	sleep $slptime
+	tee $MODPATH/brightness <<< "$highbri"
+	#xbacklight -set "$highbri"
+}
 
-sleep $slptime
+CYCLE_COUNTER=0
 
-#tee /sys/class/backlight/intel_backlight/brightness <<< "$highbri"
-xbacklight -set "$highbri"
+while [ $CYCLE_COUNTER -lt 5 ] ;
+do
+	CYCLE_COUNTER=$(( $CYCLE_COUNTER + 1 ))
+	cycle
+done
 
-sleep $slptime
-
-#tee /sys/class/backlight/intel_backlight/brightness <<< "$lowbri"
-xbacklight -set "$lowbri"
-
-sleep $slptime
-
-#tee /sys/class/backlight/intel_backlight/brightness <<< "$highbri"
-xbacklight -set "$highbri"
-
-sleep $slptime
-
-#tee /sys/class/backlight/intel_backlight/brightness <<< "$lowbri"
-xbacklight -set "$lowbri"
-
-sleep $slptime
-
-#tee /sys/class/backlight/intel_backlight/brightness <<< "$highbri"
-xbacklight -set "$highbri"
-
-sleep $slptime
-
-#tee /sys/class/backlight/intel_backlight/brightness <<< "$value"
-xbacklight -set "$value"
+tee $MODPATH/brightness <<< "$value"
+#xbacklight -set "$value"
