@@ -16,6 +16,7 @@ function cycle {
 	sleep $slptime
 	tee $MODPATH/brightness <<< "$highbri"
 	#xbacklight -set "$highbri"
+	sleep $slptime
 }
 
 CYCLE_COUNTER=0
