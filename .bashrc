@@ -36,6 +36,12 @@ fi
 # mail
 export MAIL="$HOME/.mail/"
 
+# record ffmpeg
+alias ffmpegscreen='~/.config/i3/scripts/record_screen.sh'
+
+# clear ranger-trash
+alias ranger-trash-clear='~/.config/ranger/empty_trash.sh'
+
 # ssh and local ip
 IPDESK='192.168.1.199'
 IPJUMP='192.168.1.198'
