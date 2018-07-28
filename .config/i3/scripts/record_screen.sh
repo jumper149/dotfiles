@@ -3,7 +3,7 @@
 # first positional argument is OF
 OUTPUT_FILE="$1"
 
-FRAME_RATE="30"
+FRAME_RATE="60"
 PULSE_SINK="0"
 BITRATE="128k"
 
