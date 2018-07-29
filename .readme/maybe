@@ -9,6 +9,7 @@ syslinux
 # aur
 chez-scheme-git
 guile-lib
+guile-ncurses
 g-wrap
 urxvt-resize-font-git
 
