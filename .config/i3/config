@@ -34,7 +34,7 @@ client.background       #ffffff
 # is used in the bar {} block below.
 font pango: Inconsolata Bold 11
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+# Use Mouse+floating_modifier to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
