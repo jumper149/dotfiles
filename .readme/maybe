@@ -25,4 +25,9 @@ acpi_call
 tlp
 tpacpi_bat
 
-
+# x220 coreboot
+acpi_call
+libatasmart
+thinkfan
+tlp
+tpacpi_bat
