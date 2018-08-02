@@ -1,6 +1,8 @@
 #!/bin/bash
 
-sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
+sink=0
+
+sh -c "pactl set-sink-mute "$sink" false ; pactl set-sink-volume "$sink" -5%"
 
 # i3blocks
 pkill --signal SIGRTMIN+14 i3blocks
