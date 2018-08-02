@@ -226,6 +226,7 @@ default_floating_border pixel 2
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
 bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
 bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
+bindsym XF86AudioMicMute exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
 
 # toggle keyboard layout
 bindsym $mod2+Shift+a exec "~/.config/i3/scripts/keyboard_toggle.sh"
