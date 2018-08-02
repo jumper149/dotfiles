@@ -1,3 +1,4 @@
-gtk-icon-theme-name = "Breeze-Dark"
-gtk-theme-name = "Breeze-Dark"
-gtk-font-name = "Liberation Sans 11"
+gtk-icon-theme-name = "Arc-Dark"
+gtk-theme-name = "Arc-Dark"
+gtk-font-name = "Liberation Sans 10"
+gtk-fallback-icon-theme = "adwaita"

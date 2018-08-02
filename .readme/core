@@ -1,14 +1,15 @@
 acpi
 alsa-utils
 arandr
+arc-gtk-theme
 atool
 baobab
-breeze-gtk
 chromium
 cmake
 compton
 cpulimit
 dmenu
+dolphin
 ethtool
 feh
 ffmpegthumbnailer
@@ -49,6 +50,7 @@ python-numpy
 python-pyside
 python-scipy
 python-tldextract
+qt5-styleplugins
 qutebrowser
 ranger
 rsync
