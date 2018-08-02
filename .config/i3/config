@@ -249,6 +249,7 @@ exec --no-startup-id "xautolock -locker 'i3lock -c 000000 -f' -notify 3 -notifie
 exec --no-startup-id "mpd ~/.config/mpd/mpdconf"
 exec --no-startup-id "xdotool mousemove 0 0"
 exec --no-startup-id "unclutter -idle 3 -root"
+exec --no-startup-id "~/.config/i3/scripts/blugon/blugon.sh"
 
 # wallpaper
 bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
