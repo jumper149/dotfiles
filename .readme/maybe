@@ -7,6 +7,7 @@ linux-lts-headers
 syslinux
 
 # aur
+archlinux-thmese-sddm
 chez-scheme-git
 guile-lib
 guile-ncurses
