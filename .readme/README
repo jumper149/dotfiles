@@ -89,6 +89,9 @@ $ cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_sup
 
 $ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
 
+# for BIOS boot, change entries
+$ cp $NONROOTHOME/.readme/root-config/syslinux.cfg /boot/syslinux/syslinux.cfg
+
 # maybe change KERNEL in backlight.rules
 $ cp $NONROOTHOME/.readme/root-config/backlight.rules /etc/udev/rules.d/backlight.rules
 
