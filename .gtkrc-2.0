@@ -1,4 +1,5 @@
 gtk-icon-theme-name = "Arc-Dark"
 gtk-theme-name = "Arc-Dark"
 gtk-font-name = "Liberation Sans 10"
+gtk-cursor-theme-name="adwaita_cursors"
 gtk-fallback-icon-theme = "adwaita"
