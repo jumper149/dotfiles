@@ -78,6 +78,10 @@ $ gpasswd --add $NONROOTUSER video
 $ vim /etc/ssh/sshd_config
 $ systemctl enable sshd.socket
 
+# [cronie]
+$ systemctl enable cronie.service
+$ gpasswd --add $NONROOTUSER users
+
 #----------------------------------------------------------------
 
 # configuration outside of homedirectory by root
@@ -120,6 +124,10 @@ $ mkdir ~/.trash
 # [pass]
 # copy your .password-store into $HOME
 # copy everything necessary into $HOME/.gnupg
+
+# [cronie]
+# overwrite the empty crontab for your user
+$ crontab ~/.readme/root-config/crontab
 
 #----------------------------------------------------------------
 

@@ -8,6 +8,7 @@ chromium
 cmake
 compton
 cpulimit
+cronie
 dmenu
 dolphin
 ethtool
