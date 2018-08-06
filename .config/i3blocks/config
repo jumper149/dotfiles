@@ -19,7 +19,7 @@ signal=21
 
 [gpg]
 command=~/.config/i3blocks/scripts/gpg.sh
-interval=300
+interval=180
 signal=20
 
 [space]
