@@ -234,6 +234,27 @@ bindsym $mod2+Shift+a exec "~/.config/i3/scripts/keyboard_toggle.sh"
 # toggle touchpad
 bindsym XF86TouchpadToggle exec "~/.config/i3/scripts/touchpad_toggle.sh"
 
+# wallpaper
+bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
+
+# lock
+bindsym Control+$mod+l exec "xautolock -locknow"
+
+# reload i3bar/i3blocks blocks
+bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
+
+# toggle login-status of gpg
+bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
+
+# control mpd
+bindsym XF86AudioPlay exec "mpc toggle"
+bindsym XF86AudioStop exec "mpc stop"
+bindsym XF86AudioNext exec "mpc next"
+bindsym XF86AudioPrev exec "mpc prev"
+
+# scrot
+bindsym Print exec "scrot"
+
 # startup scripts
 exec_always --no-startup-id "xset r rate 200 30"
 exec_always --no-startup-id "setxkbmap -option caps:escape"
@@ -250,24 +271,6 @@ exec --no-startup-id "mpd ~/.config/mpd/mpdconf"
 exec --no-startup-id "xdotool mousemove 0 0"
 exec --no-startup-id "unclutter -idle 3 -root"
 exec --no-startup-id "~/.config/i3/scripts/blugon/blugon.sh"
-
-# wallpaper
-bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
-
-# lock
-bindsym Control+$mod+l exec "xautolock -locknow"
-
-# toggle login-status of gpg
-bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
-
-# control mpd
-bindsym XF86AudioPlay exec "mpc toggle"
-bindsym XF86AudioStop exec "mpc stop"
-bindsym XF86AudioNext exec "mpc next"
-bindsym XF86AudioPrev exec "mpc prev"
-
-# scrot
-bindsym Print exec "scrot"
 
 # start applications
 bindsym $mod+grave [urgent=latest] focus
