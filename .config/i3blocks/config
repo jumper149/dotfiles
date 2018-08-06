@@ -10,11 +10,16 @@ align=right
 
 [music]
 command=~/.config/i3blocks/scripts/music.sh
-signal=21
+signal=22
 
 [weather]
 command=~/.config/i3blocks/scripts/weather.sh
 interval=1800
+signal=21
+
+[gpg]
+command=~/.config/i3blocks/scripts/gpg.sh
+interval=300
 signal=20
 
 [space]
