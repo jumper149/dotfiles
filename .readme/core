@@ -19,6 +19,7 @@ gimp
 git
 gnuplot
 gsl
+gtk-engine-murrine
 gvim
 haveged
 highlight
