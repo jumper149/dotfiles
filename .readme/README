@@ -123,6 +123,8 @@ $ mkdir ~/.trash
 
 # [pass]
 # copy your .password-store into $HOME
+# have an insertion 'test/test' with password 'test' inside or add it with
+$ pass insert test/test
 # copy everything necessary into $HOME/.gnupg
 
 # [cronie]
