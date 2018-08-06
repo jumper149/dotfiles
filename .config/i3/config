@@ -257,8 +257,8 @@ bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
 # lock
 bindsym Control+$mod+l exec "xautolock -locknow"
 
-# sync mail
-bindsym Control+$mod+m exec  "offlineimap"
+# toggle login-status of gpg
+bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
 
 # control mpd
 bindsym XF86AudioPlay exec "mpc toggle"
