@@ -1,3 +1,3 @@
 #!/bin/bash
 
-date +%d\/%m\/%y
+date +%a\ %d\/%m\/%y | tr [:lower:] [:upper:]
