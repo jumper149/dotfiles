@@ -14,13 +14,6 @@ servers = (
     tls_verify = "yes";
   },
   {
-    address = "chat.freenode.net";
-    chatnet = "Freenode";
-    port = "6697";
-    use_tls = "yes";
-    tls_verify = "yes";
-  },
-  {
     address = "irc.gamesurge.net";
     chatnet = "GameSurge";
     port = "6667";
@@ -84,12 +77,6 @@ chatnets = {
     max_msgs = "4";
     max_whois = "1";
   };
-  Freenode = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "4";
-    max_whois = "1";
-  };
   GameSurge = {
     type = "IRC";
     max_kicks = "1";
@@ -138,8 +125,6 @@ chatnets = {
 
 channels = (
   { name = "#lobby"; chatnet = "EsperNet"; autojoin = "No"; },
-  { name = "#freenode"; chatnet = "Freenode"; autojoin = "No"; },
-  { name = "#irssi"; chatnet = "Freenode"; autojoin = "No"; },
   { name = "#gamesurge"; chatnet = "GameSurge"; autojoin = "No"; },
   { name = "#irssi"; chatnet = "IRCNet"; autojoin = "No"; },
   { name = "#ircsource"; chatnet = "IRCSource"; autojoin = "No"; },
@@ -401,6 +386,10 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Unknown"; user_name = "jumper149"; nick = "jumper149"; };
+  core = {
+    real_name = "Unknown";
+    user_name = "jumper149";
+    nick = "jumper149";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
 };
