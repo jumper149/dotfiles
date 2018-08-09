@@ -47,6 +47,7 @@ openssh
 p7zip
 pass
 pavucontrol
+perl-file-mimeinfo
 polkit
 poppler
 pulseaudio
