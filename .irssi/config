@@ -55,6 +55,14 @@ servers = (
     address = "irc.undernet.org";
     chatnet = "Undernet";
     port = "6667";
+  },
+  {
+    address = "chat.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_tls = "yes";
+    tls_verify = "yes";
+    autoconnect = "yes";
   }
 );
 
@@ -121,6 +129,7 @@ chatnets = {
     max_msgs = "1";
     max_whois = "1";
   };
+  freenode = { type = "IRC"; };
 };
 
 channels = (
