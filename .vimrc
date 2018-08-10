@@ -124,6 +124,10 @@ if has('langmap') && exists('+langremap')
   set nolangremap
 endif
 
+" Set UTF-8
+set encoding=utf-8
+set fileencoding=utf-8
+
 " Sets line numbers relative to the current line
 set number
 set relativenumber
@@ -139,6 +143,26 @@ set t_Co=256
 
 " Sets colorscheme
 colorscheme wombat256mod
+
+" For vim-airline, vim-airline-themes
+let g:airline_theme='base16_default'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+  let g:airline_left_sep = '»'
+  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '«'
+  let g:airline_right_sep = '◀'
+  let g:airline_symbols.linenr = '␊'
+  let g:airline_symbols.linenr = '␤'
+  let g:airline_symbols.linenr = '¶'
+  let g:airline_symbols.branch = '⎇'
+  let g:airline_symbols.paste = 'ρ'
+  let g:airline_symbols.paste = 'Þ'
+  let g:airline_symbols.paste = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
 
 " Keeps terminal background transparent (comment for being productive)
 "highlight Normal ctermbg=none

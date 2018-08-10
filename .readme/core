@@ -50,6 +50,7 @@ pavucontrol
 perl-file-mimeinfo
 polkit
 poppler
+powerline-fonts
 pulseaudio
 pulseaudio-alsa
 python-matplotlib
@@ -74,6 +75,7 @@ unclutter
 unrar
 unzip
 v4l-utils
+vim-airline
 vim-colorsamplerpack
 vim-latexsuite
 vim-spell-de
