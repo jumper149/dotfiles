@@ -44,7 +44,7 @@ Xcursor.theme: 	adwaita_cursors
 ! URxvt
 
 URxvt.background:   rgba:1100/1010/1001/d000
-urxvt.font: xft:Inconsolata:size=12,DejaVu Sans:size=10,xft:Inconsolata\ for\ Powerline:size=12
+urxvt.font: xft:Inconsolata:size=12
 URxvt.scrollBar: false
 URxvt.saveLines: 1000
 URxvt.url-launcher: /usr/bin/qutebrowser
