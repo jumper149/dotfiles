@@ -13,7 +13,6 @@ compton
 cpulimit
 cronie
 dmenu
-dolphin
 ethtool
 feh
 ffmpegthumbnailer
@@ -32,6 +31,10 @@ i3blocks
 i3lock
 imagemagick
 irssi
+linux
+linux-headers
+linux-lts
+linux-lts-headers
 lm_sensors
 lostfiles
 mediainfo

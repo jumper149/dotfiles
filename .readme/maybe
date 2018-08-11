@@ -1,9 +1,6 @@
 # standard
 gptfdisk
 intel-ucode
-linux-headers
-linux-lts
-linux-lts-headers
 syslinux
 xf86-video-intel
 
