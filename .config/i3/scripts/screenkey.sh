@@ -2,4 +2,4 @@
 
 pgrep "screenkey" && killall "screenkey" && exit 0
 
-screenkey
+screenkey -f "Inconsolata"
