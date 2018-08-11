@@ -52,6 +52,8 @@ polkit
 poppler
 pulseaudio
 pulseaudio-alsa
+python2-distutils-extra
+python2-setuptools
 python-matplotlib
 python-numpy
 python-pyside

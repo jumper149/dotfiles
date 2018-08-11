@@ -13,6 +13,7 @@ chez-scheme-git
 guile-lib
 guile-ncurses
 g-wrap
+screenkey
 urxvt-resize-font-git
 
 # x201 vendor bios
