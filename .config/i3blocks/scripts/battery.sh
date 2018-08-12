@@ -23,4 +23,9 @@ case "$STATE2" in
 		;;
 esac
 
-echo "$STATE3 $PERCENTAGE2"
+if [ "$STATE3" = "" ] || [ "$PERCENTAGE2" = "" ]
+then
+	exit 1
+else
+	echo "$STATE3 $PERCENTAGE2"
+fi

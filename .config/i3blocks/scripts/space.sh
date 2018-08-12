@@ -16,4 +16,9 @@ FREE1=$(df $HARDDRIVE -h --output=avail)
 FREE2=${FREE1:6}
 FREE3=$(echo $FREE2 | sed 's/ //g')
 
-echo "FREE $FREE3"
+if [ "$FREE3" = "" ]
+then
+	exit 2
+else
+	echo "FREE $FREE3"
+fi

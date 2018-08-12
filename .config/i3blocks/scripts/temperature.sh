@@ -18,7 +18,7 @@ fi
 
 if [ "$TEMP" = "" ]
 then
-	exit 1
+	exit 2
 else
 	echo "TEMP $TEMP°C"
 fi
