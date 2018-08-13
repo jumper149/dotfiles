@@ -258,6 +258,9 @@ bindsym Print exec "scrot"
 # toggle screenkey
 bindsym Control+$mod+k exec  "~/.config/i3/scripts/screenkey.sh"
 
+# fetch mail
+bindsym Control+$mod+m exec  "offlineimap"
+
 # startup scripts
 exec_always --no-startup-id "xset r rate 200 30"
 exec_always --no-startup-id "setxkbmap -option caps:escape"
