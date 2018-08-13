@@ -1,6 +1,6 @@
 set realname 		= "Felix Springer"
 
-set editor=`echo \$EDITOR`
+set editor="vim"
 set send_charset="utf-8"
 
 source ~/.mutt/colors
