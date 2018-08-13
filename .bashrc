@@ -5,11 +5,14 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# ls colors
 alias ls='ls --color=auto'
 
-alias dotgit='git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/'
-
+# shell prompt colors
 PS1='\[\e[35m\][\[\e[34m\]\u\[\e[32m\]@\[\e[33m\]\h \[\e[31m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
+
+# dotfiles
+alias dotgit='git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/'
 
 # vim
 set -o vi
@@ -20,6 +23,9 @@ alias vim="$EDITOR"
 export PAGER='vimpager'
 alias less="$PAGER"
 alias zless="$PAGER"
+
+# system update pacman
+alias pacup="sudo pacman -Syu"
 
 # usb scripts
 alias usbmount='~/.config/i3/scripts/usb_mount.sh'
