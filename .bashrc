@@ -59,3 +59,4 @@ IPA3='192.168.1.190'
 # qt theme
 export QT_SELECT=5
 export QT_QPA_PLATFORMTHEME=gtk2
+alias vlc='export DESKTOP_SESSION=gnome; vlc' # only gives gtk-theme when started from terminal
