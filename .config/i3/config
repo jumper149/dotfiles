@@ -234,14 +234,17 @@ bindsym $mod2+Shift+a exec "~/.config/i3/scripts/keyboard_toggle.sh"
 # toggle touchpad
 bindsym XF86TouchpadToggle exec "~/.config/i3/scripts/touchpad_toggle.sh"
 
-# wallpaper
-bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
-
 # lock
 bindsym Control+$mod+l exec "xautolock -locknow"
 
 # reload i3bar/i3blocks blocks
 bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
+
+# toggle compton compositor
+bindsym Control+$mod+c exec "~/.config/i3/scripts/compton.sh"
+
+# wallpaper
+bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
 
 # toggle login-status of gpg
 bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
