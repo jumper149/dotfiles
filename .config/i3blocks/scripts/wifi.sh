@@ -6,7 +6,7 @@ then
 	DEVICE=wlp2s0
 elif [ "$(hostname)" = "x201arch" ]
 then
-	DEVICE=wlp2s0
+	DEVICE=wlp5s0
 else
 	exit 1
 fi
