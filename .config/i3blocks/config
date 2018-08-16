@@ -27,6 +27,11 @@ command=~/.config/i3blocks/scripts/space.sh
 interval=1800
 signal=19
 
+[traffic]
+command=~/.config/i3blocks/scripts/traffic.sh
+interval=1
+signal=23
+
 [wifi]
 command=~/.config/i3blocks/scripts/wifi.sh
 interval=30
