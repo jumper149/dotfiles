@@ -84,6 +84,11 @@ $ gpasswd --add $NONROOTUSER users
 $ vim /etc/bluetooth/main.conf
 $ systemctl enable bluetooth.service
 
+# [vnstat]
+$ systemctl enable vnstat.service
+# update the desired interfaces
+$ vnstat -u -i wlp2s0
+$ vnstat -u -i enp0s25
 
 #----------------------------------------------------------------
 
