@@ -90,6 +90,10 @@ $ systemctl enable vnstat.service
 $ vnstat -u -i wlp2s0
 $ vnstat -u -i enp0s25
 
+# [tor]
+$ systemctl enable tor.service
+# maybe allow gpg keys (look into PKGBUILD when compiling snapshot)
+
 #----------------------------------------------------------------
 
 # configuration outside of homedirectory by root

@@ -26,6 +26,7 @@ gvim
 haveged
 highlight
 htop
+hunspell
 i3-gaps
 i3blocks
 i3lock
@@ -38,6 +39,7 @@ linux-lts-headers
 lm_sensors
 lostfiles
 mediainfo
+mozilla-common
 mpc
 mpd
 msmtp
@@ -72,6 +74,7 @@ sddm
 teamspeak3
 telegram-desktop
 tmux
+tor
 ttf-inconsolata
 udevil
 ufw
