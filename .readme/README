@@ -111,6 +111,9 @@ $ cp $NONROOTHOME/.readme/root-config/syslinux.cfg /boot/syslinux/syslinux.cfg
 # maybe change KERNEL in backlight.rules
 $ cp $NONROOTHOME/.readme/root-config/backlight.rules /etc/udev/rules.d/backlight.rules
 
+# udev rule for dolphin/fastermelee
+$ cp $NONROOTHOME/.readme/root-config/51-gcadapter.rules /etc/udev/rules.d/51-gcadapter.rules
+
 #----------------------------------------------------------------
 
 # extra configuration
