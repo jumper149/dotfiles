@@ -68,10 +68,6 @@ $ sensors-detect
 $ gpasswd --add $NONROOTUSER video
 
 # [sshd]
-# uncomment:
-# 	ln13: Port 22
-# 	ln15: ListenAddress 192.168.1.19*
-$ vim /etc/ssh/sshd_config
 $ systemctl enable sshd.socket
 
 # [cronie]
@@ -104,6 +100,8 @@ $ systemctl enable tor.service
 $ cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_supplicant.conf
 
 $ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
+
+$ cp $NONROOTHOME/.readme/root-config/sshd_config /etc/ssh/sshd_config
 
 # for BIOS boot, change entries
 $ cp $NONROOTHOME/.readme/root-config/syslinux.cfg /boot/syslinux/syslinux.cfg
