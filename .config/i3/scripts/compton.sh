@@ -2,4 +2,4 @@
 
 pgrep "compton" && killall "compton" && exit 0
 
-compton
+compton -b
