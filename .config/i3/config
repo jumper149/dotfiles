@@ -220,19 +220,26 @@ default_floating_border pixel 2
 
 # brightness
 #bindsym XF86MonBrightnessUp exec --no-startup-id "~/.config/i3/scripts/brightness_up.sh"
+bindsym Control+$mod+backslash exec --no-startup-id "~/.config/i3/scripts/brightness_up.sh"
 #bindsym XF86MonBrightnessDown exec --no-startup-id "~/.config/i3/scripts/brightness_down.sh"
+bindsym Control+$mod+slash exec --no-startup-id "~/.config/i3/scripts/brightness_down.sh"
 
 # audio volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+bindsym Control+$mod+equal exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
 bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
+bindsym Control+$mod+minus exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
 bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
+bindsym Control+$mod+0 exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
 bindsym XF86AudioMicMute exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
+bindsym Control+$mod+bracketright exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
 
 # toggle keyboard layout
 bindsym $mod2+Shift+a exec "~/.config/i3/scripts/keyboard_toggle.sh"
 
 # toggle touchpad
 bindsym XF86TouchpadToggle exec "~/.config/i3/scripts/touchpad_toggle.sh"
+bindsym Control+$mod+t exec "~/.config/i3/scripts/touchpad_toggle.sh"
 
 # lock
 bindsym Control+$mod+l exec "xautolock -locknow"
@@ -251,9 +258,13 @@ bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
 
 # control mpd
 bindsym XF86AudioPlay exec "mpc toggle"
+bindsym Control+$mod+p exec "mpc toggle"
 bindsym XF86AudioStop exec "mpc stop"
+bindsym Control+$mod+o exec "mpc stop"
 bindsym XF86AudioNext exec "mpc next"
+bindsym Control+$mod+bracketleft exec "mpc next"
 bindsym XF86AudioPrev exec "mpc prev"
+bindsym Control+$mod+i exec"mpc prev"
 
 # scrot
 bindsym Print exec "scrot"
