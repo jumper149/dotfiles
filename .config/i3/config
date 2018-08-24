@@ -190,7 +190,7 @@ bar {
 	modifier $mod
 	
 	colors {
-        background $color7a0
+        background $colore88
         focused_background $coloreff
         statusline $color8ff
         separator  $color8ff
