@@ -61,7 +61,6 @@ python2-distutils-extra
 python2-setuptools
 python-matplotlib
 python-numpy
-python-pyside
 python-scipy
 python-tldextract
 qt5-styleplugins

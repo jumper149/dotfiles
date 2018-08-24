@@ -23,10 +23,11 @@ $ dotgit checkout
 
 # ~/.readme/groups
 # ~/.readme/core
+# ~/.readme/aur
 # ~/.readme/maybe
 
 # groups and core are necessary
-# there is '~/.readme/install_core.sh' to install groups and core
+# there is '~/.readme/install_core.sh' alias 'pacsync' to install groups, core and aur (might need 'pkgaur' to use)
 
 #----------------------------------------------------------------
 
@@ -82,6 +83,7 @@ $ systemctl enable bluetooth.service
 
 # [vnstat]
 $ systemctl enable vnstat.service
+$ systemctl start vnstat.service
 # update the desired interfaces
 $ vnstat -u -i wlp2s0
 $ vnstat -u -i enp0s25
@@ -99,17 +101,17 @@ $ systemctl enable tor.service
 
 $ cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_supplicant.conf
 
-$ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
-
 $ cp $NONROOTHOME/.readme/root-config/sshd_config /etc/ssh/sshd_config
 
 # for BIOS boot, change entries
 $ cp $NONROOTHOME/.readme/root-config/syslinux.cfg /boot/syslinux/syslinux.cfg
 
+$ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
+
 # maybe change KERNEL in backlight.rules
 $ cp $NONROOTHOME/.readme/root-config/backlight.rules /etc/udev/rules.d/backlight.rules
 
-# udev rule for dolphin/fastermelee
+# udev rule for dolphin-emu/fastermelee
 $ cp $NONROOTHOME/.readme/root-config/51-gcadapter.rules /etc/udev/rules.d/51-gcadapter.rules
 
 #----------------------------------------------------------------
@@ -117,6 +119,10 @@ $ cp $NONROOTHOME/.readme/root-config/51-gcadapter.rules /etc/udev/rules.d/51-gc
 # extra configuration
 
 # set up following files
+
+# [pkgaur]
+$ mkdir ~/Packages
+$ git clone https://github.com/jumper149/pkgaur.git ~/Packages/pkgaur
 
 # [i3bar]
 # check everything in $HOME/.config/i3blocks

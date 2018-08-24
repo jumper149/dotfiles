@@ -4,16 +4,6 @@ intel-ucode
 syslinux
 xf86-video-intel
 
-# aur
-archlinux-thmese-sddm
-chez-scheme-git
-guile-lib
-guile-ncurses
-g-wrap
-screenkey
-tor-browser
-urxvt-resize-font-git
-
 # x201 vendor bios
 linuxconsole
 tp_smapi

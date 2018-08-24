@@ -17,7 +17,7 @@ else
 fi
 
 LENGTH=11
-INFO="$(vnstat --iface wlp2s0 -tr 2 --json | sed 's/,/\n/g')"
+INFO="$(vnstat --iface $DEVICE -tr 2 --json | sed 's/,/\n/g')"
 
 lookuprx='"rx":{"ratestring":"'
 RXVAL="$(echo "$INFO" | grep "$lookuprx")"

@@ -26,6 +26,7 @@ alias zless="$PAGER"
 
 # system update pacman
 alias pacup="sudo pacman -Syu"
+alias pacsync="~/.readme/install_core.sh"
 
 # usb scripts
 alias usbmount='~/.config/i3/scripts/usb_mount.sh'
