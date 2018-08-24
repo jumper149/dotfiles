@@ -77,4 +77,4 @@ export QT_QPA_PLATFORMTHEME=gtk2
 alias vlc='export DESKTOP_SESSION=gnome; vlc' # only gives gtk-theme when started from terminal
 
 # fastermelee
-alias fastermelee='~/Templates/fm-git/FasterMelee-installer/src/launch-fm'
+alias fastermelee='LD_LIBRARY_PATH=~/Templates/fm-git/lib/ ~/Templates/fm-git/FasterMelee-installer/src/launch-fm'

@@ -21,6 +21,7 @@ gimp
 git
 gnuplot
 gsl
+gtk-engines
 gtk-engine-murrine
 gvim
 haveged
