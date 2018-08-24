@@ -8,6 +8,9 @@ then
 elif [ "$(hostname)" = "x201arch" ]
 then
 	HARDDRIVE=/dev/sda2
+elif [ "$(hostname)" = "deskarch" ]
+then
+	HARDDRIVE=/dev/sda3
 else
 	exit 1
 fi
