@@ -9,7 +9,20 @@
 alias ls='ls --color=auto'
 
 # shell prompt colors
-PS1='\[\e[35m\][\[\e[34m\]\u\[\e[32m\]@\[\e[33m\]\h \[\e[31m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
+
+#!/bin/bash
+
+# set device
+if [ "$(hostname)" = "x220arch" ]
+then
+	PS1='\[\e[35m\][\[\e[34m\]\u\[\e[32m\]@\[\e[33m\]\h \[\e[31m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
+elif [ "$(hostname)" = "x201arch" ]
+then
+	PS1='\[\e[35m\][\[\e[34m\]\u\[\e[33m\]@\[\e[32m\]\h \[\e[31m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
+elif [ "$(hostname)" = "deskarch" ]
+then
+	PS1='\[\e[35m\][\[\e[31m\]\u\[\e[33m\]@\[\e[32m\]\h \[\e[34m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
+fi
 
 # dotfiles
 alias dotgit='git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/'
@@ -62,3 +75,6 @@ IPA3='192.168.1.190'
 export QT_SELECT=5
 export QT_QPA_PLATFORMTHEME=gtk2
 alias vlc='export DESKTOP_SESSION=gnome; vlc' # only gives gtk-theme when started from terminal
+
+# fastermelee
+alias fastermelee='~/Templates/fm-git/FasterMelee-installer/src/launch-fm'
