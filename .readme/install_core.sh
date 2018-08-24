@@ -5,7 +5,9 @@ GROUPSLIST="$(cat ~/.readme/groups | tr '\n' ' ')"
 
 PKGLIST="$GROUPSLIST $CORELIST"
 
-sudo pacman -S $PKGLIST --needed
+echo "---core/group---"
+echo "$PKGLIST"
+sudo -k  pacman -S $PKGLIST --needed
 
 #-----------------------------------------------------------------------
 
@@ -17,4 +19,6 @@ do
 	AURVERSIONLIST+="$(find ~/Packages/pkgaur/core -name "$line*") "
 done <<< "$AURLIST"
 
-sudo pacman -U $AURVERSIONLIST --needed
+echo "---aur---"
+echo "$AURVERSIONLIST"
+sudo -k pacman -U $AURVERSIONLIST --needed
