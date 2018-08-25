@@ -20,5 +20,5 @@ do
 done <<< "$AURLIST"
 
 echo "---aur---"
-echo "$AURVERSIONLIST"
+echo "$(echo $AURLIST | sed 's/\n/ /g')"
 sudo -k pacman -U $AURVERSIONLIST --needed
