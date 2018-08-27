@@ -52,6 +52,7 @@ ntfs-3g
 offlineimap
 openssh
 p7zip
+pacman-contrib
 pass
 pavucontrol
 perl-file-mimeinfo
