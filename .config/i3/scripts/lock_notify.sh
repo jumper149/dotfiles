@@ -16,8 +16,8 @@ X_VAL="$(echo $INFO | awk '{print $1}')"
 X_VAL="${X_VAL:2}"
 Y_VAL="$(echo $INFO | awk '{print $2}')"
 Y_VAL="${Y_VAL:2}"
-echo $X_VAL
-echo $Y_VAL
+#echo "$X_VAL" "/" "$X_RES"
+#echo "$Y_VAL" "/" "$Y_RES"
 
 if [ $(( $X_RES - $X_VAL )) -lt 10 ] && [ $Y_VAL -lt 10 ]
 then
