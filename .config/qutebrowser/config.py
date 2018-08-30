@@ -5,3 +5,7 @@
 
 # Uncomment this to still load settings configured via autoconfig.yml
 config.load_autoconfig()
+
+c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
+c.url.searchengines['y'] = "https://www.youtube.com/results?search_query={}"
+c.url.searchengines['aw'] = "https://wiki.archlinux.org/?search={}"
