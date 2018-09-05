@@ -6,6 +6,10 @@
 # Uncomment this to still load settings configured via autoconfig.yml
 config.load_autoconfig()
 
+c.url.start_pages = "https://www.google.com"
+
+c.url.searchengines['DEFAULT'] = "https://www.google.com/search?hl=en&q={}"
 c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
+c.url.searchengines['d'] = "https://duckduckgo.com/?q={}"
 c.url.searchengines['y'] = "https://www.youtube.com/results?search_query={}"
 c.url.searchengines['aw'] = "https://wiki.archlinux.org/?search={}"
