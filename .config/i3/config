@@ -90,6 +90,9 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+# put window in front of all workspaces
+bindsym $mod+Shift+comma sticky toggle
+
 # focus the parent container
 bindsym $mod+a focus parent
 
