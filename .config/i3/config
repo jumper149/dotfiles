@@ -311,6 +311,7 @@ bindsym $mod+$mod2+i workspace $ws4; exec "urxvtc -e 'irssi'"
 bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop"
 bindsym $mod+$mod2+b workspace $ws4; exec "blueman-manager"
 bindsym $mod+$mod2+g workspace $ws6; exec "gimp"
+bindsym $mod+$mod2+f workspace $ws7; exec "LD_LIBRARY_PATH=~/Templates/fm-git/lib/ ~/Templates/fm-git/FasterMelee-installer/src/launch-fm"
 
 # window specifications
 for_window [class="matplotlib"] floating enable
