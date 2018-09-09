@@ -11,6 +11,7 @@ sudo -k  pacman -S $PKGLIST --needed
 
 #-----------------------------------------------------------------------
 
+git -C Packages/pkgaur/ pull
 AURLIST="$(cat ~/.readme/aur)"
 AURVERSIONLIST=""
 
