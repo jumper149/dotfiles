@@ -1,0 +1,23 @@
+# abook addressbook file
+
+[format]
+program=abook
+version=0.6.1
+
+
+[1]
+name=Philipp Morgenstern
+email=morgenstern@ifam.uni-hannover.de
+
+[2]
+name=Bela Be.
+email=bela.kuethe@gmail.com
+
+[3]
+name=B=C3=A9la K=C3=BCthe
+email=bela.kuethe@gmail.com
+
+[4]
+name=Dr. Florian Leydecker
+email=leydecker@ifam.uni-hannover.de
+

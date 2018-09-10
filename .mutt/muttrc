@@ -5,6 +5,10 @@ set send_charset="utf-8"
 
 source ~/.mutt/colors
 
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor        <Tab> complete-query
+
 # stud-uni-hannover
 source "~/.mutt/stud-uni-hannover"
 folder-hook $folder 'source ~/.mutt/stud-uni-hannover'
