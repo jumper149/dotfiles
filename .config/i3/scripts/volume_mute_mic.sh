@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source=1
+source ~/.system-info.sh
+source="$MAIN_PULSEAUDIO_SOURCE"
 
 pactl set-source-mute "$source" toggle
 

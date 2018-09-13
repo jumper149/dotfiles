@@ -6,18 +6,8 @@
 
 # needs to be adapted
 
-if [ "$(hostname)" = "x220arch" ]
-then
-	DEVICE=wlp2s0
-elif [ "$(hostname)" = "x201arch" ]
-then
-	DEVICE=wlp5s0
-elif [ "$(hostname)" = "deskarch" ]
-then
-	DEVICE=enp7s0
-else
-	exit 1
-fi
+source ~/.system-info.sh
+DEVICE="$MAIN_NETWORKING_DEVICE"
 
 LENGTH=11
 INFO="$(vnstat --iface $DEVICE -tr 2 --json | sed 's/,/\n/g')"

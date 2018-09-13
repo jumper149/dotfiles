@@ -1,18 +1,7 @@
 #!/bin/bash
 
-# set device
-if [ "$(hostname)" = "x220arch" ]
-then
-	DEVICE=wlp2s0
-elif [ "$(hostname)" = "x201arch" ]
-then
-	DEVICE=wlp5s0
-elif [ "$(hostname)" = "deskarch" ]
-then
-	DEVICE=enp7s0
-else
-	exit 1
-fi
+source ~/.system-info.sh
+DEVICE="$MAIN_NETWORKING_DEVICE"
 
 INFO=$(ip address show dev $DEVICE | grep inet\ )
 IPADR=${INFO:$(expr index "$INFO" inet + 4)}

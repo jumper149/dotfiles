@@ -1,5 +1,8 @@
 #!/bin/bash
 
+source ~/.system-info.sh
+SINK="$MAIN_PULSEAUDIO_SINK"
+
 INFO=$(pactl list sinks | grep Volume: -m 1)
 STARTINDEX=$(expr index "$INFO" \% - 4)
 LENFROMINDEX=4

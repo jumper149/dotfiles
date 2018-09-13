@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sink=0
+source ~/.system-info.sh
+sink="$MAIN_PULSEAUDIO_SINK"
 
 pactl set-sink-mute "$sink" toggle
 

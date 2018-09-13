@@ -1,19 +1,8 @@
 #!/bin/bash
 
 # set main partition (probably root- or home-partition)
-HARDDRIVE=""
-if [ "$(hostname)" = "x220arch" ]
-then
-	HARDDRIVE=/dev/sda3
-elif [ "$(hostname)" = "x201arch" ]
-then
-	HARDDRIVE=/dev/sda2
-elif [ "$(hostname)" = "deskarch" ]
-then
-	HARDDRIVE=/dev/sda3
-else
-	exit 1
-fi
+source ~/.system-info.sh
+HARDDRIVE="$MAIN_PARTITION"
 
 FREE1=$(df $HARDDRIVE -h --output=avail)
 FREE2=${FREE1:6}
