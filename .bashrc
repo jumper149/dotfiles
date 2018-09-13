@@ -9,10 +9,6 @@
 alias ls='ls --color=auto'
 
 # shell prompt colors
-
-#!/bin/bash
-
-# set device
 if [ "$(hostname)" = "x220arch" ]
 then
 	PS1='\[\e[35m\][\[\e[34m\]\u\[\e[32m\]@\[\e[33m\]\h \[\e[31m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
