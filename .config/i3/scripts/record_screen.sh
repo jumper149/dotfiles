@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# first positional argument is OF
+# first positional argument is $OUTPUT_FILE
 OUTPUT_FILE="$1"
 
 FRAME_RATE="60"
-PULSE_SINK="0"
+
+source ~/.system-info.sh
+PULSE_SINK="$MAIN_PULSEAUDIO_SINK"
+PULSE_SINK="$(( $MAIN_PULSEAUDIO_SINK + 1 ))" # does this really work???
+
 BITRATE="128k"
 
 # get screen resolution
