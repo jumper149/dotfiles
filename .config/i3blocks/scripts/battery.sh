@@ -4,6 +4,7 @@ STRING=$(acpi)
 
 PERCENTAGE1=${STRING:$( expr index "$STRING" ,)}
 PERCENTAGE2=${PERCENTAGE1:1:$(expr index "$PERCENTAGE1" % - 1)}
+NUMBER="${PERCENTAGE2:0:$((${#PERCENTAGE2} - 1))}"
 
 STATE1=${STRING:$( expr index "$STRING" :)}
 STATE2=${STATE1:1:$(expr index "$STATE1" , - 2)}
@@ -27,5 +28,12 @@ if [ "$STATE3" = "" ] || [ "$PERCENTAGE2" = "" ]
 then
 	exit 1
 else
-	echo "$STATE3 $PERCENTAGE2"
+	if [ $NUMBER -lt 20 ]
+	then
+		echo "$STATE3 $PERCENTAGE2"
+		echo ""
+		echo "#FF0000"
+	else
+		echo "$STATE3 $PERCENTAGE2"
+	fi
 fi
