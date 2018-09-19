@@ -3,9 +3,8 @@
 accounts = gmail,stud-uni-hannover
 # for access to gmail
 pythonfile = ~/.offlineimap/offlineimap_pass.py
-# tls and ssl options found on Luke Smiths Youtube Channel
-# (ssl automatic on, starttls dont know)
-#starttls = yes
+# SSL/TLS
+starttls = yes
 ssl = yes
 
 #####
@@ -29,6 +28,9 @@ remoteuser = felixspringer149@gmail.com
 # Password for gmail account usage of apps is in the application pass
 remotepasseval = get_pass("gmail")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+# temporary fix for offlinimap/gmail
+ssl_version = tls1_2
 
 #####
 
