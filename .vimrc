@@ -148,6 +148,7 @@ colorscheme wombat256mod
 let g:airline_theme='base16_default'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_symbols_ascii = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " Keeps terminal background transparent (comment for being productive)
 "highlight Normal ctermbg=none
