@@ -43,7 +43,6 @@ linux-lts-headers
 lm_sensors
 lostfiles
 mediainfo
-mozilla-common
 mpc
 mpd
 msmtp
@@ -110,3 +109,5 @@ zathura-ps
 zip
 zlib
 zziplib
+
+mozilla-common
