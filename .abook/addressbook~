@@ -5,19 +5,23 @@ program=abook
 version=0.6.1
 
 
-[1]
+[0]
 name=Philipp Morgenstern
 email=morgenstern@ifam.uni-hannover.de
 
-[2]
+[1]
 name=Bela Be.
 email=bela.kuethe@gmail.com
 
-[3]
-name=B=C3=A9la K=C3=BCthe
-email=bela.kuethe@gmail.com
-
-[4]
+[2]
 name=Dr. Florian Leydecker
 email=leydecker@ifam.uni-hannover.de
+
+[3]
+name=Michael Flohr
+email=michael.flohr@itp.uni-hannover.de
+
+[4]
+name=Felix Springer
+email=felixspringer149@gmail.com
 

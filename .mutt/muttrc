@@ -3,7 +3,10 @@ set realname 		= "Felix Springer"
 set editor="vim"
 set send_charset="utf-8"
 
-source ~/.mutt/colors
+set sidebar_visible="yes"
+source "~/.mutt/sidebar"
+
+source "~/.mutt/colors"
 
 set mailcap_path= ~/.mutt/mailcap
 auto_view text/html
