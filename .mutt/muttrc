@@ -5,6 +5,9 @@ set send_charset="utf-8"
 
 source ~/.mutt/colors
 
+set mailcap_path= ~/.mutt/mailcap
+auto_view text/html
+
 set query_command= "abook --mutt-query '%s'"
 macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
 bind editor        <Tab> complete-query
