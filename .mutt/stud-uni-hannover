@@ -17,7 +17,7 @@ unset mbox
 set record = "+Sent"
 set postponed = "+Drafts"
 
-mailboxes " " "+───────uni────────" "+INBOX" "+Sent" "+Junk" "+Drafts" "+Trash"
+mailboxes " " "+-------uni--------" "+INBOX" "+Sent" "+Junk" "+Drafts" "+Trash"
 
 # <space>s in foldernames dont work, set up symlinks if needed
 #macro index ci "<change-folder>=INBOX<enter>" "go to inbox"
