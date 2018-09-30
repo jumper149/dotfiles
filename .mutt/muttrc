@@ -32,6 +32,8 @@ bind index         h help
 bind index,pager   H display-toggle-weed
 bind index         <Down> next-entry
 bind index         <Up> previous-entry
+bind index         / search-reverse
+bind index         <Esc>/ search-reverse
 
 # stud-uni-hannover
 source "~/.mutt/stud-uni-hannover"
