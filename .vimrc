@@ -157,6 +157,9 @@ let g:airline#extensions#whitespace#enabled = 0
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 
+" For Mutt/E-Mail
+autocmd BufRead,BufNewFile /tmp/mutt-* execute "normal /^$\<Enter>o\<Esc>:read ! cat ~/.mutt/signature\<Enter>gg/^$\<Enter>o\<Esc>"
+
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>
 nmap mp :w <Enter>:!python % <Enter>
