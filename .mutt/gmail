@@ -31,3 +31,5 @@ mailboxes "+ " "+──────gmail───────" "+INBOX" "+[Gmail
 
 # hook important
 account-hook $folder "set imap_user=felixspringer149@gmail.com"
+
+# vim: syntax=muttrc

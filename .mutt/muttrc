@@ -1,19 +1,37 @@
+# personal info
 set realname 		= "Felix Springer"
 
+# editor
 set editor="vim"
 set send_charset="utf-8"
 
+# sidebar
 set sidebar_visible="yes"
 source "~/.mutt/sidebar"
 
+# colors
 source "~/.mutt/colors"
 
+# mailcap
 set mailcap_path= ~/.mutt/mailcap
 auto_view text/html
 
+# abook
 set query_command= "abook --mutt-query '%s'"
 macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
 bind editor        <Tab> complete-query
+
+# bindings
+macro editor       \e "<enter><shell-escape>xdotool key control+g<enter>" "Escape from command line"
+bind index         G last-entry
+bind index         gg first-entry
+bind index         i limit
+bind index         l display-message
+bind pager         h exit
+bind index         h help
+bind index,pager   H display-toggle-weed
+bind index         <Down> next-entry
+bind index         <Up> previous-entry
 
 # stud-uni-hannover
 source "~/.mutt/stud-uni-hannover"

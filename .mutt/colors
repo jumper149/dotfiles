@@ -62,3 +62,12 @@ color quoted4    cyan          default
 color quoted5    green         default
 color quoted6    magenta       default
 color quoted7    cyan          default
+
+# sidebar
+color sidebar_indicator green        default
+color sidebar_highlight brightwhite  default
+color sidebar_divider   green        default
+color sidebar_flagged   red          default
+color sidebar_new       brightyellow default
+
+# vim: syntax=muttrc

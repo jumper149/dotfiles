@@ -31,3 +31,5 @@ mailboxes " " "+───────uni────────" "+INBOX" "+Sen
 
 # hook important
 account-hook $folder "set imap_user=felix.springer@stud.uni-hannover.de"
+
+# vim: syntax=muttrc
