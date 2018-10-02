@@ -3,7 +3,10 @@
 source ~/.system-info.sh
 SINK="$MAIN_PULSEAUDIO_SINK"
 
-INFO=$(pactl list sinks | grep Volume: -m 1)
+PREPREINFO="$(pactl list sinks)"
+PREINFO="$(echo "$PREPREINFO" | grep -n "Sink #$MAIN_PULSEAUDIO_SINK")"
+LINE="${PREINFO:0:$(expr index "$PREINFO" ":" - 1)}"
+INFO=$(echo "$PREPREINFO" | tail -n "+$LINE")
 STARTINDEX=$(expr index "$INFO" \% - 4)
 LENFROMINDEX=4
 VOLUME=${INFO:$STARTINDEX:$LENFROMINDEX}
