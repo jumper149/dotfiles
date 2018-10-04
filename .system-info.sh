@@ -4,6 +4,8 @@
 # main partition
 # main pulseaudio sink/source
 # main webcam
+# main touchpad
+
 if [ "$(hostname)" = "x220arch" ]
 then
 	MAIN_NETWORKING_DEVICE='wlp2s0'
@@ -11,6 +13,7 @@ then
 	MAIN_PULSEAUDIO_SINK='0'
 	MAIN_PULSEAUDIO_SOURCE='1'
 	MAIN_WEBCAM='/dev/video0'
+	MAIN_TOUCHPAD='SynPS/2 Synaptics TouchPad'
 elif [ "$(hostname)" = "x201arch" ]
 then
 	MAIN_NETWORKING_DEVICE='wlp5s0'

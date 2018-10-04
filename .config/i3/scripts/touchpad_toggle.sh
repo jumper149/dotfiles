@@ -1,6 +1,7 @@
 #!/bin/bash
 
-DEVICE="SynPS/2 Synaptics TouchPad"
+source ~/.system-info.sh
+DEVICE="$MAIN_TOUCHPAD"
 
 STRING=$(xinput list-props "$DEVICE" | grep "Device Enabled")
 STATE=${STRING:$(expr ${#STRING} - 1):1}
