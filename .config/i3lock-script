@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "Failed login attempt at $(date)" >> ~/.i3lock-script.log
