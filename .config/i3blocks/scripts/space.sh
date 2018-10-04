@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# set main partition (probably root- or home-partition)
 source ~/.system-info.sh
 HARDDRIVE="$MAIN_PARTITION"
 

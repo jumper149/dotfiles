@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# set desired device
-
-#!/bin/bash
-
-# needs to be adapted
-
 source ~/.system-info.sh
 DEVICE="$MAIN_NETWORKING_DEVICE"
 

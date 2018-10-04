@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# needs to be adapted
-
 INFO=$(cat /proc/stat | grep cpu -m 1)
 
 STARTCHAR=$(expr index "$INFO" \  + 1 )

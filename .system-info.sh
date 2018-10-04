@@ -3,12 +3,14 @@
 # main networking/internet device
 # main partition
 # main pulseaudio sink/source
+# main webcam
 if [ "$(hostname)" = "x220arch" ]
 then
 	MAIN_NETWORKING_DEVICE='wlp2s0'
 	MAIN_PARTITION='/dev/sda3'
 	MAIN_PULSEAUDIO_SINK='0'
 	MAIN_PULSEAUDIO_SOURCE='1'
+	MAIN_WEBCAM='/dev/video0'
 elif [ "$(hostname)" = "x201arch" ]
 then
 	MAIN_NETWORKING_DEVICE='wlp5s0'
