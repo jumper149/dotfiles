@@ -20,6 +20,16 @@ then
 	PS1='\[\e[35m\][\[\e[31m\]\u\[\e[33m\]@\[\e[32m\]\h \[\e[34m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
 fi
 
+# vim
+set -o vi
+export VISUAL='vim -p'
+export EDITOR="$VISUAL"
+alias vi="$EDITOR"
+alias vim="$EDITOR"
+export PAGER='vimpager'
+alias less="$PAGER"
+alias zless="$PAGER"
+
 # dotfiles
 alias dotgit='git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/'
 
@@ -32,18 +42,17 @@ alias usbmount='~/.config/i3/scripts/usb_mount.sh'
 alias usbumount='~/.config/i3/scripts/usb_umount.sh'
 alias usbbackup='~/.config/i3/scripts/usb_backup.sh'
 
-# for gpg-agent from manpage
-export GPG_TTY=$(tty)
-unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-fi
+# mail
+export MAIL="$HOME/.mail/"
 
 # record ffmpeg
 alias ffmpegscreen='~/.config/i3/scripts/record_screen.sh'
 
 # clear ranger-trash
 alias ranger-trash-clear='~/.config/ranger/empty_trash.sh'
+
+# fastermelee
+alias fastermelee='LD_LIBRARY_PATH=~/Templates/fm-git/lib/ ~/Templates/fm-git/FasterMelee-installer/src/launch-fm'
 
 # ssh and local ip
 IPDESK='192.168.1.199'
@@ -53,3 +62,10 @@ IPPI32='192.168.1.187'
 IPX201='192.168.1.196'
 IPX220='192.168.1.195'
 IPA3='192.168.1.190'
+
+# for gpg-agent from manpage
+export GPG_TTY=$(tty)
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
