@@ -23,16 +23,6 @@ fi
 # dotfiles
 alias dotgit='git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/'
 
-# vim
-set -o vi
-export VISUAL='vim -p'
-export EDITOR="$VISUAL"
-alias vi="$EDITOR"
-alias vim="$EDITOR"
-export PAGER='vimpager'
-alias less="$PAGER"
-alias zless="$PAGER"
-
 # system update pacman
 alias pacup="sudo pacman -Syu"
 alias pacsync="~/.readme/install_core.sh"
@@ -49,9 +39,6 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
-# mail
-export MAIL="$HOME/.mail/"
-
 # record ffmpeg
 alias ffmpegscreen='~/.config/i3/scripts/record_screen.sh'
 
@@ -66,11 +53,3 @@ IPPI32='192.168.1.187'
 IPX201='192.168.1.196'
 IPX220='192.168.1.195'
 IPA3='192.168.1.190'
-
-# qt theme
-export QT_SELECT=5
-export QT_QPA_PLATFORMTHEME=gtk2
-alias vlc='export DESKTOP_SESSION=gnome; vlc' # only gives gtk-theme when started from terminal
-
-# fastermelee
-alias fastermelee='LD_LIBRARY_PATH=~/Templates/fm-git/lib/ ~/Templates/fm-git/FasterMelee-installer/src/launch-fm'

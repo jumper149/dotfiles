@@ -20,7 +20,7 @@ export MAIL="$HOME/.mail/"
 # qt theme
 export QT_SELECT=5
 export QT_QPA_PLATFORMTHEME=gtk2
-alias vlc='export DESKTOP_SESSION=gnome; vlc' # only gives gtk-theme when started from terminal
+alias vlc='export DESKTOP_SESSION=gnome; vlc'
 
 # fastermelee
 alias fastermelee='LD_LIBRARY_PATH=~/Templates/fm-git/lib/ ~/Templates/fm-git/FasterMelee-installer/src/launch-fm'
