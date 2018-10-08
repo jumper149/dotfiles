@@ -92,6 +92,10 @@ $ vnstat -u -i enp0s25
 $ systemctl enable tor.service
 # maybe allow gpg keys (look into PKGBUILD when compiling snapshot)
 
+# [mathematica]
+# install aur-package
+$ systemctl enable avahi-daemon.service
+
 #----------------------------------------------------------------
 
 # configuration outside of homedirectory by root
