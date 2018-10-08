@@ -19,6 +19,7 @@ tpacpi_bat
 # x220 coreboot
 acpi_call
 libatasmart
+mathematica
 thinkfan
 tlp
 tpacpi_bat
