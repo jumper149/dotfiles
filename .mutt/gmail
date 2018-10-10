@@ -17,7 +17,7 @@ set mbox = "+[Gmail].All Mail"
 set record = "/dev/null"
 set postponed = "+[Gmail].Drafts"
 
-mailboxes "+ " "+------gmail-------" "+INBOX" "+[Gmail].Sent Mail" "+[Gmail].Spam" "+[Gmail].All Mail" "+[Gmail].Drafts" "+[Gmail].Trash" "+[Gmail].Important" "+[Gmail].Drafts"
+mailboxes "+ " "+------gmail-------" "+INBOX" "+[Gmail].Sent Mail" "+[Gmail].Spam" "+[Gmail].Drafts" "+[Gmail].Trash"
 
 # <space>s in foldernames dont work, set up symlinks if needed
 #macro index ci "<change-folder>=INBOX<enter>" "go to inbox"
