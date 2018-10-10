@@ -276,7 +276,7 @@ bindsym Print exec "scrot"
 bindsym Control+$mod+k exec  "~/.config/i3/scripts/screenkey.sh"
 
 # fetch mail
-bindsym Control+$mod+m exec  "offlineimap"
+bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
 
 # startup scripts
 exec_always --no-startup-id "xset r rate 200 30"

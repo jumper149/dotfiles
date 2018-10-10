@@ -13,3 +13,4 @@ pkill --signal SIGRTMIN+20 i3blocks
 pkill --signal SIGRTMIN+21 i3blocks
 pkill --signal SIGRTMIN+22 i3blocks
 pkill --signal SIGRTMIN+23 i3blocks
+pkill --signal SIGRTMIN+24 i3blocks

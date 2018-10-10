@@ -8,6 +8,11 @@ align=right
 #[test]
 #command=~/.config/i3blocks/scripts/test.sh
 
+[mail]
+command=~/.config/i3blocks/scripts/mail.sh
+interval=0
+signal=24
+
 [music]
 command=~/.config/i3blocks/scripts/music.sh
 signal=22
