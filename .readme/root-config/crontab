@@ -1,1 +1,1 @@
-*/3 * * * * offlineimap
+*/3 * * * * ~/.config/i3/scripts/mail_fetch.sh
