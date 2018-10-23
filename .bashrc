@@ -59,7 +59,7 @@ alias imagej='ImageJ-linux64 -Dij1.plugin.dirs=$IJ_DIR/jars:$IJ_DIR/plugins:$HOM
 alias fiji='imagej'
 
 # imod
-alias imod-on='source /usr/local/IMOD/IMOD-linux.sh'
+alias imod-env="IMOD_DIR='/opt/IMOD/'; source '/opt/IMOD/IMOD-linux.sh'"
 
 # ssh and local ip
 IPDESK='192.168.1.199'
