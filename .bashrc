@@ -58,9 +58,6 @@ alias fastermelee='LD_LIBRARY_PATH=~/Templates/fm-git/lib/ ~/Templates/fm-git/Fa
 alias imagej='ImageJ-linux64 -Dij1.plugin.dirs=$IJ_DIR/jars:$IJ_DIR/plugins:$HOME/.imagej/plugins'
 alias fiji='imagej'
 
-# imod
-alias imod-env="IMOD_DIR='/opt/IMOD/'; source '/opt/IMOD/IMOD-linux.sh'"
-
 # ssh and local ip
 IPDESK='192.168.1.199'
 IPJUMP='192.168.1.198'
