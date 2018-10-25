@@ -4,6 +4,7 @@ set realname 		= "Felix Springer"
 # editor
 set editor="vim"
 set send_charset="utf-8"
+unset markers
 
 # sidebar
 set sidebar_visible="yes"
