@@ -55,7 +55,8 @@ alias ranger-trash-clear='~/.config/ranger/empty_trash.sh'
 alias fastermelee='LD_LIBRARY_PATH=~/Templates/fm-git/lib/ ~/Templates/fm-git/FasterMelee-installer/src/launch-fm'
 
 # fiji/imagej
-alias imagej='ImageJ-linux64 -Dij1.plugin.dirs=$IJ_DIR/jars:$IJ_DIR/plugins:$HOME/.imagej/plugins'
+IJ_DIR='/opt/fiji'
+alias imagej='ImageJ-linux64 -Dij1.plugin.dirs=$IJ_DIR/jars:$IJ_DIR/plugins:$HOME/.imagej/plugins --plugins "$HOME/.imagej/plugins"'
 alias fiji='imagej'
 
 # ssh and local ip
