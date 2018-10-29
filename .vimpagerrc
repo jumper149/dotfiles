@@ -1,0 +1,6 @@
+source ~/.vimrc
+
+let vimpager_passthrough = 0
+
+set norelativenumber
+set nonumber
