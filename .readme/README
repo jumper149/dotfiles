@@ -130,7 +130,7 @@ $ cp $NONROOTHOME/.readme/root-config/51-gcadapter.rules /etc/udev/rules.d/51-gc
 # 	temperature.sh
 # 	fan.sh
 # 	battery.sh
-# also ~/.system-info.sh
+# also even more important ~/.system-info.sh
 
 # [mpd]
 $ systemctl enable mpd.service --user
