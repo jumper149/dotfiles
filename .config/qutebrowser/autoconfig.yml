@@ -7,5 +7,5 @@ settings:
     global:
       normal:
         ',p': spawn --userscript qute-pass
-        Z: hint links spawn mpv {hint-url}
-        z: spawn mpv {url}
+        z: hint links spawn mpv {hint-url}
+        Z: spawn mpv {url}
