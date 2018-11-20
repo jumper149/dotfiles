@@ -7,5 +7,8 @@ settings:
     global:
       normal:
         ',p': spawn --userscript qute-pass
-        z: hint links spawn mpv {hint-url}
         Z: spawn mpv {url}
+        z: hint links spawn mpv {hint-url}
+  qt.args:
+    global:
+    - ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so

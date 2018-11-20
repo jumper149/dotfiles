@@ -5,6 +5,7 @@ guile-lib
 guile-ncurses
 g-wrap
 i3lock-script
+qt5-webengine-widevine
 screenkey
 tor-browser
 unclutter-xfixes-git
