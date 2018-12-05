@@ -163,5 +163,5 @@ autocmd BufRead,BufNewFile /tmp/mutt-* execute "normal /^$\<Enter>o\<Esc>:read !
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>
 nmap mp :w <Enter>:!python % <Enter>
-nmap mt :w <Enter>:!pdflatex % <Enter>
+nmap mt :w <Enter>:!pdflatex -interaction nonstopmode -halt-on-error -file-line-error % <Enter>
 nmap mcs :w <Enter>:!chez-scheme --script % <Enter>
