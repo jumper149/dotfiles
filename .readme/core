@@ -117,3 +117,5 @@ zziplib
 mozilla-common
 
 asciidoc
+
+libcurl-gnutls
