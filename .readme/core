@@ -15,6 +15,7 @@ compton
 cpulimit
 cronie
 dmenu
+dosfstools
 ethtool
 feh
 ffmpegthumbnailer
