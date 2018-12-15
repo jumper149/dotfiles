@@ -150,6 +150,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_symbols_ascii = 1
 let g:airline#extensions#whitespace#enabled = 0
 
+" Makes information not be shown 2 times with vim-airline
+set shortmess=F
+
 " Keeps terminal background transparent (comment for being productive)
 "highlight Normal ctermbg=none
 

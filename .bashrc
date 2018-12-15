@@ -80,9 +80,9 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 fi
 
-# use colors from ~/.Xresources on tty
+# use colors from ~/.Xresources on tty, start tmux
 if [ "$TERM" = "linux" ]
 then
 	source ~/.scripts/tty-colors.sh
-	tmux && exit 0
+	tmux && tput reset && exit 0
 fi
