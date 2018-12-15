@@ -84,6 +84,5 @@ fi
 if [ "$TERM" = "linux" ]
 then
 	source ~/.scripts/tty-colors.sh
-	tmux
-	exit "$?"
+	tmux && exit 0
 fi
