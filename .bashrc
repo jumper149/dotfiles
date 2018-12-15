@@ -4,7 +4,6 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 # ls colors
 alias ls='ls --color=auto'
 
@@ -79,4 +78,12 @@ export GPG_TTY=$(tty)
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+
+# use colors from ~/.Xresources on tty
+if [ "$TERM" = "linux" ]
+then
+	source ~/.scripts/tty-colors.sh
+	tmux
+	exit "$?"
 fi
