@@ -14,5 +14,3 @@ for i in `seq 0 15`
 do
 	EscSeqRGB "$i"
 done
-
-clear

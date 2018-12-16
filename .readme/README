@@ -100,7 +100,10 @@ $ systemctl enable avahi-daemon.service
 
 # configuration outside of homedirectory by root
 
-# [example in ~/.readme/root-config/]
+# [groups]
+$ gpasswd --add $NONROOTUSER {wheel,video,audio}
+
+# [examples in ~/.readme/root-config/]
 # check these out by yourself
 
 $ cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_supplicant.conf
