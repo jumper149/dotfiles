@@ -5,7 +5,7 @@ Xresources="`cat "$HOME/.Xresources"`"
 function EscSeqRGB {
 	N="$1"
 	Hex="`printf '%x\n' $N | tr 'a-z' 'A-Z'`"
-	RGB="`echo "$Xresources" | grep "*.color${N}:" | cut --delimiter="#" --fields="2"`"
+	RGB="`echo "$Xresources" | grep -m "1" "*.color${N}:" | cut --delimiter="#" --fields="2"`"
 	EscSeq="\e]P${Hex}${RGB}"
 	echo -en "$EscSeq"
 }
