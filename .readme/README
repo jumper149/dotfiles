@@ -101,7 +101,7 @@ $ systemctl enable avahi-daemon.service
 # configuration outside of homedirectory by root
 
 # [groups]
-$ gpasswd --add $NONROOTUSER {wheel,video,audio}
+$ gpasswd --add $NONROOTUSER {wheel,video}
 
 # [examples in ~/.readme/root-config/]
 # check these out by yourself
