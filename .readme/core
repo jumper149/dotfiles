@@ -14,7 +14,6 @@ cmake
 compton
 cpulimit
 cronie
-dmenu
 dosfstools
 ethtool
 feh
@@ -77,6 +76,7 @@ qutebrowser
 r
 ranger
 remind
+rofi
 rsync
 rxvt-unicode
 scrot

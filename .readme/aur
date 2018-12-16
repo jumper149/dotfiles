@@ -6,6 +6,7 @@ guile-ncurses
 g-wrap
 i3lock-script
 qt5-webengine-widevine
+rofi-dmenu
 scheme48
 screenkey
 scsh-git

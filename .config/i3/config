@@ -43,8 +43,8 @@ bindsym $mod+Return exec "urxvtc"
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher); should be the same as in '~/.config/i3/scripts/decide.sh'
-bindsym $mod+d exec dmenu_run -b -i -fn "Inconsolata:style=Bold" -nb "$colore" -nf "$color8" -sb "$color2" -sf "$color0"
+# start rofi to launch a program
+bindsym $mod+d exec "rofi -show 'run'"
 
 # change focus
 bindsym $mod+h focus left
@@ -152,7 +152,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "$(~/.config/i3/scripts/decide.sh 'shutdown now' 'reboot' 'i3-msg exit')"
+bindsym $mod+Shift+e exec "~/.config/i3/scripts/decide.sh 'shutdown now' 'reboot' 'i3-msg exit'"
 
 # distance for resizing and moving windows
 set $dist 7
