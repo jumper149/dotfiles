@@ -152,7 +152,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "~/.config/i3/scripts/decide.sh 'shutdown now' 'reboot' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "~/.config/i3/scripts/shutdown.sh"
 
 # distance for resizing and moving windows
 set $dist 7

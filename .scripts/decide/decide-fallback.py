@@ -2,7 +2,7 @@ import curses
 import sys
 import os
 
-#taken from http://adamlamers.com/post/FTPD9KNRA8CT
+# taken from http://adamlamers.com/post/FTPD9KNRA8CT
 
 class CursesMenu(object):
 
