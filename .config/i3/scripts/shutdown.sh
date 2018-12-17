@@ -1,6 +1,6 @@
 #!/bin/bash
 
-OPTION="`~/.scripts/decide/decide.sh 'shutdown' 'reboot' 'leave i3'`"
+OPTION="`~/.scripts/decide/main.sh 'shutdown' 'reboot' 'leave i3'`"
 
 COMMAND=""
 

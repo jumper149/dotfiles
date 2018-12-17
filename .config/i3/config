@@ -222,10 +222,10 @@ default_border pixel 4
 default_floating_border pixel 2
 
 # brightness
-#bindsym XF86MonBrightnessUp exec --no-startup-id "~/.config/i3/scripts/brightness_up.sh"
-bindsym Control+$mod+backslash exec --no-startup-id "~/.config/i3/scripts/brightness_up.sh"
-#bindsym XF86MonBrightnessDown exec --no-startup-id "~/.config/i3/scripts/brightness_down.sh"
-bindsym Control+$mod+slash exec --no-startup-id "~/.config/i3/scripts/brightness_down.sh"
+#bindsym XF86MonBrightnessUp exec --no-startup-id "~/.scripts/brightness/up.sh"
+bindsym Control+$mod+backslash exec --no-startup-id "~/.scripts/brightness/up.sh"
+#bindsym XF86MonBrightnessDown exec --no-startup-id "~/.scripts/brightness/down.sh"
+bindsym Control+$mod+slash exec --no-startup-id "~/.scripts/brightness/down.sh"
 
 # audio volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
@@ -238,11 +238,11 @@ bindsym XF86AudioMicMute exec --no-startup-id "~/.config/i3/scripts/volume_mute_
 bindsym Control+$mod+bracketright exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
 
 # toggle keyboard layout
-bindsym $mod2+Shift+a exec "~/.config/i3/scripts/keyboard_toggle.sh"
+bindsym $mod2+Shift+a exec "~/.scripts/keyboard_toggle.sh"
 
 # toggle touchpad
-bindsym XF86TouchpadToggle exec "~/.config/i3/scripts/touchpad_toggle.sh"
-bindsym Control+$mod+t exec "~/.config/i3/scripts/touchpad_toggle.sh"
+bindsym XF86TouchpadToggle exec "~/.scripts/touchpad_toggle.sh"
+bindsym Control+$mod+t exec "~/.scripts/touchpad_toggle.sh"
 
 # lock
 bindsym Control+$mod+l exec "xautolock -locknow"
@@ -251,7 +251,7 @@ bindsym Control+$mod+l exec "xautolock -locknow"
 bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
 
 # toggle compton compositor
-bindsym Control+$mod+c exec "~/.config/i3/scripts/compton.sh"
+bindsym Control+$mod+c exec "~/.scripts/compton.sh"
 
 # wallpaper
 bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
@@ -273,7 +273,7 @@ bindsym Control+$mod+i exec"mpc prev"
 bindsym Print exec "scrot"
 
 # toggle screenkey
-bindsym Control+$mod+k exec  "~/.config/i3/scripts/screenkey.sh"
+bindsym Control+$mod+k exec  "~/.scripts/screenkey.sh"
 
 # fetch mail
 bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
@@ -281,7 +281,7 @@ bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
 # startup scripts
 exec_always --no-startup-id "xset r rate 200 30"
 exec_always --no-startup-id "setxkbmap -option caps:escape"
-exec_always --no-startup-id "~/.config/i3/scripts/touchpad.sh"
+exec_always --no-startup-id "~/.scripts/touchpad.sh"
 exec_always --no-startup-id "xrdb ~/.Xresources"
 exec_always --no-startup-id "xset b off"
 exec --no-startup-id "urxvtd -f"
@@ -296,7 +296,7 @@ exec --no-startup-id "~/.config/i3/scripts/blugon/blugon.sh"
 bindsym $mod+grave [urgent=latest] focus
 bindsym $mod+Shift+Return exec "urxvtc -e 'ranger'"
 bindsym $mod+$mod2+h workspace $ws0; exec "urxvtc -e 'htop'"
-bindsym $mod+$mod2+w workspace $ws0; exec "urxvtc -e ~/.config/i3/scripts/weatherreport.sh"
+bindsym $mod+$mod2+w workspace $ws0; exec "urxvtc -e ~/.scripts/weatherreport.sh"
 bindsym $mod+$mod2+d workspace $ws0; exec "baobab"
 bindsym $mod+$mod2+c workspace $ws1; exec "chromium"
 bindsym $mod+$mod2+q workspace $ws1; exec "qutebrowser"

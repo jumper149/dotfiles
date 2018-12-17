@@ -37,15 +37,15 @@ alias pacup="sudo pacman -Syu"
 alias pacsync="~/.readme/install_core.sh"
 
 # usb scripts
-alias usbmount='~/.config/i3/scripts/usb_mount.sh'
-alias usbumount='~/.config/i3/scripts/usb_umount.sh'
-alias usbbackup='~/.config/i3/scripts/usb_backup.sh'
+alias usbmount='~/.scripts/mount.sh'
+alias usbumount='~/.scripts/umount.sh'
+alias usbbackup='~/.scripts/backup.sh'
 
 # mail
 export MAIL="$HOME/.mail/"
 
 # record ffmpeg
-alias ffmpegscreen='~/.config/i3/scripts/record_screen.sh'
+alias ffmpegscreen='~/.scripts/record_screen.sh'
 
 # ranger-cd
 function ranger-cd {

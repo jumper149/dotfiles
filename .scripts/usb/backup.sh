@@ -4,7 +4,7 @@
 
 DRIVES=$(echo /media/*)
 DRIVES=$(echo "$DRIVES" | sed -e 's@/media/@@g')
-SPOT=$(~/.scripts/decide/decide.sh $DRIVES)
+SPOT=$(~/.scripts/decide/main.sh $DRIVES)
 
 # exclude following cases
 case $SPOT in
