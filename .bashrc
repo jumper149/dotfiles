@@ -37,9 +37,9 @@ alias pacup="sudo pacman -Syu"
 alias pacsync="~/.readme/install_core.sh"
 
 # usb scripts
-alias usbmount='~/.scripts/mount.sh'
-alias usbumount='~/.scripts/umount.sh'
-alias usbbackup='~/.scripts/backup.sh'
+alias usbmount='~/.scripts/usb/mount.sh'
+alias usbumount='~/.scripts/usb/umount.sh'
+alias usbbackup='~/.scripts/usb/backup.sh'
 
 # mail
 export MAIL="$HOME/.mail/"
