@@ -16,6 +16,7 @@ cpulimit
 cronie
 dosfstools
 ethtool
+fbgrab
 fbida
 feh
 ffmpegthumbnailer
