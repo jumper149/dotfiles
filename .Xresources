@@ -6,7 +6,7 @@ Xcursor.theme: 	adwaita_cursors
 
 ! special
 *.foreground:   #c5c8c6
-*.background:   #1d1f21
+*.background:   #1c1c1c
 *.cursorColor:  #c5c8c6
 
 ! black
@@ -43,7 +43,7 @@ Xcursor.theme: 	adwaita_cursors
 
 ! URxvt
 
-URxvt.background:   rgba:1100/1010/1001/d000
+URxvt.background: [93]#1c1c1c
 urxvt.font: xft:Inconsolata:size=12
 URxvt.scrollBar: false
 URxvt.saveLines: 1000
