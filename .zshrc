@@ -1,27 +1,36 @@
 #
-# ~/.bashrc
+# ~/.zshrc
 #
 
-# if not running interactively, don't do anything
-[[ $- != *i* ]] && return
+unsetopt AUTO_CD BEEP EXTENDEDGLOB NOTIFY
 
-# ls colors
-alias ls='ls --color=auto'
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt APPENDHISTORY
+
+# compinstall
+zstyle :compinstall filename '/home/jumper/.zshrc'
+# auto completion
+autoload -Uz compinit
+compinit
+setopt COMPLETE_ALIASES NOMATCH
 
 # shell prompt colors
-if [ "$(hostname)" = "x220arch" ]
+if [ "`hostname`" = "x220arch" ]
 then
-	PS1='\[\e[35m\][\[\e[34m\]\u\[\e[32m\]@\[\e[33m\]\h \[\e[31m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
-elif [ "$(hostname)" = "x201arch" ]
+	PS1=$'%{\e[35m%}[%{\e[34m%}z%{\e[32m%}%{\e[33m%}s%{\e[31m%}h%{\e[35m%}]%{\e[1;97m%}\$%{\e[0m%} '
+elif [ "`hostname`" = "x201arch" ]
 then
-	PS1='\[\e[35m\][\[\e[34m\]\u\[\e[33m\]@\[\e[32m\]\h \[\e[31m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
-elif [ "$(hostname)" = "deskarch" ]
+	PS1=$'%{\e[35m%}[%{\e[34m%}z%{\e[33m%}%{\e[32m%}s%{\e[31m%}h%{\e[35m%}]%{\e[1;97m%}\$%{\e[0m%} '
+elif [ "`hostname`" = "deskarch" ]
 then
-	PS1='\[\e[35m\][\[\e[31m\]\u\[\e[33m\]@\[\e[32m\]\h \[\e[34m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
+	PS1=$'%{\e[35m%}[%{\e[31m%}z%{\e[33m%}%{\e[32m%}s%{\e[34m%}h%{\e[35m%}]%{\e[1;97m%}\$%{\e[0m%} '
 fi
 
 # vim
-set -o vi
+bindkey -v
 export VISUAL='vim -p'
 export EDITOR="$VISUAL"
 alias vi="$EDITOR"
