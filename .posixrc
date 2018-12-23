@@ -1,5 +1,8 @@
 # general variables, aliases and functions
 
+# ls colors
+alias ls='ls --color=auto'
+
 # vim
 export VISUAL="vim -p"
 export EDITOR="$VISUAL"

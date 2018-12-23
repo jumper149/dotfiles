@@ -5,8 +5,8 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# ls colors
-alias ls='ls --color=auto'
+# source general shell configuration
+source $HOME/.posixrc
 
 # shell prompt colors
 if [ "$(hostname)" = "x220arch" ]
@@ -22,9 +22,6 @@ fi
 
 # vim input
 set -o vi
-
-# source general shell configuration
-source $HOME/.posixrc
 
 # use colors from ~/.Xresources on tty, start tmux
 if [ "$TERM" = "linux" ]
