@@ -27,7 +27,12 @@ compdef dotgit="git"
 compdef ls="ls"
 
 # prompt
+autoload -U colors && colors
+setopt prompt_subst
 ZLE_RPROMPT_INDENT="0"
+local function PROMPT_LAST_RETURN() {
+	echo "%(?.%F{green}[%f%?%F{green}].%F{red}[%f%?%F{red}])%f"
+}
 local function PROMPT_SSH_HOST() {
 	if [[ -n "$SSH_CONNECTION" ]]
 	then
@@ -36,65 +41,49 @@ local function PROMPT_SSH_HOST() {
 		echo ""
 	fi
 }
-# Echoes information about Git repository status when inside a Git repository
-git_info() {
+local function PROMPT_GIT_INFO() {
+	# exit if not inside a Git repository
+	if [ "`git rev-parse --is-inside-work-tree 2> /dev/null`" != "true" ]
+	then
+		return 1
+	fi
 
-  # Exit if not inside a Git repository
-  ! git rev-parse --is-inside-work-tree > /dev/null 2>&1 && return
+	# git branch/tag, or name-rev if on detached head
+	local GIT_LOCATION=${$(git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD)#(refs/heads/|tags/)}
 
-  # Git branch/tag, or name-rev if on detached head
-  local GIT_LOCATION=${$(git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD)#(refs/heads/|tags/)}
+	# possible additions to prompt
+	local GIT_MERGING="%F{magenta}●%f"
+	local GIT_UNTRACKED="%F{red}●%f"
+	local GIT_MODIFIED="%F{yellow}●%f"
+	local GIT_STAGED="%F{green}●%f"
 
-  local AHEAD="%{$fg[red]%}⇡NUM%{$reset_color%}"
-  local BEHIND="%{$fg[cyan]%}⇣NUM%{$reset_color%}"
-  local MERGING="%{$fg[magenta]%}⚡︎%{$reset_color%}"
-  local UNTRACKED="%{$fg[red]%}●%{$reset_color%}"
-  local MODIFIED="%{$fg[yellow]%}●%{$reset_color%}"
-  local STAGED="%{$fg[green]%}●%{$reset_color%}"
+	# put right flags into $GIT_FLAGS
+	local GIT_FLAGS=""
+	local GIT_DIR="`git rev-parse --git-dir 2> /dev/null`"
+	if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
+		GIT_FLAGS+="$GIT_MERGING"
+	fi
+	if [ -n "`git ls-files --other --exclude-standard 2> /dev/null`" ]; then
+		GIT_FLAGS+="$GIT_UNTRACKED"
+	fi
+	if ! git diff --quiet 2> /dev/null; then
+		GIT_FLAGS+="$GIT_MODIFIED"
+	fi
+	if ! git diff --cached --quiet 2> /dev/null; then
+		GIT_FLAGS+="$GIT_STAGED"
+	fi
 
-  local -a DIVERGENCES
-  local -a FLAGS
-
-  local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
-  if [ "$NUM_AHEAD" -gt 0 ]; then
-    DIVERGENCES+=( "${AHEAD//NUM/$NUM_AHEAD}" )
-  fi
-
-  local NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
-  if [ "$NUM_BEHIND" -gt 0 ]; then
-    DIVERGENCES+=( "${BEHIND//NUM/$NUM_BEHIND}" )
-  fi
-
-  local GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
-  if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
-    FLAGS+=( "$MERGING" )
-  fi
-
-  if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-    FLAGS+=( "$UNTRACKED" )
-  fi
-
-  if ! git diff --quiet 2> /dev/null; then
-    FLAGS+=( "$MODIFIED" )
-  fi
-
-  if ! git diff --cached --quiet 2> /dev/null; then
-    FLAGS+=( "$STAGED" )
-  fi
-
-  local -a GIT_INFO
-  GIT_INFO+=( "\033[38;5;15m±" )
-  [ -n "$GIT_STATUS" ] && GIT_INFO+=( "$GIT_STATUS" )
-  [[ ${#DIVERGENCES[@]} -ne 0 ]] && GIT_INFO+=( "${(j::)DIVERGENCES}" )
-  [[ ${#FLAGS[@]} -ne 0 ]] && GIT_INFO+=( "${(j::)FLAGS}" )
-  GIT_INFO+=( "\033[38;5;15m$GIT_LOCATION%{$reset_color%}" )
-  echo "${(j: :)GIT_INFO}"
-
+	# return string for prompt
+	if [ -n "$GIT_FLAGS" ]
+	then
+		echo "${GIT_FLAGS} ${GIT_LOCATION}"
+	else
+		echo "${GIT_LOCATION}"
+	fi
 }
-PS1="%f[%F{blue}%n`PROMPT_SSH_HOST` %F{red}%1~%f]%B$%b "
-RPS1="%(?.%F{green}.%F{red})%?%f"
-# http://zsh.sourceforge.net/Doc/Release/Parameters.html#Parameters-Used-By-The-Shell
-# https://joshdick.net/2017/06/08/my_git_prompt_for_zsh_revisited.html
+# prompt needs '' instead of ""
+PS1='%f[%F{blue}%n`PROMPT_SSH_HOST` %F{red}%1~%f]%B$%b '
+RPS1='`PROMPT_GIT_INFO` `PROMPT_LAST_RETURN`'
 
 # vim input
 bindkey -v
