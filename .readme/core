@@ -117,7 +117,9 @@ zathura-ps
 zip
 zlib
 zsh
+zsh-completions
 zsh-syntax-highlighting
+
 zziplib
 
 mozilla-common
