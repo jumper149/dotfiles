@@ -8,27 +8,26 @@
 # source general shell configuration
 source $HOME/.posixrc
 
-unsetopt AUTO_CD BEEP EXTENDEDGLOB NOTIFY
+unsetopt BEEP NOTIFY
 
 # history
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-setopt APPENDHISTORY
 
 # compinstall
 zstyle :compinstall filename '/home/jumper/.zshrc'
 # auto completion
 autoload -Uz compinit
 compinit
-setopt COMPLETE_ALIASES NOMATCH
+setopt COMPLETE_ALIASES
 # compdef for compatible aliases in ~/.posixrc
 compdef dotgit="git"
 compdef ls="ls"
 
 # prompt
 autoload -U colors && colors
-setopt prompt_subst
+setopt PROMPT_SUBST
 ZLE_RPROMPT_INDENT="0"
 local function PROMPT_LAST_RETURN() {
 	echo "%(?.%F{green}[%f%?%F{green}].%F{red}[%f%?%F{red}])%f"
