@@ -18,6 +18,9 @@ then
 elif [ "$(hostname)" = "deskarch" ]
 then
 	PS1='\[\e[35m\][\[\e[31m\]\u\[\e[33m\]@\[\e[32m\]\h \[\e[34m\]\W\[\e[35m\]]\[\e[1;97m\]\$\[\e[0m\] '
+elif [ "$(hostname)" = "alarmpi" ]
+then
+	PS1='\[\e[37m\][\[\e[31m\]\u\[\e[37m\]@\[\e[39m\]\h \[\e[34m\]\W\[\e[37m\]]\[\e[1;97m\]\$\[\e[0m\] '
 fi
 
 # vim input
