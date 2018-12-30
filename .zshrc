@@ -23,7 +23,6 @@ compinit
 setopt COMPLETE_ALIASES
 # compdef for compatible aliases in ~/.posixrc
 compdef dotgit="git"
-compdef ls="ls"
 
 # prompt
 autoload -U colors && colors
