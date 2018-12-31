@@ -20,7 +20,6 @@ __orange_ps="`tput setaf 3`"
 __blue_ps="`tput setaf 4`"
 __purple_ps="`tput setaf 5`"
 __yellow_ps="`tput setaf 11`"
-__white_ps="`tput setaf 15`"
 __bold_ps="`tput bold`"
 __normal_ps="`tput sgr0`"
 function __exit_ps1() {
@@ -37,11 +36,11 @@ function __exit_ps1() {
 function __hostname_ps1() {
 	local EXIT="$?" # preserve exit status
 	if [ -n "$SSH_CONNECTION" ]; then
-		printf "\001%s\002@\001%s\002%s" "${__white_ps}" "${__purple_ps}" "$1"
+		printf "\001%s\002@\001%s\002%s" "${__normal_ps}" "${__purple_ps}" "$1"
 	fi
 	return "$EXIT"
 }
-PS1='\001${__white_ps}\002[`__exit_ps1`\u`__hostname_ps1 \h` \001${__blue_ps}\002\W`__git_ps1 " \001${__white_ps}\002@\001${__orange_ps}\002%s"`\001${__white_ps}\002]\001${__bold_ps}\002\$\001${__normal_ps}\002 '
+PS1='\001${__normal_ps}\002[`__exit_ps1`\u`__hostname_ps1 \h` \001${__blue_ps}\002\W`__git_ps1 " \001${__normal_ps}\002@\001${__orange_ps}\002%s"`\001${__normal_ps}\002]\001${__bold_ps}\002\$\001${__normal_ps}\002 '
 function __whitespace_ps2() {
 	local EXIT="$?" # preserve exit status
 	local EXTRA_SPACE="3"
@@ -59,7 +58,7 @@ function __whitespace_ps2() {
 	printf '%*s' "$LENGTH"
 	return "$EXIT"
 }
-PS2='`__whitespace_ps2 \u \h \W`\001${__yellow_ps}\002>\001${__white_ps}\002 '
+PS2='`__whitespace_ps2 \u \h \W`\001${__yellow_ps}${__bold_ps}\002>\001${__normal_ps}\002 '
 
 # vim input
 set -o vi
