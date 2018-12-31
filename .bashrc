@@ -16,7 +16,7 @@ __git_complete dotgit __git_main
 source /usr/share/git/completion/git-prompt.sh # provides __git_ps1
 function __exit_ps1() {
 	local EXIT="$?"
-	local EXIT_COLOR="\e[39m"
+	local EXIT_COLOR=""
 	if [ "$EXIT" = 0 ]; then
 		EXIT_COLOR="\e[32m"
 	else
