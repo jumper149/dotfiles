@@ -14,26 +14,34 @@ __git_complete dotgit __git_main
 
 # shell prompt
 source /usr/share/git/completion/git-prompt.sh # provides __git_ps1
+__red_ps1="`tput setaf 1`"
+__green_ps1="`tput setaf 2`"
+__orange_ps1="`tput setaf 3`"
+__blue_ps1="`tput setaf 4`"
+__purple_ps1="`tput setaf 5`"
+__white_ps1="`tput setaf 15`"
+__bold_ps1="`tput bold`"
+__normal_ps1="`tput sgr0`"
 function __exit_ps1() {
 	local EXIT="$?"
 	local EXIT_COLOR=""
 	if [ "$EXIT" = 0 ]; then
-		EXIT_COLOR="\e[32m"
+		EXIT_COLOR="${__green_ps1}"
 	else
-		EXIT_COLOR="\e[31m"
+		EXIT_COLOR="${__red_ps1}"
 	fi
-	echo -e "$EXIT_COLOR"
+	printf '\001%s\002' "$EXIT_COLOR"
 	return "$EXIT"
 }
 function __hostname_ps1() {
 	local EXIT="$?" # preserve exit status
-	local HOSTNAME_STRING="\e[39m@\e[35m$1"
 	if [ -n "$SSH_CONNECTION" ]; then
-		echo -e "$HOSTNAME_STRING"
+		printf "\001%s\002@\001%s\002%s" "${__white_ps1}" "${__purple_ps1}" "$1"
 	fi
 	return "$EXIT"
 }
-PS1='\[\e[39m\][`__exit_ps1`\u`__hostname_ps1 \h` \[\e[34m\]\W`__git_ps1 " \[\e[39m\]@\[\e[33m\]%s"`\[\e[39m\]]\[\e[1;97m\]\$\[\e[0m\] '
+PS1='\001${__white_ps1}\002[`__exit_ps1`\u`__hostname_ps1 \h` \001${__blue_ps1}\002\W`__git_ps1 " \001${__white_ps1}\002@\001${__orange_ps1}\002%s"`\001${__white_ps1}\002]\001${__bold_ps1}\002\$\001${__normal_ps1}\002 '
+
 
 # vim input
 set -o vi
