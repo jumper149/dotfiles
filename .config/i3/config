@@ -1,6 +1,3 @@
-# i3 config file (v4)
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
 set $mod Mod4
 set $mod2 Mod1
 
@@ -152,15 +149,9 @@ bindsym $mod+Shift+e exec "~/.config/i3/scripts/shutdown.sh"
 
 # distance for resizing and moving windows
 set $dist 7
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width $dist px or $dist ppt
         bindsym j resize grow height $dist px or $dist ppt
         bindsym k resize shrink height $dist px or $dist ppt
@@ -178,7 +169,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
         bindsym q mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus i3blocks)
