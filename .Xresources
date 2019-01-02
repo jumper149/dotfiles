@@ -47,20 +47,23 @@ URxvt.background: [93]#1c1c1c
 URxvt.depth:      32
 URxvt.scrollBar:  false
 URxvt.saveLines:  1000
-URxvt.visualBell: true
+
+! causes flickering
+!URxvt.visualBell: true
 
 ! font
-urxvt.font:           xft:Inconsolata:size=12
+urxvt.font: xft:Inconsolata:size=12
 
 ! url
 URxvt.url-launcher: /usr/bin/qutebrowser
 
 ! scrolling
-URxvt*scrollTtyOutput:   false
-URxvt*scrollWithBuffer:  true
-URxvt*scrollTtyKeypress: true
+URxvt.scrollTtyOutput:   false
+URxvt.scrollWithBuffer:  true
+URxvt.scrollTtyKeypress: true
 URxvt.keysym.M-k:        command:\033]720;1\007
 URxvt.keysym.M-j:        command:\033]721;1\007
+! PageUp with Shift+PageUp, PageDown with Shift+PageDown
 
 ! perl extensions
 URxvt.perl-ext-common: default,matcher,resize-font
