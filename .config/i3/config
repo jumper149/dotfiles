@@ -11,12 +11,13 @@ set_from_resource $color5 i3wm.color5 #000000
 set_from_resource $color6 i3wm.color6 #000000
 set_from_resource $color7 i3wm.color7 #000000
 set_from_resource $color8 i3wm.color8 #000000
-set_from_resource $color9 i3wm.color10 #000000
-set_from_resource $colora i3wm.color11 #000000
-set_from_resource $colorb i3wm.color12 #000000
-set_from_resource $colorc i3wm.color13 #000000
-set_from_resource $colord i3wm.color14 #000000
-set_from_resource $colore i3wm.color15 #000000
+set_from_resource $color9 i3wm.color9 #000000
+set_from_resource $colora i3wm.color10 #000000
+set_from_resource $colorb i3wm.color11 #000000
+set_from_resource $colorc i3wm.color12 #000000
+set_from_resource $colord i3wm.color13 #000000
+set_from_resource $colore i3wm.color14 #000000
+set_from_resource $colorf i3wm.color15 #000000
 
 # class                 border    backgr.   text      indicator   child_border
 client.focused          #4c7899   #285577   #ffffff   $color280   $color2e0
@@ -179,8 +180,8 @@ bar {
 	modifier $mod
 	
 	colors {
-        background $colore88
-        focused_background $coloreff
+        background $colorf88
+        focused_background $colorfff
         statusline $color8ff
         separator  $color8ff
 
