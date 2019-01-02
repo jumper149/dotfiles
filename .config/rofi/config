@@ -51,9 +51,9 @@ rofi.kb-move-end:                    Alt+A
 ! "Move forward one word" Set from: Default
  rofi.kb-move-word-forward:           Alt+e
 ! "Move back one char" Set from: Default
-rofi.kb-move-char-back:              Left,Alt+h
+rofi.kb-move-char-back:              Left,Alt+h,Super+h
 ! "Move forward one char" Set from: Default
-rofi.kb-move-char-forward:           Right,Alt+l
+rofi.kb-move-char-forward:           Right,Alt+l,Super+l
 ! "Delete previous word" Set from: Default
 rofi.kb-remove-word-back:            Control+BackSpace
 ! "Delete next word" Set from: Default
@@ -69,15 +69,15 @@ rofi.kb-remove-to-sol:               Alt+c
 ! "Accept entry" Set from: Default
 rofi.kb-accept-entry:                Return,KP_Enter
 ! "Select previous entry" Set from: Default
-rofi.kb-row-up:                      Up,Alt+k,Control+p,Control+N,ISO_Left_Tab
+rofi.kb-row-up:                      Up,Alt+k,Super+k,Control+p,Control+N,ISO_Left_Tab
 ! "Select next entry" Set from: Default
-rofi.kb-row-down:                    Down,Alt+j,Control+n
+rofi.kb-row-down:                    Down,Alt+j,Super+j,Control+n
 ! "Go to next row, if one left, accept it, if no left next mode." Set from: Default
 rofi.kb-row-tab:                     Tab
 ! "Go to the previous page" Set from: Default
-rofi.kb-page-prev:                   Page_Up,Control+u,Alt+K
+rofi.kb-page-prev:                   Page_Up,Control+u,Alt+K,Super+K
 ! "Go to the next page" Set from: Default
-rofi.kb-page-next:                   Page_Down,Control+d,Alt+J
+rofi.kb-page-next:                   Page_Down,Control+d,Alt+J,Super+J
 ! "Take a screenshot of the rofi window" Set from: Default
 rofi.kb-screenshot:                  Control+Print
 ! "Toggle case sensitivity" Set from: Default
@@ -87,9 +87,9 @@ rofi.kb-toggle-sort:                 Alt+grave
 ! "Quit rofi" Set from: Default
 rofi.kb-cancel:                      Escape,Alt+q,Alt+Q,Control+q,Control+x,Super+Q
 ! "Switch to the next mode." Set from: Default
-rofi.kb-mode-next:                   Shift+Right,Alt+L,Control+Tab
+rofi.kb-mode-next:                   Shift+Right,Alt+L,Super+L,Control+Tab
 ! "Switch to the previous mode." Set from: Default
-rofi.kb-mode-previous:               Shift+Left,Alt+H,Control+ISO_Left_Tab
+rofi.kb-mode-previous:               Shift+Left,Alt+H,Super+H,Control+ISO_Left_Tab
 ! "Select row 1" Set from: Default
  rofi.kb-select-1:                    Control+Alt+1
 ! "Select row 2" Set from: Default
