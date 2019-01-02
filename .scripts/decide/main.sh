@@ -13,13 +13,12 @@ then
 	LIST=${LIST:0:$((${#LIST} - 2))}
 fi
 
-SPACEDLIST=$(echo "$LIST" | sed 's/\\n/ /g')
-
 if [ -n "$DISPLAY" ]
 then
 	RETURNSTRING="`echo -e "$LIST" | rofi -dmenu`"
 else
-	RETURNSTRING="`python ~/.scripts/decide/decide-fallback.py $SPACEDLIST`"
+	SPACEDLIST=$(echo "$LIST" | sed 's/\\n/ /g')
+	RETURNSTRING="`~/.scripts/decide/terminal.sh $SPACEDLIST`"
 fi
 
 if [ -n "$RETURNSTRING" ]

@@ -32,7 +32,7 @@ done
 CHOSEN_LABEL="$(~/.scripts/decide/main.sh $LABEL_LIST)"
 
 if [ "$CHOSEN_LABEL" == "" ] ; then
-	echo "ERROR: didn't choose anything to unmount, is 'decide.sh' working?"
+	echo "ERROR: didn't choose anything to unmount, is 'decide' working?"
 	exit 1 ;
 elif [ "$CHOSEN_LABEL" == "all" ] ; then
 	for UUID in $UUID_LIST ; do
