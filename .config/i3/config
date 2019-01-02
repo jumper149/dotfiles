@@ -19,12 +19,12 @@ set_from_resource $colord i3wm.color13 #000000
 set_from_resource $colore i3wm.color14 #000000
 set_from_resource $colorf i3wm.color15 #000000
 
-# class                 border    backgr.   text      indicator   child_border
-client.focused          #4c7899   #285577   #ffffff   $color280   $color2e0
-client.focused_inactive #333333   #5f676a   #ffffff   $color580   $color5e0
-client.unfocused        #333333   #222222   #888888   $color080   $color0e0
-client.urgent           #2f343a   #900000   #ffffff   $color180   $color1e0
-client.placeholder      #000000   #0c0c0c   #ffffff   #000000     #0c0c0c
+# class                 border      backgr.   text      indicator   child_border
+client.focused          $color2e0   $color2   $color0   $color280   $color2e0
+client.focused_inactive $color5e0   $color5   $color0   $color580   $color5e0
+client.unfocused        $color7e0   $color7   $color0   $color080   $color0e0
+client.urgent           $color1e0   $color1   $color0   $color180   $color1e0
+client.placeholder      #000000     #0c0c0c   #ffffff   #000000     #0c0c0c
 
 client.background       #ffffff
 
@@ -76,7 +76,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
