@@ -1,54 +1,66 @@
 ! cursor
 
-Xcursor.theme: 	adwaita_cursors
+Xcursor.theme: adwaita_cursors
 
 ! colors
 
 ! special
-*.foreground:   #c5c8c6
-*.background:   #1c1c1c
-*.cursorColor:  #c5c8c6
+*.foreground:  #c5c8c6
+*.background:  #1c1c1c
+*.cursorColor: #c5c8c6
 
 ! black
-*.color0:       #282a2e
-*.color8:       #373b41
+*.color0:      #282a2e
+*.color8:      #373b41
 
 ! red
-*.color1:       #a54242
-*.color9:       #cc6666
+*.color1:      #a54242
+*.color9:      #cc6666
 
 ! green
-*.color2:       #8c9440
-*.color10:      #b5bd68
+*.color2:      #8c9440
+*.color10:     #b5bd68
 
 ! yellow
-*.color3:       #de935f
-*.color11:      #f0c674
+*.color3:      #de935f
+*.color11:     #f0c674
 
 ! blue
-*.color4:       #5f819d
-*.color12:      #81a2be
+*.color4:      #5f819d
+*.color12:     #81a2be
 
 ! magenta
-*.color5:       #85678f
-*.color13:      #b294bb
+*.color5:      #85678f
+*.color13:     #b294bb
 
 ! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
+*.color6:      #5e8d87
+*.color14:     #8abeb7
 
 ! white
-*.color7:       #707880
-*.color15:      #c5c8c6
+*.color7:      #707880
+*.color15:     #c5c8c6
 
 ! URxvt
 
 URxvt.background: [93]#1c1c1c
-urxvt.font: xft:Inconsolata:size=12
-URxvt.scrollBar: false
-URxvt.saveLines: 1000
+URxvt.depth:      32
+URxvt.scrollBar:  false
+URxvt.saveLines:  1000
+URxvt.visualBell: true
+
+! font
+urxvt.font:           xft:Inconsolata:size=12
+
+! url
 URxvt.url-launcher: /usr/bin/qutebrowser
-URxvt.depth: 32
+
+! scrolling
+URxvt*scrollTtyOutput:   false
+URxvt*scrollWithBuffer:  true
+URxvt*scrollTtyKeypress: true
+URxvt.keysym.M-k:        command:\033]720;1\007
+URxvt.keysym.M-j:        command:\033]721;1\007
 
 ! perl extensions
 URxvt.perl-ext-common: default,matcher,resize-font

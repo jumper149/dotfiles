@@ -69,17 +69,6 @@ if has('mouse')
   set mouse=a
 endif
 
-" Switch syntax highlighting on when the terminal has colors or when using the
-" GUI (which always has colors).
-if &t_Co > 2 || has("gui_running")
-  " Revert with ":syntax off".
-  syntax on
-
-  " I like highlighting strings inside C comments.
-  " Revert with ":unlet c_comment_strings".
-  let c_comment_strings=1
-endif
-
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -138,11 +127,25 @@ vmap <C-x> "+c<ESC>
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
-" Activates 256-color-terminal support
-set t_Co=256
+" Switch syntax highlighting on when the terminal has colors or when using the
+" GUI (which always has colors).
+if &t_Co >= 8 || has("gui_running")
+  " Revert with ":syntax off".
+  syntax on
 
-" Sets colorscheme
-colorscheme wombat256mod
+  " I like highlighting strings inside C comments.
+  " Revert with ":unlet c_comment_strings".
+  let c_comment_strings=1
+
+  " Use italic font for comments in 256-color terminal
+  " and set colorscheme
+  if &t_Co >= 256 || has("gui_running")
+    colorscheme wombat256mod
+    highlight Comment cterm=italic
+  else
+    colorscheme default
+  endif 
+endif
 
 " For vim-airline, vim-airline-themes
 let g:airline_theme='base16_default'
