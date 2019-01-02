@@ -90,6 +90,28 @@ rofi.kb-cancel:                      Escape,Alt+q,Alt+Q,Control+q,Control+x
 rofi.kb-mode-next:                   Shift+Right,Alt+L,Control+Tab
 ! "Switch to the previous mode." Set from: Default
 rofi.kb-mode-previous:               Shift+Left,Alt+H,Control+ISO_Left_Tab
+! "Select row 1" Set from: Default
+ rofi.kb-select-1:                    Control+Alt+1
+! "Select row 2" Set from: Default
+ rofi.kb-select-2:                    Control+Alt+2
+! "Select row 3" Set from: Default
+ rofi.kb-select-3:                    Control+Alt+3
+! "Select row 4" Set from: Default
+ rofi.kb-select-4:                    Control+Alt+4
+! "Select row 5" Set from: Default
+ rofi.kb-select-5:                    Control+Alt+5
+! "Select row 6" Set from: Default
+ rofi.kb-select-6:                    Control+Alt+6
+! "Select row 7" Set from: Default
+ rofi.kb-select-7:                    Control+Alt+7
+! "Select row 8" Set from: Default
+ rofi.kb-select-8:                    Control+Alt+8
+! "Select row 9" Set from: Default
+ rofi.kb-select-9:                    Control+Alt+9
+! "Select row 10" Set from: Default
+ rofi.kb-select-10:                   Control+Alt+0
+
+!----------------------------------------------------------------------------------
 
 ! "Border width" Set from: Default
 ! rofi.bw:                             1
@@ -239,26 +261,6 @@ rofi.kb-mode-previous:               Shift+Left,Alt+H,Control+ISO_Left_Tab
 ! rofi.kb-custom-18:                   Alt+asterisk
 ! "Custom Keybinding 19" Set from: Default
 ! rofi.kb-custom-19:                   Alt+parenleft
-! "Select row 1" Set from: Default
-! rofi.kb-select-1:                    Super+1
-! "Select row 2" Set from: Default
-! rofi.kb-select-2:                    Super+2
-! "Select row 3" Set from: Default
-! rofi.kb-select-3:                    Super+3
-! "Select row 4" Set from: Default
-! rofi.kb-select-4:                    Super+4
-! "Select row 5" Set from: Default
-! rofi.kb-select-5:                    Super+5
-! "Select row 6" Set from: Default
-! rofi.kb-select-6:                    Super+6
-! "Select row 7" Set from: Default
-! rofi.kb-select-7:                    Super+7
-! "Select row 8" Set from: Default
-! rofi.kb-select-8:                    Super+8
-! "Select row 9" Set from: Default
-! rofi.kb-select-9:                    Super+9
-! "Select row 10" Set from: Default
-! rofi.kb-select-10:                   Super+0
 ! "Go to the previous column" Set from: Default
 ! rofi.ml-row-left:                    ScrollLeft
 ! "Go to the next column" Set from: Default

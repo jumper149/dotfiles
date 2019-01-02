@@ -42,8 +42,8 @@
 
 
     normal-foreground:           @foreground;
-    urgent-foreground:           @foreground;
-    active-foreground:           @foreground;
+    active-foreground:           @color5;
+    urgent-foreground:           @color1;
 
     normal-background:           @background;
     active-background:           @background;
@@ -81,7 +81,7 @@
     background-color: @background;
     border:           2;
     border-color:     @selected-normal-background;
-    padding:          5;
+    padding:          5px 5px 0px;
 }
 #mainbox {
     border:  0;
@@ -154,16 +154,16 @@
     padding:      0;
 }
 #sidebar {
-    border:       2px dash 0px 0px ;
+    border:       2px 0px 0px ;
     border-color: @separatorcolor;
-    padding:      4px 0px 0px;
+    padding:      0px 0px 0px;
 }
 #button {
     spacing:    0;
     text-color: @normal-foreground;
 }
 #button.selected {
-    background-color: @selected-normal-background;
+    background-color: @separatorcolor;
     text-color:       @selected-normal-foreground;
 }
 #inputbar {
