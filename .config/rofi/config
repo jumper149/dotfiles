@@ -85,7 +85,7 @@ rofi.kb-toggle-case-sensitivity:     grave,dead_grave
 ! "Toggle sort" Set from: Default
 rofi.kb-toggle-sort:                 Alt+grave
 ! "Quit rofi" Set from: Default
-rofi.kb-cancel:                      Escape,Alt+q,Alt+Q,Control+q,Control+x
+rofi.kb-cancel:                      Escape,Alt+q,Alt+Q,Control+q,Control+x,Super+Q
 ! "Switch to the next mode." Set from: Default
 rofi.kb-mode-next:                   Shift+Right,Alt+L,Control+Tab
 ! "Switch to the previous mode." Set from: Default
