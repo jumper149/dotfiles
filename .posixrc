@@ -24,9 +24,6 @@ alias usbmount="$HOME/.scripts/usb/mount.sh"
 alias usbumount="$HOME/.scripts/usb/umount.sh"
 alias usbbackup="$HOME/.scripts/usb/backup.sh"
 
-# mail directory
-export MAIL="$HOME/.mail/"
-
 # record ffmpeg
 alias ffmpegscreen="$HOME/.scripts/record_screen.sh"
 
@@ -46,6 +43,12 @@ alias ranger-trash-clear="$HOME/.config/ranger/empty_trash.sh"
 
 # fastermelee
 alias fastermelee="LD_LIBRARY_PATH=$HOME/Templates/fm-git/lib/ $HOME/Templates/fm-git/FasterMelee-installer/src/launch-fm"
+
+# display terminal colors
+alias print-colors="$HOME/.scripts/print-colors.sh"
+
+# mail directory
+export MAIL="$HOME/.mail/"
 
 # ssh and local ip
 IPDESK="192.168.1.199"
