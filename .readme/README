@@ -76,9 +76,6 @@ $ systemctl enable cronie.service
 $ gpasswd --add $NONROOTUSER users
 
 # [bluetooth]
-# uncomment:
-# 	ln107: AutoEnable=false
-$ vim /etc/bluetooth/main.conf
 $ systemctl enable bluetooth.service
 
 # [vnstat]
