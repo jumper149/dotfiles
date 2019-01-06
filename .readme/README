@@ -152,6 +152,10 @@ $ pass insert test/test
 # overwrite the empty crontab for your user
 $ crontab ~/.readme/root-config/crontab
 
+# [pacsync]
+$ mkdir ~/Packages
+$ git clone https://github.com/jumper149/pkgaur.git ~/Packages/pkgaur
+
 #----------------------------------------------------------------
 
 # now you are set up :)
