@@ -276,7 +276,7 @@ exec --no-startup-id "~/.wallpaper/wallpaper_set.sh"
 exec --no-startup-id "xautolock -locker 'i3lock -c 000000 -f --script' -notify 3 -notifier ~/.config/i3/scripts/lock_notify.sh -time 10"
 exec --no-startup-id "xdotool mousemove 0 0"
 exec --no-startup-id "unclutter --timeout 3 --jitter 3 --ignore-scrolling"
-exec --no-startup-id "blugon"
+exec --no-startup-id "blugon --backend='scg'"
 
 # start applications
 bindsym $mod+grave [urgent=latest] focus
