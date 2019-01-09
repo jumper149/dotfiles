@@ -159,3 +159,23 @@ $ git clone https://github.com/jumper149/pkgaur.git ~/Packages/pkgaur
 #----------------------------------------------------------------
 
 # now you are set up :)
+
+#----------------------------------------------------------------
+
+# extra information
+
+# places that use hardcoded color configuration
+# 	~/.Xresources
+# 	~/.vimrc @ colorscheme
+# 	~/.config/rofi/jumper-i3.rasi
+# 	~/.config/zathura/zathurarc
+
+# 	depending on '~/.Xresources':
+# 		~/.config/i3/config
+# 		~/.mutt/colors
+# 		~./irssi/default.theme
+# 		~/.config/neofetch/config.conf
+# 		~/.config/ranger/rc.conf @ colorscheme
+# 		~/.scripts/tty-colors.sh
+# 		~/.bashrc @ prompt
+# 		~/.zshrc @ prompt
