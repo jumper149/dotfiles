@@ -216,11 +216,16 @@ bindsym Control+$mod+slash exec --no-startup-id "~/.scripts/brightness/down.sh"
 
 # audio volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
 bindsym Control+$mod+equal exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+
 bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
 bindsym Control+$mod+minus exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
+
 bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
 bindsym Control+$mod+0 exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
+
 bindsym XF86AudioMicMute exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
 bindsym Control+$mod+bracketright exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
 
