@@ -66,6 +66,7 @@ set -o vi
 # use colors from ~/.Xresources on tty, start tmux
 if [ "$TERM" = "linux" ]
 then
-	source ~/.scripts/tty-colors.sh
+	blugon --once --backend="tty" && clear
+	(blugon --backend="tty")&
 	tmux && tput reset && exit 0
 fi
