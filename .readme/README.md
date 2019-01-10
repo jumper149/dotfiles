@@ -1,4 +1,4 @@
-### Dotfiles
+# Dotfiles
 for my ArchLinux-Systems
 
 ## Prepare
@@ -35,63 +35,63 @@ Set $NONROOTUSER and $NONROOTHOME (without '/' at the end):
     NONROOTUSER=jumper
     NONROOTHOME=/home/jumper
 
-# haveged
+### haveged
 Random Number Generator
 
     systemctl enable haveged.service
 
-# Networking
+### Networking
 `wpa_supplicant` for wireless, `dhcpcd` for DHCP
 
     ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
     systemctl enable dhcpcd.service
 
-# ca-certificates
+### ca-certificates
 to access eduroam-WIFI
 
     cp $NONROOTHOME/.readme/root-config/deutsche-telekom-root-ca-2.crt /usr/share/ca-certificates/trust-source/anchors/
     trust extract-compat /usr/share/ca-certificates/trust-source/anchors/deutsche-telekom-root-ca-2.crt
 
-# sudo
+### sudo
 allow sudo for group wheel with `visudo`:
 
     visudo
     gpasswd --add $NONROOTUSER wheel
 
-# X
+### X
 to start X
 
     systemctl enable sddm.service
 
-# ufw
+### ufw
 
     systemctl enable ufw.service
     ufw default deny
     ufw limit SSH
     ufw enable
 
-# sensors
+### sensors
 
     sensors-detect
 
-# backlight
+### backlight
 
     gpasswd --add $NONROOTUSER video
 
-# sshd
+### sshd
 
     systemctl enable sshd.socket
 
-# cronie
+### cronie
 
     systemctl enable cronie.service
     gpasswd --add $NONROOTUSER users
 
-# Bluetooth
+### Bluetooth
 
     systemctl enable bluetooth.service
 
-# vnstat
+### vnstat
 
     systemctl enable vnstat.service
     systemctl start vnstat.service
@@ -100,23 +100,23 @@ Update the desired interfaces if necessary:
     vnstat -u -i wlp2s0
     vnstat -u -i enp0s25
 
-# tor
+### tor
 
     systemctl enable tor.service
 maybe allow gpg keys (look into PKGBUILD when compiling snapshot)
 
-# Mathematica
+### Mathematica
 requires AUR-package and license
 
     systemctl enable avahi-daemon.service
 
 ## outside of home-directory
 
-# groups
+### groups
 
     gpasswd --add $NONROOTUSER {wheel,video,audio}
 
-# example configurations
+### example configurations
 There are examples in `~/.readme/root-config/`.
 Check these out by yourself.
 
@@ -141,7 +141,7 @@ udev rule for `fastermelee`:
 ## Configuration by User
 Some config-files might need to be set up for your particular system:
 
-# i3bar
+### i3bar
 Fill in some necessary information:
 
     ~/.system-info.sh
@@ -152,20 +152,20 @@ Check everything in `$HOME/.config/i3blocks`, especially:
     battery.sh
 
 
-# blugon
+### blugon
 
     systemctl --user enable blugon.service
 
-# mpd
+### mpd
 
     systemctl --user enable mpd.service
 
-# trash
+### trash
 Set up `$HOME/.trash` for ranger:
 
     mkdir ~/.trash
 
-# pass
+### pass
 Copy your `.password-store` to `$HOME/.password-store`:
 
     cp .password-store $HOME/.password-store
@@ -174,17 +174,17 @@ Have an entry `test/test` with password `test` inside or create it with
     pass insert test/test
 Copy everything necessary into `$HOME/.gnupg`.
 
-# cronie
+### cronie
 Overwrite the empty crontab for your user:
 
     crontab ~/.readme/root-config/crontab
 
-# pacsync
+### pacsync
 
     mkdir ~/Packages
     git clone https://github.com/jumper149/pkgaur.git ~/Packages/pkgaur
 
-# Additional Information
+## Additional Information
 
 Places that use hardcoded color configuration:
 
