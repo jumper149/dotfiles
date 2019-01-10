@@ -1,182 +1,205 @@
-# check out '~/.readme/LICENSE'
+### Dotfiles
+for my ArchLinux-Systems
 
-#----------------------------------------------------------------
+## Prepare
+Create a user with home-directory or create one as root with
 
-# to use these dotfiles
+    useradd -m -U $NONROOTUSER 
 
-# have a user with homedirectory or create one as root with
-$ useradd -m -U $NONROOTUSER 
-# enter password with
-$ passwd $NONROOTUSER
+enter password with
 
-# then as $NONROOTUSER
+    passwd $NONROOTUSER
 
-$ alias dotgit="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-$ git clone --bare https://github.com/jumper149/dotfiles.git $HOME/.dotfiles
-$ dotgit config --local status.showUntrackedFiles no
-$ dotgit checkout
+then as `$NONROOTUSER`
 
-#----------------------------------------------------------------
+    alias dotgit="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+    git clone --bare https://github.com/jumper149/dotfiles.git $HOME/.dotfiles
+    dotgit config --local status.showUntrackedFiles no
+    dotgit checkout
 
-# archlinux pkg dependencies for utilising the dotfiles
-# are found in files:
+## Dependencies
+ArchLinux Package dependencies for utilising the dotfiles are found in `~/.readme`:
 
-# ~/.readme/groups
-# ~/.readme/core
-# ~/.readme/aur
-# ~/.readme/maybe
+    ~/.readme/groups
+    ~/.readme/core
+    ~/.readme/Maaur
+    ~/.readme/maybe
 
-# groups and core are necessary
-# there is '~/.readme/install_core.sh' alias 'pacsync' to install groups, core and aur
+To install all Packages in `groups`, `core` and `aur` call `~/.readme/install_core.sh` with
 
-#----------------------------------------------------------------
+    pacsync
 
-# services and other stuff that needs to be done by root after installing
-# set $NONROOTUSER and $NONROOTHOME (no '/' at the end)
+## Configuration by Root
+Set $NONROOTUSER and $NONROOTHOME (without '/' at the end):
 
-$ NONROOTUSER=jumper
-$ NONROOTHOME=/home/jumper
+    NONROOTUSER=jumper
+    NONROOTHOME=/home/jumper
 
-# [haveged]
-$ systemctl enable haveged.service
+# haveged
+Random Number Generator
 
-# [Networking]
-$ ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
-$ systemctl enable dhcpcd.service
+    systemctl enable haveged.service
 
-# [ca-certs]
-$ cp $NONROOTHOME/.readme/root-config/deutsche-telekom-root-ca-2.crt /usr/share/ca-certificates/trust-source/anchors/
-$ trust extract-compat /usr/share/ca-certificates/trust-source/anchors/deutsche-telekom-root-ca-2.crt
+# Networking
+`wpa_supplicant` for wireless, `dhcpcd` for DHCP
 
-# [sudo]
-# allow sudo for group wheel with
-$ visudo
-$ gpasswd --add $NONROOTUSER wheel
+    ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
+    systemctl enable dhcpcd.service
 
-# [xorg]
-$ systemctl enable sddm.service
+# ca-certificates
+to access eduroam-WIFI
 
-# [ufw]
-$ systemctl enable ufw.service
-$ ufw default deny
-$ ufw limit SSH
-$ ufw enable
+    cp $NONROOTHOME/.readme/root-config/deutsche-telekom-root-ca-2.crt /usr/share/ca-certificates/trust-source/anchors/
+    trust extract-compat /usr/share/ca-certificates/trust-source/anchors/deutsche-telekom-root-ca-2.crt
 
-# [sensors]
-$ sensors-detect
+# sudo
+allow sudo for group wheel with `visudo`:
 
-# [backlight]
-$ gpasswd --add $NONROOTUSER video
+    visudo
+    gpasswd --add $NONROOTUSER wheel
 
-# [sshd]
-$ systemctl enable sshd.socket
+# X
+to start X
 
-# [cronie]
-$ systemctl enable cronie.service
-$ gpasswd --add $NONROOTUSER users
+    systemctl enable sddm.service
 
-# [bluetooth]
-$ systemctl enable bluetooth.service
+# ufw
 
-# [vnstat]
-$ systemctl enable vnstat.service
-$ systemctl start vnstat.service
-# update the desired interfaces
-$ vnstat -u -i wlp2s0
-$ vnstat -u -i enp0s25
+    systemctl enable ufw.service
+    ufw default deny
+    ufw limit SSH
+    ufw enable
 
-# [tor]
-$ systemctl enable tor.service
-# maybe allow gpg keys (look into PKGBUILD when compiling snapshot)
+# sensors
 
-# [mathematica]
-# install aur-package
-$ systemctl enable avahi-daemon.service
+    sensors-detect
 
-#----------------------------------------------------------------
+# backlight
 
-# configuration outside of homedirectory by root
+    gpasswd --add $NONROOTUSER video
 
-# [groups]
-$ gpasswd --add $NONROOTUSER {wheel,video}
+# sshd
 
-# [examples in ~/.readme/root-config/]
-# check these out by yourself
+    systemctl enable sshd.socket
 
-$ cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_supplicant.conf
+# cronie
 
-$ cp $NONROOTHOME/.readme/root-config/sshd_config /etc/ssh/sshd_config
+    systemctl enable cronie.service
+    gpasswd --add $NONROOTUSER users
 
-# for BIOS boot, change entries
-$ cp $NONROOTHOME/.readme/root-config/syslinux.cfg /boot/syslinux/syslinux.cfg
+# Bluetooth
 
-$ cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
+    systemctl enable bluetooth.service
 
-# maybe change KERNEL in backlight.rules
-$ cp $NONROOTHOME/.readme/root-config/backlight.rules /etc/udev/rules.d/backlight.rules
+# vnstat
 
-# udev rule for dolphin-emu/fastermelee
-$ cp $NONROOTHOME/.readme/root-config/51-gcadapter.rules /etc/udev/rules.d/51-gcadapter.rules
+    systemctl enable vnstat.service
+    systemctl start vnstat.service
+Update the desired interfaces if necessary:
 
-#----------------------------------------------------------------
+    vnstat -u -i wlp2s0
+    vnstat -u -i enp0s25
 
-# extra configuration
+# tor
 
-# set up following files
+    systemctl enable tor.service
+maybe allow gpg keys (look into PKGBUILD when compiling snapshot)
 
-# [i3bar]
-# check everything in $HOME/.config/i3blocks
-# especially:
-# 	temperature.sh
-# 	fan.sh
-# 	battery.sh
-# also even more important ~/.system-info.sh
+# Mathematica
+requires AUR-package and license
 
-# [blugon]
-$ systemctl --user enable blugon.service
+    systemctl enable avahi-daemon.service
 
-# [mpd]
-$ systemctl --user enable mpd.service
+## outside of home-directory
 
-# [trash]
-# ~/.trash is being used by ranger
-$ mkdir ~/.trash
+# groups
 
-# [pass]
-# copy your .password-store into $HOME
-# have an insertion 'test/test' with password 'test' inside or add it with
-$ pass insert test/test
-# copy everything necessary into $HOME/.gnupg
+    gpasswd --add $NONROOTUSER {wheel,video,audio}
 
-# [cronie]
-# overwrite the empty crontab for your user
-$ crontab ~/.readme/root-config/crontab
+# example configurations
+There are examples in `~/.readme/root-config/`.
+Check these out by yourself.
 
-# [pacsync]
-$ mkdir ~/Packages
-$ git clone https://github.com/jumper149/pkgaur.git ~/Packages/pkgaur
+    cp $NONROOTHOME/.readme/root-config/wpa_supplicant /etc/wpa_supplicant/wpa_supplicant.conf
 
-#----------------------------------------------------------------
+    cp $NONROOTHOME/.readme/root-config/sshd_config /etc/ssh/sshd_config
 
-# now you are set up :)
+For BIOS boot, change partition entries and maybe Kernel parameters:
 
-#----------------------------------------------------------------
+    cp $NONROOTHOME/.readme/root-config/syslinux.cfg /boot/syslinux/syslinux.cfg
 
-# extra information
+    cp $NONROOTHOME/.readme/root-config/sddm.conf /etc/sddm.conf
 
-# places that use hardcoded color configuration
-# 	~/.Xresources
-# 	~/.vimrc @ colorscheme
-# 	~/.config/blugon/config
-# 	~/.config/rofi/jumper-i3.rasi
-# 	~/.config/zathura/zathurarc
+Maybe change KERNEL in `backlight.rules`:
 
-# 	depending on '~/.Xresources':
-# 		~/.config/i3/config
-# 		~/.mutt/colors
-# 		~./irssi/default.theme
-# 		~/.config/neofetch/config.conf
-# 		~/.config/ranger/rc.conf @ colorscheme
-# 		~/.scripts/tty-colors.sh
-# 		~/.bashrc @ prompt
-# 		~/.zshrc @ prompt
+    cp $NONROOTHOME/.readme/root-config/backlight.rules /etc/udev/rules.d/backlight.rules
+
+udev rule for `fastermelee`:
+
+    cp $NONROOTHOME/.readme/root-config/51-gcadapter.rules /etc/udev/rules.d/51-gcadapter.rules
+
+## Configuration by User
+Some config-files might need to be set up for your particular system:
+
+# i3bar
+Fill in some necessary information:
+
+    ~/.system-info.sh
+Check everything in `$HOME/.config/i3blocks`, especially:
+
+    temperature.sh
+    fan.sh
+    battery.sh
+
+
+# blugon
+
+    systemctl --user enable blugon.service
+
+# mpd
+
+    systemctl --user enable mpd.service
+
+# trash
+Set up `$HOME/.trash` for ranger:
+
+    mkdir ~/.trash
+
+# pass
+Copy your `.password-store` to `$HOME/.password-store`:
+
+    cp .password-store $HOME/.password-store
+Have an entry `test/test` with password `test` inside or create it with
+
+    pass insert test/test
+Copy everything necessary into `$HOME/.gnupg`.
+
+# cronie
+Overwrite the empty crontab for your user:
+
+    crontab ~/.readme/root-config/crontab
+
+# pacsync
+
+    mkdir ~/Packages
+    git clone https://github.com/jumper149/pkgaur.git ~/Packages/pkgaur
+
+# Additional Information
+
+Places that use hardcoded color configuration:
+
+    ~/.Xresources
+    ~/.vimrc @ colorscheme
+    ~/.config/blugon/config
+    ~/.config/rofi/jumper-i3.rasi
+    ~/.config/zathura/zathurarc
+some more, but depending on `~/.Xresources`:
+
+    ~/.config/i3/config
+    ~/.mutt/colors
+    ~./irssi/default.theme
+    ~/.config/neofetch/config.conf
+    ~/.config/ranger/rc.conf @ colorscheme
+    ~/.scripts/tty-colors.sh
+    ~/.bashrc @ prompt
+    ~/.zshrc @ prompt
