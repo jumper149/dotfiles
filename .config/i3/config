@@ -189,8 +189,8 @@ bar {
         focused_workspace  $color8ff $color2ff $color0ff
         active_workspace   $color8ff $color5ff $color0ff
         inactive_workspace $color8ff $color7ff $color0ff
-        urgent_workspace   $color8ff $color1ff $color0ff
-        binding_mode       $color8ff $color3ff $color0ff
+        urgent_workspace   $color8ff $color3ff $color0ff
+        binding_mode       $color8ff $color1ff $color0ff
    	}
 
 	position top

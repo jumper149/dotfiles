@@ -36,3 +36,13 @@ FORMAT_USAGE1="00$USAGE" # formatting
 FORMAT_USAGE2=${FORMAT_USAGE1:$((${#FORMAT_USAGE1} - 2))}
 
 echo "CPU $FORMAT_USAGE2%"
+if [ "$USAGE" -gt "50" ]; then
+	echo ""
+	if [ "$USAGE" -le "65" ]; then
+		echo "#85678f"
+	elif [ "$USAGE" -le "80" ]; then
+		echo "#a54242"
+	else
+		echo "#de935f"
+	fi
+fi

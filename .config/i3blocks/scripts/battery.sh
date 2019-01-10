@@ -28,12 +28,9 @@ if [ "$STATE3" = "" ] || [ "$PERCENTAGE2" = "" ]
 then
 	exit 1
 else
-	if [ $NUMBER -lt 20 ]
-	then
-		echo "$STATE3 $PERCENTAGE2"
+	echo "$STATE3 $PERCENTAGE2"
+	if [ $NUMBER -lt 20 ]; then
 		echo ""
-		echo "#FF0000"
-	else
-		echo "$STATE3 $PERCENTAGE2"
+		echo "#a54242"
 	fi
 fi

@@ -24,5 +24,9 @@ if [ "$RXVAL" = "" ] && [ "$TXVAL" = "" ]
 then
 	exit 2
 else
-	echo "$RXVAL - $TXVAL"
+	echo "$RXVAL ↓↑ $TXVAL"
+	if [ "${RXVAL:0:5}" = "00000" ] && [ "${TXVAL:0:5}" = "00000" ]; then
+		echo ""
+		echo "#707880"
+	fi
 fi

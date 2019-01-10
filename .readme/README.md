@@ -193,6 +193,10 @@ Places that use hardcoded color configuration:
     ~/.config/blugon/config
     ~/.config/rofi/jumper-i3.rasi
     ~/.config/zathura/zathurarc
+    ~/.config/i3blocks/scripts/battery.sh
+    ~/.config/i3blocks/scripts/cpu.sh
+    ~/.config/i3blocks/scripts/traffic.sh
+    ~/.config/i3blocks/scripts/volume.sh
 some more, but depending on `~/.Xresources`:
 
     ~/.config/i3/config
