@@ -30,7 +30,7 @@ To install all Packages in `groups`, `core` and `aur` call `~/.readme/install_co
     pacsync
 
 ## Configuration by Root
-Set $NONROOTUSER and $NONROOTHOME (without '/' at the end):
+Set `$NONROOTUSER` and `$NONROOTHOME` (without `'/'` at the end):
 
     NONROOTUSER=jumper
     NONROOTHOME=/home/jumper
