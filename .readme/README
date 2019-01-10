@@ -167,6 +167,7 @@ $ git clone https://github.com/jumper149/pkgaur.git ~/Packages/pkgaur
 # places that use hardcoded color configuration
 # 	~/.Xresources
 # 	~/.vimrc @ colorscheme
+# 	~/.config/blugon/config
 # 	~/.config/rofi/jumper-i3.rasi
 # 	~/.config/zathura/zathurarc
 
