@@ -29,8 +29,17 @@ then
 	exit 1
 else
 	echo "$STATE3 $PERCENTAGE2"
-	if [ $NUMBER -lt 20 ]; then
+	if [ $NUMBER -le 40 ]; then
 		echo ""
-		echo "#a54242"
+		if [ "$NUMBER" -gt "25" ]; then
+			echo "#85678f"
+		elif [ "$NUMBER" -gt "10" ]; then
+			echo "#a54242"
+		else
+			echo "#de935f"
+		fi
+	elif [ "$NUMBER" -ge "90" ]; then
+		echo ""
+		echo "#707880"
 	fi
 fi
