@@ -263,6 +263,7 @@ bindsym Control+$mod+i exec"mpc prev"
 
 # scrot
 bindsym Print exec "scrot"
+bindsym $mod+Print exec "scrot"
 
 # toggle screenkey
 bindsym Control+$mod+k exec  "~/.scripts/screenkey.sh"
