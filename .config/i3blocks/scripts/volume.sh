@@ -22,11 +22,11 @@ if [[ $MUTEQ = *"yes"* ]] ; then
 	echo "#707880"
 else
 	echo "VOL $OUTSTRING"
-	if [ "$VOLUME_PERCENT" -ge "75" ]; then
+	if [ "$VOLUME_PERCENT" -gt "100" ]; then
 		echo ""
-		if [ "$VOLUME_PERCENT" -lt "100" ]; then
+		if [ "$VOLUME_PERCENT" -le "125" ]; then
 			COLOR="#85678f"
-		elif [ "$VOLUME_PERCENT" -lt "150" ]; then
+		elif [ "$VOLUME_PERCENT" -le "150" ]; then
 			COLOR="#a54242"
 		else
 			COLOR="#de935f"
