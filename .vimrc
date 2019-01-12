@@ -147,6 +147,13 @@ if &t_Co >= 8 || has("gui_running")
   endif 
 endif
 
+" Highlight current line
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
 " For vim-airline, vim-airline-themes
 let g:airline_theme='base16_default'
 let g:airline#extensions#tabline#enabled = 1
