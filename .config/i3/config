@@ -205,7 +205,7 @@ set $gaps_outer 16
 gaps inner $gaps_inner
 gaps outer $gaps_outer
 bindsym $mod+Shift+t gaps inner all set 0; gaps outer all set 0
-bindsym $mod+t gaps inner all set $gaps_outer; gaps outer all set $gaps_outer
+bindsym $mod+t gaps inner all set $gaps_inner; gaps outer all set $gaps_outer
 
 # window decoration
 default_border pixel 4
