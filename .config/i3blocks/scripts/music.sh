@@ -1,14 +1,23 @@
 #!/bin/bash
 
-MAX_LENGTH=20
+MAX_LENGTH="20"
 
-SONG=$(mpc current)
-NAME_LENGTH=${#SONG}
+INFO="`mpc status`"
 
-if [[ $NAME_LENGTH -gt $MAX_LENGTH ]] ;
-	then
-		SONG=${SONG:0:$MAX_LENGTH} ;
-		SONG="$SONG..."
+SONG="`echo $INFO | head -n 1`"
+NAME_LENGTH="${#SONG}"
+
+if [ "$NAME_LENGTH" -gt "$MAX_LENGTH" ]; then
+		SONG="${SONG:0:$MAX_LENGTH}"
+		SONG="$SONG…"
 fi
 
-echo $SONG
+STATE="`echo $INFO | head -n 2`"
+
+echo "$SONG"
+
+if [[ "$STATE" = *"[paused]"* ]]; then
+	echo ""
+	echo "#707880"
+
+fi
