@@ -4,7 +4,7 @@ MAX_LENGTH="20"
 
 INFO="`mpc status`"
 
-SONG="`echo $INFO | head -n 1`"
+SONG="`mpc current`"
 NAME_LENGTH="${#SONG}"
 
 if [ "$NAME_LENGTH" -gt "$MAX_LENGTH" ]; then
