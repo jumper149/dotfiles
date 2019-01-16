@@ -132,6 +132,7 @@ imap <C-v> <C-r><C-o>+
 if &t_Co >= 8 || has("gui_running")
   " Revert with ":syntax off".
   syntax on
+  set hlsearch
 
   " I like highlighting strings inside C comments.
   " Revert with ":unlet c_comment_strings".
@@ -146,6 +147,9 @@ if &t_Co >= 8 || has("gui_running")
     colorscheme default
   endif 
 endif
+
+" Removes Highlighting from search patterns
+nnoremap <Space> :noh<Enter><Space>
 
 " Highlight current line
 augroup CursorLine

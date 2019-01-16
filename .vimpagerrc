@@ -1,6 +1,9 @@
 source ~/.vimrc
 
 let vimpager_passthrough = 0
+let vimpager_scrolloff = 0
 
 set norelativenumber
 set nonumber
+
+set nocursorline
