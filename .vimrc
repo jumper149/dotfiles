@@ -149,7 +149,7 @@ if &t_Co >= 8 || has("gui_running")
 endif
 
 " Removes Highlighting from search patterns
-nnoremap <Space> :noh<Enter><Space>
+nnoremap <silent> <Space> :noh<Enter><Space>
 
 " Highlight current line
 augroup CursorLine
