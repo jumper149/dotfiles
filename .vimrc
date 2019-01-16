@@ -140,7 +140,7 @@ if &t_Co >= 8 || has("gui_running")
   " Use italic font for comments in 256-color terminal
   " and set colorscheme
   if &t_Co >= 256 || has("gui_running")
-    colorscheme wombat256mod
+    colorscheme wombat256
     highlight Comment cterm=italic
   else
     colorscheme default
@@ -155,7 +155,7 @@ augroup CursorLine
 augroup END
 
 " For vim-airline, vim-airline-themes
-let g:airline_theme='base16_default'
+let g:airline_theme='wombat'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_symbols_ascii = 1
 let g:airline#extensions#whitespace#enabled = 0
