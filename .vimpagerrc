@@ -9,4 +9,4 @@ set nonumber
 set t_ve=
 highlight CursorLine ctermbg=bg
 
-let g:airline#extensions#tabline#enabled = 0
+let g:loaded_airline= 1
