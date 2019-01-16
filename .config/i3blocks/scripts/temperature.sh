@@ -26,4 +26,14 @@ then
 	exit 2
 else
 	echo "TEMP $TEMP°C"
+	if [ "$TEMP" -ge 65 ]; then
+		echo ""
+		if [ "$TEMP" -lt 75 ]; then
+			echo "#85678f"
+		elif [ "$TEMP" -lt 85 ]; then
+			echo "#a54242"
+		else
+			echo "#de935f"
+		fi
+	fi
 fi
