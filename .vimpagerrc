@@ -7,6 +7,9 @@ set norelativenumber
 set nonumber
 
 set t_ve=
-highlight CursorLine ctermbg=bg
+if &t_Co >= 256
+  highlight CursorLine ctermbg=bg
+  highlight CursorLine ctermfg=fg
+endif
 
 let g:loaded_airline= 1
