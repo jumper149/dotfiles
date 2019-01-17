@@ -29,7 +29,10 @@ then
 	exit 1
 else
 	echo "$STATE3 $PERCENTAGE2"
-	if [ $NUMBER -le 40 ]; then
+	if [ "$STATE3" = "LOAD" ]; then
+		echo ""
+		echo "#8c9440"
+	elif [ $NUMBER -le 40 ]; then
 		echo ""
 		if [ "$NUMBER" -gt "25" ]; then
 			echo "#85678f"

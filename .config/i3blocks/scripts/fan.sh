@@ -22,3 +22,7 @@ else
 fi
 
 echo "$SPEED RPM"
+if [ "${SPEED:0:4}" = "0000" ]; then
+	echo ""
+	echo "#707880"
+fi
