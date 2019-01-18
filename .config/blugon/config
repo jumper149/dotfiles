@@ -5,6 +5,13 @@ interval = 120
 # backend (one of: xgamma, scg)
 backend = scg
 
+# True to use file 'current' instead of 'gamma' for configuration
+readcurrent = False
+
+[current]
+min_temp = 1.0
+max_temp = 20000.0
+
 [tty]
 # text colors on tty
 color0 = 282a2e
