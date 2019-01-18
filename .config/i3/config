@@ -211,12 +211,16 @@ bindsym $mod+t gaps inner all set $gaps_inner; gaps outer all set $gaps_outer
 default_border pixel 4
 default_floating_border pixel 2
 
-# brightness
+# backlight/brightness
 #bindsym XF86MonBrightnessUp exec --no-startup-id "~/.scripts/brightness/up.sh"
 bindsym Control+$mod+backslash exec --no-startup-id "~/.scripts/brightness/up.sh"
 
 #bindsym XF86MonBrightnessDown exec --no-startup-id "~/.scripts/brightness/down.sh"
 bindsym Control+$mod+slash exec --no-startup-id "~/.scripts/brightness/down.sh"
+
+# blue light filter
+bindsym Control+$mod+period exec --no-startup-id "blugon --setcurrent='+600'"
+bindsym Control+$mod+comma exec --no-startup-id  "blugon --setcurrent='-600'"
 
 # audio volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
