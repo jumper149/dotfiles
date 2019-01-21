@@ -5,6 +5,18 @@ interval = 120
 # backend (one of: xgamma, scg)
 backend = scg
 
+wait_for_x = False
+readcurrent = False
+
+
+[current]
+min_temp = 1.0
+max_temp = 20000.0
+
+[wait_for_x]
+sleep_after_failed_startup = 0.1
+sleep_after_losing_x = 120.0
+
 [tty]
 # text colors on tty
 color0 = 282a2e
@@ -23,4 +35,3 @@ color12 = 81a2be
 color13 = b294bb
 color14 = 8abeb7
 color15 = c5c8c6
-
