@@ -17,7 +17,7 @@ then
 elif [ "$(hostname)" = "x201arch" ]
 then
 	MAIN_NETWORKING_DEVICE='wlp5s0'
-	MAIN_PARTITION='/dev/sda2'
+	MAIN_PARTITION='/dev/sda3'
 	MAIN_PULSEAUDIO_SINK='0'
 	MAIN_PULSEAUDIO_SOURCE='1'
 elif [ "$(hostname)" = "deskarch" ]
@@ -29,7 +29,7 @@ then
 elif [ "$(hostname)" = "x200arch" ]
 then
 	MAIN_NETWORKING_DEVICE='wlp2s0'
-	MAIN_PARTITION='/dev/sda3'
+	MAIN_PARTITION='/dev/sda2'
 	MAIN_PULSEAUDIO_SINK='0'
 	MAIN_PULSEAUDIO_SOURCE='1'
 fi
