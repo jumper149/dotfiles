@@ -6,7 +6,6 @@ let vimpager_scrolloff = 0
 set norelativenumber
 set nonumber
 
-set t_ve=
 if &t_Co >= 256
   highlight CursorLine ctermbg=bg
   highlight CursorLine ctermfg=fg
