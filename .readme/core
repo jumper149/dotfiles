@@ -126,3 +126,7 @@ zziplib
 mozilla-common
 
 asciidoc
+
+ghc
+xmonad
+xmonad-contrib
