@@ -113,7 +113,7 @@ xdg-user-dirs
 xdotool
 youtube-dl
 zathura
-zathura-pdf-mupdf
+zathura-pdf-poppler
 zathura-ps
 zip
 zlib

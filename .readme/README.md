@@ -47,7 +47,7 @@ Random Number Generator
     systemctl enable dhcpcd.service
 
 ### ca-certificates
-to access eduroam-WIFI
+to access eduroam-WIFI, this might not be necessary anymore
 
     cp $NONROOTHOME/.readme/root-config/deutsche-telekom-root-ca-2.crt /usr/share/ca-certificates/trust-source/anchors/
     trust extract-compat /usr/share/ca-certificates/trust-source/anchors/deutsche-telekom-root-ca-2.crt
