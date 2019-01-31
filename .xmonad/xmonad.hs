@@ -74,21 +74,22 @@ myLayoutHook         =   tiled
 
 myFocusFollowsMouse  = False
 myModMask            = mod4Mask
-myKeys               = [ ("M-S-q",       kill)
-                       , ("M-S-<Enter>", windows W.focusMaster)
-                       , ("M-S-r",       restart "xmonad" True)
-                       , ("M-S-e",       spawn "$HOME/.xmonad/scripts/shutdown.sh")
-                       , ("M-d",         spawn "rofi -show run")
-                       , ("M-r",         spawn "urxvtc -e 'ranger'")
-                       , ("M-b",         spawn "baobab")
-                       , ("M-q",         spawn "qutebrowser")
-                       , ("M-c",         spawn "chromium")
-                       , ("M-p",         spawn "pavucontrol")
-                       , ("M-x",         spawn "arandr")
-                       , ("M-t",         spawn "telegram-desktop")
-                       , ("M-m",         spawn "urxvtc -e 'mutt'")
-                       , ("M-i",         spawn "urxvtc -e 'irssi'")
-                       , ("M-g",         spawn "gimp")
+myKeys               = [ ("M-S-q",        kill)
+                       , ("M-S-<Return>", windows W.focusMaster)
+                       , ("M-S-r",        restart "xmonad" True)
+                       , ("M-S-e",        spawn "$HOME/.xmonad/scripts/shutdown.sh")
+                       , ("M-<Return>",   spawn myTerminal)
+                       , ("M-d",          spawn "rofi -show run")
+                       , ("M-r",          spawn "urxvtc -e 'ranger'")
+                       , ("M-b",          spawn "baobab")
+                       , ("M-q",          spawn "qutebrowser")
+                       , ("M-c",          spawn "chromium")
+                       , ("M-p",          spawn "pavucontrol")
+                       , ("M-x",          spawn "arandr")
+                       , ("M-t",          spawn "telegram-desktop")
+                       , ("M-m",          spawn "urxvtc -e 'mutt'")
+                       , ("M-i",          spawn "urxvtc -e 'irssi'")
+                       , ("M-g",          spawn "gimp")
                        ]
 myRemovedKeys          = [ "M-q"   -- quit
                          , "M-S-q" -- restart
