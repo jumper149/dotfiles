@@ -63,10 +63,22 @@ PS2='`__whitespace_ps2 \u \h \W`\001${__yellow_ps}${__bold_ps}\002>\001${__norma
 # vim input
 set -o vi
 
-# use colors from ~/.Xresources on tty, start tmux
-if [ "$TERM" = "linux" ]
-then
-	blugon --once --backend="tty" && clear
-	(blugon --backend="tty")&
-	tmux && tput reset && exit 0
+if [ "$TERM" = "linux" ]; then
+	__graphical_session="`$HOME/.scripts/decide/terminal.sh "Xmonad" "i3" "tmux" "TTY"`"
+	case $__graphical_session in
+		"TTY")
+			;;
+		"tmux")
+                        # use colors from ~/.Xresources on tty, start tmux
+			blugon --once --backend="tty" && clear
+			(blugon --backend="tty")&
+			tmux && tput reset && exit
+			;;
+		"i3")
+			startx ~/.xinitrc "i3" && exit
+			;;
+		"Xmonad")
+			startx ~/.xinitrc "xmonad" && exit
+			;;
+	esac
 fi
