@@ -102,7 +102,7 @@ myRemovedKeys          = [ "M-q"   -- quit
                          ]
 
 
-myTerminal           = "urxvt"
+myTerminal           = "urxvtc"
 
 
 main = xmonad $ def
