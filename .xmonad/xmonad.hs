@@ -27,7 +27,7 @@ myColorB= "#f0c674"
 myColor4= "#5f819d"
 myColorC= "#81a2be"
 
--- magenta"
+-- magenta
 myColor5= "#85678f"
 myColorD= "#b294bb"
 
