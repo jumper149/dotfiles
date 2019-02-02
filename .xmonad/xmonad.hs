@@ -82,6 +82,7 @@ myKeys               = [ ("M-S-q",        kill)
                        , ("M-l",          screenWorkspace 1 >>= flip whenJust (windows . W.view))
                        , ("M-S-r",        restart "xmonad" True)
                        , ("M-S-e",        spawn "$HOME/.xmonad/scripts/shutdown.sh")
+                       , ("M-S-w",        spawn "i3lock -c '000000' -f --script")
                        , ("M-<Return>",   spawn myTerminal)
                        , ("M-d",          spawn "rofi -show run")
                        , ("M-r",          spawn "urxvtc -e 'ranger'")
@@ -115,7 +116,7 @@ myRemovedKeys          = [ "M-q"   -- quit
 myTerminal           = "urxvtc"
 
 myStartUpHook = do
-  spawn "xmobar ~/.xmobarrc"
+  spawn "xmobar $HOME/.xmobarrc"
 
 
 main = xmonad $ def
