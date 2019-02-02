@@ -20,7 +20,7 @@ urxvtd -f
 blugon --waitforx &
 unclutter --timeout 3 --jitter 3 --ignore-scrolling &
 
-$start_wm
+exec $start_wm
 
 pkill urxvtd
 pkill blugon
