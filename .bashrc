@@ -64,7 +64,7 @@ PS2='`__whitespace_ps2 \u \h \W`\001${__yellow_ps}${__bold_ps}\002>\001${__norma
 set -o vi
 
 if [ "$TERM" = "linux" ]; then
-	__graphical_session="`$HOME/.scripts/decide/terminal.sh "Xmonad" "i3" "tmux" "TTY"`"
+	__graphical_session="`$HOME/.scripts/decide/terminal.sh "i3" "Xmonad" "tmux" "TTY"`"
 	case $__graphical_session in
 		"TTY")
 			;;

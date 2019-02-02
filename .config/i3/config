@@ -289,16 +289,8 @@ bindsym Control+$mod+k exec  "~/.scripts/screenkey.sh"
 bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
 
 # startup scripts
-exec_always --no-startup-id "xset r rate 200 30"
-exec_always --no-startup-id "setxkbmap -option caps:escape"
-exec_always --no-startup-id "~/.scripts/touchpad.sh"
 exec_always --no-startup-id "xrdb ~/.Xresources"
-exec_always --no-startup-id "xset b off"
-exec --no-startup-id "urxvtd -f"
-exec --no-startup-id "~/.wallpaper/wallpaper_set.sh"
 exec --no-startup-id "xautolock -locker 'i3lock -c 000000 -f --script' -notify 3 -notifier ~/.config/i3/scripts/lock_notify.sh -time 30"
-exec --no-startup-id "xdotool mousemove 0 0"
-exec --no-startup-id "unclutter --timeout 3 --jitter 3 --ignore-scrolling"
 
 # start applications
 bindsym $mod+grave [urgent=latest] focus

@@ -16,18 +16,12 @@ xset b off
 ~/.wallpaper/wallpaper_set.sh
 xdotool mousemove 0 0
 
-if [ "$start_wm" = "xmonad" ]; then
-	urxvtd -f
-	xautolock -locker 'i3lock -c 000000 -f --script' -notify 3 -notifier ~/.config/i3/scripts/lock_notify.sh -time 30 &
-	blugon --waitforx &
-	unclutter --timeout 3 --jitter 3 --ignore-scrolling &
+urxvtd -f
+blugon --waitforx &
+unclutter --timeout 3 --jitter 3 --ignore-scrolling &
 
-	$start_wm
+$start_wm
 
-	pkill urxvtd
-	pkill xautolock
-	pkill blugon
-	pkill unclutter
-else
-	$start_wm
-fi
+pkill urxvtd
+pkill blugon
+pkill unclutter
