@@ -78,12 +78,10 @@ qt5-styleplugins
 qutebrowser
 r
 ranger
-remind
 rofi
 rsync
 rxvt-unicode
 scrot
-sddm
 streamlink
 sxiv
 teamspeak3
@@ -111,6 +109,7 @@ wpa_supplicant
 xautolock
 xdg-user-dirs
 xdotool
+xorg-xinit
 youtube-dl
 zathura
 zathura-pdf-poppler
