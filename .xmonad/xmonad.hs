@@ -75,7 +75,11 @@ myLayoutHook         =   tiled
 myFocusFollowsMouse  = False
 myModMask            = mod4Mask
 myKeys               = [ ("M-S-q",        kill)
-                       , ("M-S-<Return>", windows W.focusMaster)
+                       , ("M-S-<Return>", windows W.swapMaster)
+                       , ("M-S-h",        sendMessage Shrink)
+                       , ("M-S-l",        sendMessage Expand)
+                       , ("M-h",          screenWorkspace 0 >>= flip whenJust (windows . W.view))
+                       , ("M-l",          screenWorkspace 1 >>= flip whenJust (windows . W.view))
                        , ("M-S-r",        restart "xmonad" True)
                        , ("M-S-e",        spawn "$HOME/.xmonad/scripts/shutdown.sh")
                        , ("M-<Return>",   spawn myTerminal)
@@ -93,8 +97,14 @@ myKeys               = [ ("M-S-q",        kill)
                        ]
 myRemovedKeys          = [ "M-q"   -- quit
                          , "M-S-q" -- restart
+                         , "M-w"   -- Xinerama 1
+                         , "M-S-w"
+                         , "M-e"   -- Xinerama 2
+                         , "M-S-e"
                          , "M-r"   -- Xinerama 3
                          , "M-S-r"
+                         , "M-h"   -- resize master area
+                         , "M-l"
                          , "M-t"   -- tile floating window
                          , "M-n"   -- refresh viewed sizes
                          , "M-c"   -- close window
