@@ -151,11 +151,6 @@ Check everything in `$HOME/.config/i3blocks`, especially:
     fan.sh
     battery.sh
 
-
-### blugon
-
-    systemctl --user enable blugon.service
-
 ### mpd
 
     systemctl --user enable mpd.service
