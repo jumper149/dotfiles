@@ -114,6 +114,9 @@ myRemovedKeys          = [ "M-q"   -- quit
 
 myTerminal           = "urxvtc"
 
+myStartUpHook = do
+  spawn "xmobar ~/.xmobarrc"
+
 
 main = xmonad $ def
     {
@@ -125,6 +128,7 @@ main = xmonad $ def
     , focusFollowsMouse  = myFocusFollowsMouse
     , modMask            = myModMask
     , terminal           = myTerminal
+    , startupHook        = myStartUpHook
     }
     `removeKeysP` myRemovedKeys
     `additionalKeysP` myKeys
