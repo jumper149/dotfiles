@@ -1,18 +1,44 @@
 Config { 
 
+   -- colors
+   --   black
+   --     color0:  #282a2e
+   --     color8:  #373b41
+   --   red
+   --     color1:  #a54242
+   --     color9:  #cc6666
+   --   green
+   --     color2:  #8c9440
+   --     color10: #b5bd68
+   --   yellow
+   --     color3:  #de935f
+   --     color11: #f0c674
+   --   blue
+   --     color4:  #5f819d
+   --     color12: #81a2be
+   --   magenta
+   --     color5:  #85678f
+   --     color13: #b294bb
+   --   cyan
+   --     color6:  #5e8d87
+   --     color14: #8abeb7
+   --   white
+   --     color7:  #707880
+   --     color15: #c5c8c6
+
    -- appearance
      font =         "xft:Inconsolata:size=12:style=Bold:antialias=true"
-   , bgColor =      "#c5c8c6" -- f
-   , fgColor =      "#373b41" -- 8
+   , bgColor =      "#373b41"
+   , fgColor =      "#c5c8c6"
    , position =     TopSize C 100 22
    , border =       BottomB
    , borderWidth =  2
-   , borderColor =  "#8c9440" -- 2
+   , borderColor =  "#8c9440"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork% }{ %RJTT% | %date% "
+   , template = " %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork% } %StdinReader% { %mpd% | %mail% | %EDDV% | %kbd% | %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -39,68 +65,108 @@ Config {
    , commands = 
 
         -- weather monitor
-        [ Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
+        [ Run Weather "EDDV" [ "--template", "<skyCondition> | <fc=#81a2be><tempC></fc>°C | <fc=#81a2be><rh></fc>% | <fc=#81a2be><pressure></fc>hPa"
                              ] 36000
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<rx>k/s ↓↑ <tx>k/s"
-                             , "--Low"      , "1000"       -- units: B/s
-                             , "--High"     , "5000"       -- units: B/s
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--Low"      , "5000"       -- units: B/s
+                             , "--High"     , "10000"      -- units: B/s
+                             , "--low"      , "#8c9440"
+                             , "--normal"   , "#a54242"
+                             , "--high"     , "#de935f"
                              ] 10
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "CPU <total0>% - <total1>%"
+        , Run MultiCpu       [ "--template" , "CPU <total>%"
                              , "--Low"      , "50"         -- units: %
-                             , "--High"     , "85"         -- units: %
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--High"     , "80"         -- units: %
+                             , "--low"      , "#8c9440"
+                             , "--normal"   , "#a54242"
+                             , "--high"     , "#de935f"
                              ] 10
 
         -- cpu core temperature monitor
         , Run CoreTemp       [ "--template" , "TEMP <core0>°C - <core1>°C"
-                             , "--Low"      , "70"        -- units: °C
+                             , "--Low"      , "65"        -- units: °C
                              , "--High"     , "80"        -- units: °C
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--low"      , "#8c9440"
+                             , "--normal"   , "#a54242"
+                             , "--high"     , "#de935f"
                              ] 50
                           
         -- memory usage monitor
         , Run Memory         [ "--template" ,"RAM <usedratio>%"
                              , "--Low"      , "20"        -- units: %
-                             , "--High"     , "90"        -- units: %
-                             , "--low"      , "darkgreen"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkred"
+                             , "--High"     , "80"        -- units: %
+                             , "--low"      , "#8c9440"
+                             , "--normal"   , "#a54242"
+                             , "--high"     , "#de935f"
                              ] 10
 
         -- battery monitor
         , Run Battery        [ "--template" , "BATT <acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "darkred"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "darkgreen"
+                             , "--low"      , "#8c9440"
+                             , "--normal"   , "#a54242"
+                             , "--high"     , "#de935f"
 
                              , "--" -- battery specific options
                                        -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
+                                       , "-o"	, "<fc=#a54242><left></fc>% <fc=#a54242><timeleft></fc>"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                       , "-O"	, "<fc=#8c9440>LOAD</fc>"
                                        -- charged status
-                                       , "-i"	, "<fc=#006000>Charged</fc>"
+                                       , "-i"	, "<fc=#707880>FULL</fc>"
                              ] 50
 
         -- time and date indicator 
         , Run Date           "%a %d/%m/%y | %T" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(dvorak)" , "<fc=#00008B>DV</fc>")
-                             , ("us"         , "<fc=#8B0000>US</fc>")
+        , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
+                             , ("us" , "<fc=#b5bd68>US</fc>")
                              ]
+
+--        -- alsa volume indicator
+--        , Run Volume "default" "Master"
+--                             [ "--template" ,"VOL <volume>% <status>"
+--                             , "--Low"      , "20"        -- units: %
+--                             , "--High"     , "80"        -- units: %
+--                             , "--low"      , "#8c9440"
+--                             , "--normal"   , "#a54242"
+--                             , "--high"     , "#de935f"
+--
+--                             , "--" -- volume specific options
+--                                       -- "on" status
+--                                       , "-O"	, "on"
+--                                       -- "off" status
+--                                       , "-o"	, "off"
+--                             ] 10
+
+        -- mpd monitor
+        , Run MPD            [ "--template" , "<statei><title></fc>"
+                             , "--"
+                                       -- playing
+                                       , "-P" , "<fc=#b5bd68>"
+                                       -- paused
+                                       , "-Z" , "<fc=#707880>"
+                                       -- stopped
+                                       , "-S" , "<fc=#373b41>"
+                             ] 10
+
+        -- mail indicator
+        , Run Mail           [ ("<fc=#a54242>G</fc> " , "~/.mail/gmail/INBOX")
+                             , ("<fc=#5f819d>U</fc> " , "~/.mail/stud-uni-hannover/INBOX")
+                             ] "mail"
+
+--        -- mail indicator
+--        , Run MBox           [ ( "G " , "~/.mail/gmail"             , "#a54242" )
+--                             , ( "U " , "~/.mail/stud-uni-hannover" , "#5f819d" )
+--                             ]
+--                                 [ "--prefix" , " "
+--                                 , "--all"
+--                                 ] "mbox"
         ]
    }

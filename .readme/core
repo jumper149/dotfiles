@@ -32,6 +32,7 @@ xmonad
 xmonad-contrib
 xmobar
 ghc
+libmpd
 
 i3-gaps
 i3blocks
