@@ -14,6 +14,7 @@ setxkbmap -option caps:escape
 ~/.scripts/touchpad.sh
 xset b off
 ~/.wallpaper/wallpaper_set.sh
+xsetroot -cursor_name left_ptr
 xdotool mousemove 0 0
 
 urxvtd -f
