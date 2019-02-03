@@ -117,7 +117,7 @@ myRemovedKeys          = [ "M-q"   -- quit
 myTerminal           = "urxvtc"
 
 myStartUpHook = do
-  spawn "xmobar $HOME/.xmobarrc"
+  spawn "xmobar $HOME/.xmobar/xmobarrc"
 
 
 main = xmonad $ def
