@@ -3,6 +3,9 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
+import XMonad.Util.Run
+import XMonad.Hooks.DynamicLog
+--import XMonad.Hooks.ManageDocks
 
 import qualified XMonad.StackSet as W
 
@@ -44,8 +47,7 @@ myBorderWidth        = 4
 myNormalBorderColor  = myColor7
 myFocusedBorderColor = myColor2
 
-myWorkspaces         = [ "9 Garbage"
-                       , "1 Browser"
+myWorkspaces         = [ "1 Browser"
                        , "2 Hacking"
                        , "3 Media"
                        , "4 Social"
@@ -53,7 +55,7 @@ myWorkspaces         = [ "9 Garbage"
                        , "6 GIMP"
                        , "7 Gaming"
                        , "8 Other"
-                       , "0 Desktop"
+                       , "9 Garbage"
                        ]
 
 myLayoutHook         =   tiled
@@ -70,6 +72,13 @@ myLayoutHook         =   tiled
         outerGap = 10
         outer =    10
         inner =    10
+
+myLogHook h          = dynamicLogWithPP $ xmobarPP
+                                             { ppOutput  = hPutStrLn h
+                                             , ppOrder   = \(workspaces:layout:title:_) -> [workspaces]
+                                             , ppWsSep   = " "
+                                             , ppCurrent = xmobarColor myColor0 myColor2 . wrap " " " "
+                                             }
 
 
 myFocusFollowsMouse  = False
@@ -116,21 +125,17 @@ myRemovedKeys          = [ "M-q"   -- quit
 
 myTerminal           = "urxvtc"
 
-myStartUpHook = do
-  spawn "xmobar $HOME/.xmobar/xmobarrc"
 
-
-main = xmonad $ def
-    {
-      borderWidth        = myBorderWidth
-    , normalBorderColor  = myNormalBorderColor
-    , focusedBorderColor = myFocusedBorderColor
-    , workspaces         = myWorkspaces
-    , layoutHook         = myLayoutHook
-    , focusFollowsMouse  = myFocusFollowsMouse
-    , modMask            = myModMask
-    , terminal           = myTerminal
-    , startupHook        = myStartUpHook
-    }
-    `removeKeysP` myRemovedKeys
-    `additionalKeysP` myKeys
+main = do
+    xmproc <- spawnPipe "xmobar"
+    xmonad $  def { borderWidth        = myBorderWidth
+                  , normalBorderColor  = myNormalBorderColor
+                  , focusedBorderColor = myFocusedBorderColor
+                  , workspaces         = myWorkspaces
+                  , layoutHook         = myLayoutHook
+                  , logHook            = myLogHook xmproc
+                  , focusFollowsMouse  = myFocusFollowsMouse
+                  , modMask            = myModMask
+                  , terminal           = myTerminal
+                  } `removeKeysP` myRemovedKeys
+                    `additionalKeysP` myKeys

@@ -62,10 +62,13 @@ Config {
    --   The --template option controls how the plugin is displayed. Text
    --   color can be set by enclosing in <fc></fc> tags. For more details
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
-   , commands = 
+   , commands = [
+
+        -- read workspaces from stdin
+        Run StdinReader
 
         -- weather monitor
-        [ Run Weather "EDDV" [ "--template", "<skyCondition> | <fc=#81a2be><tempC></fc>°C | <fc=#81a2be><rh></fc>% | <fc=#81a2be><pressure></fc>hPa"
+        ,Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C | <fc=#81a2be><rh></fc>% | <fc=#81a2be><pressure></fc>hPa"
                              ] 36000
 
         -- network activity monitor (dynamic interface resolution)
