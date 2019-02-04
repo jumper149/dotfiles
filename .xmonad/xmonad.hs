@@ -98,16 +98,16 @@ myKeys               = [ ("M-S-q",        kill)
                        , ("M-S-w",        spawn "i3lock -c '000000' -f --script")
                        , ("M-<Return>",   spawn myTerminal)
                        , ("M-d",          spawn "rofi -show run")
-                       , ("M-r",          runInTerm "ranger")
+                       , ("M-r",          runInTerm "" "ranger")
                        , ("M-b",          spawn "baobab")
                        , ("M-q",          spawn "qutebrowser")
                        , ("M-c",          spawn "chromium")
-                       , ("M-n",          runInTerm "ncmpcpp")
+                       , ("M-n",          runInTerm "" "ncmpcpp")
                        , ("M-p",          spawn "pavucontrol")
                        , ("M-x",          spawn "arandr")
                        , ("M-t",          spawn "telegram-desktop")
-                       , ("M-m",          runInTerm "mutt")
-                       , ("M-i",          runInTerm "irssi")
+                       , ("M-m",          runInTerm "" "mutt")
+                       , ("M-i",          runInTerm "" "irssi")
                        , ("M-g",          spawn "gimp")
                        ]
 myRemovedKeys          = [ "M-q"   -- quit
@@ -131,7 +131,7 @@ myTerminal           = "urxvtc"
 
 
 main = do
-    xmproc <- spawnPipe "xmobar"
+    xmproc <- spawnPipe "xmobar ~/.xmobar/xmobarrc"
     xmonad $  def { borderWidth        = myBorderWidth
                   , normalBorderColor  = myNormalBorderColor
                   , focusedBorderColor = myFocusedBorderColor
