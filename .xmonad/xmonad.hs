@@ -8,6 +8,8 @@ import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
 --import XMonad.Hooks.ManageDocks
 
+import System.Posix.Unistd
+
 import qualified XMonad.StackSet as W
 
 
@@ -137,8 +139,12 @@ myTerminal           = "urxvtc"
 
 
 main = do
+    host    <- fmap nodeName getSystemID
     xmproc  <- spawnPipe "xmobar"
-    xm2proc <- spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
+    xm2proc <- (if host == "deskarch" then
+                  spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
+               else
+                  spawnPipe "echo") -- required for type?
     xmonad $  def { borderWidth        = myBorderWidth
                   , normalBorderColor  = myNormalBorderColor
                   , focusedBorderColor = myFocusedBorderColor
