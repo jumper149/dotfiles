@@ -39,7 +39,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %battery% <fc=#707880>|</fc> %multicpu% <fc=#707880>|</fc> %coretemp% <fc=#707880>|</fc> %memory% <fc=#707880>|</fc> %dynnetwork% } %StdinReader% { %mpd% <fc=#707880>|</fc> %mail% <fc=#707880>|</fc> %EDDV% <fc=#707880>|</fc> %kbd% <fc=#707880>|</fc> %date% "
+   , template = " %battery% <fc=#707880>|</fc> %multicpu% <fc=#707880>|</fc> %coretemp% <fc=#707880>|</fc> %memory% <fc=#707880>|</fc> %dynnetwork% }<fc=#707880>|</fc> %StdinReader% <fc=#707880>|</fc>{ %mpd% <fc=#707880>|</fc> %mail% <fc=#707880>|</fc> %EDDV% <fc=#707880>|</fc> %kbd% <fc=#707880>|</fc> %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
