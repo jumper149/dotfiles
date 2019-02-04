@@ -58,18 +58,18 @@ myWorkspaces         = [ "1 Browser"
                        , "9 Garbage"
                        ]
 
-myLayoutHook         =   tiled
-                     ||| Mirror tiled
+myLayoutHook         =          ((gaps [(U, outerGap + barGap), (D, outerGap), (R, outerGap), (L, outerGap)]) spacingTiled)
+                     ||| Mirror ((gaps [(U, outerGap), (D, outerGap), (R, outerGap), (L, outerGap + barGap)]) spacingTiled)
                      ||| noBorders Full
   where
-    tiled = gaps       [(U, outerGap), (D, outerGap), (R, outerGap), (L, outerGap)]
-          $ spacingRaw False
-                       (Border outer outer outer outer) True
-                       (Border inner inner inner inner) True
+    outerGap     = 10
+    barGap       = 22
+    spacingTiled = spacingRaw False
+                      (Border outer outer outer outer) True
+                      (Border inner inner inner inner) True
             --     n   increment ratio
           $ Tall   1   (3/100)   (1/2)
       where
-        outerGap = 10
         outer =    10
         inner =    10
 
