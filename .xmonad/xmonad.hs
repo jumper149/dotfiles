@@ -81,13 +81,22 @@ myLogHook host h h2  = do
                                                  { ppOutput           = hPutStrLn h
                                                  , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
                                                  , ppWsSep            = ""
-                                                 , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " "
-                                                 , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " "
-                                                 , ppHidden           = xmobarColor myColorF ""       . wrap " " " "
+                                                 , ppCurrent          = if host == "deskarch" then
+                                                                           xmobarColor myColor0 myColor2 . wrap " " " "
+                                                                        else
+                                                                           xmobarColor myColor0 myColor2 . wrap " " " " . take 1
+                                                 , ppVisible          = if host == "deskarch" then
+                                                                           xmobarColor myColor0 myColor7 . wrap " " " "
+                                                                        else
+                                                                           xmobarColor myColor0 myColor7 . wrap " " " " . take 1
+                                                 , ppHidden           = if host == "deskarch" then
+                                                                           xmobarColor myColorF ""       . wrap " " " "
+                                                                        else
+                                                                           xmobarColor myColorF ""       . wrap " " " " . take 1
                                                  , ppHiddenNoWindows  = if host == "deskarch" then
                                                                            xmobarColor myColor7 ""       . wrap " " " "
                                                                         else
-                                                                           \ x -> ""
+                                                                           xmobarColor myColor7 ""       . wrap " " " " . take 1
                                                  }
                            dynamicLogWithPP $ xmobarPP
                                                  { ppOutput           = hPutStrLn h2
