@@ -28,9 +28,10 @@ Config {
 
    -- appearance
      font =         "xft:Inconsolata:size=12:style=Bold:antialias=true"
-   , bgColor =      "#373b41"
+   , bgColor =      "#282a2e"
    , fgColor =      "#c5c8c6"
    , position =     TopSize C 100 22
+   , textOffset =   15
    , border =       BottomB
    , borderWidth =  2
    , borderColor =  "#8c9440"
@@ -38,7 +39,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork% } %StdinReader% { %mpd% | %mail% | %EDDV% | %kbd% | %date% "
+   , template = " %battery% <fc=#707880>|</fc> %multicpu% <fc=#707880>|</fc> %coretemp% <fc=#707880>|</fc> %memory% <fc=#707880>|</fc> %dynnetwork% } %StdinReader% { %mpd% <fc=#707880>|</fc> %mail% <fc=#707880>|</fc> %EDDV% <fc=#707880>|</fc> %kbd% <fc=#707880>|</fc> %date% "
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -68,14 +69,14 @@ Config {
         Run StdinReader
 
         -- weather monitor
-        ,Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C | <fc=#81a2be><rh></fc>% | <fc=#81a2be><pressure></fc>hPa"
+        ,Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <fc=#707880>|</fc> <fc=#81a2be><rh></fc>% <fc=#707880>|</fc> <fc=#81a2be><pressure></fc>hPa"
                              ] 36000
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<rx>k/s ↓↑ <tx>k/s"
                              , "--Low"      , "5000"       -- units: B/s
                              , "--High"     , "10000"      -- units: B/s
-                             , "--low"      , "#8c9440"
+                             , "--low"      , "#b5bd68"
                              , "--normal"   , "#a54242"
                              , "--high"     , "#de935f"
                              ] 10
@@ -84,7 +85,7 @@ Config {
         , Run MultiCpu       [ "--template" , "CPU <total>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "80"         -- units: %
-                             , "--low"      , "#8c9440"
+                             , "--low"      , "#b5bd68"
                              , "--normal"   , "#a54242"
                              , "--high"     , "#de935f"
                              ] 10
@@ -93,7 +94,7 @@ Config {
         , Run CoreTemp       [ "--template" , "TEMP <core0>°C - <core1>°C"
                              , "--Low"      , "65"        -- units: °C
                              , "--High"     , "80"        -- units: °C
-                             , "--low"      , "#8c9440"
+                             , "--low"      , "#b5bd68"
                              , "--normal"   , "#a54242"
                              , "--high"     , "#de935f"
                              ] 50
@@ -102,7 +103,7 @@ Config {
         , Run Memory         [ "--template" ,"RAM <usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "#8c9440"
+                             , "--low"      , "#b5bd68"
                              , "--normal"   , "#a54242"
                              , "--high"     , "#de935f"
                              ] 10
@@ -111,7 +112,7 @@ Config {
         , Run Battery        [ "--template" , "BATT <acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "#8c9440"
+                             , "--low"      , "#b5bd68"
                              , "--normal"   , "#a54242"
                              , "--high"     , "#de935f"
 
@@ -119,13 +120,13 @@ Config {
                                        -- discharging status
                                        , "-o"	, "<fc=#a54242><left></fc>% <fc=#a54242><timeleft></fc>"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#8c9440>LOAD</fc>"
+                                       , "-O"	, "<fc=#b5bd68>LOAD</fc>"
                                        -- charged status
                                        , "-i"	, "<fc=#707880>FULL</fc>"
                              ] 50
 
         -- time and date indicator 
-        , Run Date           "%a %d/%m/%y | %T" "date" 10
+        , Run Date           "%a %d/%m/%y <fc=#707880>|</fc> %T" "date" 10
 
         -- keyboard layout indicator
         , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
@@ -137,7 +138,7 @@ Config {
 --                             [ "--template" ,"VOL <volume>% <status>"
 --                             , "--Low"      , "20"        -- units: %
 --                             , "--High"     , "80"        -- units: %
---                             , "--low"      , "#8c9440"
+--                             , "--low"      , "#b5bd68"
 --                             , "--normal"   , "#a54242"
 --                             , "--high"     , "#de935f"
 --
@@ -156,7 +157,7 @@ Config {
                                        -- paused
                                        , "-Z" , "<fc=#707880>"
                                        -- stopped
-                                       , "-S" , "<fc=#373b41>"
+                                       , "-S" , "<fc=#282a2e>"
                              ] 10
 
         -- mail indicator

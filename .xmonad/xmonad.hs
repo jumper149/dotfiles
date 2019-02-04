@@ -74,10 +74,13 @@ myLayoutHook         =   tiled
         inner =    10
 
 myLogHook h          = dynamicLogWithPP $ xmobarPP
-                                             { ppOutput  = hPutStrLn h
-                                             , ppOrder   = \(workspaces:layout:title:_) -> [workspaces]
-                                             , ppWsSep   = " "
-                                             , ppCurrent = xmobarColor myColor0 myColor2 . wrap " " " "
+                                             { ppOutput           = hPutStrLn h
+                                             , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                                             , ppWsSep            = ""
+                                             , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " "
+                                             , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " "
+                                             , ppHidden           = xmobarColor myColorF ""       . wrap " " " "
+                                             , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " "
                                              }
 
 
