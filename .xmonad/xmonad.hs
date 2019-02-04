@@ -76,7 +76,7 @@ myLayoutHook         =          ((gaps [(U, barGap), (D, outerGap), (R, outerGap
         outer =    10
         inner =    10
 
-myLogHook h h2       = do
+myLogHook host h h2  = do
                            dynamicLogWithPP $ xmobarPP
                                                  { ppOutput           = hPutStrLn h
                                                  , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
@@ -84,7 +84,10 @@ myLogHook h h2       = do
                                                  , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " "
                                                  , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " "
                                                  , ppHidden           = xmobarColor myColorF ""       . wrap " " " "
-                                                 , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " "
+                                                 , ppHiddenNoWindows  = if host == "deskarch" then
+                                                                           xmobarColor myColor7 ""       . wrap " " " "
+                                                                        else
+                                                                           \ x -> ""
                                                  }
                            dynamicLogWithPP $ xmobarPP
                                                  { ppOutput           = hPutStrLn h2
@@ -150,7 +153,7 @@ main = do
                   , focusedBorderColor = myFocusedBorderColor
                   , workspaces         = myWorkspaces
                   , layoutHook         = myLayoutHook
-                  , logHook            = myLogHook xmproc xm2proc
+                  , logHook            = myLogHook host xmproc xm2proc
                   , focusFollowsMouse  = myFocusFollowsMouse
                   , modMask            = myModMask
                   , terminal           = myTerminal
