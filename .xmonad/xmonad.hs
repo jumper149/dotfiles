@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Core
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
@@ -58,12 +59,12 @@ myWorkspaces         = [ "1 Browser"
                        , "9 Garbage"
                        ]
 
-myLayoutHook         =          ((gaps [(U, outerGap + barGap), (D, outerGap), (R, outerGap), (L, outerGap)]) spacingTiled)
-                     ||| Mirror ((gaps [(U, outerGap), (D, outerGap), (R, outerGap), (L, outerGap + barGap)]) spacingTiled)
+myLayoutHook         =          ((gaps [(U, barGap), (D, outerGap), (R, outerGap), (L, outerGap)]) spacingTiled)
+                     ||| Mirror ((gaps [(U, outerGap), (D, outerGap), (R, outerGap), (L, barGap)]) spacingTiled)
                      ||| noBorders Full
   where
     outerGap     = 10
-    barGap       = 22
+    barGap       = outerGap + 22
     spacingTiled = spacingRaw False
                       (Border outer outer outer outer) True
                       (Border inner inner inner inner) True
