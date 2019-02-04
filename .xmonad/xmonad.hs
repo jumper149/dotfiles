@@ -67,8 +67,8 @@ myLayoutHook         =          ((gaps [(U, outerGap + barGap), (D, outerGap), (
     spacingTiled = spacingRaw False
                       (Border outer outer outer outer) True
                       (Border inner inner inner inner) True
-            --     n   increment ratio
-          $ Tall   1   (3/100)   (1/2)
+                     --     n   increment ratio
+                   $ Tall   1   (3/100)   (1/2)
       where
         outer =    10
         inner =    10

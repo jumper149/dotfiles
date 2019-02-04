@@ -161,13 +161,13 @@ Config {
                              ] 10
 
         -- mail indicator
-        , Run Mail           [ ("<fc=#a54242>G</fc> " , "~/.mail/gmail/INBOX")
-                             , ("<fc=#5f819d>U</fc> " , "~/.mail/stud-uni-hannover/INBOX")
+        , Run Mail           [ ("<fc=#a54242>Gmail</fc> " , "~/.mail/gmail/INBOX")
+                             , ("<fc=#5f819d>Uni</fc> "   , "~/.mail/stud-uni-hannover/INBOX")
                              ] "mail"
 
 --        -- mail indicator
---        , Run MBox           [ ( "G " , "~/.mail/gmail"             , "#a54242" )
---                             , ( "U " , "~/.mail/stud-uni-hannover" , "#5f819d" )
+--        , Run MBox           [ ( "Gmail " , "~/.mail/gmail"             , "#a54242" )
+--                             , ( "Uni "   , "~/.mail/stud-uni-hannover" , "#5f819d" )
 --                             ]
 --                                 [ "--prefix" , " "
 --                                 , "--all"
