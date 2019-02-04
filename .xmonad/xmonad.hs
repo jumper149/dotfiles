@@ -74,16 +74,21 @@ myLayoutHook         =          ((gaps [(U, barGap), (D, outerGap), (R, outerGap
         outer =    10
         inner =    10
 
-myLogHook h          = dynamicLogWithPP $ xmobarPP
-                                             { ppOutput           = hPutStrLn h
-                                             , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                                             , ppWsSep            = ""
-                                             , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " "
-                                             , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " "
-                                             , ppHidden           = xmobarColor myColorF ""       . wrap " " " "
-                                             , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " "
-                                             }
-
+myLogHook h h2       = do
+                           dynamicLogWithPP $ xmobarPP
+                                                 { ppOutput           = hPutStrLn h
+                                                 , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                                                 , ppWsSep            = ""
+                                                 , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " "
+                                                 , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " "
+                                                 , ppHidden           = xmobarColor myColorF ""       . wrap " " " "
+                                                 , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " "
+                                                 }
+                           dynamicLogWithPP $ xmobarPP
+                                                 { ppOutput           = hPutStrLn h2
+                                                 , ppOrder            = \(workspaces:layout:title:_) -> [title]
+                                                 , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
+                                                 }
 
 myFocusFollowsMouse  = False
 myModMask            = mod4Mask
@@ -130,14 +135,16 @@ myRemovedKeys          = [ "M-q"   -- quit
 myTerminal           = "urxvtc"
 
 
+
 main = do
-    xmproc <- spawnPipe "xmobar ~/.xmobar/xmobarrc"
+    xmproc  <- spawnPipe "xmobar"
+    xm2proc <- spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
     xmonad $  def { borderWidth        = myBorderWidth
                   , normalBorderColor  = myNormalBorderColor
                   , focusedBorderColor = myFocusedBorderColor
                   , workspaces         = myWorkspaces
                   , layoutHook         = myLayoutHook
-                  , logHook            = myLogHook xmproc
+                  , logHook            = myLogHook xmproc xm2proc
                   , focusFollowsMouse  = myFocusFollowsMouse
                   , modMask            = myModMask
                   , terminal           = myTerminal
