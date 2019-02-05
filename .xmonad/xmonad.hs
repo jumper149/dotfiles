@@ -84,8 +84,8 @@ myLogHook host h h2  = if host == "deskarch" then
                                                      , ppWsSep            = ""
                                                      , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " "
                                                      , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " "
-                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " "
-                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " "
+                                                     , ppHidden           = xmobarColor myColor0 myColorF . wrap " " " "
+                                                     , ppHiddenNoWindows  = xmobarColor myColor7 myColorF . wrap " " " "
                                                      }
                                dynamicLogWithPP $ xmobarPP
                                                      { ppOutput           = hPutStrLn h2
