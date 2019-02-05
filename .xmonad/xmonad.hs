@@ -15,36 +15,36 @@ import qualified XMonad.StackSet as W
 
 
 -- black
-myColor0= "#282a2e"
-myColor8= "#373b41"
+myColor0 = "#282a2e"
+myColor8 = "#373b41"
 
 -- red
-myColor1= "#a54242"
-myColor9= "#cc6666"
+myColor1 = "#a54242"
+myColor9 = "#cc6666"
 
 -- green
-myColor2= "#8c9440"
-myColorA= "#b5bd68"
+myColor2 = "#8c9440"
+myColorA = "#b5bd68"
 
 -- yellow
-myColor3= "#de935f"
-myColorB= "#f0c674"
+myColor3 = "#de935f"
+myColorB = "#f0c674"
 
 -- blue
-myColor4= "#5f819d"
-myColorC= "#81a2be"
+myColor4 = "#5f819d"
+myColorC = "#81a2be"
 
 -- magenta
-myColor5= "#85678f"
-myColorD= "#b294bb"
+myColor5 = "#85678f"
+myColorD = "#b294bb"
 
 -- cyan
-myColor6= "#5e8d87"
-myColorE= "#8abeb7"
+myColor6 = "#5e8d87"
+myColorE = "#8abeb7"
 
 -- white
-myColor7= "#707880"
-myColorF= "#c5c8c6"
+myColor7 = "#707880"
+myColorF = "#c5c8c6"
 
 
 myBorderWidth        = 4
@@ -124,6 +124,14 @@ myKeys               = [ ("M-S-q",        kill)
                        , ("M-S-r",        restart "xmonad" True)
                        , ("M-S-e",        spawn "~/.xmonad/scripts/shutdown.sh")
                        , ("M-S-w",        spawn "i3lock -c '000000' -f --script")
+
+                       , ("M-C-\\",       spawn "~/.scripts/brightness/up.sh")
+                       , ("M-C-/",        spawn "~/.scripts/brightness/down.sh")
+
+                       , ("M-C-=",        spawn "~/.config/i3/scripts/volume_up.sh")
+                       , ("M-C--",        spawn "~/.config/i3/scripts/volume_down.sh")
+                       , ("M-C-0",        spawn "~/.config/i3/scripts/volume_mute.sh")
+                       , ("M-C-]",        spawn "~/.config/i3/scripts/volume_mute_mic.sh")
 
                        , ("M-C-p",        spawn "mpc toggle")
                        , ("M-C-o",        spawn "mpc stop")
