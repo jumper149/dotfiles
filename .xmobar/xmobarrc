@@ -150,7 +150,7 @@ Config {
 --                             ] 10
 
         -- mpd monitor
-        , Run MPD            [ "--template" , "<statei><file> - <title></fc>"
+        , Run MPD            [ "--template" , "<statei><file> - <artist> - <title></fc>"
                              , "--"
                                        -- playing
                                        , "-P" , "<fc=#b5bd68>"
