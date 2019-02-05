@@ -6,7 +6,6 @@ import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
---import XMonad.Hooks.ManageDocks
 
 import System.Posix.Unistd
 
@@ -76,33 +75,32 @@ myLayoutHook         =          ((gaps [(U, barGap), (D, outerGap), (R, outerGap
         outer =    10
         inner =    10
 
-myLogHook host h h2  = do
-                           dynamicLogWithPP $ xmobarPP
-                                                 { ppOutput           = hPutStrLn h
-                                                 , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                                                 , ppWsSep            = ""
-                                                 , ppCurrent          = if host == "deskarch" then
-                                                                           xmobarColor myColor0 myColor2 . wrap " " " "
-                                                                        else
-                                                                           xmobarColor myColor0 myColor2 . wrap " " " " . take 1
-                                                 , ppVisible          = if host == "deskarch" then
-                                                                           xmobarColor myColor0 myColor7 . wrap " " " "
-                                                                        else
-                                                                           xmobarColor myColor0 myColor7 . wrap " " " " . take 1
-                                                 , ppHidden           = if host == "deskarch" then
-                                                                           xmobarColor myColorF ""       . wrap " " " "
-                                                                        else
-                                                                           xmobarColor myColorF ""       . wrap " " " " . take 1
-                                                 , ppHiddenNoWindows  = if host == "deskarch" then
-                                                                           xmobarColor myColor7 ""       . wrap " " " "
-                                                                        else
-                                                                           xmobarColor myColor7 ""       . wrap " " " " . take 1
-                                                 }
-                           dynamicLogWithPP $ xmobarPP
-                                                 { ppOutput           = hPutStrLn h2
-                                                 , ppOrder            = \(workspaces:layout:title:_) -> [title]
-                                                 , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
-                                                 }
+myLogHook host h h2  = if host == "deskarch" then
+                           do  dynamicLogWithPP $ xmobarPP
+                                                     { ppOutput           = hPutStrLn h
+                                                     , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                                                     , ppWsSep            = ""
+                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " "
+                                                     , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " "
+                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " "
+                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " "
+                                                     }
+                               dynamicLogWithPP $ xmobarPP
+                                                     { ppOutput           = hPutStrLn h2
+                                                     , ppOrder            = \(workspaces:layout:title:_) -> [title]
+                                                     , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
+                                                     }
+                       else
+                           do  dynamicLogWithPP $ xmobarPP
+                                                     { ppOutput           = hPutStrLn h
+                                                     , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                                                     , ppWsSep            = ""
+                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " " . take 1
+                                                     , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " " . take 1
+                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " " . take 1
+                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " " . take 1
+                                                     }
+
 
 myFocusFollowsMouse  = False
 myModMask            = mod4Mask
