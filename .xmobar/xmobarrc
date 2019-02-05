@@ -69,7 +69,7 @@ Config {
         Run StdinReader
 
         -- weather monitor
-        ,Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <fc=#707880>|</fc> <fc=#81a2be><rh></fc>% <fc=#707880>|</fc> <fc=#81a2be><pressure></fc>hPa"
+        , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <fc=#707880>|</fc> <fc=#81a2be><rh></fc>% <fc=#707880>|</fc> <fc=#81a2be><pressure></fc>hPa"
                              ] 36000
 
         -- network activity monitor (dynamic interface resolution)
@@ -150,7 +150,7 @@ Config {
 --                             ] 10
 
         -- mpd monitor
-        , Run MPD            [ "--template" , "<statei><title></fc>"
+        , Run MPD            [ "--template" , "<statei><file> - <title></fc>"
                              , "--"
                                        -- playing
                                        , "-P" , "<fc=#b5bd68>"

@@ -1,5 +1,7 @@
 import XMonad
 import XMonad.Core
+import XMonad.Actions.CycleWindows
+import XMonad.Actions.CycleWS
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
@@ -106,13 +108,31 @@ myFocusFollowsMouse  = False
 myModMask            = mod4Mask
 myKeys               = [ ("M-S-q",        kill)
                        , ("M-S-<Return>", windows W.swapMaster)
+                       , ("M-<Up>",       windows W.focusUp)
+                       , ("M-<Down>",     windows W.focusDown)
+                       , ("M-S-<Up>",     windows W.swapUp)
+                       , ("M-S-<Down>",   windows W.swapDown)
                        , ("M-S-h",        sendMessage Shrink)
                        , ("M-S-l",        sendMessage Expand)
+                       , ("M-<Tab>",      nextWS)
+                       , ("M-S-<Tab>",    prevWS)
                        , ("M-h",          screenWorkspace 0 >>= flip whenJust (windows . W.view))
+                       , ("M-<Left>",     screenWorkspace 0 >>= flip whenJust (windows . W.view))
                        , ("M-l",          screenWorkspace 1 >>= flip whenJust (windows . W.view))
+                       , ("M-<Right>",    screenWorkspace 1 >>= flip whenJust (windows . W.view))
+
                        , ("M-S-r",        restart "xmonad" True)
-                       , ("M-S-e",        spawn "$HOME/.xmonad/scripts/shutdown.sh")
+                       , ("M-S-e",        spawn "~/.xmonad/scripts/shutdown.sh")
                        , ("M-S-w",        spawn "i3lock -c '000000' -f --script")
+
+                       , ("M-C-p",        spawn "mpc toggle")
+                       , ("M-C-o",        spawn "mpc stop")
+                       , ("M-C-[",        spawn "mpc next")
+                       , ("M-C-i",        spawn "mpc prev")
+                       , ("M-C-<Print>",  spawn "scrot")
+                       , ("M-C-k",        spawn "~/scripts/screenkey.sh")
+                       , ("M-C-m",        spawn "offlineimap")
+
                        , ("M-<Return>",   spawn myTerminal)
                        , ("M-d",          spawn "rofi -show run")
                        , ("M-r",          runInTerm "" "ranger")
