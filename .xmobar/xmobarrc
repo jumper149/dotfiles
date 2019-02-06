@@ -112,13 +112,13 @@ Config {
         , Run Battery        [ "--template" , "BATT <acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "#b5bd68"
+                             , "--low"      , "#de935f"
                              , "--normal"   , "#a54242"
-                             , "--high"     , "#de935f"
+                             , "--high"     , "#b5bd68"
 
                              , "--" -- battery specific options
                                        -- discharging status
-                                       , "-o"	, "<fc=#a54242><left></fc>% <fc=#a54242><timeleft></fc>"
+                                       , "-o"	, "<left>% <fc=#a54242><timeleft></fc>"
                                        -- AC "on" status
                                        , "-O"	, "<fc=#b5bd68>LOAD</fc>"
                                        -- charged status
