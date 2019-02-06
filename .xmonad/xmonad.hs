@@ -5,6 +5,7 @@ import XMonad.Actions.CycleWS
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
+import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
@@ -62,19 +63,17 @@ myWorkspaces         = [ "1 Browser"
                        , "9 Garbage"
                        ]
 
-myLayoutHook         =          ((gaps [(U, barGap), (D, outerGap), (R, outerGap), (L, outerGap)]) spacingTiled)
-                     ||| Mirror ((gaps [(U, outerGap), (D, outerGap), (R, outerGap), (L, barGap)]) spacingTiled)
+myLayoutHook         =   avoidStruts tiled
+                     ||| avoidStruts (Mirror tiled)
                      ||| noBorders Full
   where
-    outerGap     = 10
-    barGap       = outerGap + 22
-    spacingTiled = spacingRaw False
-                      (Border outer outer outer outer) True
-                      (Border inner inner inner inner) True
-                     --     n   increment ratio
-                   $ Tall   1   (3/100)   (1/2)
+    tiled = spacingRaw False
+               (Border outer outer outer outer) True
+               (Border inner inner inner inner) True
+                --     n   increment ratio
+              $ Tall   1   (3/100)   (1/2)
       where
-        outer =    10
+        outer =    20
         inner =    10
 
 myLogHook host h h2  = if host == "deskarch" then
@@ -183,7 +182,8 @@ main = do
                   spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
                else
                   spawnPipe "echo") -- required for type?
-    xmonad $  def { borderWidth        = myBorderWidth
+    xmonad $  docks
+              def { borderWidth        = myBorderWidth
                   , normalBorderColor  = myNormalBorderColor
                   , focusedBorderColor = myFocusedBorderColor
                   , workspaces         = myWorkspaces
