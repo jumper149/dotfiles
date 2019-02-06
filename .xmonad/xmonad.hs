@@ -2,9 +2,11 @@ import XMonad
 import XMonad.Core
 import XMonad.Actions.CycleWindows
 import XMonad.Actions.CycleWS
+import XMonad.Layout -- unnecassary
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
+import XMonad.Layout.PerWorkspace
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
@@ -56,25 +58,31 @@ myWorkspaces         = [ "1 Browser"
                        , "2 Hacking"
                        , "3 Media"
                        , "4 Social"
-                       , "5 LaTeX"
+                       , "5 Writing"
                        , "6 GIMP"
                        , "7 Gaming"
-                       , "8 Other"
-                       , "9 Garbage"
+                       , "8 Special"
+                       , "9 Other"
                        ]
 
-myLayoutHook         =   avoidStruts tiled
+myMainLayout         =   avoidStruts tiled
                      ||| avoidStruts (Mirror tiled)
                      ||| noBorders Full
   where
     tiled = spacingRaw False
                (Border outer outer outer outer) True
                (Border inner inner inner inner) True
-                --     n   increment ratio
-              $ Tall   1   (3/100)   (1/2)
+              --     n   increment ratio
+            $ Tall   1   (3/100)   (1/2)
       where
         outer =    20
         inner =    10
+
+myBrowserLayout      = avoidStruts $ Full
+
+myLayoutHook         = onWorkspace "1 Browser" myBrowserLayout
+                       $ myMainLayout
+
 
 myLogHook host h h2  = if host == "deskarch" then
                            do  dynamicLogWithPP $ xmobarPP
@@ -113,6 +121,9 @@ myKeys               = [ ("M-S-q",        kill)
                        , ("M-S-<Down>",   windows W.swapDown)
                        , ("M-S-h",        sendMessage Shrink)
                        , ("M-S-l",        sendMessage Expand)
+                       , ("M-S-t",        do
+                                            toggleWindowSpacingEnabled
+                                            toggleScreenSpacingEnabled)
                        , ("M-<Tab>",      nextWS)
                        , ("M-S-<Tab>",    prevWS)
                        , ("M-h",          screenWorkspace 0 >>= flip whenJust (windows . W.view))
@@ -174,20 +185,25 @@ myRemovedKeys          = [ "M-q"   -- quit
 myTerminal           = "urxvtc"
 
 
+myStartupHook        = do
+                         (windows . W.greedyView) "2 Hacking"
+
+
 
 main = do
     host    <- fmap nodeName getSystemID
     xmproc  <- spawnPipe "xmobar"
-    xm2proc <- (if host == "deskarch" then
+    xm2proc <- if host == "deskarch" then
                   spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
                else
-                  spawnPipe "echo") -- required for type?
+                  spawnPipe "echo" -- required for type?
     xmonad $  docks
               def { borderWidth        = myBorderWidth
                   , normalBorderColor  = myNormalBorderColor
                   , focusedBorderColor = myFocusedBorderColor
                   , workspaces         = myWorkspaces
                   , layoutHook         = myLayoutHook
+                  , startupHook        = myStartupHook
                   , logHook            = myLogHook host xmproc xm2proc
                   , focusFollowsMouse  = myFocusFollowsMouse
                   , modMask            = myModMask
