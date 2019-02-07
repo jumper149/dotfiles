@@ -3,7 +3,7 @@ import XMonad.Core
 import XMonad.Actions.CycleWindows
 import XMonad.Actions.CycleWS
 import XMonad.Actions.SpawnOn
-import XMonad.Layout -- unnecassary
+import XMonad.Layout                  -- unnecassary
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
@@ -84,6 +84,11 @@ myBrowserLayout      = avoidStruts $ Full
 myLayoutHook         = onWorkspace "1 Browser" myBrowserLayout
                        $ myMainLayout
 
+myManageHook         = composeAll
+                         [ className =? "matplotlib" --> doFloat
+                         , className =? "Gnuplot"    --> doFloat
+                         ]
+
 
 myLogHook host h h2  = if host == "deskarch" then
                            do  dynamicLogWithPP $ xmobarPP
@@ -156,16 +161,16 @@ myKeys               = [ ("M-S-q",        kill)
                        , ("M-d",          spawn "rofi -show run")
                        , ("M-r",          runInTerm "" "ranger")
 
-                       , ("M-q",          spawnOn "1 Browser" "qutebrowser")
-                       , ("M-c",          spawnOn "3 Media" "chromium")
-                       , ("M-n",          spawnOn "3 Media" $ myTerminal ++ " -e 'ncmpcpp'")
-                       , ("M-t",          spawnOn "4 Social" "telegram-desktop")
-                       , ("M-m",          spawnOn "4 Social" $ myTerminal ++ " -e 'mutt'")
-                       , ("M-i",          spawnOn "4 Social" $ myTerminal ++ " -e 'irssi'")
-                       , ("M-g",          spawnOn "6 GIMP" "gimp")
-                       , ("M-p",          spawnOn "8 Control" "pavucontrol")
-                       , ("M-x",          spawnOn "8 Control" "arandr")
-                       , ("M-b",          spawnOn "9 Other" "baobab")
+                       , ("M-q",          spawnOnAndGoTo "1 Browser" "qutebrowser")
+                       , ("M-c",          spawnOnAndGoTo "3 Media" "chromium")
+                       , ("M-n",          spawnOnAndGoTo "3 Media" $ myTerminal ++ " -e 'ncmpcpp'")
+                       , ("M-t",          spawnOnAndGoTo "4 Social" "telegram-desktop")
+                       , ("M-m",          spawnOnAndGoTo "4 Social" $ myTerminal ++ " -e 'mutt'")
+                       , ("M-i",          spawnOnAndGoTo "4 Social" $ myTerminal ++ " -e 'irssi'")
+                       , ("M-g",          spawnOnAndGoTo "6 GIMP" "gimp")
+                       , ("M-p",          spawnOnAndGoTo "8 Control" "pavucontrol")
+                       , ("M-x",          spawnOnAndGoTo "8 Control" "arandr")
+                       , ("M-b",          spawnOnAndGoTo "9 Other" "baobab")
                        ]
 myRemovedKeys          = [ "M-q"   -- quit
                          , "M-S-q" -- restart
@@ -191,6 +196,9 @@ myStartupHook        = do
                          (windows . W.greedyView) "2 Hacking"
 
 
+spawnOnAndGoTo ws prog = do spawnOn ws prog
+                            (windows . W.greedyView) ws
+
 
 main = do
     host    <- fmap nodeName getSystemID
@@ -205,6 +213,7 @@ main = do
                   , focusedBorderColor = myFocusedBorderColor
                   , workspaces         = myWorkspaces
                   , layoutHook         = myLayoutHook
+                  , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
                   , startupHook        = myStartupHook
                   , logHook            = myLogHook host xmproc xm2proc
                   , focusFollowsMouse  = myFocusFollowsMouse
