@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Core
 import XMonad.Actions.CycleWindows
 import XMonad.Actions.CycleWS
+import XMonad.Actions.SpawnOn
 import XMonad.Layout -- unnecassary
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
@@ -61,7 +62,7 @@ myWorkspaces         = [ "1 Browser"
                        , "5 Writing"
                        , "6 GIMP"
                        , "7 Gaming"
-                       , "8 Special"
+                       , "8 Control"
                        , "9 Other"
                        ]
 
@@ -154,16 +155,17 @@ myKeys               = [ ("M-S-q",        kill)
                        , ("M-<Return>",   spawn myTerminal)
                        , ("M-d",          spawn "rofi -show run")
                        , ("M-r",          runInTerm "" "ranger")
-                       , ("M-b",          spawn "baobab")
-                       , ("M-q",          spawn "qutebrowser")
-                       , ("M-c",          spawn "chromium")
-                       , ("M-n",          runInTerm "" "ncmpcpp")
-                       , ("M-p",          spawn "pavucontrol")
-                       , ("M-x",          spawn "arandr")
-                       , ("M-t",          spawn "telegram-desktop")
-                       , ("M-m",          runInTerm "" "mutt")
-                       , ("M-i",          runInTerm "" "irssi")
-                       , ("M-g",          spawn "gimp")
+
+                       , ("M-q",          spawnOn "1 Browser" "qutebrowser")
+                       , ("M-c",          spawnOn "3 Media" "chromium")
+                       , ("M-n",          spawnOn "3 Media" $ myTerminal ++ " -e 'ncmpcpp'")
+                       , ("M-t",          spawnOn "4 Social" "telegram-desktop")
+                       , ("M-m",          spawnOn "4 Social" $ myTerminal ++ " -e 'mutt'")
+                       , ("M-i",          spawnOn "4 Social" $ myTerminal ++ " -e 'irssi'")
+                       , ("M-g",          spawnOn "6 GIMP" "gimp")
+                       , ("M-p",          spawnOn "8 Control" "pavucontrol")
+                       , ("M-x",          spawnOn "8 Control" "arandr")
+                       , ("M-b",          spawnOn "9 Other" "baobab")
                        ]
 myRemovedKeys          = [ "M-q"   -- quit
                          , "M-S-q" -- restart
