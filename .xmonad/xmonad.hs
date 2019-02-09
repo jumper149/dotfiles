@@ -8,6 +8,9 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Decoration
+import XMonad.Layout.Tabbed
+import XMonad.Util.Image
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
@@ -66,6 +69,31 @@ myWorkspaces         = [ "1 Browser"
                        , "9 Other"
                        ]
 
+myButtonX            = [ [True  ,True  ,False ,False ,False ,False ,False ,False ,True  ,True  ]
+                       , [True  ,True  ,True  ,False ,False ,False ,False ,True  ,True  ,True  ]
+                       , [False ,True  ,True  ,True  ,False ,False ,True  ,True  ,True  ,False ]
+                       , [False ,False ,True  ,True  ,True  ,True  ,True  ,True  ,False ,False ]
+                       , [False ,False ,False ,True  ,True  ,True  ,True  ,False ,False ,False ]
+                       , [False ,False ,False ,True  ,True  ,True  ,True  ,False ,False ,False ]
+                       , [False ,False ,True  ,True  ,True  ,True  ,True  ,True  ,False ,False ]
+                       , [False ,True  ,True  ,True  ,False ,False ,True  ,True  ,True  ,False ]
+                       , [True  ,True  ,True  ,False ,False ,False ,False ,True  ,True  ,True  ]
+                       , [True  ,True  ,False ,False ,False ,False ,False ,False ,True  ,True  ]
+                       ]
+
+myTabTheme           = def { activeColor         = myColor2
+                           , inactiveColor       = myColor0
+                           , urgentColor         = myColor3
+                           , activeBorderColor   = myColor2
+                           , inactiveBorderColor = myColor0
+                           , urgentBorderColor   = myColor3
+                           , activeTextColor     = myColor0
+                           , inactiveTextColor   = myColor7
+                           , urgentTextColor     = myColor0
+                           , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
+                           , windowTitleIcons    = [ (myButtonX , CenterRight 5) ]
+                           }
+
 myMainLayout         =   avoidStruts tiled
                      ||| avoidStruts (Mirror tiled)
                      ||| noBorders Full
@@ -79,7 +107,8 @@ myMainLayout         =   avoidStruts tiled
         outer =    20
         inner =    10
 
-myBrowserLayout      = avoidStruts $ Full
+myBrowserLayout      = avoidStruts (noBorders (tabbed shrinkText myTabTheme))
+                     ||| noBorders Full
 
 myLayoutHook         = onWorkspace "1 Browser" myBrowserLayout
                        $ myMainLayout
