@@ -191,7 +191,7 @@ myKeys               = [ ("M-S-q",        kill)
                        , ("M-r",          runInTerm "" "ranger")
 
                        , ("M-q",          spawnOnAndGoTo "1 Browser" "qutebrowser")
-                       , ("M-c",          spawnOnAndGoTo "3 Media" "chromium")
+                       , ("M-c",          spawnOnAndGoTo "1 Browser" "chromium")
                        , ("M-n",          spawnOnAndGoTo "3 Media" $ myTerminal ++ " -e 'ncmpcpp'")
                        , ("M-t",          spawnOnAndGoTo "4 Social" "telegram-desktop")
                        , ("M-m",          spawnOnAndGoTo "4 Social" $ myTerminal ++ " -e 'mutt'")
