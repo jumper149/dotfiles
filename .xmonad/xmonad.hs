@@ -69,18 +69,6 @@ myWorkspaces         = [ "1 Browser"
                        , "9 Other"
                        ]
 
-myButtonX            = [ [True  ,True  ,False ,False ,False ,False ,False ,False ,True  ,True  ]
-                       , [True  ,True  ,True  ,False ,False ,False ,False ,True  ,True  ,True  ]
-                       , [False ,True  ,True  ,True  ,False ,False ,True  ,True  ,True  ,False ]
-                       , [False ,False ,True  ,True  ,True  ,True  ,True  ,True  ,False ,False ]
-                       , [False ,False ,False ,True  ,True  ,True  ,True  ,False ,False ,False ]
-                       , [False ,False ,False ,True  ,True  ,True  ,True  ,False ,False ,False ]
-                       , [False ,False ,True  ,True  ,True  ,True  ,True  ,True  ,False ,False ]
-                       , [False ,True  ,True  ,True  ,False ,False ,True  ,True  ,True  ,False ]
-                       , [True  ,True  ,True  ,False ,False ,False ,False ,True  ,True  ,True  ]
-                       , [True  ,True  ,False ,False ,False ,False ,False ,False ,True  ,True  ]
-                       ]
-
 myTabTheme           = def { activeColor         = myColor2
                            , inactiveColor       = myColor0
                            , urgentColor         = myColor3
@@ -124,10 +112,10 @@ myLogHook host h h2  = if host == "deskarch" then
                                                      { ppOutput           = hPutStrLn h
                                                      , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
                                                      , ppWsSep            = ""
-                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " "
-                                                     , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " "
-                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " "
-                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " "
+                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " " . clickable
+                                                     , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " " . clickable
+                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " " . clickable
+                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " " . clickable
                                                      }
                                dynamicLogWithPP $ xmobarPP
                                                      { ppOutput           = hPutStrLn h2
@@ -139,10 +127,10 @@ myLogHook host h h2  = if host == "deskarch" then
                                                      { ppOutput           = hPutStrLn h
                                                      , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
                                                      , ppWsSep            = ""
-                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " " . take 1
-                                                     , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " " . take 1
-                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " " . take 1
-                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " " . take 1
+                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " " . clickable . take 1
+                                                     , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " " . clickable . take 1
+                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " " . clickable . take 1
+                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " " . clickable . take 1
                                                      }
 
 
@@ -225,8 +213,24 @@ myStartupHook        = do
                          (windows . W.greedyView) "2 Hacking"
 
 
+clickable :: WorkspaceId -> String
+clickable ws         = "<action=xdotool key super+" ++ n ++ ">" ++ ws ++ "</action>"
+                         where n = take 1 ws
+
 spawnOnAndGoTo ws prog = do spawnOn ws prog
                             (windows . W.greedyView) ws
+
+myButtonX            = [ [True  ,True  ,False ,False ,False ,False ,False ,False ,True  ,True  ]
+                       , [True  ,True  ,True  ,False ,False ,False ,False ,True  ,True  ,True  ]
+                       , [False ,True  ,True  ,True  ,False ,False ,True  ,True  ,True  ,False ]
+                       , [False ,False ,True  ,True  ,True  ,True  ,True  ,True  ,False ,False ]
+                       , [False ,False ,False ,True  ,True  ,True  ,True  ,False ,False ,False ]
+                       , [False ,False ,False ,True  ,True  ,True  ,True  ,False ,False ,False ]
+                       , [False ,False ,True  ,True  ,True  ,True  ,True  ,True  ,False ,False ]
+                       , [False ,True  ,True  ,True  ,False ,False ,True  ,True  ,True  ,False ]
+                       , [True  ,True  ,True  ,False ,False ,False ,False ,True  ,True  ,True  ]
+                       , [True  ,True  ,False ,False ,False ,False ,False ,False ,True  ,True  ]
+                       ]
 
 
 main = do
