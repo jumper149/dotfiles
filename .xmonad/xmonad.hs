@@ -112,10 +112,10 @@ myLogHook host h h2  = if host == "deskarch" then
                                                      { ppOutput           = hPutStrLn h
                                                      , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
                                                      , ppWsSep            = ""
-                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " " . clickable
-                                                     , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " " . clickable
-                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " " . clickable
-                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " " . clickable
+                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . clickable
+                                                     , ppVisible          = xmobarColor myColor0 myColor7 . clickable
+                                                     , ppHidden           = xmobarColor myColorF ""       . clickable
+                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable
                                                      }
                                dynamicLogWithPP $ xmobarPP
                                                      { ppOutput           = hPutStrLn h2
@@ -127,10 +127,10 @@ myLogHook host h h2  = if host == "deskarch" then
                                                      { ppOutput           = hPutStrLn h
                                                      , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
                                                      , ppWsSep            = ""
-                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . wrap " " " " . clickable . take 1
-                                                     , ppVisible          = xmobarColor myColor0 myColor7 . wrap " " " " . clickable . take 1
-                                                     , ppHidden           = xmobarColor myColorF ""       . wrap " " " " . clickable . take 1
-                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . wrap " " " " . clickable . take 1
+                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . clickable . take 1
+                                                     , ppVisible          = xmobarColor myColor0 myColor7 . clickable . take 1
+                                                     , ppHidden           = xmobarColor myColorF ""       . clickable . take 1
+                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable . take 1
                                                      }
 
 
@@ -214,7 +214,7 @@ myStartupHook        = do
 
 
 clickable :: WorkspaceId -> String
-clickable ws         = "<action=xdotool key super+" ++ n ++ ">" ++ ws ++ "</action>"
+clickable ws         = "<action=xdotool key super+" ++ n ++ ">" ++ (wrap " " " " ws) ++ "</action>"
                          where n = take 1 ws
 
 spawnOnAndGoTo ws prog = do spawnOn ws prog
