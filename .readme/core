@@ -30,8 +30,8 @@ xorg-xinit
 
 xmonad
 xmonad-contrib
-xmobar
 ghc
+haskell-http-conduit
 libmpd
 
 i3-gaps
