@@ -174,6 +174,11 @@ Overwrite the empty crontab for your user:
 
     crontab ~/.readme/root-config/crontab
 
+### hoogle
+Create offline hoogle database:
+
+    hoogle generate
+
 ### pacsync
 
     mkdir ~/Packages

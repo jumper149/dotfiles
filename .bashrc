@@ -58,7 +58,7 @@ function __whitespace_ps2() {
 	printf '%*s' "$LENGTH"
 	return "$EXIT"
 }
-PS2='`__whitespace_ps2 \u \h \W`\001${__yellow_ps}${__bold_ps}\002>\001${__normal_ps}\002 '
+PS2='`__whitespace_ps2 \u \h \W`\001${__yellow_ps}${__bold_ps}\002|\001${__normal_ps}\002 '
 
 # vim input
 set -o vi

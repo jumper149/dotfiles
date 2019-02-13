@@ -30,7 +30,6 @@ xorg-xinit
 
 xmonad
 xmonad-contrib
-ghc
 haskell-http-conduit
 libmpd
 
@@ -136,16 +135,18 @@ zip
 zlib
 
 
-julia
 python2-distutils-extra
 python2-setuptools
 python-matplotlib
 python-numpy
 python-scipy
 python-tldextract
+ghc
+hoogle
+julia
+r
 gnuplot
 gsl
-r
 
 
 asciidoc
