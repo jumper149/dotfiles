@@ -50,6 +50,9 @@ alias fastermelee="LD_LIBRARY_PATH=$HOME/Templates/fm-git/lib/ $HOME/Templates/f
 # display terminal colors
 alias print-colors="$HOME/.scripts/print-colors.sh"
 
+# generate a random password
+random-password(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-16};echo;}
+
 # mail directory
 export MAIL="$HOME/.mail/"
 
