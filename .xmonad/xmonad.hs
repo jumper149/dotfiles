@@ -79,7 +79,6 @@ myTabTheme           = def { activeColor         = myColor2
                            , inactiveTextColor   = myColor7
                            , urgentTextColor     = myColor0
                            , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
-                           , windowTitleIcons    = [ (myButtonX , CenterRight 5) ]
                            }
 
 myMainLayout         =   avoidStruts tiled
@@ -219,18 +218,6 @@ clickable ws         = "<action=xdotool key super+" ++ n ++ ">" ++ (wrap " " " "
 
 spawnOnAndGoTo ws prog = do spawnOn ws prog
                             (windows . W.greedyView) ws
-
-myButtonX            = [ [True  ,True  ,False ,False ,False ,False ,False ,False ,True  ,True  ]
-                       , [True  ,True  ,True  ,False ,False ,False ,False ,True  ,True  ,True  ]
-                       , [False ,True  ,True  ,True  ,False ,False ,True  ,True  ,True  ,False ]
-                       , [False ,False ,True  ,True  ,True  ,True  ,True  ,True  ,False ,False ]
-                       , [False ,False ,False ,True  ,True  ,True  ,True  ,False ,False ,False ]
-                       , [False ,False ,False ,True  ,True  ,True  ,True  ,False ,False ,False ]
-                       , [False ,False ,True  ,True  ,True  ,True  ,True  ,True  ,False ,False ]
-                       , [False ,True  ,True  ,True  ,False ,False ,True  ,True  ,True  ,False ]
-                       , [True  ,True  ,True  ,False ,False ,False ,False ,True  ,True  ,True  ]
-                       , [True  ,True  ,False ,False ,False ,False ,False ,False ,True  ,True  ]
-                       ]
 
 
 main = do
