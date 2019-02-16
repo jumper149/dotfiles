@@ -3,11 +3,14 @@
 start_wm="$1"
 if [ -z "$start_wm" ]; then
 	start_wm="xmonad"
+	echo "WindowManager defaults to Xmonad"
 fi
 
 
 xrdb "$HOME/.Xresources"
 xmodmap "/etc/X11/xinit/.Xmodmap"
+
+[ -f ~/.xprofile ] && . ~/.xprofile
 
 xset r rate 200 30
 setxkbmap -option caps:escape
