@@ -22,7 +22,7 @@ ArchLinux Package dependencies for utilising the dotfiles are found in `~/.readm
 
     ~/.readme/groups
     ~/.readme/core
-    ~/.readme/Maaur
+    ~/.readme/aur
     ~/.readme/maybe
 
 To install all Packages in `groups`, `core` and `aur` call `~/.readme/install_core.sh` with
