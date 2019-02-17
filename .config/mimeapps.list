@@ -1,0 +1,29 @@
+[Added Associations]
+audio/mpeg=vlc-2.desktop;
+
+
+[Default Applications]
+image/bmp=sxiv.desktop;
+image/gif=sxiv.desktop;
+image/jpeg=sxiv.desktop;
+image/jpg=sxiv.desktop;
+image/png=sxiv.desktop;
+image/tiff=sxiv.desktop;
+image/x-bmp=sxiv.desktop;
+image/x-portable-anymap=sxiv.desktop;
+image/x-portable-bitmap=sxiv.desktop;
+image/x-portable-graymap=sxiv.desktop;
+image/x-tga=sxiv.desktop;
+image/x-xpixmap=sxiv.desktop;
+
+audio/mpeg=vlc-2.desktop;
+
+text/html=vim.desktop
+text/xml=vim.desktop;
+application/xhtml+xml=vim.desktop;
+application/xml=vim.desktop;
+application/rdf+xml=vim.desktop;
+
+x-scheme-handler/http=qutebrowser.desktop;
+x-scheme-handler/https=qutebrowser.desktop;
+x-scheme-handler/qute=qutebrowser.desktop;
