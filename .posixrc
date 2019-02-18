@@ -19,6 +19,9 @@ alias dotgit="git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/"
 alias pacup="sudo pacman -Syu"
 alias pacsync="$HOME/.readme/install_core.sh"
 
+# browse reddit
+alias rtv="rtv --enable-media"
+
 # usb scripts
 alias usbmount="$HOME/.scripts/usb/mount.sh"
 alias usbumount="$HOME/.scripts/usb/umount.sh"

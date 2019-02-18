@@ -1,0 +1,51 @@
+# mailcap file for Reddit Terminal Viewer rtv
+# https://github.com/michael-lazar/rtv/
+#
+#                              Mailcap 101
+# - The first entry with a matching MIME type will be executed, * is a wildcard
+# - %s will be replaced with the image or video url
+# - Add ``test=test -n "$DISPLAY"`` if your command opens a new window
+# - Add ``needsterminal`` for commands that use the terminal
+# - Add ``copiousoutput`` for commands that dump text to stdout
+
+
+
+# X
+
+image/x-imgur-album; feh -g 640x480 %s; test=test -n "$DISPLAY"
+image/gif; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+image/*; feh -g 640x480 '%s'; test=test -n "$DISPLAY"
+
+video/x-youtube; vlc '%s' --width 640 --height 480; test=test -n "$DISPLAY"
+video/x-youtube; mpv --ytdl-format=bestvideo+bestaudio/best '%s' --autofit 640x480; test=test -n "$DISPLAY"
+
+video/*; mpv '%s' --autofit 640x480 --loop=inf; test=test -n "$DISPLAY"
+
+
+
+# Terminal
+
+## Image
+
+### avoid issues with album
+image/x-imgur-album; echo
+
+### w3m
+image/*; w3m -o 'ext_image_viewer=off' '%s'; needsterminal
+
+### img2xterm
+#image/*; curl -s '%s' | convert -resize 80x80 - jpg:/tmp/rtv.jpg && img2xterm /tmp/rtv.jpg; needsterminal; copiousoutput
+
+### img2txt
+#image/*; curl -s '%s' | convert - jpg:/tmp/rtv.jpg && img2txt -f utf8 /tmp/rtv.jpg; needsterminal; copiousoutput
+
+
+## Video
+
+### mpv
+video/x-youtube; mpv -vo drm -quiet '%s'; needsterminal
+video/*; mpv -vo drm -quiet '%s'; needsterminal
+
+### ascii
+# video/x-youtube; youtube-dl -q -o - '%s' | mplayer -cache 8192 -vo caca -quiet -; needsterminal
+# video/*; wget '%s' -O - | mplayer -cache 8192 -vo caca -quiet -; needsterminal
