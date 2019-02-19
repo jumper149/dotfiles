@@ -101,8 +101,9 @@ myLayoutHook         = onWorkspace "1 Browser" myBrowserLayout
                        $ myMainLayout
 
 myManageHook         = composeAll
-                         [ className =? "matplotlib" --> doFloat
-                         , className =? "Gnuplot"    --> doFloat
+                         [ className =? "matplotlib"  --> doFloat
+                         , className =? "Gnuplot"     --> doFloat
+                         , appName   =? "offlineimap" --> doFloat
                          ]
 
 
@@ -171,7 +172,7 @@ myKeys               = [ ("M-S-q",        kill)
                        , ("M-C-i",        spawn "mpc prev")
                        , ("M-C-<Print>",  spawn "scrot")
                        , ("M-C-k",        spawn "~/scripts/screenkey.sh")
-                       , ("M-C-m",        spawn "offlineimap")
+                       , ("M-C-m",        spawnOn "8 Control" $ inTerminal "offlineimap")
 
                        , ("M-<Return>",   spawn myTerminal)
                        , ("M-d",          spawn "rofi -show run")
@@ -179,14 +180,15 @@ myKeys               = [ ("M-S-q",        kill)
 
                        , ("M-q",          spawnOnAndGoTo "1 Browser" "qutebrowser")
                        , ("M-c",          spawnOnAndGoTo "1 Browser" "chromium")
-                       , ("M-n",          spawnOnAndGoTo "3 Media" $ myTerminal ++ " -e 'ncmpcpp'")
+                       , ("M-n",          spawnOnAndGoTo "3 Media" $ inTerminal "ncmpcpp")
                        , ("M-t",          spawnOnAndGoTo "4 Social" "telegram-desktop")
-                       , ("M-m",          spawnOnAndGoTo "4 Social" $ myTerminal ++ " -e 'mutt'")
-                       , ("M-i",          spawnOnAndGoTo "4 Social" $ myTerminal ++ " -e 'irssi'")
+                       , ("M-m",          spawnOnAndGoTo "4 Social" $ inTerminal "mutt")
+                       , ("M-i",          spawnOnAndGoTo "4 Social" $ inTerminal "irssi")
                        , ("M-g",          spawnOnAndGoTo "6 GIMP" "gimp")
                        , ("M-p",          spawnOnAndGoTo "8 Control" "pavucontrol")
                        , ("M-x",          spawnOnAndGoTo "8 Control" "arandr")
                        , ("M-b",          spawnOnAndGoTo "9 Other" "baobab")
+
                        ]
 myRemovedKeys          = [ "M-q"   -- quit
                          , "M-S-q" -- restart
@@ -212,10 +214,15 @@ myStartupHook        = do
                          (windows . W.greedyView) "2 Hacking"
 
 
+inTerminal :: String -> String
+inTerminal prog      = myTerminal ++ " -name '" ++ prog ++ "' -e '" ++ prog ++ "'"
+
 clickable :: WorkspaceId -> String
 clickable ws         = "<action=xdotool key super+" ++ n ++ ">" ++ (wrap " " " " ws) ++ "</action>"
                          where n = take 1 ws
 
+-- requires _NET_WM_PID to be set on creation; doesn't work on:
+--   urxvtc(offlineimap), qutebrowser, chromium
 spawnOnAndGoTo ws prog = do spawnOn ws prog
                             (windows . W.greedyView) ws
 
