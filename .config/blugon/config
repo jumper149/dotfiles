@@ -7,6 +7,7 @@ backend = scg
 
 wait_for_x = False
 readcurrent = False
+fade = True
 
 
 [current]
@@ -16,6 +17,10 @@ max_temp = 20000.0
 [wait_for_x]
 sleep_after_failed_startup = 0.1
 sleep_after_losing_x = 120.0
+
+[fade]
+steps = 10
+duration = 3.0
 
 [tty]
 # text colors on tty
