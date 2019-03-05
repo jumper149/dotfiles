@@ -19,8 +19,8 @@ sleep_after_failed_startup = 0.1
 sleep_after_losing_x = 120.0
 
 [fade]
-steps = 10
-duration = 3.0
+steps = 20
+duration = 5.0
 
 [tty]
 # text colors on tty
