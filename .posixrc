@@ -5,7 +5,7 @@ alias ls='ls --color=auto'
 
 # vim
 export VISUAL="vim -p"
-export EDITOR="vi -e"
+export EDITOR="$VISUAL"
 alias vi="$VISUAL"
 alias vim="$VISUAL"
 export PAGER="vimpager"
