@@ -7,7 +7,7 @@ backend = scg
 
 wait_for_x = False
 readcurrent = False
-fade = True
+fade = False
 
 
 [current]
