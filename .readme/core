@@ -142,8 +142,11 @@ python-matplotlib
 python-numpy
 python-scipy
 python-tldextract
+
 ghc
 hoogle
+haskell-split
+
 julia
 r
 gnuplot
