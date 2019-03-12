@@ -108,30 +108,33 @@ myManageHook         = composeAll
 
 
 myLogHook host h h2  = if host == "deskarch" then
-                           do  dynamicLogWithPP $ xmobarPP
-                                                     { ppOutput           = hPutStrLn h
-                                                     , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                                                     , ppWsSep            = ""
-                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . clickable
-                                                     , ppVisible          = xmobarColor myColor0 myColor7 . clickable
-                                                     , ppHidden           = xmobarColor myColorF ""       . clickable
-                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable
-                                                     }
-                               dynamicLogWithPP $ xmobarPP
-                                                     { ppOutput           = hPutStrLn h2
-                                                     , ppOrder            = \(workspaces:layout:title:_) -> [title]
-                                                     , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
-                                                     }
+                           do  dynamicLogWithPP $
+                                 xmobarPP
+                                   { ppOutput           = hPutStrLn h
+                                   , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                                   , ppWsSep            = ""
+                                   , ppCurrent          = xmobarColor myColor0 myColor2 . clickable
+                                   , ppVisible          = xmobarColor myColor0 myColor7 . clickable
+                                   , ppHidden           = xmobarColor myColorF ""       . clickable
+                                   , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable
+                                   }
+                               dynamicLogWithPP $
+                                 xmobarPP
+                                   { ppOutput           = hPutStrLn h2
+                                   , ppOrder            = \(workspaces:layout:title:_) -> [title]
+                                   , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
+                                   }
                        else
-                           do  dynamicLogWithPP $ xmobarPP
-                                                     { ppOutput           = hPutStrLn h
-                                                     , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                                                     , ppWsSep            = ""
-                                                     , ppCurrent          = xmobarColor myColor0 myColor2 . clickable . take 1
-                                                     , ppVisible          = xmobarColor myColor0 myColor7 . clickable . take 1
-                                                     , ppHidden           = xmobarColor myColorF ""       . clickable . take 1
-                                                     , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable . take 1
-                                                     }
+                           do  dynamicLogWithPP $
+                                 xmobarPP
+                                   { ppOutput           = hPutStrLn h
+                                   , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                                   , ppWsSep            = ""
+                                   , ppCurrent          = xmobarColor myColor0 myColor2 . clickable . take 1
+                                   , ppVisible          = xmobarColor myColor0 myColor7 . clickable . take 1
+                                   , ppHidden           = xmobarColor myColorF ""       . clickable . take 1
+                                   , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable . take 1
+                                   }
 
 
 myFocusFollowsMouse  = False
