@@ -7,6 +7,7 @@ settings:
     global:
       normal:
         ',p': spawn --userscript qute-pass
+        ',P': spawn --userscript qute-pass --password-only
         Z: spawn mpv {url}
         z: hint links spawn mpv {hint-url}
   qt.args:
