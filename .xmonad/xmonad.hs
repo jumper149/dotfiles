@@ -5,18 +5,17 @@ import XMonad.Actions.CycleWS
 import XMonad.Actions.SpawnOn
 import XMonad.Layout                  -- unnecassary
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Decoration
 import XMonad.Layout.Tabbed
-import XMonad.Util.Image
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageHelpers     -- for doCenterFloat
 
-import System.Posix.Unistd
+import System.Posix.Unistd            -- for hostname
 
 import qualified XMonad.StackSet as W
 
@@ -101,9 +100,9 @@ myLayoutHook         = onWorkspace "1 Browser" myBrowserLayout
                        $ myMainLayout
 
 myManageHook         = composeAll
-                         [ className =? "matplotlib"  --> doFloat
-                         , className =? "Gnuplot"     --> doFloat
-                         , appName   =? "offlineimap" --> doFloat
+                         [ className =? "matplotlib"  --> doCenterFloat
+                         , className =? "Gnuplot"     --> doCenterFloat
+                         , appName   =? "offlineimap" --> doShift "8 Control" <+> doCenterFloat
                          ]
 
 
@@ -213,8 +212,7 @@ myRemovedKeys          = [ "M-q"   -- quit
 myTerminal           = "urxvtc"
 
 
-myStartupHook        = do
-                         (windows . W.greedyView) "2 Hacking"
+myStartupHook        = do (windows . W.greedyView) "2 Hacking"
 
 
 inTerminal :: String -> String
