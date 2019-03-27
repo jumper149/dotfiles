@@ -14,20 +14,10 @@ set folder = "~/.mail/stud-uni-hannover"
 set spoolfile = "+INBOX"
 
 unset mbox
-set record = "+Sent"
+set record = "/dev/null"
 set postponed = "+Drafts"
 
-mailboxes " " "+-------uni--------" "+INBOX" "+Sent" "+Junk" "+Drafts" "+Trash"
-
-# <space>s in foldernames dont work, set up symlinks if needed
-#macro index ci "<change-folder>=INBOX<enter>" "go to inbox"
-#macro index ca "<change-folder>=<enter>" "unset macro"
-#macro index cd "<change-folder>=Drafts<enter>" "go to draft"
-#macro index cm "<change-folder>=<enter>" "unset macro"
-#macro index co "<change-folder>=Sent<enter>" "go to sent mail"
-#macro index cs "<change-folder>=Junk<enter>" "go to junk (spam)"
-#macro index cn "<change-folder>=<enter>" "unset macro"
-#macro index ct "<change-folder>=Trash<enter>" "go to trash"
+mailboxes "+ " "+-------uni--------" "+INBOX" "+Sent" "+Junk" "+Drafts" "+Trash"
 
 # hook important
 account-hook $folder "set imap_user=felix.springer@stud.uni-hannover.de"

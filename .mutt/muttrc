@@ -37,10 +37,13 @@ bind index,pager   / search-reverse
 bind index,pager   <Esc>/ search-reverse
 bind index,pager   N search-opposite
 
-# stud-uni-hannover
+# addresses
 source "~/.mutt/stud-uni-hannover"
 folder-hook $folder 'source ~/.mutt/stud-uni-hannover'
 
-# gmail
+source "~/.mutt/botanik-uni-hannover"
+folder-hook $folder 'source ~/.mutt/botanik-uni-hannover'
+
+# at the end of config to focus on startup
 source "~/.mutt/gmail"
 folder-hook $folder 'source ~/.mutt/gmail'

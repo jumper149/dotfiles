@@ -19,16 +19,6 @@ set postponed = "+[Gmail].Drafts"
 
 mailboxes "+ " "+------gmail-------" "+INBOX" "+[Gmail].Sent Mail" "+[Gmail].Spam" "+[Gmail].Drafts" "+[Gmail].Trash"
 
-# <space>s in foldernames dont work, set up symlinks if needed
-#macro index ci "<change-folder>=INBOX<enter>" "go to inbox"
-#macro index ca "<change-folder>=../[Gmail].All_Mail_gmail<enter>" "go to all mail"
-#macro index cd "<change-folder>=[Gmail].Drafts<enter>" "go to draft"
-#macro index cm "<change-folder>=[Gmail].Important<enter>" "go to important"
-#macro index co "<change-folder>=../[Gmail].Sent_Mail_gmail<enter>" "go to sent mail"
-#macro index cs "<change-folder>=[Gmail].Spam<enter>" "go to spam"
-#macro index cn "<change-folder>=[Gmail].Starred<enter>" "go to starred"
-#macro index ct "<change-folder>=[Gmail].Trash<enter>" "go to trash"
-
 # hook important
 account-hook $folder "set imap_user=felixspringer149@gmail.com"
 

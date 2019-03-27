@@ -166,8 +166,9 @@ Config {
                              ] "mail"
 
 --        -- mail indicator
---        , Run MBox           [ ( "Gmail " , "~/.mail/gmail"             , "#a54242" )
---                             , ( "Uni "   , "~/.mail/stud-uni-hannover" , "#5f819d" )
+--        , Run MBox           [ ( "Gmail "     , "~/.mail/gmail"                , "#a54242" )
+--                             , ( "Uni "       , "~/.mail/stud-uni-hannover"    , "#5f819d" )
+--                             , ( "Botanik "   , "~/.mail/botanik-uni-hannover" , "#8c9440" )
 --                             ]
 --                                 [ "--prefix" , " "
 --                                 , "--all"
