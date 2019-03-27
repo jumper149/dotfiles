@@ -14,12 +14,14 @@ set folder = "~/.mail/stud-uni-hannover"
 set spoolfile = "+INBOX"
 
 unset mbox
-set record = "/dev/null"
+set record = "+Sent"
 set postponed = "+Drafts"
 
 mailboxes "+ " "+-------uni--------" "+INBOX" "+Sent" "+Junk" "+Drafts" "+Trash"
 
 # hook important
 account-hook $folder "set imap_user=felix.springer@stud.uni-hannover.de"
+
+set signature = "~/.mutt/signature"
 
 # vim: syntax=muttrc

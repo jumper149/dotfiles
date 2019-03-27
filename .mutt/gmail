@@ -22,4 +22,7 @@ mailboxes "+ " "+------gmail-------" "+INBOX" "+[Gmail].Sent Mail" "+[Gmail].Spa
 # hook important
 account-hook $folder "set imap_user=felixspringer149@gmail.com"
 
+
+set signature = "~/.mutt/signature"
+
 # vim: syntax=muttrc
