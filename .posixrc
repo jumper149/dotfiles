@@ -14,6 +14,7 @@ alias zless="$PAGER"
 
 # dotfiles
 alias dotgit="git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/"
+alias safegit="git --git-dir=/home/jumper/.dotsafe/ --work-tree=/home/jumper/"
 
 # system update pacman
 alias pacup="sudo pacman -Syu"

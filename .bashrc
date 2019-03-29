@@ -11,6 +11,7 @@ source $HOME/.posixrc
 # auto completion
 source /usr/share/git/completion/git-completion.bash # provides __git_ps1
 __git_complete dotgit __git_main
+__git_complete safegit __git_main
 
 # shell prompt
 source /usr/share/git/completion/git-prompt.sh # provides __git_ps1
