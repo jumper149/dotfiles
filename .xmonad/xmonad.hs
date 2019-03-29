@@ -83,21 +83,37 @@ myTabTheme           = def { activeColor         = myColor2
 myMainLayout         =   avoidStruts tiled
                      ||| avoidStruts (Mirror tiled)
                      ||| noBorders Full
-  where
-    tiled = spacingRaw False
-               (Border outer outer outer outer) True
-               (Border inner inner inner inner) True
-              --     n   increment ratio
-            $ Tall   1   (3/100)   (1/2)
-      where
-        outer =    20
-        inner =    10
+  where tiled = spacingRaw False
+                   (Border outer outer outer outer) True
+                   (Border inner inner inner inner) True
+                  --     n   increment ratio
+                $ Tall   1   (3/100)   (1/2)
+        outer = 20
+        inner = 10
 
-myBrowserLayout      = avoidStruts (noBorders (tabbed shrinkText myTabTheme))
+myBrowserLayout      =   avoidStruts (noBorders (tabbed shrinkText myTabTheme))
                      ||| noBorders Full
 
+myWritingLayout      =   avoidStruts tiled
+                     ||| avoidStruts (Mirror tiled)
+                     ||| avoidStruts single
+  where tiled = spacingRaw False
+                   (Border outer outer outer outer) True
+                   (Border inner inner inner inner) True
+                    --     n   increment ratio
+                  $ Tall   1   (3/100)   (1/2)
+        single = spacingRaw False
+                   (Border topbot topbot sides sides) True
+                   (Border inner inner inner inner) False
+                 $ Full
+        outer  =  20
+        inner  =  10
+        topbot = 100
+        sides  = 450
+
 myLayoutHook         = onWorkspace "1 Browser" myBrowserLayout
-                       $ myMainLayout
+                     $ onWorkspace "5 Writing" myWritingLayout
+                     $ myMainLayout
 
 myManageHook         = composeAll
                          [ className =? "matplotlib"  --> doCenterFloat
