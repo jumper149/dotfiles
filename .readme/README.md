@@ -179,6 +179,13 @@ Create offline hoogle database:
 
     hoogle generate
 
+### safegit
+Set up repository for private files:
+
+    git clone --bare git@github.com:jumper149/dotsafe.git $HOME/.dotsafe
+    safegit config --local status.showUntrackedFiles no
+    safegit checkout
+
 ### pacsync
 
     mkdir ~/Packages
