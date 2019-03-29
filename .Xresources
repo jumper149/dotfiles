@@ -42,10 +42,11 @@
 
 ! URxvt
 
-URxvt.background: [93]#1c1c1c
-URxvt.depth:      32
-URxvt.scrollBar:  false
-URxvt.saveLines:  1000
+URxvt.background:   [93]#1c1c1c
+URxvt.depth:        32
+URxvt.scrollBar:    false
+URxvt.saveLines:    1000
+URxvt.urgentOnBell: true
 
 ! causes flickering
 !URxvt.visualBell: true
