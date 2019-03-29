@@ -130,6 +130,7 @@ myLogHook host h h2  = if host == "deskarch" then
                                    , ppWsSep            = ""
                                    , ppCurrent          = xmobarColor myColor0 myColor2 . clickable
                                    , ppVisible          = xmobarColor myColor0 myColor7 . clickable
+                                   , ppUrgent           = xmobarColor myColor0 myColor3 . clickable
                                    , ppHidden           = xmobarColor myColorF ""       . clickable
                                    , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable
                                    }
@@ -147,6 +148,7 @@ myLogHook host h h2  = if host == "deskarch" then
                                    , ppWsSep            = ""
                                    , ppCurrent          = xmobarColor myColor0 myColor2 . clickable . take 1
                                    , ppVisible          = xmobarColor myColor0 myColor7 . clickable . take 1
+                                   , ppUrgent           = xmobarColor myColor0 myColor3 . clickable . take 1
                                    , ppHidden           = xmobarColor myColorF ""       . clickable . take 1
                                    , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable . take 1
                                    }
