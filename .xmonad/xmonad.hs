@@ -94,20 +94,12 @@ myMainLayout         =   avoidStruts tiled
 myBrowserLayout      =   avoidStruts (noBorders (tabbed shrinkText myTabTheme))
                      ||| noBorders Full
 
-myWritingLayout      =   avoidStruts tiled
-                     ||| avoidStruts (Mirror tiled)
+myWritingLayout      =   myMainLayout
                      ||| avoidStruts single
-  where tiled = spacingRaw False
-                   (Border outer outer outer outer) True
-                   (Border inner inner inner inner) True
-                    --     n   increment ratio
-                  $ Tall   1   (3/100)   (1/2)
-        single = spacingRaw False
+  where single = spacingRaw False
                    (Border topbot topbot sides sides) True
-                   (Border inner inner inner inner) False
+                   (Border 0      0      0     0    ) False
                  $ Full
-        outer  =  20
-        inner  =  10
         topbot = 100
         sides  = 450
 
@@ -118,6 +110,7 @@ myLayoutHook         = onWorkspace "1 Browser" myBrowserLayout
 myManageHook         = composeAll
                          [ className =? "matplotlib"  --> doCenterFloat
                          , className =? "Gnuplot"     --> doCenterFloat
+                         , className =? "gnuplot_qt"  --> doCenterFloat
                          , appName   =? "offlineimap" --> doShift "8 Control" <+> doCenterFloat
                          ]
 
