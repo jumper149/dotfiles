@@ -7,7 +7,6 @@ unclutter-xfixes-git
 urxvt-resize-font-git
 chez-scheme-git
 chromium-widevine
-qt5-webengine-widevine
 tor-browser
 guile-lib
 guile-ncurses
