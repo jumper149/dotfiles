@@ -3,6 +3,7 @@ import XMonad.Core
 import XMonad.Actions.CycleWindows
 import XMonad.Actions.CycleWS
 import XMonad.Actions.SpawnOn
+import XMonad.Actions.CopyWindow
 import XMonad.Layout                  -- unnecassary
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
@@ -108,10 +109,11 @@ myLayoutHook         = onWorkspace "1 Browser" myBrowserLayout
                      $ myMainLayout
 
 myManageHook         = composeAll
-                         [ className =? "matplotlib"  --> doCenterFloat
-                         , className =? "Gnuplot"     --> doCenterFloat
-                         , className =? "gnuplot_qt"  --> doCenterFloat
-                         , appName   =? "offlineimap" --> doShift "8 Control" <+> doCenterFloat
+                         [ className =? "matplotlib"     --> doCenterFloat
+                         , className =? "Gnuplot"        --> doCenterFloat
+                         , className =? "gnuplot_qt"     --> doCenterFloat
+                         , appName   =? "offlineimap"    --> doShift "8 Control" <+> doCenterFloat
+                         , className =? "Pinentry-gtk-2" --> doF copyToAll
                          ]
 
 
