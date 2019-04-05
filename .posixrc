@@ -28,8 +28,9 @@ alias usbmount="$HOME/.scripts/usb/mount.sh"
 alias usbumount="$HOME/.scripts/usb/umount.sh"
 alias usbbackup="$HOME/.scripts/usb/backup.sh"
 
-# upload stdin to sprunge.us pastebin
+# upload to pastebin
 alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+alias ixio="curl -F 'f:1=<-' http://ix.io"
 
 # record ffmpeg
 alias ffmpegscreen="$HOME/.scripts/record_screen.sh"
