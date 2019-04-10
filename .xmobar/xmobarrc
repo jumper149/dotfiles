@@ -161,9 +161,9 @@ Config {
                              ] 10
 
         -- mail indicator
-        , Run Mail           [ ("<fc=#a54242>Gmail</fc> "     , "~/.mail/gmail/INBOX")
-                             , ("<fc=#5f819d>Uni</fc> "       , "~/.mail/stud-uni-hannover/INBOX")
-                             , ("<fc=#8c9440>Botanik</fc> "   , "~/.mail/botanik-uni-hannover/INBOX")
+        , Run Mail           [ ("<fc=#a54242>G</fc> " , "~/.mail/gmail/INBOX")
+                             , ("<fc=#5f819d>U</fc> " , "~/.mail/stud-uni-hannover/INBOX")
+                             , ("<fc=#8c9440>B</fc> " , "~/.mail/botanik-uni-hannover/INBOX")
                              ] "mail"
         ]
    }
