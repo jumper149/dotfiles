@@ -174,6 +174,8 @@ myKeys               = [ ("M-S-q"         , kill)
                        , ("M-S-e"         , spawn "~/.xmonad/scripts/shutdown.sh")
                        , ("M-S-w"         , spawn "i3lock -c '000000' -f --script")
 
+                       , ("M-S-a"         , spawn "~/.scripts/keyboard_toggle.sh")
+
                        , ("M-C-\\"        , spawn "~/.scripts/brightness/up.sh")
                        , ("M-C-/"         , spawn "~/.scripts/brightness/down.sh")
 
