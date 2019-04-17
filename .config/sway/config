@@ -1,0 +1,330 @@
+set $mod Mod4
+set $mod2 Mod1
+
+# colors from ~/.Xresources
+# black
+set $color0 #282a2e
+set $color8 #373b41
+
+# red
+set $color1 #a54242
+set $color9 #cc6666
+
+# green
+set $color2 #8c9440
+set $colora #b5bd68
+
+# yellow
+set $color3 #de935f
+set $colorb #f0c674
+
+# blue
+set $color4 #5f819d
+set $colorc #81a2be
+
+# magenta
+set $color5 #85678f
+set $colord #b294bb
+
+# cyan
+set $color6 #5e8d87
+set $colore #8abeb7
+
+# white
+set $color7 #707880
+set $colorf #c5c8c6
+
+# class                 border      backgr.     text        indicator   child_border
+client.focused          $color8ff   $color2ff   $color0ff   $color280   $color2e0
+client.focused_inactive $color8ff   $color5ff   $color0ff   $color580   $color5e0
+client.unfocused        $color8ff   $color7ff   $color0ff   $color080   $color0e0
+client.urgent           $color8ff   $color1ff   $color0ff   $color180   $color1e0
+client.placeholder      #000000     #0c0c0c     #ffffff     #000000     #0c0c0c
+
+client.background       #ffffff
+
+# Font for window titles. Will also be used by the bar unless a different font is used in the bar {} block below.
+font pango: Inconsolata Bold 11
+
+# Use Mouse+floating_modifier to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec "urxvtc"
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start rofi to launch a program
+bindsym $mod+d exec "rofi -show 'run'"
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+g split h
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# put window in front of all workspaces
+bindsym $mod+Shift+comma sticky toggle
+
+# focus the parent container
+#bindsym $mod+a focus parent
+# focus the child container
+#bindsym $mod+c focus child
+
+# mouse
+focus_follows_mouse no
+mouse_warping none
+
+# move workspace to output
+bindsym $mod+$mod2+Shift+h move workspace to output left
+bindsym $mod+$mod2+Shift+Left move workspace to output left
+bindsym $mod+$mod2+Shift+l move workspace to output right
+bindsym $mod+$mod2+Shift+Right move workspace to output right
+
+# Define names for default workspaces for which we configure key bindings later on.
+set $ws0 "0 Desktop"
+set $ws1 "1 Browser"
+set $ws2 "2 Hacking"
+set $ws3 "3 Media"
+set $ws4 "4 Social"
+set $ws5 "5 LaTeX"
+set $ws6 "6 GIMP"
+set $ws7 "7 Gaming"
+set $ws8 "8"
+set $ws9 "9"
+
+# switch to workspace
+bindsym $mod+0 workspace $ws0
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+Tab workspace back_and_forth
+
+# move focused container to workspace
+bindsym $mod+Shift+0 move container to workspace $ws0
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+Tab move container to workspace back_and_forth
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "~/.config/i3/scripts/shutdown.sh"
+
+# distance for resizing and moving windows
+set $dist 7
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width $dist px or $dist ppt
+        bindsym j resize grow height $dist px or $dist ppt
+        bindsym k resize shrink height $dist px or $dist ppt
+        bindsym l resize grow width $dist px or $dist ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width $dist px or $dist ppt
+        bindsym Down resize grow height $dist px or $dist ppt
+        bindsym Up resize shrink height $dist px or $dist ppt
+        bindsym Right resize grow width $dist px or $dist ppt
+
+        # back to normal: Enter or Escape or $mod+r or q
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+        bindsym q mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus i3blocks)
+bar {
+	mode hide
+	modifier $mod
+	
+	colors {
+        background $colorf88
+        focused_background $colorfff
+        statusline $color8ff
+        separator  $color8ff
+
+			 # border ff inside ff text   ff
+        focused_workspace  $color8ff $color2ff $color0ff
+        active_workspace   $color8ff $color5ff $color0ff
+        inactive_workspace $color8ff $color7ff $color0ff
+        urgent_workspace   $color8ff $color3ff $color0ff
+        binding_mode       $color8ff $color1ff $color0ff
+   	}
+
+	position top
+	tray_output none
+
+	status_command i3blocks -c ~/.config/i3blocks/config
+}
+
+# gaps
+set $gaps_inner 6
+set $gaps_outer 16
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+bindsym $mod+Shift+t gaps inner all set 0; gaps outer all set 0
+bindsym $mod+t gaps inner all set $gaps_inner; gaps outer all set $gaps_outer
+
+# window decoration
+default_border pixel 4
+default_floating_border pixel 2
+
+# backlight/brightness
+#bindsym XF86MonBrightnessUp exec --no-startup-id "~/.scripts/brightness/up.sh"
+bindsym Control+$mod+backslash exec --no-startup-id "~/.scripts/brightness/up.sh"
+
+#bindsym XF86MonBrightnessDown exec --no-startup-id "~/.scripts/brightness/down.sh"
+bindsym Control+$mod+slash exec --no-startup-id "~/.scripts/brightness/down.sh"
+
+# blue light filter
+bindsym Control+$mod+period exec --no-startup-id "blugon --setcurrent='+600'"
+bindsym Control+$mod+comma exec --no-startup-id  "blugon --setcurrent='-600'"
+
+# audio volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+bindsym Control+$mod+equal exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+
+bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
+bindsym Control+$mod+minus exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
+
+bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
+bindsym $mod+XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
+bindsym Control+$mod+0 exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
+
+bindsym XF86AudioMicMute exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
+bindsym $mod+XF86AudioMicMute exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
+bindsym Control+$mod+bracketright exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
+
+# toggle keyboard layout
+bindsym $mod2+Shift+a exec "~/.scripts/keyboard_toggle.sh"
+
+# toggle touchpad
+bindsym XF86TouchpadToggle exec "~/.scripts/touchpad_toggle.sh"
+bindsym Control+$mod+t exec "~/.scripts/touchpad_toggle.sh"
+
+# lock
+bindsym Control+$mod+l exec "i3lock -c '000000' -f --script"
+
+# reload i3bar/i3blocks blocks
+bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
+
+# toggle compton compositor
+bindsym Control+$mod+c exec "~/.scripts/compton.sh"
+
+# wallpaper
+bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
+
+# toggle login-status of gpg
+bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
+
+# control mpd
+bindsym XF86AudioPlay exec "mpc toggle"
+bindsym $mod+XF86AudioPlay exec "mpc toggle"
+bindsym Control+$mod+p exec "mpc toggle"
+
+bindsym XF86AudioStop exec "mpc stop"
+bindsym $mod+XF86AudioStop exec "mpc stop"
+bindsym Control+$mod+o exec "mpc stop"
+
+bindsym XF86AudioNext exec "mpc next"
+bindsym $mod+XF86AudioNext exec "mpc next"
+bindsym Control+$mod+bracketleft exec "mpc next"
+
+bindsym XF86AudioPrev exec "mpc prev"
+bindsym $mod+XF86AudioPrev exec "mpc prev"
+bindsym Control+$mod+i exec"mpc prev"
+
+# scrot
+bindsym Print exec "scrot"
+bindsym $mod+Print exec "scrot"
+
+# toggle screenkey
+bindsym Control+$mod+k exec  "~/.scripts/screenkey.sh"
+
+# fetch mail
+bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
+
+# startup scripts
+exec_always --no-startup-id "xrdb ~/.Xresources"
+
+# start applications
+bindsym $mod+grave [urgent=latest] focus
+bindsym $mod+Shift+Return exec "urxvtc -e 'ranger'"
+bindsym $mod+$mod2+h workspace $ws0; exec "urxvtc -e 'htop'"
+bindsym $mod+$mod2+w workspace $ws0; exec "urxvtc -e ~/.scripts/weatherreport.sh"
+bindsym $mod+$mod2+d workspace $ws0; exec "baobab"
+bindsym $mod+$mod2+q workspace $ws1; exec "qutebrowser"
+bindsym $mod+$mod2+o workspace $ws1; exec "tor-browser"
+bindsym $mod+$mod2+v workspace $ws3; exec "vlc"
+bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e 'ncmpcpp'"
+bindsym $mod+$mod2+c workspace $ws3; exec "chromium"
+bindsym $mod+$mod2+p workspace $ws3; exec "pavucontrol"
+bindsym $mod+$mod2+x workspace $ws3; exec "arandr"
+bindsym $mod+$mod2+r workspace $ws3; exec "qv4l2"
+bindsym $mod+$mod2+m workspace $ws4; exec "urxvtc -e 'mutt'"
+bindsym $mod+$mod2+i workspace $ws4; exec "urxvtc -e 'irssi'"
+bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop"
+bindsym $mod+$mod2+b workspace $ws4; exec "blueman-manager"
+bindsym $mod+$mod2+g workspace $ws6; exec "gimp"
+bindsym $mod+$mod2+f workspace $ws7; exec "LD_LIBRARY_PATH=~/Templates/fm-git/lib/ ~/Templates/fm-git/FasterMelee-installer/src/launch-fm"
+
+# window specifications
+for_window [class="matplotlib"] floating enable
+for_window [class="Gnuplot"] floating enable
