@@ -293,7 +293,7 @@ exec_always --no-startup-id "xrdb ~/.Xresources"
 
 # start applications
 bindsym $mod+grave [urgent=latest] focus
-bindsym $mod+Shift+Return exec "urxvtc -e 'ranger'"
+bindsym $mod+$mod2+r exec "urxvtc -e 'ranger'"
 bindsym $mod+$mod2+h workspace $ws0; exec "urxvtc -e 'htop'"
 bindsym $mod+$mod2+w workspace $ws0; exec "urxvtc -e ~/.scripts/weatherreport.sh"
 bindsym $mod+$mod2+d workspace $ws0; exec "baobab"
@@ -304,7 +304,6 @@ bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e 'ncmpcpp'"
 bindsym $mod+$mod2+c workspace $ws3; exec "chromium"
 bindsym $mod+$mod2+p workspace $ws3; exec "pavucontrol"
 bindsym $mod+$mod2+x workspace $ws3; exec "arandr"
-bindsym $mod+$mod2+r workspace $ws3; exec "qv4l2"
 bindsym $mod+$mod2+m workspace $ws4; exec "urxvtc -e 'mutt'"
 bindsym $mod+$mod2+i workspace $ws4; exec "urxvtc -e 'irssi'"
 bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop"
