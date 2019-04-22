@@ -117,6 +117,9 @@ endif
 set encoding=utf-8
 set fileencoding=utf-8
 
+" Convert tab to spaces
+set expandtab
+
 " Sets line numbers relative to the current line
 set number
 set relativenumber
