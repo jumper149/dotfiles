@@ -204,6 +204,7 @@ Places that use hardcoded color configuration:
     ~/.config/i3blocks/scripts/cpu.sh
     ~/.config/i3blocks/scripts/traffic.sh
     ~/.config/i3blocks/scripts/volume.sh
+    ~/.config/sway/config
     ~/.xmonad/xmonad.hs
     ~/.xmobarrc
 some more, but depending on `~/.Xresources`:
