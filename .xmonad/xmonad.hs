@@ -113,7 +113,6 @@ myManageHook         = composeAll
                          , className =? "Gnuplot"        --> doCenterFloat
                          , className =? "gnuplot_qt"     --> doCenterFloat
                          , appName   =? "offlineimap"    --> doShift "8 Control" <+> doCenterFloat
-                         , className =? "Pinentry-gtk-2" --> doF copyToAll
                          ]
 
 
