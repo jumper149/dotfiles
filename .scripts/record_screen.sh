@@ -7,7 +7,7 @@ FRAME_RATE="60"
 
 source ~/.system-info.sh
 PULSE_SINK="$MAIN_PULSEAUDIO_SINK"
-PULSE_SINK="$(( $MAIN_PULSEAUDIO_SINK + 1 ))" # does this really work???
+PULSE_SINK="$MAIN_PULSEAUDIO_SINK"
 
 BITRATE="128k"
 
