@@ -148,6 +148,8 @@ python-tldextract
 
 ghc
 hoogle
+cabal-install
+stack
 
 julia
 r
