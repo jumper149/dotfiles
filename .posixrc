@@ -6,11 +6,7 @@ alias ls='ls --color=auto'
 # vim
 export VISUAL="vim -p"
 export EDITOR="$VISUAL"
-alias vi="$VISUAL"
 alias vim="$VISUAL"
-export PAGER="vimpager"
-alias less="$PAGER"
-alias zless="$PAGER"
 
 # dotfiles
 alias dotgit="git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/"
