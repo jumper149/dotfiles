@@ -5,5 +5,5 @@ TRASHPATH="$HOME/.trash/"
 for file in "$TRASHPATH"*
 do
 	echo "deleting $file"
-	#rm -r "$TRASHPATH$file"*
+	rm -r "$file"
 done
