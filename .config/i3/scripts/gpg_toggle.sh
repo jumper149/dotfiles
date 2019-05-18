@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # logout
 gpg --pinentry-mode "cancel" --decrypt ~/.password-store/test/test.gpg && gpgconf --reload gpg-agent && pkill --signal SIGRTMIN+20 i3blocks && exit 0

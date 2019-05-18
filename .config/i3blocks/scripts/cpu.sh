@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 INFO=$(cat /proc/stat | grep cpu -m 1)
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 pkill --signal SIGRTMIN+11 i3blocks
 pkill --signal SIGRTMIN+12 i3blocks

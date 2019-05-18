@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 value=$(cat /sys/class/backlight/intel_backlight/brightness)
 delta=100

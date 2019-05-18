@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source ~/.system-info.sh
 SINK="$MAIN_PULSEAUDIO_SINK"

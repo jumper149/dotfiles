@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # first positional argument is $OUTPUT_FILE
 OUTPUT_FILE="$1"

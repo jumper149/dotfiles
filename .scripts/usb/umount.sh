@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # requires fstab to only contain partitions listed with UUID
 NEEDED_LIST=()

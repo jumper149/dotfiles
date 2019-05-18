@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 OPTION="`~/.scripts/decide/main.sh 'shutdown' 'reboot' 'leave Xmonad'`"
 

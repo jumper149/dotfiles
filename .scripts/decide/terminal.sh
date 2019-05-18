@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 OLD_PS3="$PS3"
 PS3=" `tput setaf 11``tput bold`>`tput sgr0` "

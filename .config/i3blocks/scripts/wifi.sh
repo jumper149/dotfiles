@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source ~/.system-info.sh
 DEVICE="$MAIN_NETWORKING_DEVICE"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 TRASHPATH="/home/$USER/.trash/"
 FILES=$(ls -A $TRASHPATH)

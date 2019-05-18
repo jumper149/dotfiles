@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 source ~/.system-info.sh
 source="$MAIN_PULSEAUDIO_SOURCE"

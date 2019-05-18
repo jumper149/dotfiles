@@ -1,4 +1,4 @@
-#!/bin/perl
+#!/usr/bin/env perl
 
 sub identify {
 	my $serv = "freenode";

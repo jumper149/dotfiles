@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 pgrep "screenkey" && killall "screenkey" && exit 0
 

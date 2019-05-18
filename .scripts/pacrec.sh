@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # recompiles packages in $HOME/Packages/recompile and copies them to $HOME/Packages/pkgaur/core
 

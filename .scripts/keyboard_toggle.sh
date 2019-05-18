@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$(setxkbmap -query | grep layout)" == "layout:     us" ];
 	then

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 mail_PID="$(pgrep "offlineimap")"
 

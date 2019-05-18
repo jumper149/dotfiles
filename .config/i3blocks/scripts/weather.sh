@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 LOCATION=Hanover
 WEATHERREPORT=~/.config/i3blocks/scripts/weatherreport

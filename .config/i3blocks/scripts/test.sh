@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #echo test1 #full_text
 #echo test2 #short_text ???
