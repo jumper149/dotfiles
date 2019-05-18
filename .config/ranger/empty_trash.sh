@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-TRASHPATH="/home/$USER/.trash/"
-FILES=$(ls -A $TRASHPATH)
+TRASHPATH="$HOME/.trash/"
 
-echo "$FILES" | while read line ;
+for file in "$TRASHPATH"*
 do
-	echo "deleting $line"
-	rm -r "$TRASHPATH$line"
-	sleep 0.1
+	echo "deleting $file"
+	#rm -r "$TRASHPATH$file"*
 done

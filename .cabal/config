@@ -177,7 +177,7 @@ program-default-options
   -- cpphs-options:
   -- doctest-options:
   -- gcc-options:
-  -- ghc-options:
+  ghc-options: -dynamic
   -- ghc-pkg-options:
   -- ghcjs-options:
   -- ghcjs-pkg-options:
