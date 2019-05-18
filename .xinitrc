@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 start_wm="$1"
 if [ -z "$start_wm" ]; then
