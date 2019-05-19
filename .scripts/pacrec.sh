@@ -29,7 +29,7 @@ function compile {
 
         makepkg
         
-        cp $PKG_NAME-$PKG_VER-$PKG_REL-* ../../pkgaur/core/
+        cp $PKG_NAME-$PKG_VER-$PKG_REL-{any,x86_64,i686}.pkg.tar.xz ../../pkgaur/core/
 
         cd ..
 }
