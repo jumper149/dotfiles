@@ -55,7 +55,7 @@ URxvt.urgentOnBell: true
 URxvt.font: xft:Inconsolata:size=12
 
 ! url
-URxvt.url-launcher: /usr/bin/env qutebrowser
+URxvt.url-launcher: qutebrowser
 
 ! scrolling
 URxvt.scrollTtyOutput:   false
