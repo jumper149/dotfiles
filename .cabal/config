@@ -18,15 +18,15 @@ world-file: /home/jumper/.cabal/world
 -- verbose: 1
 -- compiler: ghc
 -- cabal-file:
--- with-compiler:
+with-compiler: /usr/share/ghc-pristine/bin/ghc
 -- with-hc-pkg:
 -- program-prefix: 
 -- program-suffix: 
-library-vanilla: False
+-- library-vanilla: True
 -- library-profiling:
-shared: True
+-- shared:
 -- static:
-executable-dynamic: True
+-- executable-dynamic: False
 -- profiling:
 -- executable-profiling:
 -- profiling-detail:
@@ -177,7 +177,7 @@ program-default-options
   -- cpphs-options:
   -- doctest-options:
   -- gcc-options:
-  ghc-options: -dynamic
+  -- ghc-options:
   -- ghc-pkg-options:
   -- ghcjs-options:
   -- ghcjs-pkg-options:
