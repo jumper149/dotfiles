@@ -101,7 +101,7 @@ mediainfo
 alsa-utils
 pulseaudio
 pulseaudio-alsa
-pavucontrol
+pulsemixer
 
 mpc
 mpd
