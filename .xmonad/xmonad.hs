@@ -210,7 +210,7 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-m"           , spawnOnAndGoTo "4 Social" $ inTerminal "mutt")
          , ("M-i"           , spawnOnAndGoTo "4 Social" $ inTerminal "irssi")
          , ("M-g"           , spawnOnAndGoTo "6 GIMP" "gimp")
-         , ("M-p"           , spawnOnAndGoTo "8 Control" "pavucontrol")
+         , ("M-p"           , spawnOnAndGoTo "8 Control" $ inTerminal "pulsemixer")
          , ("M-x"           , spawnOnAndGoTo "8 Control" "arandr")
          , ("M-b"           , spawnOnAndGoTo "9 Other" "baobab")
          ]
