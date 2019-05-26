@@ -20,7 +20,7 @@ xset b off
 xsetroot -cursor_name left_ptr
 xdotool mousemove 0 0
 
-urxvtd -f
+urxvtd -q -o -f
 blugon --waitforx --fade &
 unclutter --timeout 3 --jitter 3 --ignore-scrolling &
 
