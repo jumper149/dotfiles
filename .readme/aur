@@ -8,9 +8,6 @@ urxvt-resize-font-git
 chez-scheme-git
 chromium-widevine
 tor-browser
-guile-lib
-guile-ncurses
-g-wrap
 vim-julia-git
 vim-markdown
 vim-wolfram
