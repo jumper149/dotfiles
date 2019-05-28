@@ -117,39 +117,43 @@ myManageHook = composeAll
 
 
 myLogHook host h h2
-  | host == "deskarch" = do dynamicLogWithPP $
-                              xmobarPP
-                                { ppOutput           = hPutStrLn h
-                                , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                                , ppWsSep            = ""
-                                , ppCurrent          = xmobarColor myColor0 myColor2 . clickable
-                                , ppVisible          = xmobarColor myColor0 myColor7 . clickable
-                                , ppUrgent           = xmobarColor myColor0 myColor3 . clickable
-                                , ppHidden           = xmobarColor myColorF ""       . clickable
-                                , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable
-                                }
-                            dynamicLogWithPP $
-                              xmobarPP
-                                { ppOutput           = hPutStrLn h2
-                                , ppOrder            = \(workspaces:layout:title:_) -> [title]
-                                , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
-                                }
-  | otherwise          = do dynamicLogWithPP $
-                              xmobarPP
-                                { ppOutput           = hPutStrLn h
-                                , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                                , ppWsSep            = ""
-                                , ppCurrent          = xmobarColor myColor0 myColor2 . clickable . take 1
-                                , ppVisible          = xmobarColor myColor0 myColor7 . clickable . take 1
-                                , ppUrgent           = xmobarColor myColor0 myColor3 . clickable . take 1
-                                , ppHidden           = xmobarColor myColorF ""       . clickable . take 1
-                                , ppHiddenNoWindows  = xmobarColor myColor7 ""       . clickable . take 1
-                                }
+  | host == "deskarch" = do dynamicLogWithPP deskarchPP
+                            dynamicLogWithPP deskarchPP2
+  | otherwise          = do dynamicLogWithPP standardPP
+  where standardPP =
+          xmobarPP { ppOutput           = hPutStrLn h
+                   , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                   , ppWsSep            = ""
+                   , ppCurrent          = xmobarWsPrep myColor0 myColor2
+                   , ppVisible          = xmobarWsPrep myColor0 myColor7
+                   , ppUrgent           = xmobarWsPrep myColor0 myColor3
+                   , ppHidden           = xmobarWsPrep myColorF ""
+                   , ppHiddenNoWindows  = xmobarWsPrep myColor7 ""
+                   } where xmobarWsPrep :: WorkspaceId -> String -> String -> String
+                           xmobarWsPrep fg bg = xmobarColor fg bg . clickable . take 1
+
+        deskarchPP =
+          xmobarPP { ppOutput           = hPutStrLn h
+                   , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                   , ppWsSep            = ""
+                   , ppCurrent          = xmobarWsPrep myColor0 myColor2
+                   , ppVisible          = xmobarWsPrep myColor0 myColor7
+                   , ppUrgent           = xmobarWsPrep myColor0 myColor3
+                   , ppHidden           = xmobarWsPrep myColorF ""
+                   , ppHiddenNoWindows  = xmobarWsPrep myColor7 ""
+                   } where xmobarWsPrep :: WorkspaceId -> String -> String -> String
+                           xmobarWsPrep fg bg = xmobarColor fg bg . clickable
+        deskarchPP2 =
+           xmobarPP { ppOutput           = hPutStrLn h2
+                    , ppOrder            = \(workspaces:layout:title:_) -> [title]
+                    , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
+                    }
+
+        clickable :: WorkspaceId -> String
+        clickable ws = "<action=xdotool key super+" ++ n ++ ">" ++ (wrap " " " " ws) ++ "</action>"
+                         where n = take 1 ws
 
 
-myFocusFollowsMouse = False
-
-myModMask = mod4Mask
 myKeys = [ ("M-S-q"         , kill)
          , ("M-S-<Return>"  , windows W.swapMaster)
          , ("M-<Up>"        , windows W.focusUp)
@@ -214,6 +218,15 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-x"           , spawnOnAndGoTo "8 Control" "arandr")
          , ("M-b"           , spawnOnAndGoTo "9 Other" "baobab")
          ]
+  where inTerminal :: String -> String
+        inTerminal prog = myTerminal ++ " -name '" ++ prog ++ "' -e '" ++ prog ++ "'"
+
+        -- requires _NET_WM_PID to be set on creation; doesn't work on:
+        --   urxvtc(offlineimap), qutebrowser, chromium
+        spawnOnAndGoTo :: String -> String -> X ()
+        spawnOnAndGoTo ws prog = do spawnOn ws prog
+                                    (windows . W.greedyView) ws
+
 myRemovedKeys = [ "M-q"   -- quit
                 , "M-S-q" -- restart
                 , "M-w"   -- Xinerama 1
@@ -230,24 +243,11 @@ myRemovedKeys = [ "M-q"   -- quit
                 , "M-m"   -- focus master window
                 ]
 
-
+myFocusFollowsMouse = False
+myModMask = mod4Mask
 myTerminal = "urxvtc"
 
-
 myStartupHook = do (windows . W.greedyView) "2 Hacking"
-
-
-inTerminal :: String -> String
-inTerminal prog = myTerminal ++ " -name '" ++ prog ++ "' -e '" ++ prog ++ "'"
-
-clickable :: WorkspaceId -> String
-clickable ws = "<action=xdotool key super+" ++ n ++ ">" ++ (wrap " " " " ws) ++ "</action>"
-                 where n = take 1 ws
-
--- requires _NET_WM_PID to be set on creation; doesn't work on:
---   urxvtc(offlineimap), qutebrowser, chromium
-spawnOnAndGoTo ws prog = do spawnOn ws prog
-                            (windows . W.greedyView) ws
 
 
 main = do
@@ -257,17 +257,17 @@ main = do
                   spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
                else
                   spawnPipe "echo" -- required for type?
-    xmonad $  docks
-              def { borderWidth        = myBorderWidth
-                  , normalBorderColor  = myNormalBorderColor
-                  , focusedBorderColor = myFocusedBorderColor
-                  , workspaces         = myWorkspaces
-                  , layoutHook         = myLayoutHook
-                  , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
-                  , startupHook        = myStartupHook
-                  , logHook            = myLogHook host xmproc xm2proc
-                  , focusFollowsMouse  = myFocusFollowsMouse
-                  , modMask            = myModMask
-                  , terminal           = myTerminal
-                  } `removeKeysP` myRemovedKeys
-                    `additionalKeysP` myKeys
+    xmonad $ docks
+             def { borderWidth        = myBorderWidth
+                 , normalBorderColor  = myNormalBorderColor
+                 , focusedBorderColor = myFocusedBorderColor
+                 , workspaces         = myWorkspaces
+                 , layoutHook         = myLayoutHook
+                 , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
+                 , startupHook        = myStartupHook
+                 , logHook            = myLogHook host xmproc xm2proc
+                 , focusFollowsMouse  = myFocusFollowsMouse
+                 , modMask            = myModMask
+                 , terminal           = myTerminal
+                 } `removeKeysP` myRemovedKeys
+                   `additionalKeysP` myKeys
