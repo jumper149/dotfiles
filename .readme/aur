@@ -6,6 +6,7 @@ screenkey
 unclutter-xfixes-git
 urxvt-resize-font-git
 chez-scheme-git
+ghc-pristine
 chromium-widevine
 tor-browser
 vim-julia-git

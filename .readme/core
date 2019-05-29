@@ -147,6 +147,7 @@ python-scipy
 python-tldextract
 
 ghc
+ghc-static
 hoogle
 cabal-install
 stack
