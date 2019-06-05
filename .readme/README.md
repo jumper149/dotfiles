@@ -49,8 +49,8 @@ Random Number Generator
 ### ca-certificates
 to access eduroam-WIFI, this might not be necessary anymore
 
-    cp $NONROOTHOME/.readme/root-config/deutsche-telekom-root-ca-2.crt /usr/share/ca-certificates/trust-source/anchors/
-    trust extract-compat /usr/share/ca-certificates/trust-source/anchors/deutsche-telekom-root-ca-2.crt
+    cp $NONROOTHOME/.readme/root-config/T-TeleSec_GlobalRoot_Class_2.crt /usr/share/ca-certificates/trust-source/anchors/
+    trust extract-compat /usr/share/ca-certificates/trust-source/anchors/T-TeleSec_GlobalRoot_Class_2.pem
 
 ### sudo
 allow sudo for group wheel with `visudo`:
