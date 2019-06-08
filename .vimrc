@@ -113,6 +113,8 @@ set shortmess=F
 " vim-latexsuite
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
+" Dont highlight underscores (_)
+let g:tex_no_error=1
 
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>
