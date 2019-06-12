@@ -74,11 +74,9 @@ if &t_Co >= 8 || has("gui_running")
   syntax on
   set hlsearch
 
-  " Use italic font for comments in 256-color terminal
-  " and set colorscheme
+  " Set colorscheme
   if &t_Co >= 256 || has("gui_running")
-    colorscheme wombat256
-    highlight Comment cterm=italic
+    colorscheme wombat256jumper
   else
     colorscheme default
   endif 
@@ -115,6 +113,8 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 " Dont highlight underscores (_)
 let g:tex_no_error=1
+" Dont change quotation marks to special upper and lower
+let g:Tex_SmartKeyQuote=0
 
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>
