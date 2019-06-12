@@ -34,7 +34,7 @@ Config {
    , textOffset =   15
    , border =       BottomB
    , borderWidth =  2
-   , borderColor =  "#8c9440"
+   , borderColor =  "#373b41"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
