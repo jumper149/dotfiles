@@ -197,6 +197,7 @@ Places that use hardcoded color configuration:
 
     ~/.Xresources
     ~/.vimrc @ colorscheme
+    ~/.vim/colors/wombat256jumper.vim
     ~/.config/blugon/config
     ~/.config/rofi/jumper-i3.rasi
     ~/.config/zathura/zathurarc
