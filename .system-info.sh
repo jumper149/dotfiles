@@ -24,8 +24,8 @@ elif [ "$(hostname)" = "deskarch" ]
 then
 	MAIN_NETWORKING_DEVICE='enp7s0'
 	MAIN_PARTITION='/dev/sda3'
-	MAIN_PULSEAUDIO_SINK='0'
-	MAIN_PULSEAUDIO_SOURCE='3'
+	MAIN_PULSEAUDIO_SINK='1'
+	MAIN_PULSEAUDIO_SOURCE='4'
 elif [ "$(hostname)" = "x200arch" ]
 then
 	MAIN_NETWORKING_DEVICE='wlp2s0'
