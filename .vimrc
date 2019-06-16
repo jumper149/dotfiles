@@ -56,6 +56,8 @@ set fileencoding=utf-8
 
 " Convert tab to spaces
 set expandtab
+set shiftwidth=4
+set softtabstop=4
 
 " Sets line numbers relative to the current line
 set number
