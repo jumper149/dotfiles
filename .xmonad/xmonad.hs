@@ -182,7 +182,7 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-C-\\"        , spawn "~/.scripts/brightness/up.sh")
          , ("M-C-/"         , spawn "~/.scripts/brightness/down.sh")
 
-         , ("M-C-="                    , spawn "~/.config/i3/scripts/volume_up.sh")
+         , ("M-C-S-="                  , spawn "~/.config/i3/scripts/volume_up.sh")
          , ("M-<XF86AudioRaiseVolume>" , spawn "~/.config/i3/scripts/volume_up.sh")
          , ("M-C--"                    , spawn "~/.config/i3/scripts/volume_down.sh")
          , ("M-<XF86AudioLowerVolume>" , spawn "~/.config/i3/scripts/volume_down.sh")

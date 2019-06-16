@@ -238,7 +238,7 @@ bindsym Control+$mod+comma exec --no-startup-id  "blugon --setcurrent='-600'"
 # audio volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
-bindsym Control+$mod+equal exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+bindsym Control+Shift+$mod+equal exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
 
 bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
 bindsym $mod+XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
