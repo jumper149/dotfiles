@@ -13,7 +13,6 @@ color message    brightyellow  default
 
 # uncolor certain messages
 uncolor index "~P"
-uncolor index "~C @.com"
 uncolor index "~N ~u"
 uncolor index "~N !~u"
 uncolor index "~T"
@@ -21,7 +20,6 @@ uncolor index "~D"
 
 # and recolor them appropriately
 color index      brightblack   default "~P"
-color index      green         default "~C @.com"
 color index      brightcyan    default "~N ~u"  # new ML mail
 color index      brightyellow  default "~N !~u" # new non-ML mail
 color index      brightgreen   default "~T"
@@ -33,6 +31,7 @@ color header     yellow        default "^to:"
 color header     yellow        default "^cc:"
 color header     blue          default "^date:"
 color header     brightblue    default "^subject:"
+color header     magenta       default "^(x-mailer|user-agent):"
 
 # message bodies
 color attachment brightblack   default
@@ -57,11 +56,11 @@ color body       brightcyan    default "(^| )/[^ ]+/( |$)"
 color quoted     magenta       default
 color quoted1    cyan          default
 color quoted2    green         default
-color quoted3    magenta       default
-color quoted4    cyan          default
-color quoted5    green         default
-color quoted6    magenta       default
-color quoted7    cyan          default
+color quoted3    blue          default
+color quoted4    magenta       default
+color quoted5    cyan          default
+color quoted6    green         default
+color quoted7    blue          default
 
 # sidebar
 color sidebar_indicator green        default
