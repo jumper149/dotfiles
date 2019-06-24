@@ -24,6 +24,6 @@ application/xhtml+xml=vim.desktop;
 application/xml=vim.desktop;
 application/rdf+xml=vim.desktop;
 
-x-scheme-handler/http=qutebrowser.desktop;
-x-scheme-handler/https=qutebrowser.desktop;
+x-scheme-handler/http=chromium.desktop;
+x-scheme-handler/https=chromium.desktop;
 x-scheme-handler/qute=qutebrowser.desktop;
