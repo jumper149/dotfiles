@@ -110,7 +110,7 @@ Config {
 
         -- battery monitor
         , Run Battery        [ "--template" , "BATT <acstatus>"
-                             , "--Low"      , "10"        -- units: %
+                             , "--Low"      , "20"        -- units: %
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "#de935f"
                              , "--normal"   , "#a54242"
