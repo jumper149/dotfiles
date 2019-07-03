@@ -10,6 +10,7 @@ chez-scheme-git
 ghc-pristine
 chromium-widevine
 tor-browser
+urlscan-git
 vim-julia-git
 vim-markdown
 vim-wolfram
