@@ -23,6 +23,7 @@ openssh
 pacman-contrib
 polkit
 ufw
+w3m
 wpa_supplicant
 wget
 xorg-xinit
@@ -30,8 +31,8 @@ xorg-xinit
 
 xmonad
 xmonad-contrib
-haskell-http-conduit
-libmpd
+# haskell-http-conduit
+# libmpd
 
 i3-gaps
 i3blocks
@@ -39,12 +40,12 @@ vnstat
 
 
 arc-gtk-theme
+# gnome-themes-extra
+# gtk-engines
+# gtk-engine-murrine
 capitaine-cursors
 compton
 feh
-gnome-themes-extra
-gtk-engines
-gtk-engine-murrine
 physlock
 qt5-styleplugins
 ttf-inconsolata
@@ -92,15 +93,14 @@ vim-supertab
 vimpager
 
 ranger
-atool
-ffmpegthumbnailer
-highlight
-w3m
-mediainfo
+# atool
+# ffmpegthumbnailer
+# highlight
+# mediainfo
 
 alsa-utils
 pulseaudio
-pulseaudio-alsa
+# pulseaudio-alsa
 pulsemixer
 
 mpc
@@ -108,8 +108,8 @@ mpd
 ncmpcpp
 
 zathura
-zathura-pdf-poppler
-zathura-ps
+# zathura-pdf-poppler
+# zathura-ps
 
 mutt
 offlineimap
@@ -117,13 +117,12 @@ msmtp
 abook
 
 chromium
+# pepper-flash
 mozilla-common
-pepper-flash
 qutebrowser
 
 libreoffice-still
-hunspell
-hunspell-de
+# hunspell-de
 
 fbgrab
 fbida
@@ -132,22 +131,22 @@ blueman
 bluez
 bluez-utils
 
+gzip
 p7zip
 unrar
-unzip
+tar
 zip
-zlib
+unzip
 
 
-python2-distutils-extra
-python2-setuptools
+python
 python-matplotlib
 python-numpy
 python-scipy
 python-tldextract
 
 ghc
-ghc-static
+# ghc-static
 hoogle
 cabal-install
 stack
