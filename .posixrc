@@ -20,7 +20,7 @@ alias safegit="git --git-dir=/home/jumper/.dotsafe/ --work-tree=/home/jumper/"
 
 # system update pacman
 alias pacup="sudo pacman -Syu"
-alias pacsync="$HOME/.readme/install_core.sh"
+alias pacsync="$HOME/.scripts/pacsync.sh"
 alias pacrec="$HOME/.scripts/pacrec.sh"
 
 # browse reddit
