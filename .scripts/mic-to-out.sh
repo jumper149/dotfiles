@@ -3,7 +3,8 @@
 source ~/.system-info.sh
 
 if [ "`hostname`" = "deskarch" ]; then
-	MAIN_PULSEAUDIO_SINK='1'
+        MAIN_PULSEAUDIO_SINK='alsa_output.usb-Plantronics_Plantronics_GameCom_780_788-00.iec958-stereo'
+        MAIN_PULSEAUDIO_SOURCE='alsa_input.usb-Plantronics_Plantronics_GameCom_780_788-00.analog-stereo'
 fi
 
 if [ -z "$1" ]; then
