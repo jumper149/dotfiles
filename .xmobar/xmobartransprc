@@ -56,15 +56,18 @@ Config {
        , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <fc=#707880>|</fc> <fc=#81a2be><rh></fc>% <fc=#707880>|</fc> <fc=#81a2be><pressure></fc>hPa"
                             ] 36000
 
-       , Run DynNetwork     [ "--template" , "<rx>k/s ↓↑ <tx>k/s"
-                            , "--Low"      , "5000"       -- units: B/s
-                            , "--High"     , "10000"      -- units: B/s
+       , Run DynNetwork     [ "--template" , "<rxipat> <txipat>"
+                            , "--Low"      , "10000"      -- units: B/s
+                            , "--High"     , "50000"      -- units: B/s
                             , "--low"      , "#b5bd68"
                             , "--normal"   , "#de935f"
                             , "--high"     , "#a54242"
+                            , "--"
+                              , "--rx-icon-pattern" , "<icon=dynnetwork/rx/dynnetwork_rx_%%.xpm/>"
+                              , "--tx-icon-pattern" , "<icon=dynnetwork/tx/dynnetwork_tx_%%.xpm/>"
                             ] 10
 
-       , Run MultiCpu       [ "--template" , "<ipat> <total>%"
+       , Run MultiCpu       [ "--template" , "<ipat>"
                             , "--Low"      , "55"         -- units: %
                             , "--High"     , "77"         -- units: %
                             , "--low"      , "#b5bd68"
