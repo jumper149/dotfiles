@@ -71,7 +71,7 @@ Config {
                               , "-i" , "<fc=#373b41>IDLE</fc>"
                             ] 50
 
-       , Run MultiCpu       [ "--template" , "<ipat>"
+       , Run MultiCpu       [ "--template" , "<ipat> <total>%"
                             , "--Low"      , "55"         -- units: %
                             , "--High"     , "77"         -- units: %
                             , "--low"      , "#b5bd68"
@@ -104,8 +104,8 @@ Config {
                             , "--normal"   , "#de935f"
                             , "--high"     , "#a54242"
                             , "--"
-                              , "--rx-icon-pattern" , "<icon=dynnetwork/rx/dynnetwork_rx_%%.xpm/>"
-                              , "--tx-icon-pattern" , "<icon=dynnetwork/tx/dynnetwork_tx_%%.xpm/>"
+                              , "--rx-icon-pattern" , "<icon=network/rx/network_rx_%%.xpm/>"
+                              , "--tx-icon-pattern" , "<icon=network/tx/network_tx_%%.xpm/>"
                             ] 10
 
 --       , Run Volume "default" "Master"
