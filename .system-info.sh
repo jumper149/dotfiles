@@ -30,7 +30,7 @@ elif [ "$(hostname)" = "x200arch" ]
 then
 	MAIN_NETWORKING_DEVICE='wlp2s0'
 	MAIN_PARTITION='/dev/sda2'
-	MAIN_PULSEAUDIO_SINK='0'
-	MAIN_PULSEAUDIO_SOURCE='1'
+	MAIN_PULSEAUDIO_SINK='alsa_output.pci-0000_00_1b.0.analog-stereo'
+	MAIN_PULSEAUDIO_SOURCE='alsa_input.pci-0000_00_1b.0.analog-stereo'
 fi
 
