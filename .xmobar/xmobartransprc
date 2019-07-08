@@ -26,7 +26,8 @@ Config {
   --     color7:  #707880
   --     color15: #c5c8c6
 
-    font        = "xft:Inconsolata:size=14:style=Regular:antialias=true"
+    font        = "xft:Inconsolata:size=12:style=Regular:antialias=true"
+  , textOffset  = 17
   , bgColor     = "#282a2e"
   , fgColor     = "#c5c8c6"
   , alpha       = 0
@@ -90,13 +91,13 @@ Config {
                             ] 50
 
        , Run Memory         [ "--template" , "<usedipat> <usedratio>%"
-                            , "--Low"      , "55"        -- units: %
-                            , "--High"     , "77"        -- units: %
+                            , "--Low"      , "60"        -- units: %
+                            , "--High"     , "84"        -- units: %
                             , "--low"      , "#b5bd68"
                             , "--normal"   , "#de935f"
                             , "--high"     , "#a54242"
                             , "--"
-                              , "--used-icon-pattern" , "<icon=ram/ram_0.xpm/>"
+                              , "--used-icon-pattern" , "<icon=ram/ram_%%.xpm/>"
                             ] 10
 
        , Run DynNetwork     [ "--template" , "<rxipat><txipat>"
