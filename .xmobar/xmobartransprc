@@ -30,7 +30,7 @@ Config {
   , bgColor     = "#282a2e"
   , fgColor     = "#c5c8c6"
   , alpha       = 0
-  , position    = TopP 30 30
+  , position    = Top
   , border      = NoBorder
   , borderWidth = 0
   , borderColor = "#373b41"
