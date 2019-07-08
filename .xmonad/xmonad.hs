@@ -117,7 +117,7 @@ myManageHook = composeAll
 
 
 myLogHook host h h2
-  | host == "deskarch" = do dynamicLogWithPP deskarchPP
+  | host == "deskarch" = do dynamicLogWithPP standardPP
                             dynamicLogWithPP deskarchPP2
   | otherwise          = do dynamicLogWithPP standardPP
   where standardPP =
@@ -130,27 +130,16 @@ myLogHook host h h2
                    , ppHidden           = xmobarWsPrep myColor7 ""
                    , ppHiddenNoWindows  = xmobarWsPrep myColor8 ""
                    } where xmobarWsPrep :: WorkspaceId -> String -> String -> String
-                           xmobarWsPrep fg bg = xmobarColor fg bg . clickable . take 1
+                           xmobarWsPrep fg bg = xmobarColor fg bg . clickableIcon . take 1
 
-        deskarchPP =
-          xmobarPP { ppOutput           = hPutStrLn h
-                   , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                   , ppWsSep            = ""
-                   , ppCurrent          = xmobarWsPrep myColorF myColor2
-                   , ppVisible          = xmobarWsPrep myColorF myColor7
-                   , ppUrgent           = xmobarWsPrep myColorF myColor3
-                   , ppHidden           = xmobarWsPrep myColor7 ""
-                   , ppHiddenNoWindows  = xmobarWsPrep myColor8 ""
-                   } where xmobarWsPrep :: WorkspaceId -> String -> String -> String
-                           xmobarWsPrep fg bg = xmobarColor fg bg . clickable
         deskarchPP2 =
            xmobarPP { ppOutput           = hPutStrLn h2
                     , ppOrder            = \(workspaces:layout:title:_) -> [title]
                     , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
                     }
 
-        clickable :: WorkspaceId -> String
-        clickable ws = "<action=xdotool key super+" ++ n ++ ">" ++ (wrap " " " " ws) ++ "</action>"
+        clickableIcon :: WorkspaceId -> String
+        clickableIcon ws = "<action=xdotool key super+" ++ n ++ ">" ++ " <icon=workspaces/workspace_" ++ n ++ ".xpm/> " ++ "</action>"
                          where n = take 1 ws
 
 
