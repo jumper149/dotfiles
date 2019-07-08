@@ -114,7 +114,7 @@ Config {
 --                             ] 10
 
         -- battery monitor
-        , Run Battery        [ "--template" , "<leftipat> <left>% <timeleft>"
+        , Run Battery        [ "--template" , "<leftipat> <acstatus>"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "#a54242"
@@ -127,11 +127,11 @@ Config {
                                        , "--off-icon-pattern"  , "<icon=battery/off/battery_off_%%.xpm/>"
                                        , "--idle-icon-pattern" , "<icon=battery/idle/battery_idle_%%.xpm/>"
                                        -- discharging status
-                                       , "-o" , "<left>% <fc=#a54242><timeleft></fc>"
-                                       -- AC "on" status
-                                       , "-O" , "<left>% <fc=#b5bd68>LOAD</fc>"
+                                       , "-o" , "<left><fc=#c5c8c6>%</fc> <timeleft>"
+                                       -- plugged in status
+                                       , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>"
                                        -- charged status
-                                       , "-i" , "<fc=#707880>FULL</fc>"
+                                       , "-i" , "<fc=#373b41>IDLE</fc>"
                              ] 50
 
         -- time and date indicator 
