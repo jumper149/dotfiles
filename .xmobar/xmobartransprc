@@ -53,19 +53,23 @@ Config {
 
          Run UnsafeStdinReader
 
-       , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <fc=#707880>|</fc> <fc=#81a2be><rh></fc>% <fc=#707880>|</fc> <fc=#81a2be><pressure></fc>hPa"
-                            ] 36000
-
-       , Run DynNetwork     [ "--template" , "<rxipat> <txipat>"
-                            , "--Low"      , "10000"      -- units: B/s
-                            , "--High"     , "50000"      -- units: B/s
-                            , "--low"      , "#b5bd68"
+       , Run Battery        [ "--template" , "<leftipat> <acstatus>"
+                            , "--Low"      , "20"        -- units: %
+                            , "--High"     , "80"        -- units: %
+                            , "--low"      , "#a54242"
                             , "--normal"   , "#de935f"
-                            , "--high"     , "#a54242"
+                            , "--high"     , "#b5bd68"
                             , "--"
-                              , "--rx-icon-pattern" , "<icon=dynnetwork/rx/dynnetwork_rx_%%.xpm/>"
-                              , "--tx-icon-pattern" , "<icon=dynnetwork/tx/dynnetwork_tx_%%.xpm/>"
-                            ] 10
+                              , "--on-icon-pattern"   , "<icon=battery/on/battery_on_%%.xpm/>"
+                              , "--off-icon-pattern"  , "<icon=battery/off/battery_off_%%.xpm/>"
+                              , "--idle-icon-pattern" , "<icon=battery/idle/battery_idle_%%.xpm/>"
+                              -- discharging status
+                              , "-o" , "<left><fc=#c5c8c6>%</fc> <timeleft>"
+                              -- plugged in status
+                              , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>"
+                              -- charged status
+                              , "-i" , "<fc=#373b41>IDLE</fc>"
+                            ] 50
 
        , Run MultiCpu       [ "--template" , "<ipat>"
                             , "--Low"      , "55"         -- units: %
@@ -93,29 +97,16 @@ Config {
 --                            , "--high"     , "#a54242"
 --                            ] 10
 
-       , Run Battery        [ "--template" , "<leftipat> <acstatus>"
-                            , "--Low"      , "20"        -- units: %
-                            , "--High"     , "80"        -- units: %
-                            , "--low"      , "#a54242"
+       , Run DynNetwork     [ "--template" , "<rxipat> <txipat>"
+                            , "--Low"      , "10000"      -- units: B/s
+                            , "--High"     , "50000"      -- units: B/s
+                            , "--low"      , "#b5bd68"
                             , "--normal"   , "#de935f"
-                            , "--high"     , "#b5bd68"
+                            , "--high"     , "#a54242"
                             , "--"
-                              , "--on-icon-pattern"   , "<icon=battery/on/battery_on_%%.xpm/>"
-                              , "--off-icon-pattern"  , "<icon=battery/off/battery_off_%%.xpm/>"
-                              , "--idle-icon-pattern" , "<icon=battery/idle/battery_idle_%%.xpm/>"
-                              -- discharging status
-                              , "-o" , "<left><fc=#c5c8c6>%</fc> <timeleft>"
-                              -- plugged in status
-                              , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>"
-                              -- charged status
-                              , "-i" , "<fc=#373b41>IDLE</fc>"
-                            ] 50
-
-       , Run Date           "%a %d/%m/%y <fc=#707880>|</fc> %T" "date" 10
-
-       , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
-                            , ("us" , "<fc=#b5bd68>US</fc>")
-                            ]
+                              , "--rx-icon-pattern" , "<icon=dynnetwork/rx/dynnetwork_rx_%%.xpm/>"
+                              , "--tx-icon-pattern" , "<icon=dynnetwork/tx/dynnetwork_tx_%%.xpm/>"
+                            ] 10
 
 --       , Run Volume "default" "Master"
 --                            [ "--template" ,"VOL <volume>% <status>"
@@ -146,6 +137,17 @@ Config {
                             , ("<fc=#5f819d>U</fc> " , "~/.mail/stud-uni-hannover/INBOX")
                             , ("<fc=#8c9440>B</fc> " , "~/.mail/botanik-uni-hannover/INBOX")
                             ] "mail"
+
+       , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <fc=#707880>|</fc> <fc=#81a2be><rh></fc>% <fc=#707880>|</fc> <fc=#81a2be><pressure></fc>hPa"
+                            ] 36000
+
+       , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
+                            , ("us" , "<fc=#b5bd68>US</fc>")
+                            ]
+
+       , Run Date           "%a %d/%m/%y <fc=#707880>|</fc> %T" "date" 10
+
        ]
+
   }
 -- vim: syntax=haskell
