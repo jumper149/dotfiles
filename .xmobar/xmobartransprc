@@ -26,7 +26,7 @@ Config {
   --     color7:  #707880
   --     color15: #c5c8c6
 
-    font        = "xft:Inconsolata:size=12:style=Regular:antialias=true"
+    font        = "xft:Inconsolata:size=14:style=Regular:antialias=true"
   , bgColor     = "#282a2e"
   , fgColor     = "#c5c8c6"
   , alpha       = 0
@@ -68,7 +68,7 @@ Config {
                               -- plugged in status
                               , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>"
                               -- charged status
-                              , "-i" , "<fc=#373b41>IDLE</fc>"
+                              , "-i" , "<fc=#707880>IDLE</fc>"
                             ] 50
 
        , Run Cpu            [ "--template" , "<ipat> <total>%"
@@ -99,7 +99,7 @@ Config {
                               , "--used-icon-pattern" , "<icon=ram/ram_%%.xpm/>"
                             ] 10
 
-       , Run DynNetwork     [ "--template" , "<rxipat><txipat>"
+       , Run DynNetwork     [ "--template" , "<txipat><rxipat>"
                             , "--Low"      , "10000"      -- units: B/s
                             , "--High"     , "50000"      -- units: B/s
                             , "--low"      , "#b5bd68"
