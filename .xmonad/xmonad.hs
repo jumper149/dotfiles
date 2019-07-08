@@ -124,11 +124,11 @@ myLogHook host h h2
           xmobarPP { ppOutput           = hPutStrLn h
                    , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
                    , ppWsSep            = ""
-                   , ppCurrent          = xmobarWsPrep myColor0 myColor2
-                   , ppVisible          = xmobarWsPrep myColor0 myColor7
-                   , ppUrgent           = xmobarWsPrep myColor0 myColor3
-                   , ppHidden           = xmobarWsPrep myColorF ""
-                   , ppHiddenNoWindows  = xmobarWsPrep myColor7 ""
+                   , ppCurrent          = xmobarWsPrep myColorF myColor2
+                   , ppVisible          = xmobarWsPrep myColorF myColor7
+                   , ppUrgent           = xmobarWsPrep myColorF myColor3
+                   , ppHidden           = xmobarWsPrep myColor7 ""
+                   , ppHiddenNoWindows  = xmobarWsPrep myColor8 ""
                    } where xmobarWsPrep :: WorkspaceId -> String -> String -> String
                            xmobarWsPrep fg bg = xmobarColor fg bg . clickable . take 1
 
@@ -252,7 +252,7 @@ myStartupHook = do (windows . W.greedyView) "2 Hacking"
 
 main = do
     host    <- fmap nodeName getSystemID
-    xmproc  <- spawnPipe "xmobar"
+    xmproc  <- spawnPipe "xmobar ~/.xmobar/xmobartransprc"
     xm2proc <- if host == "deskarch" then
                   spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
                else
