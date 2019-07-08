@@ -81,7 +81,7 @@ Config {
                               , "--load-icon-pattern" , "<icon=cpu/cpu_%%.xpm/>"
                             ] 10
 
-       , Run CoreTemp       [ "--template" , "TEMP <core0>°C - <core1>°C"
+       , Run CoreTemp       [ "--template" , "<icon=temperature/temperature_0.xpm/> <core0>°C - <core1>°C"
                             , "--Low"      , "65"        -- units: °C
                             , "--High"     , "80"        -- units: °C
                             , "--low"      , "#b5bd68"
