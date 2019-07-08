@@ -27,7 +27,6 @@ Config {
   --     color15: #c5c8c6
 
     font        = "xft:Inconsolata:size=12:style=Regular:antialias=true"
-  , textOffset  = 17
   , bgColor     = "#282a2e"
   , fgColor     = "#c5c8c6"
   , alpha       = 0
