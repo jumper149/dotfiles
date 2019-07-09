@@ -243,7 +243,7 @@ myStartupHook = do (windows . W.greedyView) "2 Hacking"
 
 main = do
     host    <- fmap nodeName getSystemID
-    xmproc  <- spawnPipe "xmobar ~/.xmobar/xmobartransprc"
+    xmproc  <- spawnPipe "xmobar ~/.xmobar/xmobarrc"
     xm2proc <- if host == "deskarch" then
                   spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
                else

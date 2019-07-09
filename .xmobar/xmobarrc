@@ -1,169 +1,155 @@
 Config { 
 
-   -- colors
-   --   black
-   --     color0:  #282a2e
-   --     color8:  #373b41
-   --   red
-   --     color1:  #a54242
-   --     color9:  #cc6666
-   --   green
-   --     color2:  #8c9440
-   --     color10: #b5bd68
-   --   yellow
-   --     color3:  #de935f
-   --     color11: #f0c674
-   --   blue
-   --     color4:  #5f819d
-   --     color12: #81a2be
-   --   magenta
-   --     color5:  #85678f
-   --     color13: #b294bb
-   --   cyan
-   --     color6:  #5e8d87
-   --     color14: #8abeb7
-   --   white
-   --     color7:  #707880
-   --     color15: #c5c8c6
+  -- colors
+  --   black
+  --     color0:  #282a2e
+  --     color8:  #373b41
+  --   red
+  --     color1:  #a54242
+  --     color9:  #cc6666
+  --   green
+  --     color2:  #8c9440
+  --     color10: #b5bd68
+  --   yellow
+  --     color3:  #de935f
+  --     color11: #f0c674
+  --   blue
+  --     color4:  #5f819d
+  --     color12: #81a2be
+  --   magenta
+  --     color5:  #85678f
+  --     color13: #b294bb
+  --   cyan
+  --     color6:  #5e8d87
+  --     color14: #8abeb7
+  --   white
+  --     color7:  #707880
+  --     color15: #c5c8c6
 
-   -- appearance
-     font =         "xft:Inconsolata:size=12:style=Bold:antialias=true"
-   , bgColor =      "#282a2e"
-   , fgColor =      "#c5c8c6"
-   , position =     TopSize C 100 22
-   , textOffset =   15
-   , border =       BottomB
-   , borderWidth =  2
-   , borderColor =  "#373b41"
+    font        = "xft:Inconsolata:size=13:style=Regular:antialias=true"
+  , bgColor     = "#282a2e"
+  , fgColor     = "#c5c8c6"
+  , alpha       = 0
+  , position    = Top
+  , border      = NoBorder
+  , borderWidth = 0
+  , borderColor = "#373b41"
 
-   -- layout
-   , sepChar =  "%"   -- delineator between plugin names and straight text
-   , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %battery% <fc=#707880>|</fc> %multicpu% <fc=#707880>|</fc> %coretemp% <fc=#707880>|</fc> %dynnetwork% }<fc=#707880>|</fc> %UnsafeStdinReader% <fc=#707880>|</fc>{ %mpd% <fc=#707880>|</fc> %mail% <fc=#707880>|</fc> %EDDV% <fc=#707880>|</fc> %kbd% <fc=#707880>|</fc> %date% "
+  , iconRoot = "/home/jumper/.xmobar/icons"
 
-   -- general behavior
-   , lowerOnStart =     True    -- send to bottom of window stack on start
-   , hideOnStart =      False   -- start with window unmapped (hidden)
-   , allDesktops =      True    -- show on all desktops
-   , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
-   , pickBroadest =     False   -- choose widest display (multi-monitor)
-   , persistent =       True    -- enable/disable hiding (True = disabled)
+  , sepChar  = "%"   -- delineator between plugin names and straight text
+  , alignSep = "}{"  -- separator between left-right alignment
 
-   -- plugins
-   --   Numbers can be automatically colored according to their value. xmobar
-   --   decides color based on a three-tier/two-cutoff system, controlled by
-   --   command options:
-   --     --Low sets the low cutoff
-   --     --High sets the high cutoff
-   --
-   --     --low sets the color below --Low cutoff
-   --     --normal sets the color between --Low and --High cutoffs
-   --     --high sets the color above --High cutoff
-   --
-   --   The --template option controls how the plugin is displayed. Text
-   --   color can be set by enclosing in <fc></fc> tags. For more details
-   --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
-   , commands = [
+  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %coretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% }<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{ %mpd% <icon=seperator.xpm/> %mail% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %kbd% <icon=seperator.xpm/> %date% "
 
-        -- read workspaces from stdin
-        Run UnsafeStdinReader
+  , lowerOnStart     = True    -- send to bottom of window stack on start
+  , hideOnStart      = False   -- start with window unmapped (hidden)
+  , allDesktops      = True    -- show on all desktops
+  , overrideRedirect = True    -- set the Override Redirect flag (Xlib)
+  , pickBroadest     = False   -- choose widest display (multi-monitor)
+  , persistent       = True    -- enable/disable hiding (True = disabled)
 
-        -- weather monitor
-        , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <fc=#707880>|</fc> <fc=#81a2be><rh></fc>% <fc=#707880>|</fc> <fc=#81a2be><pressure></fc>hPa"
-                             ] 36000
+  , commands = [
 
-        -- network activity monitor (dynamic interface resolution)
-        , Run DynNetwork     [ "--template" , "<rx>k/s ↓↑ <tx>k/s"
-                             , "--Low"      , "5000"       -- units: B/s
-                             , "--High"     , "10000"      -- units: B/s
-                             , "--low"      , "#b5bd68"
-                             , "--normal"   , "#a54242"
-                             , "--high"     , "#de935f"
-                             ] 10
+         Run UnsafeStdinReader
 
-        -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "CPU <total>%"
-                             , "--Low"      , "50"         -- units: %
-                             , "--High"     , "80"         -- units: %
-                             , "--low"      , "#b5bd68"
-                             , "--normal"   , "#a54242"
-                             , "--high"     , "#de935f"
-                             ] 10
+       , Run Battery        [ "--template" , "<leftipat> <acstatus>"
+                            , "--Low"      , "20"        -- units: %
+                            , "--High"     , "80"        -- units: %
+                            , "--low"      , "#a54242"
+                            , "--normal"   , "#de935f"
+                            , "--high"     , "#b5bd68"
+                            , "--"
+                              , "--on-icon-pattern"   , "<icon=battery/on/battery_on_%%.xpm/>"
+                              , "--off-icon-pattern"  , "<icon=battery/off/battery_off_%%.xpm/>"
+                              , "--idle-icon-pattern" , "<icon=battery/idle/battery_idle_%%.xpm/>"
+                              -- discharging status
+                              , "-o" , "<left><fc=#c5c8c6>%</fc> <timeleft>"
+                              -- plugged in status
+                              , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>"
+                              -- charged status
+                              , "-i" , "<fc=#707880>IDLE</fc>"
+                            ] 50
 
-        -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "TEMP <core0>°C - <core1>°C"
-                             , "--Low"      , "65"        -- units: °C
-                             , "--High"     , "80"        -- units: °C
-                             , "--low"      , "#b5bd68"
-                             , "--normal"   , "#a54242"
-                             , "--high"     , "#de935f"
-                             ] 50
-                          
---        -- memory usage monitor
---        , Run Memory         [ "--template" ,"RAM <usedratio>%"
---                             , "--Low"      , "20"        -- units: %
---                             , "--High"     , "80"        -- units: %
---                             , "--low"      , "#b5bd68"
---                             , "--normal"   , "#a54242"
---                             , "--high"     , "#de935f"
---                             ] 10
+       , Run Cpu            [ "--template" , "<ipat> <total>%"
+                            , "--Low"      , "55"         -- units: %
+                            , "--High"     , "77"         -- units: %
+                            , "--low"      , "#b5bd68"
+                            , "--normal"   , "#de935f"
+                            , "--high"     , "#a54242"
+                            , "--"
+                              , "--load-icon-pattern" , "<icon=cpu/cpu_%%.xpm/>"
+                            ] 10
 
-        -- battery monitor
-        , Run Battery        [ "--template" , "BATT <acstatus>"
-                             , "--Low"      , "20"        -- units: %
-                             , "--High"     , "80"        -- units: %
-                             , "--low"      , "#de935f"
-                             , "--normal"   , "#a54242"
-                             , "--high"     , "#b5bd68"
+       , Run CoreTemp       [ "--template" , "<icon=temperature/temperature_0.xpm/> <core0>°C - <core1>°C"
+                            , "--Low"      , "65"        -- units: °C
+                            , "--High"     , "80"        -- units: °C
+                            , "--low"      , "#b5bd68"
+                            , "--normal"   , "#de935f"
+                            , "--high"     , "#a54242"
+                            ] 50
 
-                             , "--" -- battery specific options
-                                       -- discharging status
-                                       , "-o"	, "<left>% <fc=#a54242><timeleft></fc>"
-                                       -- AC "on" status
-                                       , "-O"	, "<fc=#b5bd68>LOAD</fc>"
-                                       -- charged status
-                                       , "-i"	, "<fc=#707880>FULL</fc>"
-                             ] 50
+       , Run Memory         [ "--template" , "<usedipat> <usedratio>%"
+                            , "--Low"      , "60"        -- units: %
+                            , "--High"     , "84"        -- units: %
+                            , "--low"      , "#b5bd68"
+                            , "--normal"   , "#de935f"
+                            , "--high"     , "#a54242"
+                            , "--"
+                              , "--used-icon-pattern" , "<icon=ram/ram_%%.xpm/>"
+                            ] 10
 
-        -- time and date indicator 
-        , Run Date           "%a %d/%m/%y <fc=#707880>|</fc> %T" "date" 10
+       , Run DynNetwork     [ "--template" , "<txipat><rxipat>"
+                            , "--Low"      , "10000"      -- units: B/s
+                            , "--High"     , "50000"      -- units: B/s
+                            , "--low"      , "#b5bd68"
+                            , "--normal"   , "#de935f"
+                            , "--high"     , "#a54242"
+                            , "--"
+                              , "--rx-icon-pattern" , "<icon=network/rx/network_rx_%%.xpm/>"
+                              , "--tx-icon-pattern" , "<icon=network/tx/network_tx_%%.xpm/>"
+                            ] 10
 
-        -- keyboard layout indicator
-        , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
-                             , ("us" , "<fc=#b5bd68>US</fc>")
-                             ]
-
---        -- alsa volume indicator
---        , Run Volume "default" "Master"
---                             [ "--template" ,"VOL <volume>% <status>"
---                             , "--Low"      , "20"        -- units: %
---                             , "--High"     , "80"        -- units: %
---                             , "--low"      , "#b5bd68"
---                             , "--normal"   , "#a54242"
---                             , "--high"     , "#de935f"
+--       , Run Volume "default" "Master"
+--                            [ "--template" ,"VOL <volume>% <status>"
+--                            , "--Low"      , "20"        -- units: %
+--                            , "--High"     , "80"        -- units: %
+--                            , "--low"      , "#b5bd68"
+--                            , "--normal"   , "#de935f"
+--                            , "--high"     , "#a54242"
 --
---                             , "--" -- volume specific options
---                                       -- "on" status
---                                       , "-O"	, "on"
---                                       -- "off" status
---                                       , "-o"	, "off"
---                             ] 10
+--                            , "--"
+--                              -- "on" status
+--                              , "-O"	, "on"
+--                              -- "off" status
+--                              , "-o"	, "off"
+--                            ] 10
 
-        -- mpd monitor
-        , Run MPD            [ "--template" , "<statei><title></fc>"
-                             , "--"
-                                       -- playing
-                                       , "-P" , "<fc=#b5bd68>> "
-                                       -- paused
-                                       , "-Z" , "<fc=#707880>- "
-                                       -- stopped
-                                       , "-S" , "<fc=#282a2e>| "
-                             ] 10
+       , Run MPD            [ "--template" , "<statei><title></fc>"
+                            , "--"
+                              -- playing
+                              , "-P" , "<fc=#b5bd68>> "
+                              -- paused
+                              , "-Z" , "<fc=#707880>- "
+                              -- stopped
+                              , "-S" , "<fc=#282a2e>| "
+                            ] 10
 
-        -- mail indicator
-        , Run Mail           [ ("<fc=#a54242>G</fc> " , "~/.mail/gmail/INBOX")
-                             , ("<fc=#5f819d>U</fc> " , "~/.mail/stud-uni-hannover/INBOX")
-                             , ("<fc=#8c9440>B</fc> " , "~/.mail/botanik-uni-hannover/INBOX")
-                             ] "mail"
-        ]
-   }
+       , Run Mail           [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
+                            , ("<fc=#5f819d>U</fc>" , "~/.mail/stud-uni-hannover/INBOX")
+                            , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
+                            ] "mail"
+
+       , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <icon=seperator.xpm/> <fc=#81a2be><rh></fc>% <icon=seperator.xpm/> <fc=#81a2be><pressure></fc>hPa"
+                            ] 36000
+
+       , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
+                            , ("us" , "<fc=#b5bd68>US</fc>")
+                            ]
+
+       , Run Date           "%a %d/%m/%y <icon=seperator.xpm/> %T" "date" 10
+
+       ]
+
+  }
+-- vim: syntax=haskell
