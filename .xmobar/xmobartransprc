@@ -135,9 +135,9 @@ Config {
                               , "-S" , "<fc=#282a2e>| "
                             ] 10
 
-       , Run Mail           [ ("<fc=#a54242>G</fc> " , "~/.mail/gmail/INBOX")
-                            , ("<fc=#5f819d>U</fc> " , "~/.mail/stud-uni-hannover/INBOX")
-                            , ("<fc=#8c9440>B</fc> " , "~/.mail/botanik-uni-hannover/INBOX")
+       , Run Mail           [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
+                            , ("<fc=#5f819d>U</fc>" , "~/.mail/stud-uni-hannover/INBOX")
+                            , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
                             ] "mail"
 
        , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <icon=seperator.xpm/> <fc=#81a2be><rh></fc>% <icon=seperator.xpm/> <fc=#81a2be><pressure></fc>hPa"
