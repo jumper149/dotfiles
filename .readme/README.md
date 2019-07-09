@@ -25,7 +25,11 @@ ArchLinux Package dependencies for utilising the dotfiles are found in `~/.readm
     ~/.readme/aur
     ~/.readme/maybe
 
-To install all Packages in `groups`, `core` and `aur` call `~/.readme/install_core.sh` with
+Install `groups` manually:
+
+    sudo pacman -S $(< .readme/groups tr '\n' ' ')
+
+To install all Packages in `core` and `aur` call `~/.scripts/pacsync.sh`:
 
     pacsync
 
