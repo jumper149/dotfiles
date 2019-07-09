@@ -63,48 +63,55 @@ Config {
                               , "--on-icon-pattern"   , "<icon=battery/on/battery_on_%%.xpm/>"
                               , "--off-icon-pattern"  , "<icon=battery/off/battery_off_%%.xpm/>"
                               , "--idle-icon-pattern" , "<icon=battery/idle/battery_idle_%%.xpm/>"
-                              -- discharging status
-                              , "-o" , "<left><fc=#c5c8c6>%</fc> <timeleft>"
-                              -- plugged in status
-                              , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>"
-                              -- charged status
-                              , "-i" , "<fc=#707880>IDLE</fc>"
+                              , "-o" , "<left><fc=#c5c8c6>%</fc> <timeleft>" -- discharging status
+                              , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>" -- plugged in status
+                              , "-i" , "<fc=#707880>IDLE</fc>"               -- charged status
                             ] 50
 
-       , Run Cpu            [ "--template" , "<ipat> <total>%"
-                            , "--Low"      , "55"         -- units: %
-                            , "--High"     , "77"         -- units: %
+       , Run Cpu            [ "--template" , "<ipat><total>%"
+                            , "--Low"      , "55"      -- units: %
+                            , "--High"     , "77"      -- units: %
                             , "--low"      , "#b5bd68"
                             , "--normal"   , "#de935f"
                             , "--high"     , "#a54242"
+                            , "--ppad"              , "3"
+                            , "--width"             , "3"
+                            , "--maxtwidth"         , "4"
                             , "--"
                               , "--load-icon-pattern" , "<icon=cpu/cpu_%%.xpm/>"
                             ] 10
 
-       , Run CoreTemp       [ "--template" , "<icon=temperature/temperature_0.xpm/> <core0>°C - <core1>°C"
-                            , "--Low"      , "65"        -- units: °C
-                            , "--High"     , "80"        -- units: °C
+       , Run CoreTemp       [ "--template" , "<icon=temperature/temperature_0.xpm/><core0>°C -<core1>°C"
+                            , "--Low"      , "65"      -- units: °C
+                            , "--High"     , "80"      -- units: °C
                             , "--low"      , "#b5bd68"
                             , "--normal"   , "#de935f"
                             , "--high"     , "#a54242"
+                            , "--ppad"              , "3"
+                            , "--width"             , "3"
+                            , "--maxtwidth"         , "12"
                             ] 50
 
-       , Run Memory         [ "--template" , "<usedipat> <usedratio>%"
-                            , "--Low"      , "60"        -- units: %
-                            , "--High"     , "84"        -- units: %
+       , Run Memory         [ "--template" , "<usedipat><usedratio>%"
+                            , "--Low"      , "60"      -- units: %
+                            , "--High"     , "84"      -- units: %
                             , "--low"      , "#b5bd68"
                             , "--normal"   , "#de935f"
                             , "--high"     , "#a54242"
+                            , "--ppad"              , "3"
+                            , "--width"             , "3"
+                            , "--maxtwidth"         , "4"
                             , "--"
                               , "--used-icon-pattern" , "<icon=ram/ram_%%.xpm/>"
                             ] 10
 
        , Run DynNetwork     [ "--template" , "<txipat><rxipat>"
-                            , "--Low"      , "10000"      -- units: B/s
-                            , "--High"     , "50000"      -- units: B/s
+                            , "--Low"      , "10000"   -- units: B/s
+                            , "--High"     , "100000"  -- units: B/s
                             , "--low"      , "#b5bd68"
                             , "--normal"   , "#de935f"
                             , "--high"     , "#a54242"
+                            , "--maxtwidth"         , "0"
                             , "--"
                               , "--rx-icon-pattern" , "<icon=network/rx/network_rx_%%.xpm/>"
                               , "--tx-icon-pattern" , "<icon=network/tx/network_tx_%%.xpm/>"
@@ -127,12 +134,9 @@ Config {
 
        , Run MPD            [ "--template" , "<statei><title></fc>"
                             , "--"
-                              -- playing
-                              , "-P" , "<fc=#b5bd68>> "
-                              -- paused
-                              , "-Z" , "<fc=#707880>- "
-                              -- stopped
-                              , "-S" , "<fc=#282a2e>| "
+                              , "-P" , "<fc=#b5bd68>> " -- playing
+                              , "-Z" , "<fc=#707880>- " -- paused
+                              , "-S" , "<fc=#282a2e>| " -- stopped
                             ] 10
 
        , Run Mail           [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
