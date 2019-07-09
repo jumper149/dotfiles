@@ -24,8 +24,11 @@ urxvtd -q -o -f
 blugon --waitforx --fade &
 unclutter --timeout 3 --jitter 3 --ignore-scrolling &
 
+conky --config="$HOME/.config/conky/clock.conf" &
+
 exec $start_wm
 
 pkill urxvtd
 pkill blugon
 pkill unclutter
+pkill conky
