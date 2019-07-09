@@ -124,13 +124,13 @@ myLogHook host h h2
           xmobarPP { ppOutput           = hPutStrLn h
                    , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
                    , ppWsSep            = ""
-                   , ppCurrent          = xmobarWsPrep myColorF myColor2
-                   , ppVisible          = xmobarWsPrep myColorF myColor7
-                   , ppUrgent           = xmobarWsPrep myColorF myColor3
-                   , ppHidden           = xmobarWsPrep myColor7 ""
-                   , ppHiddenNoWindows  = xmobarWsPrep myColor8 ""
-                   } where xmobarWsPrep :: WorkspaceId -> String -> String -> String
-                           xmobarWsPrep fg bg = xmobarColor fg bg . clickableIcon . take 1
+                   , ppCurrent          = xmobarWsPrep "current"
+                   , ppVisible          = xmobarWsPrep "visible"
+                   , ppUrgent           = xmobarWsPrep "urgent"
+                   , ppHidden           = xmobarWsPrep "hidden"
+                   , ppHiddenNoWindows  = xmobarWsPrep "hiddenNoWindows"
+                   } where xmobarWsPrep :: WorkspaceId -> String -> String
+                           xmobarWsPrep status = (clickableIcon status) . take 1
 
         deskarchPP2 =
            xmobarPP { ppOutput           = hPutStrLn h2
@@ -138,8 +138,8 @@ myLogHook host h h2
                     , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
                     }
 
-        clickableIcon :: WorkspaceId -> String
-        clickableIcon ws = "<action=xdotool key super+" ++ n ++ ">" ++ "<icon=workspaces/workspace_" ++ n ++ ".xpm/>" ++ "</action>"
+        clickableIcon :: WorkspaceId -> String -> String
+        clickableIcon status ws = "<action=xdotool key super+" ++ n ++ ">" ++ "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++ "</action>"
                          where n = take 1 ws
 
 

@@ -26,7 +26,7 @@ Config {
   --     color7:  #707880
   --     color15: #c5c8c6
 
-    font        = "xft:Inconsolata:size=14:style=Regular:antialias=true"
+    font        = "xft:Inconsolata:size=13:style=Regular:antialias=true"
   , bgColor     = "#282a2e"
   , fgColor     = "#c5c8c6"
   , alpha       = 0
@@ -40,7 +40,7 @@ Config {
   , sepChar  = "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment
 
-  , template = " %battery% <fc=#707880>|</fc> %cpu% <fc=#707880>|</fc> %coretemp% <fc=#707880>|</fc> %memory% <fc=#707880>|</fc> %dynnetwork% }<fc=#707880>|</fc> %UnsafeStdinReader% <fc=#707880>|</fc>{ %mpd% <fc=#707880>|</fc> %mail% <fc=#707880>|</fc> %EDDV% <fc=#707880>|</fc> %kbd% <fc=#707880>|</fc> %date% "
+  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %coretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% }<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{ %mpd% <icon=seperator.xpm/> %mail% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %kbd% <icon=seperator.xpm/> %date% "
 
   , lowerOnStart     = True    -- send to bottom of window stack on start
   , hideOnStart      = False   -- start with window unmapped (hidden)
@@ -140,14 +140,14 @@ Config {
                             , ("<fc=#8c9440>B</fc> " , "~/.mail/botanik-uni-hannover/INBOX")
                             ] "mail"
 
-       , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <fc=#707880>|</fc> <fc=#81a2be><rh></fc>% <fc=#707880>|</fc> <fc=#81a2be><pressure></fc>hPa"
+       , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <icon=seperator.xpm/> <fc=#81a2be><rh></fc>% <icon=seperator.xpm/> <fc=#81a2be><pressure></fc>hPa"
                             ] 36000
 
        , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
                             , ("us" , "<fc=#b5bd68>US</fc>")
                             ]
 
-       , Run Date           "%a %d/%m/%y <fc=#707880>|</fc> %T" "date" 10
+       , Run Date           "%a %d/%m/%y <icon=seperator.xpm/> %T" "date" 10
 
        ]
 
