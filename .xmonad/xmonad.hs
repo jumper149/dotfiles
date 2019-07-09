@@ -139,7 +139,9 @@ myLogHook host h h2
                     }
 
         clickableIcon :: WorkspaceId -> String -> String
-        clickableIcon status ws = "<action=xdotool key super+" ++ n ++ ">" ++ "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++ "</action>"
+        clickableIcon status ws = "<action=xdotool key super+" ++ n ++ ">" ++
+                                  "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
+                                  "</action>"
                          where n = take 1 ws
 
 
