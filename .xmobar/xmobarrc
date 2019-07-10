@@ -40,7 +40,7 @@ Config {
   , sepChar  = "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment
 
-  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %coretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% }<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{ %mpd% <icon=seperator.xpm/> %mail% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %kbd% <icon=seperator.xpm/> %date% "
+  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %coretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork%}<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{%mpd% <icon=seperator.xpm/> %mail% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %kbd% <icon=seperator.xpm/> %date% "
 
   , lowerOnStart     = True    -- send to bottom of window stack on start
   , hideOnStart      = False   -- start with window unmapped (hidden)
@@ -116,21 +116,6 @@ Config {
                               , "--rx-icon-pattern" , "<icon=network/rx/network_rx_%%.xpm/>"
                               , "--tx-icon-pattern" , "<icon=network/tx/network_tx_%%.xpm/>"
                             ] 10
-
---       , Run Volume "default" "Master"
---                            [ "--template" ,"VOL <volume>% <status>"
---                            , "--Low"      , "20"        -- units: %
---                            , "--High"     , "80"        -- units: %
---                            , "--low"      , "#b5bd68"
---                            , "--normal"   , "#de935f"
---                            , "--high"     , "#a54242"
---
---                            , "--"
---                              -- "on" status
---                              , "-O"	, "on"
---                              -- "off" status
---                              , "-o"	, "off"
---                            ] 10
 
        , Run MPD            [ "--template" , "<statei><title></fc>"
                             , "--"
