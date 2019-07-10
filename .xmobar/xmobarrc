@@ -39,7 +39,7 @@ Config {
   , sepChar  = "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment
 
-  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %coretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork%}<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{%mpd% <icon=seperator.xpm/> %mail% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %kbd% <icon=seperator.xpm/> %date% "
+  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %coretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% <icon=seperator.xpm/> %kbd%}<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{%mpd% <icon=seperator.xpm/> %mail% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %date% "
 
   , lowerOnStart     = True    -- send to bottom of window stack on start
   , hideOnStart      = False   -- start with window unmapped (hidden)
@@ -116,6 +116,10 @@ Config {
                           , "--tx-icon-pattern" , "<icon=network/tx/network_tx_%%.xpm/>"
                         ] 10
 
+       , Run Kbd [ ("de" , "<fc=#cc6666>DE</fc>")
+                 , ("us" , "<fc=#b5bd68>US</fc>")
+                 ]
+
        , Run MPD [ "--template" , "<statei><title></fc>"
                  , "--"
                    , "-P" , "<fc=#b5bd68>> " -- playing
@@ -128,14 +132,14 @@ Config {
                   , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
                   ] "mail"
 
-       , Run WeatherX "EDDV" [ ("clear"                  , "c")
-                             , ("sunny"                  , "s")
-                             , ("mostly clear"           , "mc")
-                             , ("mostly sunny"           , "ms")
-                             , ("partly sunny"           , "ps")
-                             , ("fair"                   , "f")
-                             , ("cloudy"                 , "cl")
-                             , ("overcast"               , "oc")
+       , Run WeatherX "EDDV" [ ("clear"                  , "c  ")
+                             , ("sunny"                  , "s  ")
+                             , ("mostly clear"           , "mc ")
+                             , ("mostly sunny"           , "ms ")
+                             , ("partly sunny"           , "ps ")
+                             , ("fair"                   , "f  ")
+                             , ("cloudy"                 , "cl ")
+                             , ("overcast"               , "oc ")
                              , ("partly cloudy"          , "pcl")
                              , ("mostly cloudy"          , "mcl")
                              , ("considerable cloudiness", "ccl")
@@ -147,12 +151,8 @@ Config {
                                , "--high"     , "#a54242"
                                , "--ppad"      , "3"
                                , "--width"     , "3"
-                               , "--maxtwidth" , "25"
+                               , "--maxtwidth" , "29"
                                ] 36000
-
-       , Run Kbd [ ("de" , "<fc=#cc6666>DE</fc>")
-                 , ("us" , "<fc=#b5bd68>US</fc>")
-                 ]
 
        , Run Date "%a %d/%m/%y <icon=seperator.xpm/> %T" "date" 10
 
