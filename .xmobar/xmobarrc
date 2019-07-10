@@ -52,92 +52,92 @@ Config {
 
          Run UnsafeStdinReader
 
-       , Run Battery        [ "--template" , "<leftipat> <acstatus>"
-                            , "--Low"      , "33"        -- units: %
-                            , "--High"     , "66"        -- units: %
-                            , "--low"      , "#a54242"
-                            , "--normal"   , "#de935f"
-                            , "--high"     , "#b5bd68"
-                            , "--"
-                              , "--on-icon-pattern"   , "<icon=battery/on/battery_on_%%.xpm/>"
-                              , "--off-icon-pattern"  , "<icon=battery/off/battery_off_%%.xpm/>"
-                              , "--idle-icon-pattern" , "<icon=battery/idle/battery_idle_%%.xpm/>"
-                              , "-o" , "<left><fc=#c5c8c6>%</fc> <timeleft>" -- discharging status
-                              , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>" -- plugged in status
-                              , "-i" , "<fc=#707880>IDLE</fc>"               -- charged status
-                            ] 50
+       , Run Battery [ "--template" , "<leftipat> <acstatus>"
+                     , "--Low"      , "33"        -- units: %
+                     , "--High"     , "66"        -- units: %
+                     , "--low"      , "#a54242"
+                     , "--normal"   , "#de935f"
+                     , "--high"     , "#b5bd68"
+                     , "--"
+                       , "--on-icon-pattern"   , "<icon=battery/on/battery_on_%%.xpm/>"
+                       , "--off-icon-pattern"  , "<icon=battery/off/battery_off_%%.xpm/>"
+                       , "--idle-icon-pattern" , "<icon=battery/idle/battery_idle_%%.xpm/>"
+                       , "-o" , "<left><fc=#c5c8c6>%</fc> <timeleft>" -- discharging status
+                       , "-O" , "<left><fc=#c5c8c6>% <timeleft></fc>" -- plugged in status
+                       , "-i" , "<fc=#707880>IDLE</fc>"               -- charged status
+                     ] 50
 
-       , Run Cpu            [ "--template" , "<ipat><total>%"
-                            , "--Low"      , "55"      -- units: %
-                            , "--High"     , "77"      -- units: %
-                            , "--low"      , "#b5bd68"
-                            , "--normal"   , "#de935f"
-                            , "--high"     , "#a54242"
-                            , "--ppad"              , "3"
-                            , "--width"             , "3"
-                            , "--maxtwidth"         , "4"
-                            , "--"
-                              , "--load-icon-pattern" , "<icon=cpu/cpu_%%.xpm/>"
-                            ] 10
+       , Run Cpu [ "--template" , "<ipat><total>%"
+                 , "--Low"      , "55"      -- units: %
+                 , "--High"     , "77"      -- units: %
+                 , "--low"      , "#b5bd68"
+                 , "--normal"   , "#de935f"
+                 , "--high"     , "#a54242"
+                 , "--ppad"              , "3"
+                 , "--width"             , "3"
+                 , "--maxtwidth"         , "4"
+                 , "--"
+                   , "--load-icon-pattern" , "<icon=cpu/cpu_%%.xpm/>"
+                 ] 10
 
-       , Run CoreTemp       [ "--template" , "<icon=temperature/temperature_0.xpm/><core0>°C -<core1>°C"
-                            , "--Low"      , "65"      -- units: °C
-                            , "--High"     , "80"      -- units: °C
-                            , "--low"      , "#b5bd68"
-                            , "--normal"   , "#de935f"
-                            , "--high"     , "#a54242"
-                            , "--ppad"              , "3"
-                            , "--width"             , "3"
-                            , "--maxtwidth"         , "12"
-                            ] 50
+       , Run CoreTemp [ "--template" , "<icon=temperature/temperature_0.xpm/><core0>°C -<core1>°C"
+                      , "--Low"      , "65"      -- units: °C
+                      , "--High"     , "80"      -- units: °C
+                      , "--low"      , "#b5bd68"
+                      , "--normal"   , "#de935f"
+                      , "--high"     , "#a54242"
+                      , "--ppad"      , "3"
+                      , "--width"     , "3"
+                      , "--maxtwidth" , "12"
+                      ] 50
 
-       , Run Memory         [ "--template" , "<usedipat><usedratio>%"
-                            , "--Low"      , "60"      -- units: %
-                            , "--High"     , "84"      -- units: %
-                            , "--low"      , "#b5bd68"
-                            , "--normal"   , "#de935f"
-                            , "--high"     , "#a54242"
-                            , "--ppad"              , "3"
-                            , "--width"             , "3"
-                            , "--maxtwidth"         , "4"
-                            , "--"
-                              , "--used-icon-pattern" , "<icon=ram/ram_%%.xpm/>"
-                            ] 10
+       , Run Memory [ "--template" , "<usedipat><usedratio>%"
+                    , "--Low"      , "60"      -- units: %
+                    , "--High"     , "84"      -- units: %
+                    , "--low"      , "#b5bd68"
+                    , "--normal"   , "#de935f"
+                    , "--high"     , "#a54242"
+                    , "--ppad"      , "3"
+                    , "--width"     , "3"
+                    , "--maxtwidth" , "4"
+                    , "--"
+                      , "--used-icon-pattern" , "<icon=ram/ram_%%.xpm/>"
+                    ] 10
 
-       , Run DynNetwork     [ "--template" , "<txipat><rxipat>"
-                            , "--Low"      , "10000"   -- units: B/s
-                            , "--High"     , "100000"  -- units: B/s
-                            , "--low"      , "#b5bd68"
-                            , "--normal"   , "#de935f"
-                            , "--high"     , "#a54242"
-                            , "--maxtwidth"         , "0"
-                            , "--"
-                              , "--rx-icon-pattern" , "<icon=network/rx/network_rx_%%.xpm/>"
-                              , "--tx-icon-pattern" , "<icon=network/tx/network_tx_%%.xpm/>"
-                            ] 10
+       , Run DynNetwork [ "--template" , "<txipat><rxipat>"
+                        , "--Low"      , "10000"   -- units: B/s
+                        , "--High"     , "100000"  -- units: B/s
+                        , "--low"      , "#b5bd68"
+                        , "--normal"   , "#de935f"
+                        , "--high"     , "#a54242"
+                        , "--maxtwidth" , "0"
+                        , "--"
+                          , "--rx-icon-pattern" , "<icon=network/rx/network_rx_%%.xpm/>"
+                          , "--tx-icon-pattern" , "<icon=network/tx/network_tx_%%.xpm/>"
+                        ] 10
 
-       , Run MPD            [ "--template" , "<statei><title></fc>"
-                            , "--"
-                              , "-P" , "<fc=#b5bd68>> " -- playing
-                              , "-Z" , "<fc=#707880>- " -- paused
-                              , "-S" , "<fc=#282a2e>| " -- stopped
-                            ] 10
+       , Run MPD [ "--template" , "<statei><title></fc>"
+                 , "--"
+                   , "-P" , "<fc=#b5bd68>> " -- playing
+                   , "-Z" , "<fc=#707880>- " -- paused
+                   , "-S" , "<fc=#282a2e>| " -- stopped
+                 ] 10
 
-       , Run Mail           [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
-                            , ("<fc=#5f819d>U</fc>" , "~/.mail/stud-uni-hannover/INBOX")
-                            , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
-                            ] "mail"
+       , Run Mail [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
+                  , ("<fc=#5f819d>U</fc>" , "~/.mail/stud-uni-hannover/INBOX")
+                  , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
+                  ] "mail"
 
-       , Run WeatherX "EDDV" [ ("clear", "c")
-                             , ("sunny", "s")
-                             , ("mostly clear", "mc")
-                             , ("mostly sunny", "ms")
-                             , ("partly sunny", "ps")
-                             , ("fair", "f")
-                             , ("cloudy","cl")
-                             , ("overcast","oc")
-                             , ("partly cloudy", "pcl")
-                             , ("mostly cloudy", "mcl")
+       , Run WeatherX "EDDV" [ ("clear"                  , "c")
+                             , ("sunny"                  , "s")
+                             , ("mostly clear"           , "mc")
+                             , ("mostly sunny"           , "ms")
+                             , ("partly sunny"           , "ps")
+                             , ("fair"                   , "f")
+                             , ("cloudy"                 , "cl")
+                             , ("overcast"               , "oc")
+                             , ("partly cloudy"          , "pcl")
+                             , ("mostly cloudy"          , "mcl")
                              , ("considerable cloudiness", "ccl")
                              ] [ "--template", "<station> <skyConditionS><fc=#81a2be><tempC></fc>°C <fc=#81a2be><rh></fc>% <fc=#81a2be><pressure></fc>hPa"
                                , "--Low"      , "10"      -- units: %
@@ -145,16 +145,16 @@ Config {
                                , "--low"      , "#81a2be"
                                , "--normal"   , "#b5bd68"
                                , "--high"     , "#a54242"
-                               , "--ppad"              , "3"
-                               , "--width"             , "3"
-                               , "--maxtwidth"         , "25"
+                               , "--ppad"      , "3"
+                               , "--width"     , "3"
+                               , "--maxtwidth" , "25"
                                ] 36000
 
-       , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
-                            , ("us" , "<fc=#b5bd68>US</fc>")
-                            ]
+       , Run Kbd [ ("de" , "<fc=#cc6666>DE</fc>")
+                 , ("us" , "<fc=#b5bd68>US</fc>")
+                 ]
 
-       , Run Date           "%a %d/%m/%y <icon=seperator.xpm/> %T" "date" 10
+       , Run Date "%a %d/%m/%y <icon=seperator.xpm/> %T" "date" 10
 
        ]
 
