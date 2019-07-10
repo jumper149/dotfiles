@@ -133,17 +133,17 @@ Config {
                   , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
                   ] "mail"
 
-       , Run WeatherX "EDDV" [ ("clear"                  , "c  ")
-                             , ("sunny"                  , "s  ")
-                             , ("mostly clear"           , "mc ")
-                             , ("mostly sunny"           , "ms ")
-                             , ("partly sunny"           , "ps ")
-                             , ("fair"                   , "f  ")
-                             , ("cloudy"                 , "cl ")
-                             , ("overcast"               , "oc ")
-                             , ("partly cloudy"          , "pcl")
-                             , ("mostly cloudy"          , "mcl")
-                             , ("considerable cloudiness", "ccl")
+       , Run WeatherX "EDDV" [ ("clear"                   , "<icon=weather/weather_sunny.xpm/>")
+                             , ("mostly clear"            , "<icon=weather/weather_mostly_sunny.xpm/>")
+                             , ("sunny"                   , "<icon=weather/weather_sunny.xpm/>")
+                             , ("mostly sunny"            , "<icon=weather/weather_mostly_sunny.xpm/>")
+                             , ("partly sunny"            , "<icon=weather/weather_mostly_cloudy.xpm/>")
+                             , ("cloudy"                  , "<icon=weather/weather_cloudy.xpm/>")
+                             , ("mostly cloudy"           , "<icon=weather/weather_mostly_cloudy.xpm/>")
+                             , ("partly cloudy"           , "<icon=weather/weather_mostly_sunny.xpm/>")
+                             , ("fair"                    , "<icon=weather/weather_sunny.xpm/>")
+                             , ("overcast"                , "<icon=weather/weather_cloudy.xpm/>")
+                             , ("considerable cloudiness" , "<icon=weather/weather_cloudy.xpm/>")
                              ] [ "--template", "<skyConditionS><fc=#81a2be><tempC></fc>°C <fc=#81a2be><rh></fc>% <fc=#81a2be><pressure></fc>hPa"
                                , "--Low"      , "10"      -- units: %
                                , "--High"     , "20"      -- units: %
