@@ -120,11 +120,14 @@ Config {
                  , ("us" , "<fc=#b5bd68>US</fc>")
                  ]
 
-       , Run MPD [ "--template" , "<statei><title></fc>"
+       , Run MPD [ "--template" , "<statei> <title></fc>"
+                   , "--maxwidth"         , "15"
+                   , "--maxwidthellipsis" , "…"
+                   , "--maxtwidth"        , "18"
                  , "--"
-                   , "-P" , "<fc=#b5bd68>> " -- playing
-                   , "-Z" , "<fc=#707880>- " -- paused
-                   , "-S" , "<fc=#282a2e>| " -- stopped
+                   , "-P" , "<fc=#b5bd68>>" -- playing
+                   , "-Z" , "<fc=#707880>-" -- paused
+                   , "-S" , "<fc=#282a2e>|" -- stopped
                  ] 10
 
        , Run Mail [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
