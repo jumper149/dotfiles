@@ -1,6 +1,5 @@
 Config { 
 
-  -- colors
   --   black
   --     color0:  #282a2e
   --     color8:  #373b41
@@ -129,8 +128,27 @@ Config {
                             , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
                             ] "mail"
 
-       , Run Weather "EDDV" [ "--template", "<fc=#81a2be><tempC></fc>°C <icon=seperator.xpm/> <fc=#81a2be><rh></fc>% <icon=seperator.xpm/> <fc=#81a2be><pressure></fc>hPa"
-                            ] 36000
+       , Run WeatherX "EDDV" [ ("clear", "c")
+                             , ("sunny", "s")
+                             , ("mostly clear", "mc")
+                             , ("mostly sunny", "ms")
+                             , ("partly sunny", "ps")
+                             , ("fair", "f")
+                             , ("cloudy","cl")
+                             , ("overcast","oc")
+                             , ("partly cloudy", "pcl")
+                             , ("mostly cloudy", "mcl")
+                             , ("considerable cloudiness", "ccl")
+                             ] [ "--template", "<station> <skyConditionS><fc=#81a2be><tempC></fc>°C <fc=#81a2be><rh></fc>% <fc=#81a2be><pressure></fc>hPa"
+                               , "--Low"      , "10"      -- units: %
+                               , "--High"     , "20"      -- units: %
+                               , "--low"      , "#81a2be"
+                               , "--normal"   , "#b5bd68"
+                               , "--high"     , "#a54242"
+                               , "--ppad"              , "3"
+                               , "--width"             , "3"
+                               , "--maxtwidth"         , "25"
+                               ] 36000
 
        , Run Kbd            [ ("de" , "<fc=#cc6666>DE</fc>")
                             , ("us" , "<fc=#b5bd68>US</fc>")
