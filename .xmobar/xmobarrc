@@ -120,14 +120,12 @@ Config {
                  , ("us" , "<fc=#b5bd68>US</fc>")
                  ]
 
-       , Run MPD [ "--template" , "<statei> <title></fc>"
-                   , "--maxwidth"         , "15"
-                   , "--maxwidthellipsis" , "…"
-                   , "--maxtwidth"        , "18"
+       , Run MPD [ "--template" , "<statei>"
+                   , "--maxtwidth"        , "0"
                  , "--"
-                   , "-P" , "<fc=#b5bd68>>" -- playing
-                   , "-Z" , "<fc=#707880>-" -- paused
-                   , "-S" , "<fc=#282a2e>|" -- stopped
+                   , "-P" , "<icon=music/music_playing.xpm/>" -- playing
+                   , "-Z" , "<icon=music/music_paused.xpm/>"  -- paused
+                   , "-S" , "<icon=music/music_stopped.xpm/>" -- stopped
                  ] 10
 
        , Run Mail [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
@@ -146,7 +144,7 @@ Config {
                              , ("partly cloudy"          , "pcl")
                              , ("mostly cloudy"          , "mcl")
                              , ("considerable cloudiness", "ccl")
-                             ] [ "--template", "<station> <skyConditionS><fc=#81a2be><tempC></fc>°C <fc=#81a2be><rh></fc>% <fc=#81a2be><pressure></fc>hPa"
+                             ] [ "--template", "<skyConditionS><fc=#81a2be><tempC></fc>°C <fc=#81a2be><rh></fc>% <fc=#81a2be><pressure></fc>hPa"
                                , "--Low"      , "10"      -- units: %
                                , "--High"     , "20"      -- units: %
                                , "--low"      , "#81a2be"
