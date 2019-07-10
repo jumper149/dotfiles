@@ -133,7 +133,8 @@ Config {
                   , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
                   ] "mail"
 
-       , Run WeatherX "EDDV" [ ("clear"                   , "<icon=weather/weather_sunny.xpm/>")
+       , Run WeatherX "EDDV" [ (""                        , "<fc=#5e8d87>?</fc>")
+                             , ("clear"                   , "<icon=weather/weather_sunny.xpm/>")
                              , ("mostly clear"            , "<icon=weather/weather_mostly_sunny.xpm/>")
                              , ("sunny"                   , "<icon=weather/weather_sunny.xpm/>")
                              , ("mostly sunny"            , "<icon=weather/weather_mostly_sunny.xpm/>")
@@ -152,7 +153,7 @@ Config {
                                , "--high"     , "#a54242"
                                , "--ppad"      , "3"
                                , "--width"     , "3"
-                               , "--maxtwidth" , "29"
+                               , "--maxtwidth" , "18"
                                ] 36000
 
        , Run Date "%a %d/%m/%y <icon=seperator.xpm/> %T" "date" 10
