@@ -153,7 +153,7 @@ Config {
                                , "--High"     , "20"      -- units: %
                                , "--low"      , "#81a2be"
                                , "--normal"   , "#b5bd68"
-                               , "--high"     , "#a54242"
+                               , "--high"     , "#de935f"
                                , "--ppad"      , "3"
                                , "--width"     , "3"
                                , "--maxtwidth" , "18"
