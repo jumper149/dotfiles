@@ -81,8 +81,8 @@ Config {
                  ] 10
 
        , Run MultiCoreTemp [ "--template" , "<maxipat><max>°C"
-                           , "--Low"      , "65"      -- units: °C
-                           , "--High"     , "80"      -- units: °C
+                           , "--Low"      , "64"      -- units: °C
+                           , "--High"     , "73"      -- units: °C
                            , "--low"      , "#b5bd68"
                            , "--normal"   , "#de935f"
                            , "--high"     , "#a54242"
@@ -92,7 +92,7 @@ Config {
                            , "--"
                              , "--load-icon-pattern" , "<icon=temperature/temperature_%%.xpm/>"
                              , "--mintemp" , "20"
-                             , "--maxtemp" , "90"
+                             , "--maxtemp" , "100"
                            ] 50
 
        , Run Memory [ "--template" , "<usedipat><usedratio>%"
