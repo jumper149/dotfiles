@@ -39,7 +39,7 @@ Config {
   , sepChar  = "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment
 
-  , template = " %battery% <icon=seperator.xpm/> %cpu%%multicoretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% <icon=seperator.xpm/> %kbd%}<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{%mail% <icon=seperator.xpm/> %mpd% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %date% "
+  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %multicoretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% <icon=seperator.xpm/> %kbd%}<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{%mail% <icon=seperator.xpm/> %mpd% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %date% "
 
   , lowerOnStart     = True    -- send to bottom of window stack on start
   , hideOnStart      = False   -- start with window unmapped (hidden)
@@ -80,7 +80,7 @@ Config {
                    , "--load-icon-pattern" , "<icon=cpu/cpu_%%.xpm/>"
                  ] 10
 
-       , Run MultiCoreTemp [ "--template" , "<max>°C"
+       , Run MultiCoreTemp [ "--template" , "<maxipat><max>°C"
                            , "--Low"      , "65"      -- units: °C
                            , "--High"     , "80"      -- units: °C
                            , "--low"      , "#b5bd68"
@@ -90,6 +90,7 @@ Config {
                            , "--width"     , "3"
                            , "--maxtwidth" , "100"
                            , "--"
+                             , "--load-icon-pattern" , "<icon=temperature/temperature_%%.xpm/>"
                              , "--mintemp" , "20"
                              , "--maxtemp" , "90"
                            ] 50
