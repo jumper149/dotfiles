@@ -39,7 +39,7 @@ Config {
   , sepChar  = "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment
 
-  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %coretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% <icon=seperator.xpm/> %kbd%}<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{%mail% <icon=seperator.xpm/> %mpd% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %date% "
+  , template = " %battery% <icon=seperator.xpm/> %cpu%%multicoretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% <icon=seperator.xpm/> %kbd%}<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{%mail% <icon=seperator.xpm/> %mpd% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %date% "
 
   , lowerOnStart     = True    -- send to bottom of window stack on start
   , hideOnStart      = False   -- start with window unmapped (hidden)
@@ -80,16 +80,19 @@ Config {
                    , "--load-icon-pattern" , "<icon=cpu/cpu_%%.xpm/>"
                  ] 10
 
-       , Run CoreTemp [ "--template" , "<icon=temperature/temperature_0.xpm/><core0>°C -<core1>°C"
-                      , "--Low"      , "65"      -- units: °C
-                      , "--High"     , "80"      -- units: °C
-                      , "--low"      , "#b5bd68"
-                      , "--normal"   , "#de935f"
-                      , "--high"     , "#a54242"
-                      , "--ppad"      , "3"
-                      , "--width"     , "3"
-                      , "--maxtwidth" , "12"
-                      ] 50
+       , Run MultiCoreTemp [ "--template" , "<max>°C"
+                           , "--Low"      , "65"      -- units: °C
+                           , "--High"     , "80"      -- units: °C
+                           , "--low"      , "#b5bd68"
+                           , "--normal"   , "#de935f"
+                           , "--high"     , "#a54242"
+                           , "--ppad"      , "3"
+                           , "--width"     , "3"
+                           , "--maxtwidth" , "100"
+                           , "--"
+                             , "--mintemp" , "20"
+                             , "--maxtemp" , "90"
+                           ] 50
 
        , Run Memory [ "--template" , "<usedipat><usedratio>%"
                     , "--Low"      , "60"      -- units: %
