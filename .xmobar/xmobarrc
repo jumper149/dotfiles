@@ -39,7 +39,7 @@ Config {
   , sepChar  = "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment
 
-  , template = " %battery% <icon=seperator.xpm/> %cpu% <icon=seperator.xpm/> %multicoretemp% <icon=seperator.xpm/> %memory% <icon=seperator.xpm/> %dynnetwork% <icon=seperator.xpm/> %kbd%}<icon=seperator.xpm/> %UnsafeStdinReader% <icon=seperator.xpm/>{%mail% <icon=seperator.xpm/> %mpd% <icon=seperator.xpm/> %EDDV% <icon=seperator.xpm/> %date% "
+  , template = " %battery% <icon=seperators/seperator.xpm/> %cpu% <icon=seperators/seperator.xpm/> %multicoretemp% <icon=seperators/seperator.xpm/> %memory% <icon=seperators/seperator.xpm/> %dynnetwork% <icon=seperators/seperator.xpm/> %kbd%}<icon=seperators/seperator.xpm/> %UnsafeStdinReader% <icon=seperators/seperator.xpm/>{%mail% <icon=seperators/seperator.xpm/> %mpd% <icon=seperators/seperator.xpm/> %EDDV% <icon=seperators/seperator.xpm/> %date% "
 
   , lowerOnStart     = True    -- send to bottom of window stack on start
   , hideOnStart      = False   -- start with window unmapped (hidden)
@@ -160,7 +160,7 @@ Config {
                                , "--maxtwidth" , "18"
                                ] 36000
 
-       , Run Date "%a %d/%m/%y <icon=seperator.xpm/> %T" "date" 10
+       , Run Date "%a %d/%m/%y <icon=seperators/seperator.xpm/> %T" "date" 10
 
        ]
 
