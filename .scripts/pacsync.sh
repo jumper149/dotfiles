@@ -19,6 +19,9 @@ echo ""
 
 #-----------------------------------------------------------------------
 
+echo "Syncing 'pkgaur'-Repository."
+git -C ~/Packages/pkgaur/ pull
+
 AURLIST="$(cat ~/.readme/aur | grep -v '^#' | grep -v '^$')"
 AURDEPLIST="$(cat ~/.readme/aur | grep '^#' | grep -v '^$' | cut --delimiter=' ' --field='2')"
 
@@ -60,8 +63,5 @@ function callPacman {
 
     return 0
 }
-
-echo "Syncing 'pkgaur'-Repository."
-git -C ~/Packages/pkgaur/ pull
 
 callPacman || exit 1
