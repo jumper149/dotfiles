@@ -90,7 +90,7 @@ Config {
                            , "--width"     , "3"
                            , "--maxtwidth" , "5"
                            , "--"
-                             , "--load-icon-pattern" , "<icon=temperature/temperature_%%.xpm/>"
+                             , "--max-icon-pattern" , "<icon=temperature/temperature_%%.xpm/>"
                              , "--mintemp" , "20"
                              , "--maxtemp" , "100"
                            ] 50
