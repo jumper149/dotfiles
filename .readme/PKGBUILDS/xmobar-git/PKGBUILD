@@ -1,5 +1,5 @@
 pkgname=xmobar-git
-pkgver=0.29.5.r29.g4f4fe1c
+pkgver=0.29.5.r34.gd571f0e
 pkgrel=1
 pkgdesc='Minimalistic Text Based Status Bar'
 url='https://hackage.haskell.org/package/xmobar'
@@ -14,7 +14,7 @@ depends=('libxft' 'libxinerama' 'libxrandr' 'libxpm' 'ghc-libs' 'haskell-x11'
 makedepends=('git' 'ghc')
 conflicts=('xmobar')
 provides=('xmobar')
-source=(${pkgname}::git+https://github.com/jumper149/xmobar.git)
+source=(${pkgname}::git+https://github.com/jaor/xmobar.git)
 sha512sums=('SKIP')
 
 pkgver() {
@@ -24,7 +24,6 @@ pkgver() {
 
 prepare() {
   cd ${pkgname}
-  git checkout 'newCoreTemp'
   sed -i -e 's/==.*0.3/== 0.4/' -e 's/< *4.12/<5/' -e 's/< *2.5/<3/' xmobar.cabal
 }
 
