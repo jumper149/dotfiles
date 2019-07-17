@@ -53,8 +53,8 @@ Config {
          Run UnsafeStdinReader
 
        , Run Battery [ "--template" , "<leftipat> <acstatus>"
-                     , "--Low"      , "33"        -- units: %
-                     , "--High"     , "66"        -- units: %
+                     , "--Low"      , "40"        -- units: %
+                     , "--High"     , "70"        -- units: %
                      , "--low"      , "#a54242"
                      , "--normal"   , "#de935f"
                      , "--high"     , "#b5bd68"
