@@ -116,6 +116,9 @@ offlineimap
 msmtp
 abook
 
+weechat
+# aspell
+
 chromium
 # pepper-flash
 mozilla-common
