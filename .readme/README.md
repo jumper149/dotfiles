@@ -39,6 +39,13 @@ Set `$NONROOTUSER` and `$NONROOTHOME` (without `'/'` at the end):
     NONROOTUSER=jumper
     NONROOTHOME=/home/jumper
 
+### keyboard
+custom keymap
+
+    mkdir -p /usr/local/share/kbd/keymaps
+    cp $NONROOTHOME/.readme/root-config/jumper.map.gz /usr/local/share/kbd/keymaps/
+    localectl set-keymap --no-convert /usr/local/share/kbd/keymaps/jumper-us.map
+
 ### haveged
 Random Number Generator
 
