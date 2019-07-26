@@ -260,7 +260,7 @@ bindsym XF86TouchpadToggle exec "~/.scripts/touchpad_toggle.sh"
 bindsym Control+$mod+t exec "~/.scripts/touchpad_toggle.sh"
 
 # lock
-bindsym Control+$mod+l exec "i3lock -c '000000' -f --script"
+bindsym Control+$mod+l exec "i3lock -c '000000' -f"
 
 # reload i3bar/i3blocks blocks
 bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
