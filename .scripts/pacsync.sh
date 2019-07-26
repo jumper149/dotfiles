@@ -1,9 +1,9 @@
 #!/bin/bash
 
-CORELIST="$(cat ~/.readme/core | grep -v '^#' | grep -v '^$' | tr '\n' ' ')"
-COREDEPLIST="$(cat ~/.readme/core | grep '^#' | grep -v '^$' | cut --delimiter=' ' --field='2' | tr '\n' ' ')"
+CORELIST="$(cat ~/.pac/core | grep -v '^#' | grep -v '^$' | tr '\n' ' ')"
+COREDEPLIST="$(cat ~/.pac/core | grep '^#' | grep -v '^$' | cut --delimiter=' ' --field='2' | tr '\n' ' ')"
 
-GROUPSLIST="$(cat ~/.readme/groups | tr '\n' ' ')"
+GROUPSLIST="$(cat ~/.pac/groups | tr '\n' ' ')"
 
 echo "---core---"
 echo "$CORELIST"
@@ -22,8 +22,8 @@ echo ""
 echo "Syncing 'pkgaur'-Repository."
 git -C ~/Packages/pkgaur/ pull
 
-AURLIST="$(cat ~/.readme/aur | grep -v '^#' | grep -v '^$')"
-AURDEPLIST="$(cat ~/.readme/aur | grep '^#' | grep -v '^$' | cut --delimiter=' ' --field='2')"
+AURLIST="$(cat ~/.pac/aur | grep -v '^#' | grep -v '^$')"
+AURDEPLIST="$(cat ~/.pac/aur | grep '^#' | grep -v '^$' | cut --delimiter=' ' --field='2')"
 
 echo "---aur---"
 echo "$(echo $AURLIST | tr '\n' ' ')"
