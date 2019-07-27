@@ -174,9 +174,7 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-S-h"         , sendMessage Shrink)
          , ("M-S-l"         , sendMessage Expand)
          , ("M-<Backspace>" , withFocused $ windows . W.sink)
-         , ("M-S-t"         , do
-                                  toggleWindowSpacingEnabled
-                                  toggleScreenSpacingEnabled)
+         , ("M-S-t"         , toggleWindowSpacingEnabled >> toggleScreenSpacingEnabled)
          , ("M-<Tab>"       , nextWS)
          , ("M-S-<Tab>"     , prevWS)
          , ("M-h"           , screenWorkspace 0 >>= flip whenJust (windows . W.view))
@@ -235,7 +233,7 @@ myKeys = [ ("M-S-q"         , kill)
 
         -- requires _NET_WM_PID to be set on creation; doesn't work on:
         --   urxvtc(offlineimap), qutebrowser, chromium
-        spawnOnAndGoTo :: String -> String -> X ()
+        spawnOnAndGoTo :: WorkspaceId -> String -> X ()
         spawnOnAndGoTo ws prog = do spawnOn ws prog
                                     (windows . W.greedyView) ws
 
