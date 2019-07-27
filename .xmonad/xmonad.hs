@@ -238,11 +238,13 @@ myApplyKeys = addKs . remKs
   where addKs x = additionalKeysP x myKeys
         remKs x = removeKeysP x myRemovedKeys
 
-myFocusFollowsMouse = False
-myModMask = mod4Mask
+myFocusFollowsMouse = False :: Bool
+myModMask = mod4Mask :: ButtonMask
 myTerminal = "urxvtc" :: String
 
-myStartupHook = do (windows . W.greedyView) "2 Hacking"
+
+myStartupHook :: (X ())
+myStartupHook = (windows . W.greedyView) "2 Hacking"
 
 
 main :: IO ()
