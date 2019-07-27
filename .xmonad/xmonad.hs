@@ -56,8 +56,8 @@ myColorF = "#c5c8c6" :: String
 
 
 myBorderWidth = 4 :: Dimension
-myNormalBorderColor  = myColor7
-myFocusedBorderColor = myColor2
+myNormalBorderColor  = myColor7 :: String
+myFocusedBorderColor = myColor2 :: String
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = [ "1 Browser"
