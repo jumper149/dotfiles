@@ -17,47 +17,49 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers     -- for doCenterFloat
 
 import System.Posix.Unistd            -- for hostname
+import GHC.IO.Handle (Handle)
 
 import qualified XMonad.StackSet as W
 
 
 -- black
-myColor0 = "#282a2e"
-myColor8 = "#373b41"
+myColor0 = "#282a2e" :: String
+myColor8 = "#373b41" :: String
 
 -- red
-myColor1 = "#a54242"
-myColor9 = "#cc6666"
+myColor1 = "#a54242" :: String
+myColor9 = "#cc6666" :: String
 
 -- green
-myColor2 = "#8c9440"
-myColorA = "#b5bd68"
+myColor2 = "#8c9440" :: String
+myColorA = "#b5bd68" :: String
 
 -- yellow
-myColor3 = "#de935f"
-myColorB = "#f0c674"
+myColor3 = "#de935f" :: String
+myColorB = "#f0c674" :: String
 
 -- blue
-myColor4 = "#5f819d"
-myColorC = "#81a2be"
+myColor4 = "#5f819d" :: String
+myColorC = "#81a2be" :: String
 
 -- magenta
-myColor5 = "#85678f"
-myColorD = "#b294bb"
+myColor5 = "#85678f" :: String
+myColorD = "#b294bb" :: String
 
 -- cyan
-myColor6 = "#5e8d87"
-myColorE = "#8abeb7"
+myColor6 = "#5e8d87" :: String
+myColorE = "#8abeb7" :: String
 
 -- white
-myColor7 = "#707880"
-myColorF = "#c5c8c6"
+myColor7 = "#707880" :: String
+myColorF = "#c5c8c6" :: String
 
 
-myBorderWidth = 4
+myBorderWidth = 4 :: Dimension
 myNormalBorderColor  = myColor7
 myFocusedBorderColor = myColor2
 
+myWorkspaces :: [WorkspaceId]
 myWorkspaces = [ "1 Browser"
                , "2 Hacking"
                , "3 Media"
@@ -116,6 +118,7 @@ myManageHook = composeAll
                  ]
 
 
+myLogHook :: String -> Handle -> Handle -> (X ())
 myLogHook host h h2
   | host == "deskarch" = do dynamicLogWithPP standardPP
                             dynamicLogWithPP deskarchPP2
@@ -138,13 +141,14 @@ myLogHook host h h2
                     , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
                     }
 
-        clickableIcon :: WorkspaceId -> String -> String
+        clickableIcon :: String -> WorkspaceId -> String
         clickableIcon status ws = "<action=xdotool key super+" ++ n ++ ">" ++
                                   "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
                                   "</action>"
                          where n = take 1 ws
 
 
+myKeys :: [(String , X ())]
 myKeys = [ ("M-S-q"         , kill)
          , ("M-S-<Return>"  , windows W.swapMaster)
          , ("M-<Up>"        , windows W.focusUp)
