@@ -118,11 +118,8 @@ myManageHook = composeAll
                  ]
 
 
-myLogHook :: String -> Handle -> Handle -> (X ())
-myLogHook host h h2
-  | host == "deskarch" = do dynamicLogWithPP standardPP
-                            dynamicLogWithPP deskarchPP2
-  | otherwise          = do dynamicLogWithPP standardPP
+myLogHook :: Handle -> (X ())
+myLogHook h = dynamicLogWithPP standardPP
   where standardPP =
           xmobarPP { ppOutput           = hPutStrLn h
                    , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
@@ -132,20 +129,16 @@ myLogHook host h h2
                    , ppUrgent           = xmobarWsPrep "urgent"
                    , ppHidden           = xmobarWsPrep "hidden"
                    , ppHiddenNoWindows  = xmobarWsPrep "hiddenNoWindows"
-                   } where xmobarWsPrep :: WorkspaceId -> String -> String
-                           xmobarWsPrep status = (clickableIcon status) . take 1
+                   }
 
-        deskarchPP2 =
-           xmobarPP { ppOutput           = hPutStrLn h2
-                    , ppOrder            = \(workspaces:layout:title:_) -> [title]
-                    , ppTitle            = xmobarColor myColorF myColor0 . wrap " " " " . shorten 128
-                    }
+        xmobarWsPrep :: String -> WorkspaceId -> String
+        xmobarWsPrep status = (clickableIcon status) . take 1
 
         clickableIcon :: String -> WorkspaceId -> String
-        clickableIcon status ws = "<action=xdotool key super+" ++ n ++ ">" ++
-                                  "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
-                                  "</action>"
-                         where n = take 1 ws
+        clickableIcon status ws = let n = take 1 ws
+                                  in "<action=xdotool key super+" ++ n ++ ">" ++
+                                     "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
+                                     "</action>"
 
 
 myKeys :: [(String , X ())]
@@ -247,12 +240,7 @@ myStartupHook = do (windows . W.greedyView) "2 Hacking"
 
 
 main = do
-    host    <- fmap nodeName getSystemID
     xmproc  <- spawnPipe "xmobar ~/.xmobar/xmobarrc"
-    xm2proc <- if host == "deskarch" then
-                  spawnPipe "xmobar --screen=1 ~/.xmobar/xmobar2rc"
-               else
-                  spawnPipe "echo" -- required for type?
     xmonad $ docks
              def { borderWidth        = myBorderWidth
                  , normalBorderColor  = myNormalBorderColor
@@ -261,7 +249,7 @@ main = do
                  , layoutHook         = myLayoutHook
                  , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
                  , startupHook        = myStartupHook
-                 , logHook            = myLogHook host xmproc xm2proc
+                 , logHook            = myLogHook xmproc
                  , focusFollowsMouse  = myFocusFollowsMouse
                  , modMask            = myModMask
                  , terminal           = myTerminal
