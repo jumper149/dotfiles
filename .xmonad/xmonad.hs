@@ -70,6 +70,7 @@ myWorkspaces = [ "1 Browser"
                , "9 Other"
                ]
 
+myTabTheme :: Theme
 myTabTheme = def { activeColor         = myColor2
                  , inactiveColor       = myColor0
                  , urgentColor         = myColor3
