@@ -138,7 +138,7 @@ myPP h = xmobarPP { ppOutput           = hPutStrLn h
                                "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
                                "</action>"
 
-myLogHook :: Handle -> (X ())
+myLogHook :: Handle -> X ()
 myLogHook h = dynamicLogWithPP $ myPP h
 
 
@@ -244,7 +244,7 @@ myApplyKeys = addKs . remKs
         remKs x = removeKeysP x myRemovedKeys
 
 
-myStartupHook :: (X ())
+myStartupHook :: X ()
 myStartupHook = (windows . W.greedyView) "2 Hacking"
 
 
