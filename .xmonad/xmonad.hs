@@ -217,6 +217,7 @@ myKeys = [ ("M-S-q"         , kill)
         spawnOnAndGoTo ws prog = do spawnOn ws prog
                                     (windows . W.greedyView) ws
 
+myRemovedKeys :: [String]
 myRemovedKeys = [ "M-q"   -- quit
                 , "M-S-q" -- restart
                 , "M-w"   -- Xinerama 1
@@ -233,14 +234,14 @@ myRemovedKeys = [ "M-q"   -- quit
                 , "M-m"   -- focus master window
                 ]
 
+myFocusFollowsMouse = False :: Bool
+myModMask = mod4Mask :: ButtonMask
+myTerminal = "urxvtc" :: String
+
 myApplyKeys :: XConfig l -> XConfig l
 myApplyKeys = addKs . remKs
   where addKs x = additionalKeysP x myKeys
         remKs x = removeKeysP x myRemovedKeys
-
-myFocusFollowsMouse = False :: Bool
-myModMask = mod4Mask :: ButtonMask
-myTerminal = "urxvtc" :: String
 
 
 myStartupHook :: (X ())
