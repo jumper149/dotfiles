@@ -1,22 +1,43 @@
-import XMonad
-import XMonad.Core
-import XMonad.Actions.CycleWindows
-import XMonad.Actions.CycleWS
-import XMonad.Actions.SpawnOn
-import XMonad.Actions.CopyWindow
-import XMonad.Layout                  -- unnecassary
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Spacing
-import XMonad.Layout.PerWorkspace
-import XMonad.Layout.Decoration
-import XMonad.Layout.Tabbed
-import XMonad.Hooks.ManageDocks
-import XMonad.Util.EZConfig
-import XMonad.Util.Run
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageHelpers     -- for doCenterFloat
+import XMonad -- imports modules: Main, Core, Config, Layout, ManageHook, Operations
+import XMonad.Actions.CycleWS ( nextWS
+                              , prevWS
+                              )
+import XMonad.Actions.SpawnOn ( manageSpawn
+                              , spawnOn
+                              )
+import XMonad.Layout.NoBorders ( noBorders
+                               )
+import XMonad.Layout.Spacing ( Border (..)
+                             , spacingRaw
+                             , toggleWindowSpacingEnabled
+                             , toggleScreenSpacingEnabled
+                             )
+import XMonad.Layout.PerWorkspace ( onWorkspace
+                                  )
+import XMonad.Layout.Decoration ( Theme (..)
+                                , shrinkText
+                                )
+import XMonad.Layout.Tabbed ( tabbed
+                            )
+import XMonad.Hooks.ManageDocks ( docks
+                                , avoidStruts
+                                )
+import XMonad.Util.EZConfig ( additionalKeysP
+                            , removeKeysP
+                            )
+import XMonad.Util.Run ( runInTerm
+                       , spawnPipe
+                       , hPutStrLn
+                       )
+import XMonad.Hooks.DynamicLog ( PP (..)
+                               , xmobarPP
+                               , dynamicLogWithPP
+                               )
+import XMonad.Hooks.ManageHelpers ( doCenterFloat
+                                  )
 
-import GHC.IO.Handle (Handle)
+import GHC.IO.Handle ( Handle
+                     )
 
 import qualified XMonad.StackSet as W
 
