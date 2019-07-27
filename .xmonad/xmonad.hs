@@ -16,7 +16,6 @@ import XMonad.Util.Run
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers     -- for doCenterFloat
 
-import System.Posix.Unistd            -- for hostname
 import GHC.IO.Handle (Handle)
 
 import qualified XMonad.StackSet as W
@@ -110,35 +109,37 @@ myLayoutHook = onWorkspace "1 Browser" myBrowserLayout
              $ onWorkspace "5 Writing" myWritingLayout
              $ myMainLayout
 
+myManageHook :: ManageHook
 myManageHook = composeAll
-                 [ className =? "matplotlib"     --> doCenterFloat
-                 , className =? "Gnuplot"        --> doCenterFloat
-                 , className =? "gnuplot_qt"     --> doCenterFloat
-                 , appName   =? "offlineimap"    --> doShift "8 Control" <+> doCenterFloat
+                 [ className =? "matplotlib"  --> doCenterFloat
+                 , className =? "Gnuplot"     --> doCenterFloat
+                 , className =? "gnuplot_qt"  --> doCenterFloat
+                 , appName   =? "offlineimap" --> doShift "8 Control" <+> doCenterFloat
                  ]
 
 
+myPP :: Handle -> PP
+myPP h = xmobarPP { ppOutput           = hPutStrLn h
+                , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                , ppWsSep            = ""
+                , ppCurrent          = xmobarWsPrep "current"
+                , ppVisible          = xmobarWsPrep "visible"
+                , ppUrgent           = xmobarWsPrep "urgent"
+                , ppHidden           = xmobarWsPrep "hidden"
+                , ppHiddenNoWindows  = xmobarWsPrep "hiddenNoWindows"
+                } where
+
+  xmobarWsPrep :: String -> WorkspaceId -> String
+  xmobarWsPrep status = (clickableIcon status) . take 1
+
+  clickableIcon :: String -> WorkspaceId -> String
+  clickableIcon status ws = let n = take 1 ws
+                            in "<action=xdotool key super+" ++ n ++ ">" ++
+                               "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
+                               "</action>"
+
 myLogHook :: Handle -> (X ())
-myLogHook h = dynamicLogWithPP standardPP
-  where standardPP =
-          xmobarPP { ppOutput           = hPutStrLn h
-                   , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                   , ppWsSep            = ""
-                   , ppCurrent          = xmobarWsPrep "current"
-                   , ppVisible          = xmobarWsPrep "visible"
-                   , ppUrgent           = xmobarWsPrep "urgent"
-                   , ppHidden           = xmobarWsPrep "hidden"
-                   , ppHiddenNoWindows  = xmobarWsPrep "hiddenNoWindows"
-                   }
-
-        xmobarWsPrep :: String -> WorkspaceId -> String
-        xmobarWsPrep status = (clickableIcon status) . take 1
-
-        clickableIcon :: String -> WorkspaceId -> String
-        clickableIcon status ws = let n = take 1 ws
-                                  in "<action=xdotool key super+" ++ n ++ ">" ++
-                                     "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
-                                     "</action>"
+myLogHook h = dynamicLogWithPP $ myPP h
 
 
 myKeys :: [(String , X ())]
@@ -232,26 +233,31 @@ myRemovedKeys = [ "M-q"   -- quit
                 , "M-m"   -- focus master window
                 ]
 
+myApplyKeys :: XConfig l -> XConfig l
+myApplyKeys = addKs . remKs
+  where addKs x = additionalKeysP x myKeys
+        remKs x = removeKeysP x myRemovedKeys
+
 myFocusFollowsMouse = False
 myModMask = mod4Mask
-myTerminal = "urxvtc"
+myTerminal = "urxvtc" :: String
 
 myStartupHook = do (windows . W.greedyView) "2 Hacking"
 
 
-main = do
-    xmproc  <- spawnPipe "xmobar ~/.xmobar/xmobarrc"
-    xmonad $ docks
-             def { borderWidth        = myBorderWidth
-                 , normalBorderColor  = myNormalBorderColor
-                 , focusedBorderColor = myFocusedBorderColor
-                 , workspaces         = myWorkspaces
-                 , layoutHook         = myLayoutHook
-                 , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
-                 , startupHook        = myStartupHook
-                 , logHook            = myLogHook xmproc
-                 , focusFollowsMouse  = myFocusFollowsMouse
-                 , modMask            = myModMask
-                 , terminal           = myTerminal
-                 } `removeKeysP` myRemovedKeys
-                   `additionalKeysP` myKeys
+main :: IO ()
+main = do xmproc <- spawnPipe "xmobar ~/.xmobar/xmobarrc"
+          let c = def { borderWidth        = myBorderWidth
+                      , normalBorderColor  = myNormalBorderColor
+                      , focusedBorderColor = myFocusedBorderColor
+                      , workspaces         = myWorkspaces
+                      , layoutHook         = myLayoutHook
+                      , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
+                      , startupHook        = myStartupHook
+                      , logHook            = myLogHook xmproc
+                      , focusFollowsMouse  = myFocusFollowsMouse
+                      , modMask            = myModMask
+                      , terminal           = myTerminal
+                      }
+              fc = myApplyKeys . docks $ c
+          xmonad fc
