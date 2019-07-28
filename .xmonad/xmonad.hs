@@ -142,14 +142,14 @@ myManageHook = composeAll
 
 myPP :: Handle -> PP
 myPP h = xmobarPP { ppOutput           = hPutStrLn h
-                , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                , ppWsSep            = ""
-                , ppCurrent          = xmobarWsPrep "current"
-                , ppVisible          = xmobarWsPrep "visible"
-                , ppUrgent           = xmobarWsPrep "urgent"
-                , ppHidden           = xmobarWsPrep "hidden"
-                , ppHiddenNoWindows  = xmobarWsPrep "hiddenNoWindows"
-                } where
+                  , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
+                  , ppWsSep            = ""
+                  , ppCurrent          = xmobarWsPrep "current"
+                  , ppVisible          = xmobarWsPrep "visible"
+                  , ppUrgent           = xmobarWsPrep "urgent"
+                  , ppHidden           = xmobarWsPrep "hidden"
+                  , ppHiddenNoWindows  = xmobarWsPrep "hiddenNoWindows"
+                  } where
 
   xmobarWsPrep :: String -> WorkspaceId -> String
   xmobarWsPrep status = (clickableIcon status) . take 1
