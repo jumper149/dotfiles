@@ -269,7 +269,7 @@ bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
 bindsym Control+$mod+c exec "~/.scripts/compton.sh"
 
 # wallpaper
-bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
+bindsym Control+$mod+w exec "~/.scripts/set-wallpaper.sh"
 
 # toggle login-status of gpg
 bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"

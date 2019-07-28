@@ -16,7 +16,7 @@ xset r rate 200 30
 setxkbmap -option caps:escape
 ~/.scripts/touchpad.sh
 xset b off
-~/.wallpaper/wallpaper_set.sh
+~/.scripts/set-wallpaper.sh
 xsetroot -cursor_name left_ptr
 xdotool mousemove 0 0
 
