@@ -52,12 +52,13 @@ Config {
 
          Run UnsafeStdinReader
 
-       , Run Battery [ "--template" , "<leftipat> <acstatus>"
-                     , "--Low"      , "36"        -- units: %
-                     , "--High"     , "63"        -- units: %
-                     , "--low"      , "#a54242"
-                     , "--normal"   , "#de935f"
-                     , "--high"     , "#b5bd68"
+       , Run Battery [ "--template"  , "<leftipat> <acstatus>"
+                     , "--Low"       , "36"      -- units: %
+                     , "--High"      , "63"      -- units: %
+                     , "--low"       , "#a54242"
+                     , "--normal"    , "#de935f"
+                     , "--high"      , "#b5bd68"
+                     , "--maxtwidth" , "10"
                      , "--"
                        , "--on-icon-pattern"   , "<icon=battery/on/battery_on_%%.xpm/>"
                        , "--off-icon-pattern"  , "<icon=battery/off/battery_off_%%.xpm/>"
