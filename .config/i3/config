@@ -225,7 +225,7 @@ bindsym Control+$mod+comma exec --no-startup-id  "blugon --setcurrent='-600'"
 # audio volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
-bindsym Control+$mod+equal exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+bindsym Control+Shift+$mod+equal exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
 
 bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
 bindsym $mod+XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
@@ -247,7 +247,7 @@ bindsym XF86TouchpadToggle exec "~/.scripts/touchpad_toggle.sh"
 bindsym Control+$mod+t exec "~/.scripts/touchpad_toggle.sh"
 
 # lock
-bindsym Control+$mod+l exec "i3lock -c '000000' -f --script"
+bindsym Control+$mod+l exec "i3lock -c '000000' -f"
 
 # reload i3bar/i3blocks blocks
 bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
@@ -256,7 +256,7 @@ bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
 bindsym Control+$mod+c exec "~/.scripts/compton.sh"
 
 # wallpaper
-bindsym Control+$mod+w exec "~/.wallpaper/wallpaper_set.sh"
+bindsym Control+$mod+w exec "~/.scripts/set-wallpaper.sh"
 
 # toggle login-status of gpg
 bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
@@ -295,17 +295,17 @@ exec_always --no-startup-id "xrdb ~/.Xresources"
 bindsym $mod+grave [urgent=latest] focus
 bindsym $mod+$mod2+r exec "urxvtc -e 'ranger'"
 bindsym $mod+$mod2+h workspace $ws0; exec "urxvtc -e 'htop'"
-bindsym $mod+$mod2+w workspace $ws0; exec "urxvtc -e ~/.scripts/weatherreport.sh"
 bindsym $mod+$mod2+d workspace $ws0; exec "baobab"
 bindsym $mod+$mod2+q workspace $ws1; exec "qutebrowser"
 bindsym $mod+$mod2+o workspace $ws1; exec "tor-browser"
 bindsym $mod+$mod2+v workspace $ws3; exec "vlc"
 bindsym $mod+$mod2+n workspace $ws3; exec "urxvtc -e 'ncmpcpp'"
 bindsym $mod+$mod2+c workspace $ws3; exec "chromium"
-bindsym $mod+$mod2+p workspace $ws3; exec "pavucontrol"
+bindsym $mod+$mod2+p workspace $ws3; exec "urxvtc -e 'pulsemixer'"
 bindsym $mod+$mod2+x workspace $ws3; exec "arandr"
 bindsym $mod+$mod2+m workspace $ws4; exec "urxvtc -e 'mutt'"
 bindsym $mod+$mod2+i workspace $ws4; exec "urxvtc -e 'irssi'"
+bindsym $mod+$mod2+w workspace $ws4; exec "urxvtc -e 'weechat'"
 bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop"
 bindsym $mod+$mod2+b workspace $ws4; exec "blueman-manager"
 bindsym $mod+$mod2+g workspace $ws6; exec "gimp"

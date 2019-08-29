@@ -22,6 +22,9 @@ set query_command= "abook --mutt-query '%s'"
 macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
 bind editor        <Tab> complete-query
 
+# urlscan
+macro index,pager u "<pipe-message> urlscan<Enter>" "Extract URLs with urlscan"
+
 # bindings
 macro editor       \e "<enter><shell-escape>xdotool key control+g<enter>" "Escape from command line"
 bind index         G last-entry

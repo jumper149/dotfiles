@@ -8,6 +8,8 @@ export VISUAL="vim -p"
 export EDITOR="$VISUAL"
 alias vim="$VISUAL"
 
+export BROWSER="chromium"
+
 # dotfiles
 alias dotgit="git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/"
 alias safegit="git --git-dir=/home/jumper/.dotsafe/ --work-tree=/home/jumper/"

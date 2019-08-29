@@ -1,9 +1,15 @@
+map <C-g> toggle_index
+map <C-m> toggle_statusbar
+
 set selection-clipboard "clipboard"
 
-set recolor-keephue "true"
+set guioptions "v"
+set n-completion-items 10
+
+set statusbar-home-tilde true
+set window-title-home-tilde true
+
+set recolor-keephue true
 set recolor-darkcolor "#FFFFFF"
 set recolor-lightcolor "#111111"
-set recolor "true"
-
-set statusbar-home-tilde "true"
-set window-title-home-tilde "true"
+set recolor true

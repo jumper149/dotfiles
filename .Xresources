@@ -55,7 +55,7 @@ URxvt.urgentOnBell: true
 URxvt.font: xft:Inconsolata:size=12
 
 ! url
-URxvt.url-launcher: /usr/bin/env qutebrowser
+URxvt.url-launcher: /usr/bin/xdg-open
 
 ! scrolling
 URxvt.scrollTtyOutput:   false
@@ -63,6 +63,8 @@ URxvt.scrollWithBuffer:  true
 URxvt.scrollTtyKeypress: true
 URxvt.keysym.C-M-k:      command:\033]720;1\007
 URxvt.keysym.C-M-j:      command:\033]721;1\007
+URxvt.keysym.C-M-u:      command:\033]720;16\007
+URxvt.keysym.C-M-d:      command:\033]721;16\007
 ! PageUp with Shift+PageUp, PageDown with Shift+PageDown
 
 ! perl extensions
