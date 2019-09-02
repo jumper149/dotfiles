@@ -32,6 +32,7 @@ xorg-xinit
 xmonad
 xmonad-contrib
 i3lock
+conky
 # haskell-http-conduit
 # libmpd
 
