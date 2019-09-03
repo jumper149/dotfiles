@@ -26,7 +26,7 @@ bind editor        <Tab> complete-query
 macro index,pager u "<pipe-message> urlscan<Enter>" "Extract URLs with urlscan"
 
 # print to PDF
-set print_command="~/.scripts/mail-to-pdf.sh %s"
+set print_command="~/.scripts/mail-to-pdf.sh"
 set print="ask-yes"
 
 # bindings
