@@ -1,5 +1,5 @@
 # personal info
-set realname 		= "Felix Springer"
+set realname="Felix Springer"
 
 # editor
 set editor="vim"
@@ -18,12 +18,16 @@ set mailcap_path= ~/.mutt/mailcap
 auto_view text/html
 
 # abook
-set query_command= "abook --mutt-query '%s'"
+set query_command="abook --mutt-query '%s'"
 macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
 bind editor        <Tab> complete-query
 
 # urlscan
 macro index,pager u "<pipe-message> urlscan<Enter>" "Extract URLs with urlscan"
+
+# print to PDF
+set print_command="~/.scripts/mail-to-pdf.sh %s"
+set print="ask-yes"
 
 # bindings
 macro editor       \e "<enter><shell-escape>xdotool key control+g<enter>" "Escape from command line"

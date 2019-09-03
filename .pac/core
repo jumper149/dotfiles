@@ -117,6 +117,8 @@ mutt
 offlineimap
 msmtp
 abook
+enscript
+# ghostscript
 
 weechat
 # aspell
