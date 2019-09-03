@@ -1,10 +1,16 @@
 # personal info
 set realname="Felix Springer"
 
+# browser
+set sort="threads"
+set sort_aux="reverse-date"
+
+# reader
+unset markers # remove "+" at the beginning of wrapped lines
+
 # editor
 set editor="vim"
 set send_charset="utf-8"
-unset markers
 
 # sidebar
 set sidebar_visible="yes"
@@ -36,12 +42,10 @@ bind index         gg first-entry
 bind index         i limit
 bind index         l display-message
 bind pager         h exit
-bind index         h help
+bind index         h noop
 bind index,pager   H display-toggle-weed
 bind index         <Down> next-entry
 bind index         <Up> previous-entry
-bind index,pager   / search-reverse
-bind index,pager   <Esc>/ search-reverse
 bind index,pager   N search-opposite
 
 # addresses
