@@ -24,7 +24,7 @@ application/xhtml+xml=vim.desktop;
 application/xml=vim.desktop;
 application/rdf+xml=vim.desktop;
 
-application/pdf=zathura-pdf-poppler.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 application/postscript=zathura-ps.desktop
 application/eps=zathura-ps.desktop
 application/x-eps=zathura-ps.desktop
