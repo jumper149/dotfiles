@@ -19,3 +19,6 @@ urlscan-git
 vim-julia-git
 vim-markdown
 vim-wolfram
+
+pulseaudio-modules-bt-git
+# libldac
