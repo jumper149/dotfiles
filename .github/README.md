@@ -101,6 +101,7 @@ to start X
 ### Bluetooth
 
     systemctl enable bluetooth.service
+    gpasswd --add $NONROOTUSER lp
 
 ### vnstat
 
