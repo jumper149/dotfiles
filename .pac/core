@@ -139,6 +139,7 @@ fbida
 blueman
 bluez
 bluez-utils
+pulseaudio-bluetooth
 
 gzip
 p7zip
