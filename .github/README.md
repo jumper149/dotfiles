@@ -103,6 +103,14 @@ to start X
     systemctl enable bluetooth.service
     gpasswd --add $NONROOTUSER lp
 
+add this to `/etc/pulse/default.pa`:
+
+    # LDAC Standard Quality
+    #load-module module-bluetooth-discover a2dp_config="ldac_eqmid=sq"
+
+    # LDAC High Quality; Force LDAC/PA PCM sample format as Float32LE
+    load-module module-bluetooth-discover a2dp_config="ldac_eqmid=hq ldac_fmt=f32"
+
 ### vnstat
 
     systemctl enable vnstat.service
