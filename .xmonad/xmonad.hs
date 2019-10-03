@@ -215,6 +215,7 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-<Print>"     , spawn "scrot")
          , ("<Print>"       , spawn "scrot")
          , ("M-C-k"         , spawn "~/.scripts/screenkey.sh")
+         , ("M-C-y"         , spawn "~/.scripts/mpv-clipboard.sh")
          , ("M-C-m"         , spawnOn "8 Control" $ inTerminal "offlineimap")
 
          , ("M-<Return>"    , spawn myTerminal)
