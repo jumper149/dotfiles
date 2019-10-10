@@ -152,7 +152,7 @@ myPP h = xmobarPP { ppOutput           = hPutStrLn h
                   } where
 
   xmobarWsPrep :: String -> WorkspaceId -> String
-  xmobarWsPrep status = (clickableIcon status) . take 1
+  xmobarWsPrep status = clickableIcon status . take 1
 
   clickableIcon :: String -> WorkspaceId -> String
   clickableIcon status ws = let n = take 1 ws
