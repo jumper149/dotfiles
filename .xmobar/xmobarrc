@@ -54,7 +54,7 @@ Config {
 
        , Run Battery [ "--template"  , "<leftipat> <acstatus>"
                      , "--Low"       , "36"      -- units: %
-                     , "--High"      , "70"      -- units: %
+                     , "--High"      , "71"      -- units: %
                      , "--low"       , "#a54242"
                      , "--normal"    , "#de935f"
                      , "--high"      , "#b5bd68"
