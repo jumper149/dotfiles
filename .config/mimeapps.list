@@ -24,6 +24,7 @@ application/xhtml+xml=vim.desktop;
 application/xml=vim.desktop;
 application/rdf+xml=vim.desktop;
 
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 application/postscript=zathura-ps.desktop
 application/eps=zathura-ps.desktop
 application/x-eps=zathura-ps.desktop
@@ -31,4 +32,4 @@ application/x-eps=zathura-ps.desktop
 x-scheme-handler/http=chromium.desktop;
 x-scheme-handler/https=chromium.desktop;
 x-scheme-handler/qute=qutebrowser.desktop;
-application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+x-scheme-handler/mailto=chromium.desktop

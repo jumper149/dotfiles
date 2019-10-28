@@ -152,7 +152,7 @@ myPP h = xmobarPP { ppOutput           = hPutStrLn h
                   } where
 
   xmobarWsPrep :: String -> WorkspaceId -> String
-  xmobarWsPrep status = (clickableIcon status) . take 1
+  xmobarWsPrep status = clickableIcon status . take 1
 
   clickableIcon :: String -> WorkspaceId -> String
   clickableIcon status ws = let n = take 1 ws
@@ -202,14 +202,20 @@ myKeys = [ ("M-S-q"         , kill)
 
          , ("M-C-p"             , spawn "mpc toggle")
          , ("M-<XF86AudioPlay>" , spawn "mpc toggle")
+         , ("<XF86AudioPlay>"   , spawn "mpc toggle")
          , ("M-C-o"             , spawn "mpc stop")
          , ("M-<XF86AudioStop>" , spawn "mpc stop")
+         , ("<XF86AudioStop>"   , spawn "mpc stop")
          , ("M-C-["             , spawn "mpc next")
          , ("M-<XF86AudioNext>" , spawn "mpc next")
+         , ("<XF86AudioNext>"   , spawn "mpc next")
          , ("M-C-i"             , spawn "mpc prev")
          , ("M-<XF86AudioPrev>" , spawn "mpc prev")
-         , ("M-C-<Print>"   , spawn "scrot")
+         , ("<XF86AudioPrev>"   , spawn "mpc prev")
+         , ("M-<Print>"     , spawn "scrot")
+         , ("<Print>"       , spawn "scrot")
          , ("M-C-k"         , spawn "~/.scripts/screenkey.sh")
+         , ("M-C-y"         , spawn "~/.scripts/mpv-clipboard.sh")
          , ("M-C-m"         , spawnOn "8 Control" $ inTerminal "offlineimap")
 
          , ("M-<Return>"    , spawn myTerminal)

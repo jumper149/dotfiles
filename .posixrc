@@ -32,6 +32,9 @@ alias ffmpegscreen="$HOME/.scripts/record_screen.sh"
 # play pulseaudio source at sink 
 alias mic-to-out="$HOME/.scripts/mic-to-out.sh"
 
+# connect to a bluetooth device
+alias bluetooth-connect="$HOME/.scripts/bluetooth-connect.sh"
+
 # ranger-cd
 function ranger-cd {
 	tempfile="$(mktemp -t tmp.XXXXXX)"

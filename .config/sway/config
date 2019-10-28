@@ -298,6 +298,9 @@ bindsym $mod+Print exec "scrot"
 # toggle screenkey
 bindsym Control+$mod+k exec  "~/.scripts/screenkey.sh"
 
+# play youtube videos with link from clipboard
+bindsym Control+$mod+y exec  "~/.scripts/mpv-clipboard.sh"
+
 # fetch mail
 bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
 

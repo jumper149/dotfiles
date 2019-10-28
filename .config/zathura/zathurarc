@@ -1,7 +1,18 @@
+map d scroll half-down
+map u scroll half-up
+
+map r reload
+map R rotate rotate-cw
+map C recolor
+unmap <C-r>
+
+map D toggle_page_mode
 map <C-g> toggle_index
 map <C-m> toggle_statusbar
 
 set selection-clipboard "clipboard"
+
+set smooth-scroll true
 
 set guioptions "v"
 set n-completion-items 10
