@@ -53,9 +53,12 @@ URxvt.urgentOnBell: true
 
 ! font
 URxvt.font: xft:Inconsolata:size=12
+URxvt.keysym.C-plus:  font-size:increase
+URxvt.keysym.C-minus: font-size:decrease
+URxvt.keysym.C-equal: font-size:reset
 
 ! url
-URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-launcher: xdg-open
 
 ! scrolling
 URxvt.scrollTtyOutput:   false
@@ -68,4 +71,4 @@ URxvt.keysym.C-M-d:      command:\033]721;16\007
 ! PageUp with Shift+PageUp, PageDown with Shift+PageDown
 
 ! perl extensions
-URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.perl-ext-common: default,matcher,font-size
