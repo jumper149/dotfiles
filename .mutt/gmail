@@ -7,7 +7,7 @@ set mbox_type 		= Maildir
 
 set use_from 		= yes
 set envelope_from 	= yes
-set sendmail 		= "msmtp -a gmail"
+set sendmail 		= "/usr/bin/msmtp -a gmail"
 
 set folder = "~/.mail/gmail"
 

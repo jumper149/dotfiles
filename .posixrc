@@ -6,13 +6,22 @@ alias ls='ls --color=auto'
 # vim
 export VISUAL="vim -p"
 export EDITOR="$VISUAL"
+alias vi="$VISUAL"
 alias vim="$VISUAL"
+export PAGER="vimpager"
+alias less="$PAGER"
+alias zless="$PAGER"
 
 export BROWSER="chromium"
 
 # dotfiles
 alias dotgit="git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/"
 alias safegit="git --git-dir=/home/jumper/.dotsafe/ --work-tree=/home/jumper/"
+
+# system update pacman
+alias pacup="sudo pacman -Syu"
+alias pacsync="$HOME/.scripts/pacsync.sh"
+alias pacrec="$HOME/.scripts/pacrec.sh"
 
 # browse reddit
 alias rtv="rtv --enable-media"
@@ -69,3 +78,10 @@ IPPI32="192.168.1.187"
 IPX201="192.168.1.196"
 IPX220="192.168.1.195"
 IPA3="192.168.1.190"
+
+# for gpg-agent from manpage
+export GPG_TTY=$(tty)
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi

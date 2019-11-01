@@ -1,18 +1,3 @@
--- This is the configuration file for the 'cabal' command line tool.
---
--- The available configuration options are listed below.
--- Some of them have default values listed.
---
--- Lines (like this one) beginning with '--' are comments.
--- Be careful with spaces and indentation because they are
--- used to indicate layout for nested sections.
---
--- This config file was generated using the following versions
--- of Cabal and cabal-install:
--- Cabal library version: 3.0.0.0
--- cabal-install version: 3.0.0.0
-
-
 repository hackage.haskell.org
   url: http://hackage.haskell.org/
   -- secure: True
@@ -24,7 +9,7 @@ repository hackage.haskell.org
 -- ignore-sandbox: False
 -- ignore-expiry: False
 -- http-transport:
-nix: True
+-- nix: False
 remote-repo-cache: /home/jumper/.cabal/packages
 -- local-repo:
 -- logs-dir: /home/jumper/.cabal/logs
@@ -33,7 +18,7 @@ world-file: /home/jumper/.cabal/world
 -- verbose: 1
 -- compiler: ghc
 -- cabal-file:
--- with-compiler:
+with-compiler: /usr/share/ghc-pristine/bin/ghc
 -- with-hc-pkg:
 -- program-prefix: 
 -- program-suffix: 
@@ -42,7 +27,6 @@ world-file: /home/jumper/.cabal/world
 -- shared:
 -- static:
 -- executable-dynamic: False
--- executable-static: False
 -- profiling:
 -- executable-profiling:
 -- profiling-detail:
@@ -52,8 +36,8 @@ world-file: /home/jumper/.cabal/world
 -- library-for-ghci:
 -- split-sections: False
 -- split-objs: False
--- executable-stripping:
--- library-stripping:
+-- executable-stripping: True
+-- library-stripping: True
 -- configure-option:
 -- user-install: True
 -- package-db:
@@ -72,33 +56,29 @@ extra-prog-path: /home/jumper/.cabal/bin
 -- benchmarks: False
 -- relocatable: False
 -- response-files:
--- allow-depending-on-private-libs:
 -- cabal-lib-version:
 -- constraint:
 -- preference:
 -- solver: modular
 -- allow-older: False
 -- allow-newer: False
--- write-ghc-environment-files:
 -- documentation: False
 -- doc-index-file: $datadir/doc/$arch-$os-$compiler/index.html
 -- target-package-db:
--- max-backjumps: 4000
+-- max-backjumps: 2000
 -- reorder-goals: False
 -- count-conflicts: True
--- minimize-conflict-set: False
 -- independent-goals: False
 -- shadow-installed-packages: False
 -- strong-flags: False
 -- allow-boot-library-installs: False
--- reject-unconstrained-dependencies: none
 -- reinstall: False
 -- avoid-reinstalls: False
 -- force-reinstalls: False
 -- upgrade-dependencies: False
 -- index-state:
 -- root-cmd:
--- symlink-bindir:
+symlink-bindir: /home/jumper/.cabal/bin
 build-summary: /home/jumper/.cabal/logs/build.log
 -- build-log:
 remote-build-reporting: anonymous
@@ -110,11 +90,6 @@ jobs: $ncpus
 -- keep-going: False
 -- offline: False
 -- project-file:
--- lib: False
--- package-env:
--- overwrite-policy:
--- install-method:
-installdir: /home/jumper/.cabal/bin
 -- username:
 -- password:
 -- password-command:
@@ -136,16 +111,6 @@ haddock
   -- quickjump: False
   -- hscolour-css:
   -- contents-location:
-
-init
-  -- interactive: False
-  -- cabal-version: 1.10
-  -- license: BSD3
-  -- tests:
-  -- test-dir:
-  -- language: Haskell2010
-  -- application-dir:
-  -- source-dir:
 
 install-dirs user
   -- prefix: /home/jumper/.cabal
