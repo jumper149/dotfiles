@@ -5,3 +5,10 @@ enable_window_title = no
 cyclic_scrolling = yes
 lines_scrolled = 1
 mouse_list_scroll_whole_page = no
+
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30" 
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "+|"
