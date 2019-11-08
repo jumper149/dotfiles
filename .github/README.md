@@ -20,31 +20,24 @@ Clone this repository as `$NONROOTUSER`:
 ## Configuration by Root
 
 ### keyboard
-custom keymap
+Install custom keymap.
 
     mkdir -p /usr/local/share/kbd/keymaps
     cp $NONROOTHOME/.readme/root-config/jumper.map.gz /usr/local/share/kbd/keymaps/
     localectl set-keymap --no-convert /usr/local/share/kbd/keymaps/jumper-us.map
 
-### Random Number Generator
-
-    systemctl enable haveged.service
-
-### Networking
-`wpa_supplicant` for wireless, `dhcpcd` for DHCP
+### networking
 
     ln -s /usr/share/dhcpcd/hooks/10-wpa_supplicant /usr/lib/dhcpcd/dhcpcd-hooks/
-    systemctl enable dhcpcd.service
-use ca-certificate to access eduroam-WIFI: `$NONROOTHOME/.readme/root-config/T-TeleSec_GlobalRoot_Class_2.pem`
+Use ca-certificate to access eduroam-WIFI: `$NONROOTHOME/.readme/root-config/T-TeleSec_GlobalRoot_Class_2.pem`
 
 ### sudo
-allow sudo for group `wheel` with `visudo`:
+Allow sudo for group `wheel` with `visudo`:
 
     visudo
 
 ### ufw
 
-    systemctl enable ufw.service
     ufw default deny
     ufw limit SSH
     ufw enable
@@ -53,11 +46,11 @@ allow sudo for group `wheel` with `visudo`:
 
     sensors-detect
 
-### Bluetooth Headset
-add the user to the `lp` group (accessing printers etc.) to access pulseaudio, if it is running as root.
+### bluetooth headset
+Add the user to the `lp` group (accessing printers etc.) to access pulseaudio, if it is running as root.
 
     gpasswd --add $NONROOTUSER lp
-add this to `/etc/pulse/default.pa`:
+Add this to `/etc/pulse/default.pa` to enable A2DP:
 
     # LDAC Standard Quality
     #load-module module-bluetooth-discover a2dp_config="ldac_eqmid=sq"
@@ -66,9 +59,6 @@ add this to `/etc/pulse/default.pa`:
     load-module module-bluetooth-discover a2dp_config="ldac_eqmid=hq ldac_fmt=f32"
 
 ### vnstat (old, for i3)
-
-    systemctl enable vnstat.service
-    systemctl start vnstat.service
 Update the desired interfaces if necessary:
 
     vnstat -u -i wlp2s0
@@ -113,9 +103,7 @@ Create offline hoogle database:
     hoogle generate
 
 ### i3bar (old, for i3)
-Fill in some necessary information:
-
-    ~/.system-info.sh
+Fill in some necessary information in `~/.system-info.sh`.
 Check everything in `$HOME/.config/i3blocks`, especially:
 
     temperature.sh
