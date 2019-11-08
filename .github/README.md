@@ -138,3 +138,16 @@ some more, but depending on `~/.Xresources`:
     ~/.scripts/tty-colors.sh
     ~/.bashrc @ prompt
     ~/.zshrc @ prompt
+
+## ArchLinux
+ArchLinux Package dependencies are found in `~/.readme`:
+
+    ~/.pac/groups
+    ~/.pac/core
+    ~/.pac/aur
+    ~/.pac/maybe
+Install `groups` manually:
+
+    sudo pacman -S $(< ~/.pac/groups | tr '\n' ' ')
+To install all Packages in `core` and `aur` call `~/.scripts/pacsync.sh`:
+    pacsync
