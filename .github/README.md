@@ -1,5 +1,5 @@
 # Dotfiles
-for my ArchLinux-Systems
+for my Linux-Systems
 
 ## Prepare
 Prepare a user with a home-directory:
