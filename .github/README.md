@@ -1,5 +1,5 @@
 # Dotfiles
-for my Linux-Systems
+for my NixOS-Systems
 
 ## Prepare
 Prepare a user with a home-directory:
