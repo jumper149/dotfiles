@@ -1,23 +1,25 @@
 source ~/.vimrc
 
-if !exists('g:vimpager')
-  let g:vimpager = {}
-endif
-
-if !exists('g:less')
-  let g:less     = {}
-endif
-
-let g:vimpager.passthrough = 0
-let g:vimpager.scrolloff = 0
-let g:vimpager.ansiesc = 0
-
 set norelativenumber
 set nonumber
+set scrolloff=0
+set t_ve=
 
 if &t_Co >= 256
-  highlight CursorLine ctermbg=bg
-  highlight CursorLine ctermfg=fg
+  highlight CursorLine ctermbg = bg
+  highlight CursorLine ctermfg = fg
 endif
 
-let g:loaded_airline= 1
+let g:loaded_airline = 1
+
+if !exists('g:vimpager.enabled')
+  let g:vimpager = {}
+endif
+let g:vimpager.ansiesc = 1
+
+if !exists('g:less')
+  let g:less = {}
+endif
+let g:less.scrolloff = 0
+
+" vim: syntax=vim
