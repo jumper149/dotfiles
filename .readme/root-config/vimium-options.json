@@ -1,0 +1,26 @@
+{
+  "settingsVersion": "1.64.6",
+  "exclusionRules": [
+    {
+      "pattern": "https?://mail.google.com/*",
+      "passKeys": ""
+    }
+  ],
+  "filterLinkHints": false,
+  "waitForEnterForFilteredHints": true,
+  "hideHud": false,
+  "keyMappings": "unmapAll\n\nmap j scrollDown\nmap k scrollUp\nmap h scrollLeft\nmap l scrollRight\n\nmap d scrollPageDown\nmap <C-d> scrollFullPageDown\nmap u scrollPageUp\nmap <C-u> scrollFullPageUp\n\nmap gg scrollToTop\nmap G scrollToBottom\n\nmap H goBack\nmap L goForward\nmap J previousTab\nmap K nextTab\n\nmap f LinkHints.activateMode\nmap F LinkHints.activateModeToOpenInNewForegroundTab\nmap I focusInput\n\nmap r reload\n\nmap yy copyCurrentUrl\nmap yf LinkHints.activateModeToCopyLinkUrl\n\nmap n performFind\nmap p performBackwardsFind\n\nmap < moveTabLeft\nmap > moveTabRight\n\nmap i enterInsertMode\nmap v enterVisualMode\nmap V enterVisualLineMode\nmap / enterFindMode",
+  "linkHintCharacters": "sadfjklewcmpgh",
+  "linkHintNumbers": "0123456789",
+  "newTabUrl": "about:newtab",
+  "nextPatterns": "next,more,newer,>,›,→,»,≫,>>",
+  "previousPatterns": "prev,previous,back,older,<,‹,←,«,≪,<<",
+  "regexFindMode": false,
+  "ignoreKeyboardLayout": false,
+  "scrollStepSize": 60,
+  "smoothScroll": true,
+  "grabBackFocus": true,
+  "searchEngines": "w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia\ng: https://www.google.com/search?q=%s Google\nd: https://duckduckgo.com/?q=%s DuckDuckGo\ny: https://www.youtube.com/results?search_query=%s Youtube",
+  "searchUrl": "https://www.google.com/search?q=",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n  background: #F0C674;\n  border: 2px solid #DE935F;\n}\n\ndiv > .vimiumHintMarker span {\n  color: #1C1C1C;\n  font-weight: bold;\n  font-size: 10px;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n  color: #5F819D;\n}"
+}
