@@ -9,3 +9,7 @@ export QT_QPA_PLATFORMTHEME="gtk2"
 
 # matplotlib backend
 export MPLBACKEND="Qt5Agg"
+
+# applications
+blugon --waitforx --fade &
+conky --config="$HOME/.config/conky/clock.conf" &
