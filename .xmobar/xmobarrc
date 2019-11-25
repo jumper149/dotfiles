@@ -150,6 +150,7 @@ Config {
                              , ("fair"                    , "<icon=weather/weather_sunny.xpm/>")
                              , ("overcast"                , "<icon=weather/weather_cloudy.xpm/>")
                              , ("considerable cloudiness" , "<icon=weather/weather_cloudy.xpm/>")
+                             , ("obscured"                , "<icon=weather/weather_obscured.xpm/>")
                              ] [ "--template", "<skyConditionS><tempC>°C <fc=#5f819d><rh></fc>% <fc=#81a2be><pressure></fc>hPa"
                                , "--Low"      , "10"      -- units: %
                                , "--High"     , "20"      -- units: %
