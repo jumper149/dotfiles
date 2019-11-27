@@ -33,7 +33,7 @@ macro index,pager a "<pipe-message>abook --add-email-quiet<return>" "Add this se
 bind editor <tab> complete-query
 
 # urlscan
-macro pager u "<pipe-message>urlscan<enter>" "Extract URLs with urlscan"
+macro pager U "<pipe-message>urlscan<enter>" "Extract URLs with urlscan"
 
 # addresses
 source "~/.mutt/stud-uni-hannover"
