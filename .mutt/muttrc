@@ -1,23 +1,27 @@
 # personal info
 set realname="Felix Springer"
 
-# browser
-set sort="threads"
-set sort_aux="reverse-date"
-
-# reader
-unset markers # remove "+" at the beginning of wrapped lines
-
-# editor
+# general
 set editor="vim"
 set send_charset="utf-8"
+set sort_aux="reverse-date"
+unset markers # remove "+" at the beginning of wrapped lines in pager
+set wait_key="no"
+set print_command="~/.scripts/mail-to-pdf.sh"
+set print="ask-yes"
+
+# bindings
+source "~/.mutt/bindings"
+
+# colors
+source "~/.mutt/colors"
 
 # sidebar
 set sidebar_visible="yes"
 source "~/.mutt/sidebar"
 
-# colors
-source "~/.mutt/colors"
+# threads (enable by sourcing file)
+source "~/.mutt/threads"
 
 # mailcap
 set mailcap_path= ~/.mutt/mailcap
@@ -25,28 +29,11 @@ auto_view text/html
 
 # abook
 set query_command="abook --mutt-query '%s'"
-macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
-bind editor        <Tab> complete-query
+macro index,pager a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor <tab> complete-query
 
 # urlscan
-macro index,pager u "<pipe-message> urlscan<Enter>" "Extract URLs with urlscan"
-
-# print to PDF
-set print_command="~/.scripts/mail-to-pdf.sh"
-set print="ask-yes"
-
-# bindings
-macro editor       \e "<enter><shell-escape>xdotool key control+g<enter>" "Escape from command line"
-bind index         G last-entry
-bind index         gg first-entry
-bind index         i limit
-bind index         l display-message
-bind pager         h exit
-bind index         h noop
-bind index,pager   H display-toggle-weed
-bind index         <Down> next-entry
-bind index         <Up> previous-entry
-bind index,pager   N search-opposite
+macro pager u "<pipe-message>urlscan<enter>" "Extract URLs with urlscan"
 
 # addresses
 source "~/.mutt/stud-uni-hannover"
