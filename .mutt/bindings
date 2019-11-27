@@ -1,0 +1,122 @@
+# preset bindings: http://www.mutt.org/doc/manual/#functions
+
+# combined:
+bind index,pager   \cb        noop # M urlview
+bind index,pager   \cd        noop # delete-thread
+bind index,pager   \ce        noop # edit-type
+bind index,pager   \cf        noop # forget-passphrase
+bind index,pager   \ck        noop # extract-keys
+bind index,pager   \cn        noop # next-thread
+bind index,pager   \cp        noop # previous-thread
+bind index,pager   \cr        noop # read-thread
+bind index,pager   \cu        noop # undelete-thread
+bind index,pager   <esc>C     noop # decode-copy
+bind index,pager   <esc>P     noop # check-traditional-pgp
+bind index,pager   <esc>c     noop # change-folder-readonly
+bind index,pager   <esc>d     noop # delete-subthread
+bind index,pager   <esc>e     noop # resend-message
+bind index,pager   <esc>k     noop # mail-key
+bind index,pager   <esc>n     noop # next-subthread
+bind index,pager   <esc>p     noop # previous-subthread
+bind index,pager   <esc>r     noop # read-subthread
+bind index,pager   <esc>s     noop # decode-save
+bind index,pager   <esc>u     noop # undelete-subthread
+bind index,pager   .          noop # buffy-list
+bind index,pager   C          noop # copy-message
+bind index,pager   R          noop # recall-message
+bind index,pager   c          noop # change-folder
+bind index,pager   g          noop # group-reply
+bind index,pager   h          noop # display-toggle-weed
+bind index,pager   r          noop # reply
+bind index,pager   <backtab>  previous-new-then-unread
+bind index,pager   R          reply
+bind index,pager   rr         reply
+bind index,pager   rg         group-reply
+bind index,pager   rl         list-reply
+
+# index:
+bind index         \ct        noop # untag-pattern
+bind index         <esc><tab> noop # previous-new-then-unread
+bind index         <esc>V     noop # collapse-all
+bind index         <esc>b     noop # M <search>~b
+bind index         <esc>l     noop # show-limit
+bind index         <esc>t     noop # tag-thread
+bind index         <esc>v     noop # collapse-thread
+bind index         <space>    noop # display-message
+bind index         T          noop # tag-pattern
+bind index         l          noop # limit
+bind index         x          noop # exit
+bind index         l          display-message
+bind index         i          limit
+bind index         t          tag-entry
+
+# pager
+bind pager         <return>   noop # next-line
+bind pager         ?          noop # help
+bind index         T          noop # toggle-quoted
+bind pager         d          noop # delete-message
+bind pager         i          noop # exit
+bind pager         u          noop # undelete-message
+bind pager         \cd        next-page
+bind pager         \cu        previous-page
+bind pager         <esc>      exit
+bind pager         ?          search-reverse
+bind pager         H          help
+bind pager         h          previous-undeleted
+bind pager         j          next-line
+bind pager         k          previous-line
+bind pager         l          next-undeleted
+bind pager         d          half-down
+bind pager         u          half-up
+
+# browser
+bind browser       <tab>      noop # toggle-mailboxes
+bind browser       <space>    noop # view-file
+bind browser       .          noop # buffy-list
+bind browser       @          noop # display-filename
+bind browser       C          noop # create-mailbox
+bind browser       N          noop # select-new
+bind browser       O          noop # sort-reverse
+bind browser       T          noop # toggle-subscribed
+bind browser       c          noop # change-dir
+bind browser       d          noop # delete-mailbox
+bind browser       m          noop # enter-mask
+bind browser       o          noop # sort
+bind browser       r          noop # rename-mailbox
+bind browser       s          noop # subscribe
+bind browser       u          noop # unsubscribe
+bind browser       y          noop # exit
+bind browser       cd         change-dir
+
+# editor
+macro editor       <esc>      "<enter><shell-escape>xdotool key control+g<enter>" "Escape from command line"
+
+# generic
+bind generic       *          noop # last-entry
+bind generic       =          noop # first-entry
+##########bind generic       >          noop # next-line
+##########bind generic       <          noop # previous-line
+bind generic       [          noop # half-up
+bind generic       ]          noop # half-down
+bind generic       ?          noop # help
+bind generic       \;         noop # tag-prefix
+bind generic       <esc>/     noop # search-reverse
+bind generic       H          noop # top-page
+bind generic       L          noop # bottom-page
+bind generic       M          noop # middle-page
+bind generic       Z          noop # previous-page
+bind generic       t          noop # tag-entry
+bind generic       z          noop # next-page
+#######bind generic       \cd        half-down
+#######bind generic       \cu        half-up
+#######bind generic       \cd        next-page
+#######bind generic       \cu        previous-page
+bind generic       ?          search-reverse
+bind generic       G          last-entry
+bind generic       H          help
+bind generic       N          search-opposite
+bind generic       gg         first-entry
+bind generic       h          exit
+bind generic       l          select-entry
+
+# vim: syntax=muttrc
