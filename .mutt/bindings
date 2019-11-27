@@ -25,11 +25,13 @@ bind index,pager   .          noop # buffy-list
 bind index,pager   C          noop # copy-message
 bind index,pager   R          noop # recall-message
 bind index,pager   c          noop # change-folder
+bind index,pager   f          noop # forward-message
 bind index,pager   g          noop # group-reply
 bind index,pager   h          noop # display-toggle-weed
 bind index,pager   r          noop # reply
 bind index,pager   <backtab>  previous-new-then-unread
 bind index,pager   R          reply
+bind index,pager   rf         forward-message
 bind index,pager   rr         reply
 bind index,pager   rg         group-reply
 bind index,pager   rl         list-reply
@@ -46,6 +48,8 @@ bind index         <space>    noop # display-message
 bind index         T          noop # tag-pattern
 bind index         l          noop # limit
 bind index         x          noop # exit
+bind index         \cd        half-down
+bind index         \cu        half-up
 bind index         l          display-message
 bind index         i          limit
 bind index         t          tag-entry
