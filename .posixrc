@@ -4,8 +4,8 @@
 alias ls='ls --color=auto'
 
 # vim
-unset EDITOR
 export VISUAL="vim"
+export EDITOR="$VISUAL"
 export PAGER="vimpager"
 export BROWSER="chromium"
 
