@@ -118,6 +118,10 @@ let g:tex_no_error=1
 " Dont change quotation marks to special upper and lower
 let g:Tex_SmartKeyQuote=0
 
+" Commands
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit
+
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>
 nmap mp :w <Enter>:!python % <Enter>

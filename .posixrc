@@ -4,14 +4,9 @@
 alias ls='ls --color=auto'
 
 # vim
-export VISUAL="vim -p"
+export VISUAL="vim"
 export EDITOR="$VISUAL"
-alias vi="$VISUAL"
-alias vim="$VISUAL"
 export PAGER="vimpager"
-alias less="$PAGER"
-alias zless="$PAGER"
-
 export BROWSER="chromium"
 
 # dotfiles
