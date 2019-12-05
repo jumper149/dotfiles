@@ -1,11 +1,10 @@
-#
-# ~/.zshrc
-#
+#!/usr/bin/env zsh
 
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 # source general shell configuration
+source $HOME/.profile
 source $HOME/.posixrc
 
 unsetopt BEEP NOTIFY

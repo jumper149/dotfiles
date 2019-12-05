@@ -3,36 +3,13 @@
 # ls colors
 alias ls='ls --color=auto'
 
-# vim
-export VISUAL="vim"
-export EDITOR="$VISUAL"
-export PAGER="vimpager"
-export BROWSER="chromium"
-
 # dotfiles
 alias dotgit='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
 alias safegit='git --git-dir=${HOME}/.dotsafe --work-tree=${HOME}'
 
-# browse reddit
-alias rtv='rtv --enable-media'
-
-# usb scripts
-alias usbmount='${HOME}/.scripts/usb/mount.sh'
-alias usbumount='${HOME}/.scripts/usb/umount.sh'
-alias usbbackup='${HOME}/.scripts/usb/backup.sh'
-
 # upload to pastebin
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias ixio='curl -F "f:1=<-" http://ix.io'
-
-# record ffmpeg
-alias ffmpegscreen='${HOME}/.scripts/record_screen.sh'
-
-# play pulseaudio source at sink 
-alias mic-to-out='${HOME}/.scripts/mic-to-out.sh'
-
-# connect to a bluetooth device
-alias bluetooth-connect='${HOME}/.scripts/bluetooth-connect.sh'
 
 # ranger-cd
 function ranger-cd {
@@ -51,14 +28,8 @@ alias ranger-trash-clear='${HOME}/.config/ranger/empty_trash.sh'
 # fastermelee
 alias fastermelee='LD_LIBRARY_PATH=${HOME}/Templates/fm-git/lib/ ${HOME}/Templates/fm-git/FasterMelee-installer/src/launch-fm'
 
-# display terminal colors
-alias print-colors='${HOME}/.scripts/print-colors.sh'
-
 # generate a random password
 random-password(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c"${1:-16}";echo;}
-
-# mail directory
-export MAIL="${HOME}/.mail/"
 
 # ssh and local ip
 IPDESK="192.168.1.199"
