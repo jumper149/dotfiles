@@ -28,7 +28,7 @@ function compile {
         fi
 
         makepkg
-        
+
         cp $PKG_NAME-$PKG_VER-$NEW_REL-{any,x86_64,i686}.pkg.tar.xz ../../pkgaur/core/
 
         cd ..
