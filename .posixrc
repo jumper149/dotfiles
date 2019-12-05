@@ -10,55 +10,55 @@ export PAGER="vimpager"
 export BROWSER="chromium"
 
 # dotfiles
-alias dotgit="git --git-dir=/home/jumper/.dotfiles/ --work-tree=/home/jumper/"
-alias safegit="git --git-dir=/home/jumper/.dotsafe/ --work-tree=/home/jumper/"
+alias dotgit='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
+alias safegit='git --git-dir=${HOME}/.dotsafe --work-tree=${HOME}'
 
 # browse reddit
-alias rtv="rtv --enable-media"
+alias rtv='rtv --enable-media'
 
 # usb scripts
-alias usbmount="$HOME/.scripts/usb/mount.sh"
-alias usbumount="$HOME/.scripts/usb/umount.sh"
-alias usbbackup="$HOME/.scripts/usb/backup.sh"
+alias usbmount='${HOME}/.scripts/usb/mount.sh'
+alias usbumount='${HOME}/.scripts/usb/umount.sh'
+alias usbbackup='${HOME}/.scripts/usb/backup.sh'
 
 # upload to pastebin
-alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
-alias ixio="curl -F 'f:1=<-' http://ix.io"
+alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
+alias ixio='curl -F "f:1=<-" http://ix.io'
 
 # record ffmpeg
-alias ffmpegscreen="$HOME/.scripts/record_screen.sh"
+alias ffmpegscreen='${HOME}/.scripts/record_screen.sh'
 
 # play pulseaudio source at sink 
-alias mic-to-out="$HOME/.scripts/mic-to-out.sh"
+alias mic-to-out='${HOME}/.scripts/mic-to-out.sh'
 
 # connect to a bluetooth device
-alias bluetooth-connect="$HOME/.scripts/bluetooth-connect.sh"
+alias bluetooth-connect='${HOME}/.scripts/bluetooth-connect.sh'
 
 # ranger-cd
 function ranger-cd {
 	tempfile="$(mktemp -t tmp.XXXXXX)"
 	ranger --choosedir="$tempfile" "${@:-$(pwd)}"
 	test -f "$tempfile" &&
-		if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+		if [ "$(cat -- "$tempfile")" != "$(echo -n $(pwd))" ]; then
 			cd -- "$(cat "$tempfile")"
 		fi
 		rm -f -- "$tempfile"
 	}
 
 # clear ranger-trash
-alias ranger-trash-clear="$HOME/.config/ranger/empty_trash.sh"
+alias ranger-trash-clear='${HOME}/.config/ranger/empty_trash.sh'
 
 # fastermelee
-alias fastermelee="LD_LIBRARY_PATH=$HOME/Templates/fm-git/lib/ $HOME/Templates/fm-git/FasterMelee-installer/src/launch-fm"
+alias fastermelee='LD_LIBRARY_PATH=${HOME}/Templates/fm-git/lib/ ${HOME}/Templates/fm-git/FasterMelee-installer/src/launch-fm'
 
 # display terminal colors
-alias print-colors="$HOME/.scripts/print-colors.sh"
+alias print-colors='${HOME}/.scripts/print-colors.sh'
 
 # generate a random password
-random-password(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-16};echo;}
+random-password(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c"${1:-16}";echo;}
 
 # mail directory
-export MAIL="$HOME/.mail/"
+export MAIL="${HOME}/.mail/"
 
 # ssh and local ip
 IPDESK="192.168.1.199"
