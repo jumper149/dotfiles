@@ -12,8 +12,6 @@ map <C-m> toggle_statusbar
 
 set selection-clipboard "clipboard"
 
-set smooth-scroll true
-
 set guioptions "v"
 set n-completion-items 10
 
