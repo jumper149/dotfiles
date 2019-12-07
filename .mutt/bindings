@@ -22,6 +22,7 @@ bind index,pager   <esc>r     noop # read-subthread
 bind index,pager   <esc>s     noop # decode-save
 bind index,pager   <esc>u     noop # undelete-subthread
 bind index,pager   .          noop # buffy-list
+bind index,pager   %          noop # toggle-write
 bind index,pager   C          noop # copy-message
 bind index,pager   R          noop # recall-message
 bind index,pager   c          noop # change-folder
@@ -45,6 +46,7 @@ bind index         <esc>l     noop # show-limit
 bind index         <esc>t     noop # tag-thread
 bind index         <esc>v     noop # collapse-thread
 bind index         <space>    noop # display-message
+bind index         A          noop # autocrypt-acct-menu
 bind index         T          noop # tag-pattern
 bind index         l          noop # limit
 bind index         x          noop # exit
@@ -122,5 +124,14 @@ bind generic       N          search-opposite
 bind generic       gg         first-entry
 bind generic       h          exit
 bind generic       l          select-entry
+
+# compose
+bind compose       \cb        noop # M urlview
+bind compose       \cd        noop # toggle-disposition
+bind compose       \ce        noop # edit-encoding
+bind compose       \cf        noop # wipe-passphrase
+bind compose       \ct        noop # edit-type
+bind compose       \cxe       noop # edit-file
+bind compose       o          noop # autocrypt-acct-menu
 
 # vim: syntax=muttrc
