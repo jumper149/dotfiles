@@ -27,6 +27,10 @@ source "~/.mutt/threads"
 set mailcap_path= ~/.mutt/mailcap
 auto_view text/html
 
+# signing and encrypting
+source "~/.mutt/gpg.rc"
+source "~/.mutt/sec"
+
 # abook
 set query_command="abook --mutt-query '%s'"
 macro index,pager a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
