@@ -38,7 +38,7 @@ function __hostname_ps1() {
 	fi
 	return "${EXIT}"
 }
-PS1='\001${__normal_ps}\002[`__exit_ps1`\u`__hostname_ps1 \h` \001${__blue_ps}\002\W`__git_ps1 " \001${__normal_ps}\002@\001${__orange_ps}\002%s"`\001${__normal_ps}\002]\001${__bold_ps}\002\$\001${__normal_ps}\002 '
+PS1='\001${__normal_ps}\002[$(__exit_ps1)\u$(__hostname_ps1 \h) \001${__blue_ps}\002\W$(__git_ps1 " \001${__normal_ps}\002@\001${__orange_ps}\002%s")\001${__normal_ps}\002]\001${__bold_ps}\002\$\001${__normal_ps}\002 '
 function __whitespace_ps2() {
 	local EXIT="${?}"
 	local EXTRA_SPACE="3"
@@ -54,10 +54,10 @@ function __whitespace_ps2() {
 	local GIT_BRANCH
 	GIT_BRANCH="$(__git_ps1 " @%s")"
 	local LENGTH="$(( EXTRA_SPACE + ${#USERNAME} + ${#HOSTNAME} + ${#DIRECTORY} + ${#GIT_BRANCH} ))"
-	printf '%*s' "${LENGTH}"
+	printf '%*s' "${LENGTH}" ""
 	return "${EXIT}"
 }
-PS2='`__whitespace_ps2 \u \h \W`\001${__yellow_ps}${__bold_ps}\002|\001${__normal_ps}\002 '
+PS2='$(__whitespace_ps2 \u \h \W)\001${__yellow_ps}${__bold_ps}\002|\001${__normal_ps}\002 '
 
 # vim input
 set -o vi
