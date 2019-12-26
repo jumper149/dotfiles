@@ -3,7 +3,8 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-[[ -f ~/.posixrc ]] && . ~/.posixrc
+source ~/.profile
+source ~/.posixrc
 
 # auto completion
 source /usr/share/git/completion/git-completion.bash # provides __git_main
