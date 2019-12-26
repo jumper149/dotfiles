@@ -3,6 +3,8 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+[[ -f ~/.posixrc ]] && . ~/.posixrc
+
 # auto completion
 source /usr/share/git/completion/git-completion.bash # provides __git_main
 __git_complete dotgit __git_main

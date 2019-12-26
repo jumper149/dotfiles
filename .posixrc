@@ -3,6 +3,14 @@
 # colored ls
 alias ls='ls --color=auto'
 
+# dotfiles
+alias dotgit='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
+alias safegit='git --git-dir=${HOME}/.dotsafe --work-tree=${HOME}'
+
+# pastebin
+alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
+alias ixio='curl -F "f:1=<-" http://ix.io'
+
 # ranger-cd
 function ranger-cd {
 	tempfile="$(mktemp -t tmp.XXXXXX)"
