@@ -1,3 +1,1 @@
-#
-# ~/.bash_logout
-#
+#!/usr/bin/env bash

@@ -3,10 +3,6 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# source general shell configuration
-source "${HOME}/.profile"
-source "${HOME}/.posixrc"
-
 # auto completion
 __git_complete dotgit __git_main
 __git_complete safegit __git_main
