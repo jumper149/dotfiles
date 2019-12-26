@@ -8,9 +8,3 @@ export PAGER="vimpager"
 export BROWSER="firefox"
 
 export MAIL="${HOME}/.mail/"
-
-alias dotgit='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
-alias safegit='git --git-dir=${HOME}/.dotsafe --work-tree=${HOME}'
-
-alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
-alias ixio='curl -F "f:1=<-" http://ix.io'
