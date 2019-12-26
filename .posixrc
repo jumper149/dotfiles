@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 # general variables, aliases and functions
 
 # colored ls
@@ -12,12 +13,12 @@ alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias ixio='curl -F "f:1=<-" http://ix.io'
 
 # ranger-cd
-function ranger-cd {
+rangercd() {
 	tempfile="$(mktemp -t tmp.XXXXXX)"
 	ranger --choosedir="$tempfile" "${@:-$(pwd)}"
 	test -f "$tempfile" &&
-		if [ "$(cat -- "$tempfile")" != "$(echo -n $(pwd))" ]; then
-			cd -- "$(cat "$tempfile")"
+		if [ "$(cat -- "$tempfile")" != "$(echo -n "$(pwd)")" ]; then
+			cd -- "$(cat "$tempfile")" || exit
 		fi
 		rm -f -- "$tempfile"
 	}
@@ -29,20 +30,22 @@ alias ranger-trash-clear='${HOME}/.config/ranger/empty_trash.sh'
 alias fastermelee='LD_LIBRARY_PATH=${HOME}/Templates/fm-git/lib/ ${HOME}/Templates/fm-git/FasterMelee-installer/src/launch-fm'
 
 # generate a random password
-random-password(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c"${1:-16}";echo;}
+randompassword(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c"${1:-16}";echo;}
 
 # ssh and local ip
-IPDESK="192.168.1.199"
-IPJUMP="192.168.1.198"
-IPPI64="192.168.1.197"
-IPPI32="192.168.1.187"
-IPX201="192.168.1.196"
-IPX220="192.168.1.195"
-IPA3="192.168.1.190"
+export IPDESK="192.168.1.199"
+export IPJUMP="192.168.1.198"
+export IPPI64="192.168.1.197"
+export IPPI32="192.168.1.187"
+export IPX201="192.168.1.196"
+export IPX220="192.168.1.195"
+export IPA3="192.168.1.190"
 
 # for gpg-agent from manpage
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+        export SSH_AUTH_SOCK
 fi
