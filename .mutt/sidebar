@@ -1,6 +1,10 @@
 # Enable sidebar in muttrc.
 #set sidebar_visible=yes
 
+# Enable extended buffy mode to calculate total, new, and flagged
+# message counts for each mailbox.
+set mail_check_stats
+
 set sidebar_width = 20
 set sidebar_short_path = yes
 set sidebar_delim_chars = '/.'
@@ -16,9 +20,6 @@ set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
 #sidebar_whitelist '/home/user/mailbox1'
 #sidebar_whitelist '/home/user/mailbox2'
 
-# Enable extended buffy mode to calculate total, new, and flagged
-# message counts for each mailbox.
-set mail_check_stats
 
 # Sort the mailboxes in the Sidebar using this method:
 #       count    - total number of messages
