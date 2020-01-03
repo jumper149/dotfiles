@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # terminal emulator for rofi
-export TERMINAL="urxvtc"
+export TERMINAL="kitty"
 
 # qt theme
 export QT_SELECT="5"
