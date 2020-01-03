@@ -3,56 +3,27 @@ if exists('skip_defaults_vim')
   finish
 endif
 
-" Activates Vim > Vi
-if &compatible
-  set nocompatible
-endif
-
-" Allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-set history=200		" keep 200 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set wildmenu		" display completion matches in a status line
-
-set ttimeout		" time out for key codes
-set ttimeoutlen=100	" wait up to 100ms after Esc for special key
-
-" Use incremental searching timeout possible
-if has('reltime')
-  set incsearch
-endif
+set history=100
+set wildmenu
 
 " Enable mouse support
 if has('mouse')
   set mouse=a
 endif
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that you can revert them with:
-  " ":augroup vimStartup | au! | augroup END"
-  augroup vimStartup
-    au!
-
-    " Remember last cursors position
-    autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-      \ |   exe "normal! g`\""
-      \ | endif
-
-  augroup END
-
-endif
+" Disable visual and audio bell
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
 
 " Set UTF-8
 set encoding=utf-8
 set fileencoding=utf-8
+
+" Remember last cursor position
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
 
 " Convert tab to spaces
 set expandtab
@@ -63,60 +34,56 @@ set softtabstop=4
 set number
 set relativenumber
 
+" Set minimal distance from cursor to border
+set scrolloff=8
+
+" Enable Highlighting
+if &t_Co >= 8 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+" Set colorscheme
+if &t_Co >= 256 || has("gui_running")
+  colorscheme wombat256jumper
+else
+  colorscheme default
+endif
+
+" Configure vim-airline
+let g:airline#extensions#tabline#enabled=1
+if &t_Co >= 256 || has("gui_running")
+  let g:airline_theme='wombat'
+else
+  let g:airline_symbols_ascii=1
+endif
+
+" Highlight current line
+augroup CursorLine
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
+
+" Makes information not be shown 2 times with vim-airline
+set shortmess=F
+
+" Enable file type detection
+filetype plugin indent on
+
 " Provides X-clipboard support (requires gvim)
 vmap <C-c> "+yi<ESC>
 vmap <C-x> "+c<ESC>
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
-" Color and font
-if &t_Co >= 8 || has("gui_running")
-
-  " Revert with ":syntax off".
-  syntax on
-  set hlsearch
-
-  " Set colorscheme
-  if &t_Co >= 256 || has("gui_running")
-    colorscheme wombat256jumper
-  else
-    colorscheme default
-  endif 
-
-endif
-
-" Set minimal distance from cursor to border
-set scrolloff=8
-
 " Removes Highlighting from search patterns
-nnoremap <silent> <Space> :noh<Enter><Space>
-
-" Highlight current line
-augroup CursorLine
-  au!
-  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-augroup END
-
-" Configure vim-airline, vim-airline-themes
-let g:airline_theme='wombat'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_symbols_ascii = 1
-let g:airline#extensions#whitespace#enabled = 0
-
-" Makes information not be shown 2 times with vim-airline
-set shortmess=F
-
-" Keeps terminal background transparent (comment for being productive)
-"highlight Normal ctermbg=none
+nnoremap <silent> <Space> :nohlsearch<Enter>
 
 " vim-latexsuite
-set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
-" Dont highlight underscores (_)
-let g:tex_no_error=1
-" Dont change quotation marks to special upper and lower
-let g:Tex_SmartKeyQuote=0
+let g:tex_flavor="latex"
+let g:tex_no_error=1      " Dont highlight underscores (_)
+let g:Tex_SmartKeyQuote=0 " Dont change quotation marks to special upper and lower
 
 " Commands
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
