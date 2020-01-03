@@ -233,7 +233,7 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-b"           , spawnOnAndGoTo "9 Other" "baobab")
          ]
   where inTerminal :: String -> String
-        inTerminal prog = myTerminal ++ " -name '" ++ prog ++ "' -e '" ++ prog ++ "'"
+        inTerminal prog = myTerminal ++ " --name '" ++ prog ++ "' '" ++ prog ++ "'"
 
         -- requires _NET_WM_PID to be set on creation; doesn't work on:
         --   urxvtc(offlineimap), qutebrowser, chromium
@@ -260,7 +260,7 @@ myRemovedKeys = [ "M-q"   -- quit
 
 myFocusFollowsMouse = False :: Bool
 myModMask = mod4Mask :: ButtonMask
-myTerminal = "urxvtc" :: String
+myTerminal = "kitty" :: String
 
 myApplyKeys :: XConfig l -> XConfig l
 myApplyKeys = addKs . remKs
