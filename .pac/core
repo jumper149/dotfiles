@@ -65,6 +65,7 @@ gimp
 htop
 imagemagick
 irssi
+kitty
 mpv
 neofetch
 pass
@@ -73,7 +74,6 @@ qemu
 rofi
 rsync
 rtv
-rxvt-unicode
 scrot
 streamlink
 sxiv
