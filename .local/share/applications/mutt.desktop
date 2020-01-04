@@ -2,7 +2,7 @@
 Version=1.0
 Name=Mutt
 Comment=All mail clients suck. This one just sucks less.
-Exec=urxvtc -name mutt -e mutt %u
+Exec=kitty --name mutt mutt %u
 Terminal=false
 Type=Application
 Categories=Office

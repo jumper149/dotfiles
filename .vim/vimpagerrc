@@ -3,7 +3,6 @@ source ~/.vimrc
 set norelativenumber
 set nonumber
 set scrolloff=0
-set t_ve=
 
 if &t_Co >= 256
   highlight CursorLine ctermbg = bg
