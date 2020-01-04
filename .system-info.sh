@@ -24,8 +24,8 @@ elif [ "$(hostname)" = "deskarch" ]
 then
     MAIN_NETWORKING_DEVICE='enp7s0'
     MAIN_PARTITION='/dev/sda3'
-    MAIN_PULSEAUDIO_SINK='alsa_output.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.analog-stereo'
-    MAIN_PULSEAUDIO_SOURCE='alsa_input.usb-C-Media_Electronics_Inc._USB_PnP_Sound_Device-00.mono-fallback'
+    MAIN_PULSEAUDIO_SINK='alsa_output.usb-C-Media_Electronics_Inc._USB_Advanced_Audio_Device-00.analog-stereo'
+    MAIN_PULSEAUDIO_SOURCE='alsa_input.usb-C-Media_Electronics_Inc._USB_Advanced_Audio_Device-00.analog-stereo'
 elif [ "$(hostname)" = "x200arch" ]
 then
     MAIN_NETWORKING_DEVICE='wlp2s0'

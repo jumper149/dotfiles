@@ -7,7 +7,7 @@ subject="$(echo "${INPUT}" | grep -m1 "Subject:" | sed 's/Subject: //g' | cut -c
 title="mail - ${subject}"
 
 enscriptFlags="--word-wrap --font=Courier11 --header-font=CourierBold12 --output=-"
-encodeFlags="-c --from-code=utf-8 --to-code=ISO-8859-1" 
+encodeFlags="-c --from-code=utf-8 --to-code=ISO-8859-1"
 zathuraFlags="-"
 
 echo "${INPUT}" | iconv ${encodeFlags} | enscript ${enscriptFlags} --title="${title}" | zathura ${zathuraFlags}
