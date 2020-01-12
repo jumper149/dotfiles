@@ -209,6 +209,9 @@ def_key "ctrl-d"
 def_key "enter"
   enter_directory
 
+def_key "right"
+  enter_directory
+
 def_key "l"
   enter_directory
 
@@ -340,6 +343,9 @@ def_key "L"
 #
 def_key "H"
   previous
+
+def_key "left"
+  jump_to_parent_directory
 
 def_key "h"
   jump_to_parent_directory
