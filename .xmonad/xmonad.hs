@@ -161,7 +161,7 @@ myPP h = xmobarPP { ppOutput           = hPutStrLn h
                                "</action>"
 
 myLogHook :: Handle -> X ()
-myLogHook h = dynamicLogWithPP $ myPP h
+myLogHook = dynamicLogWithPP . myPP
 
 
 myKeys :: [(String , X ())]
