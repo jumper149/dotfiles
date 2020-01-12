@@ -25,14 +25,15 @@ import XMonad.Hooks.ManageDocks ( docks
 import XMonad.Util.EZConfig ( additionalKeysP
                             , removeKeysP
                             )
-import XMonad.Util.Run ( runInTerm
-                       , spawnPipe
+import XMonad.Util.Run ( spawnPipe
                        , hPutStrLn
                        )
 import XMonad.Hooks.DynamicLog ( PP (..)
                                , xmobarPP
                                , dynamicLogWithPP
                                )
+import XMonad.Hooks.EwmhDesktops ( ewmh
+                                 )
 import XMonad.Hooks.ManageHelpers ( doCenterFloat
                                   )
 
@@ -108,10 +109,10 @@ myMainLayout =   avoidStruts tiled
              ||| avoidStruts (Mirror tiled)
              ||| noBorders Full
   where tiled = spacingRaw False
-                   (Border outer outer outer outer) True
-                   (Border inner inner inner inner) True
-                  --     n   increment ratio
-                $ Tall   1   (3/100)   (1/2)
+                  (Border outer outer outer outer) True
+                  (Border inner inner inner inner) True
+                   --     n   increment ratio
+                  (Tall   1   (3/100)   (1/2))
         outer = 20
         inner = 10
 
@@ -123,20 +124,19 @@ myWritingLayout =   myMainLayout
   where single = spacingRaw False
                    (Border topbot topbot sides sides) True
                    (Border 0      0      0     0    ) False
-                 $ Full
+                   Full
         topbot = 100
         sides  = 450
 
 myLayoutHook = onWorkspace "1 Browser" myBrowserLayout
-             $ onWorkspace "5 Writing" myWritingLayout
+             . onWorkspace "5 Writing" myWritingLayout
              $ myMainLayout
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-                 [ className =? "matplotlib"  --> doCenterFloat
-                 , className =? "Gnuplot"     --> doCenterFloat
-                 , className =? "gnuplot_qt"  --> doCenterFloat
-                 , appName   =? "offlineimap" --> doShift "8 Control" <+> doCenterFloat
+                 [ className =? "matplotlib" --> doCenterFloat
+                 , className =? "Gnuplot"    --> doCenterFloat
+                 , className =? "gnuplot_qt" --> doCenterFloat
                  ]
 
 
@@ -216,11 +216,11 @@ myKeys = [ ("M-S-q"         , kill)
          , ("<Print>"       , spawn "scrot")
          , ("M-C-k"         , spawn "~/.scripts/screenkey.sh")
          , ("M-C-y"         , spawn "~/.scripts/mpv-clipboard.sh")
-         , ("M-C-m"         , spawnOn "8 Control" $ inTerminal "offlineimap")
+         , ("M-C-m"         , spawnOn "9 Other" . inTerminal $ "offlineimap")
 
          , ("M-<Return>"    , spawn myTerminal)
          , ("M-d"           , spawn "rofi -show run")
-         , ("M-r"           , runInTerm "" "ranger")
+         , ("M-r"           , spawn . inTerminal $ "ranger")
 
          , ("M-f"           , spawnOnAndGoTo "1 Browser" "firefox")
          , ("M-n"           , spawnOnAndGoTo "3 Media" $ inTerminal "ncmpcpp")
@@ -233,13 +233,13 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-b"           , spawnOnAndGoTo "9 Other" "baobab")
          ]
   where inTerminal :: String -> String
-        inTerminal prog = myTerminal ++ " --name '" ++ prog ++ "' '" ++ prog ++ "'"
+        inTerminal prog = myTerminal ++ " --name '" ++ prog ++ "' -e '" ++ prog ++ "'"
 
         -- requires _NET_WM_PID to be set on creation; doesn't work on:
         --   urxvtc(offlineimap), qutebrowser, chromium
         spawnOnAndGoTo :: WorkspaceId -> String -> X ()
         spawnOnAndGoTo ws prog = do spawnOn ws prog
-                                    (windows . W.greedyView) ws
+                                    windows . W.greedyView $ ws
 
 myRemovedKeys :: [String]
 myRemovedKeys = [ "M-q"   -- quit
@@ -263,13 +263,11 @@ myModMask = mod4Mask :: ButtonMask
 myTerminal = "kitty" :: String
 
 myApplyKeys :: XConfig l -> XConfig l
-myApplyKeys = addKs . remKs
-  where addKs x = additionalKeysP x myKeys
-        remKs x = removeKeysP x myRemovedKeys
+myApplyKeys = (`additionalKeysP` myKeys) . (`removeKeysP` myRemovedKeys)
 
 
 myStartupHook :: X ()
-myStartupHook = (windows . W.greedyView) "2 Hacking"
+myStartupHook = windows . W.greedyView $ "2 Hacking"
 
 
 main :: IO ()
@@ -286,5 +284,5 @@ main = do xmproc <- spawnPipe "xmobar ~/.xmobar/xmobarrc"
                       , modMask            = myModMask
                       , terminal           = myTerminal
                       }
-              fc = myApplyKeys . docks $ c
+              fc = myApplyKeys . docks . ewmh $ c
           xmonad fc
