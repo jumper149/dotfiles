@@ -10,14 +10,13 @@ color message    bold      brightyellow  default
 color prompt     none      default       default
 
 # color all mailing-list mails
-color index      none      blue          default "~u"
+color index      none      cyan          default "~u"
 color index      bold      brightcyan    default "~N ~u" # new
 
 # and recolor them appropriately
 color index      none      blue          default "~P"     # from me
-color index      none      cyan          default "!~p"    # not to me
 color index      bold      brightyellow  default "~N !~u" # new from non-mailing-list
-color index      bold      brightgreen   default "~T"     # tagged
+color index      bold      brightmagenta default "~T"     # tagged
 color index      bold      brightgreen   default "~F"     # flagged
 color index      bold      brightred     default "~D"     # deleted
 
