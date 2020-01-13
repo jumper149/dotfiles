@@ -7,12 +7,12 @@ bind index J next-thread
 bind index K previous-thread
 #bind index ? parent-message
 bind index T tag-thread
-bind index D delete-thread
-bind index U undelete-thread
-bind index M read-thread
-bind index C collapse-thread
-bind index L link-threads
-bind index B break-thread
+#bind index D delete-thread
+#bind index U undelete-thread
+#bind index M read-thread
+#bind index C collapse-thread
+bind index & link-threads
+bind index \# break-thread
 
 #bind index ?d delete-subthread
 #bind index ?u undelete-subthread
