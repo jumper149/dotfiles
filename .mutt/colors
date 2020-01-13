@@ -1,72 +1,79 @@
 # set default
-color normal     white         default
+color normal     none      white         default
 
 # main colors
-color status     green         default
-color indicator  brightwhite   default
-color tree       blue          default
-color error      brightred     default
-color message    brightyellow  default
+color status     none      green         default
+color indicator  bold      brightdefault default
+color tree       bold      brightblue    default
+color error      bold      brightred     default
+color message    bold      brightyellow  default
+color prompt     none      default       default
 
-# color all ML mails
-#  color index      blue          default "~u"
-
-# uncolor certain messages
-uncolor index "~P"
-uncolor index "~N ~u"
-uncolor index "~N !~u"
-uncolor index "~T"
-uncolor index "~D"
+# color all mailing-list mails
+color index      none      cyan          default "~u"
+color index      bold      brightcyan    default "~N ~u" # new
 
 # and recolor them appropriately
-color index      brightblack   default "~P"
-color index      brightcyan    default "~N ~u"  # new ML mail
-color index      brightyellow  default "~N !~u" # new non-ML mail
-color index      brightgreen   default "~T"
-color index      brightred     default "~D"
+color index      none      blue          default "~P"     # from me
+color index      bold      brightyellow  default "~N !~u" # new from non-mailing-list
+color index      bold      brightmagenta default "~T"     # tagged
+color index      bold      brightgreen   default "~F"     # flagged
+color index      bold      brightred     default "~D"     # deleted
 
 # set up the headers
-color header     brightyellow  default "^from:"
-color header     yellow        default "^to:"
-color header     yellow        default "^cc:"
-color header     blue          default "^date:"
-color header     brightblue    default "^subject:"
-color header     magenta       default "^(x-mailer|user-agent):"
+color hdrdefault none      blue          default
+color header     none      brightyellow  default "^from:"
+color header     none      brightgreen   default "^to:"
+color header     none      green         default "^cc:"
+color header     none      cyan          default "^date:"
+color header     none      brightblue    default "^subject:"
+color header     none      magenta       default "^(x-mailer|user-agent):"
 
 # message bodies
-color attachment brightblack   default
-color search     red           brightblack
-color signature  cyan          default
-color tilde      blue          default
+color attachment none      brightblack   default
+color search     none      brightblack   brightyellow
+color signature  none      cyan          default
+color tilde      none      blue          default
+color markers    none      magenta       default
 
 # urls
-color body       brightblue    default "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
-color body       brightblue    default "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
+color body       none      brightcyan    default "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
+color body       none      brightcyan    default "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
 
-# smileys, the right way and the backward-ass euro way
-color body       brightmagenta default "(^| )+(|[<>|])[8;:](|[^ ])[)(/|DOPS]( |$)+"
-color body       brightmagenta default "(^| )+[)(/|DOPS](|[^ ])[8;:](|[<>|])( |$)+"
+# smileys, forwards and backwards
+color body       none      yellow        default "(^| )+(|[<>|])[8;:](|[^ ])[)(/|DOPS]( |$)+"
+color body       none      yellow        default "(^| )+[)(/|DOPS](|[^ ])[8;:](|[<>|])( |$)+"
 
 # *bold*, _underline_, and /italic/
-color body       brightcyan    default "(^| )\\*[^ ]+\\*( |$)"
-color body       brightcyan    default "(^| )_[^ ]+_( |$)"
-color body       brightcyan    default "(^| )/[^ ]+/( |$)"
+color bold       bold      cyan          default
+color body       bold      cyan          default "(^| )\\*[^ ]+\\*( |$)"
+color underline  underline cyan          default
+color body       underline cyan          default "(^| )_[^ ]+_( |$)"
+color body       bold      cyan          default "(^| )/[^ ]+/( |$)"
 
 # quote blocks
-color quoted     magenta       default
-color quoted1    cyan          default
-color quoted2    green         default
-color quoted3    blue          default
-color quoted4    magenta       default
-color quoted5    cyan          default
-color quoted6    green         default
-color quoted7    blue          default
+color quoted     none      magenta       default
+color quoted1    none      cyan          default
+color quoted2    none      green         default
+color quoted3    none      blue          default
+color quoted4    none      magenta       default
+color quoted5    none      cyan          default
+color quoted6    none      green         default
+color quoted7    none      blue          default
+
+# compose menu
+color compose header           none      blue          default
+color compose security_none    bold      white         default
+color compose security_sign    bold      green         default
+color compose security_encrypt bold      red           default
+color compose security_both    bold      default       default
 
 # sidebar
-color sidebar_indicator green        default
-color sidebar_highlight brightwhite  default
-color sidebar_divider   green        default
-color sidebar_flagged   red          default
-color sidebar_new       brightyellow default
+color sidebar_divider          none      green         default
+color sidebar_flagged          none      brightred     default
+color sidebar_highlight        none      brightdefault default
+color sidebar_indicator        none      brightgreen   default
+color sidebar_new              none      brightyellow  default
+color sidebar_spoolfile        none      brightyellow  default
 
 # vim: syntax=muttrc
