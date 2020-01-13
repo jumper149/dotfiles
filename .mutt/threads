@@ -6,7 +6,7 @@ bind index c collapse-all
 bind index J next-thread
 bind index K previous-thread
 #bind index ? parent-message
-bind index T tag-thread
+#bind index T tag-thread
 #bind index D delete-thread
 #bind index U undelete-thread
 #bind index M read-thread

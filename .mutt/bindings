@@ -73,7 +73,6 @@ bind index         ~          noop # mark-message
 bind index         A          noop # autocrypt-acct-menu
 bind index         G          noop # fetch-mail
 bind index         Q          noop # query
-bind index         T          noop # tag-pattern
 bind index         l          noop # limit
 bind index         x          noop # exit
 bind index         \cd        half-down
