@@ -74,6 +74,6 @@ color sidebar_flagged          none      brightred     default
 color sidebar_highlight        none      brightdefault default
 color sidebar_indicator        none      brightgreen   default
 color sidebar_new              none      brightyellow  default
-color sidebar_spoolfile        none      brightyellow  default
+color sidebar_spoolfile        bold      white         default
 
 # vim: syntax=muttrc
