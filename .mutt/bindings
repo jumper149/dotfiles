@@ -22,20 +22,43 @@ bind index,pager   <esc>r     noop # read-subthread
 bind index,pager   <esc>s     noop # decode-save
 bind index,pager   <esc>u     noop # undelete-subthread
 bind index,pager   .          noop # buffy-list
+bind index,pager   \#         noop # break-thread
+bind index,pager   $          noop # sync-mailbox
 bind index,pager   %          noop # toggle-write
+bind index,pager   &          noop # link-threads
 bind index,pager   C          noop # copy-message
+bind index,pager   D          noop # delete-pattern
+bind index,pager   F          noop # flag-message
+bind index,pager   L          noop # list-reply
+bind index,pager   N          noop # toggle-new
+bind index,pager   P          noop # parent-message
 bind index,pager   R          noop # recall-message
+bind index,pager   U          noop # undelete-pattern
+bind index,pager   V          noop # show-version
+bind index,pager   W          noop # clear-flag
+bind index,pager   Y          noop # edit-label
+bind index,pager   b          noop # bounce-message
 bind index,pager   c          noop # change-folder
+bind index,pager   d          noop # delete-message
 bind index,pager   f          noop # forward-message
 bind index,pager   g          noop # group-reply
 bind index,pager   h          noop # display-toggle-weed
 bind index,pager   r          noop # reply
+bind index,pager   u          noop # undelete-message
+bind index,pager   w          noop # set-flag
+bind index,pager   y          noop # browse-mailboxes
 bind index,pager   <backtab>  previous-new-then-unread
+bind index,pager   F          clear-flag
+bind index,pager   N          search-opposite # somehow necessary
 bind index,pager   R          reply
+bind index,pager   d          half-down
+bind index,pager   f          set-flag
+bind index,pager   rb         bounce-message
 bind index,pager   rf         forward-message
 bind index,pager   rr         reply
 bind index,pager   rg         group-reply
 bind index,pager   rl         list-reply
+bind index,pager   u          half-up
 
 # index:
 bind index         \ct        noop # untag-pattern
@@ -46,12 +69,18 @@ bind index         <esc>l     noop # show-limit
 bind index         <esc>t     noop # tag-thread
 bind index         <esc>v     noop # collapse-thread
 bind index         <space>    noop # display-message
+bind index         ~          noop # mark-message
 bind index         A          noop # autocrypt-acct-menu
-bind index         T          noop # tag-pattern
+bind index         G          noop # fetch-mail
+bind index         Q          noop # query
 bind index         l          noop # limit
 bind index         x          noop # exit
 bind index         \cd        half-down
 bind index         \cu        half-up
+bind index         D          delete-message
+bind index         U          undelete-message
+bind index         j          next-entry
+bind index         k          previous-entry
 bind index         l          display-message
 bind index         i          limit
 bind index         t          tag-entry
@@ -59,21 +88,20 @@ bind index         t          tag-entry
 # pager
 bind pager         <return>   noop # next-line
 bind pager         ?          noop # help
-bind index         T          noop # toggle-quoted
+bind pager         T          noop # toggle-quoted
 bind pager         d          noop # delete-message
 bind pager         i          noop # exit
-bind pager         u          noop # undelete-message
+bind pager         x          noop # exit
 bind pager         \cd        next-page
 bind pager         \cu        previous-page
 bind pager         <esc>      exit
 bind pager         ?          search-reverse
 bind pager         H          help
-bind pager         h          previous-undeleted
+bind pager         d          half-down # somehow necessary
+bind pager         h          previous-entry
 bind pager         j          next-line
 bind pager         k          previous-line
-bind pager         l          next-undeleted
-bind pager         d          half-down
-bind pager         u          half-up
+bind pager         l          next-entry
 
 # browser
 bind browser       <tab>      noop # toggle-mailboxes
@@ -100,8 +128,8 @@ macro editor       <esc>      "<enter><shell-escape>xdotool key control+g<enter>
 # generic
 bind generic       *          noop # last-entry
 bind generic       =          noop # first-entry
-##########bind generic       >          noop # next-line
-##########bind generic       <          noop # previous-line
+#bind generic       >          noop # next-line
+#bind generic       <          noop # previous-line
 bind generic       [          noop # half-up
 bind generic       ]          noop # half-down
 bind generic       ?          noop # help
@@ -113,10 +141,10 @@ bind generic       M          noop # middle-page
 bind generic       Z          noop # previous-page
 bind generic       t          noop # tag-entry
 bind generic       z          noop # next-page
-#######bind generic       \cd        half-down
-#######bind generic       \cu        half-up
-#######bind generic       \cd        next-page
-#######bind generic       \cu        previous-page
+#bind generic       \cd        half-down
+#bind generic       \cu        half-up
+#bind generic       \cd        next-page
+#bind generic       \cu        previous-page
 bind generic       ?          search-reverse
 bind generic       G          last-entry
 bind generic       H          help
