@@ -9,6 +9,7 @@ unset markers # remove "+" at the beginning of wrapped lines in pager
 set wait_key="no"
 set print_command="~/.scripts/mail-to-pdf.sh"
 set print="ask-yes"
+set pager_stop="yes"
 
 # bindings
 source "~/.mutt/bindings"
