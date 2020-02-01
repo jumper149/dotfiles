@@ -24,4 +24,6 @@ account-hook $folder "set imap_user=f.springer@botanik.uni-hannover.de"
 
 set signature = "~/.mutt/signature-botanik-uni-hannover"
 
+subscribe ALLE-BOTANIK@LISTSERV.UNI-HANNOVER.DE
+
 # vim: syntax=muttrc
