@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+installDir="$(dirname "${BASH_SOURCE[0]}")"
+
 packages=(
     "mpd-utils"
     "mutt"
@@ -8,7 +10,7 @@ packages=(
 )
 
 function call() {
-    local pkg="./${1}/default.nix"
+    local pkg="${installDir}/${1}/default.nix"
     local call="with import <nixpkgs> { }; callPackage ${pkg} { }"
     echo "_: ${call}" # `_:` is necessary for `nix-env -i -E`
 }
