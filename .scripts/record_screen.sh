@@ -28,7 +28,7 @@ echo "display=$DISPLAY"
 
 if [ -n "$1" ]
 then
-	ffmpeg -f x11grab -video_size "$SCREEN_RES" -framerate "$FRAME_RATE" -i "$DISPLAY" -f pulse -i "$PULSE_SINK" -c:v libx264 -preset ultrafast -c:a mp3 -b:a "$BITRATE" "$OUTPUT_FILE"
+	ffmpeg -f x11grab -video_size "$SCREEN_RES" -framerate "$FRAME_RATE" -i "$DISPLAY" -f pulse -i "${PULSE_SINK}.monitor" -c:v libx264 -preset ultrafast -c:a mp3 -b:a "$BITRATE" "$OUTPUT_FILE"
 else
 	echo "ERROR: no output file given"
 	exit 1
