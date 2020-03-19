@@ -30,6 +30,11 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 
+" Automatic indentation
+set nocindent
+set autoindent
+set smartindent
+
 " Sets line numbers relative to the current line
 set number
 set relativenumber
@@ -91,6 +96,4 @@ command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit
 
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>
-nmap mp :w <Enter>:!python % <Enter>
 nmap mt :w <Enter>:!pdflatex -interaction nonstopmode -halt-on-error -file-line-error % <Enter>
-nmap mcs :w <Enter>:!chez-scheme --script % <Enter>
