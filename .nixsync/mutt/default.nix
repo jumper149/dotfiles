@@ -7,5 +7,6 @@
       pkgs.mutt
       pkgs.msmtp
       pkgs.urlscan
+      pkgs.w3m
     ];
   }
