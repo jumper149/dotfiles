@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+source ~/.profile
+
 # terminal emulator for rofi
 export TERMINAL="kitty"
 
@@ -12,4 +14,4 @@ export MPLBACKEND="Qt5Agg"
 
 # applications
 blugon --waitforx --fade &
-conky --config="$HOME/.config/conky/clock.conf" &
+conky --config="${HOME}/.config/conky/clock.conf" &
