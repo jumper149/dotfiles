@@ -212,11 +212,11 @@ default_border pixel 4
 default_floating_border pixel 2
 
 # backlight/brightness
-#bindsym XF86MonBrightnessUp exec --no-startup-id "~/.scripts/brightness/up.sh"
-bindsym Control+$mod+backslash exec --no-startup-id "~/.scripts/brightness/up.sh"
+#bindsym XF86MonBrightnessUp exec --no-startup-id "brightness up"
+bindsym Control+$mod+backslash exec --no-startup-id "brightness up"
 
-#bindsym XF86MonBrightnessDown exec --no-startup-id "~/.scripts/brightness/down.sh"
-bindsym Control+$mod+slash exec --no-startup-id "~/.scripts/brightness/down.sh"
+#bindsym XF86MonBrightnessDown exec --no-startup-id "brightness down"
+bindsym Control+$mod+slash exec --no-startup-id "brightness down"
 
 # blue light filter
 bindsym Control+$mod+period exec --no-startup-id "blugon --setcurrent='+600'"

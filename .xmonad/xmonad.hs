@@ -188,8 +188,8 @@ myKeys = [ ("M-S-q"         , kill)
 
          , ("M-S-a"         , spawn "~/.bin/keyboard_toggle.sh")
 
-         , ("M-C-\\"        , spawn "~/.scripts/brightness/up.sh")
-         , ("M-C-/"         , spawn "~/.scripts/brightness/down.sh")
+         , ("M-C-\\"        , spawn "brightness up")
+         , ("M-C-/"         , spawn "brightness down")
 
          , ("M-C-S-="                  , spawn "~/.config/i3/scripts/volume_up.sh")
          , ("M-<XF86AudioRaiseVolume>" , spawn "~/.config/i3/scripts/volume_up.sh")

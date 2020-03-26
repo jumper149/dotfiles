@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+backlightPath="/sys/class/backlight/intel_backlight"
+brightnessFile="${backlightPath}/brightness"
+
+val="$(cat "${brightnessFile}")"
+maxVal="$(cat "${backlightPath}/max_brightness")"
+delta="100"
+
+case "$1" in
+
+    'up')
+        if [[ ${val} -gt ${delta} ]]; then
+            echo "$((val - delta))" > "${brightnessFile}"
+        fi
+        ;;
+
+    'down')
+        if [[ ${val} -lt $((maxVal - delta)) ]]; then
+            echo "$((val + delta))" > "${brightnessFile}"
+        fi
+        ;;
+
+    *)
+        exit 1
+        ;;
+
+    esac
