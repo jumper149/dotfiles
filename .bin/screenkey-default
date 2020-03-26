@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# depends: inconsolata, screenkey
+
 XResFile="${HOME}/.Xresources"
 
 [[ ! -f "${XResFile}" ]] && exit 1
