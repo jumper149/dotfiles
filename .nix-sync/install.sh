@@ -6,6 +6,7 @@ packages=(
     "mpd-utils"
     "mutt"
     "firefox"
+    "screenkey"
     "vim"
 )
 
