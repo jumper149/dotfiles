@@ -3,6 +3,10 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# don't clutter home directory
+HISTFILE="${HOME}/.local/share/bash/bash_history"
+mkdir -p "$(dirname "${HISTFILE}")"
+
 source ~/.profile
 source ~/.posixrc
 

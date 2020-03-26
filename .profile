@@ -8,3 +8,5 @@ export PAGER="vimpager"
 export BROWSER="firefox"
 
 export MAIL="${HOME}/.mail/"
+
+export VIMINIT=":source ${HOME}/.config/vim/vimrc"
