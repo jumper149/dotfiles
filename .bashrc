@@ -3,12 +3,12 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# don't clutter home directory
-HISTFILE="${HOME}/.local/share/bash/bash_history"
-mkdir -p "$(dirname "${HISTFILE}")"
+source "${HOME}/.profile"
+source "${HOME}/.posixrc"
 
-source ~/.profile
-source ~/.posixrc
+# don't clutter home directory
+HISTFILE="${XDG_DATA_HOME}/bash/bash_history"
+mkdir -p "$(dirname "${HISTFILE}")"
 
 # auto completion
 __git_complete dotgit __git_main
