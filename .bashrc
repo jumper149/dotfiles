@@ -3,20 +3,19 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+source "${HOME}/.posixrc"
+
 # don't clutter home directory
-HISTFILE="${HOME}/.local/share/bash/bash_history"
+HISTFILE="${XDG_DATA_HOME}/bash/bash_history"
 mkdir -p "$(dirname "${HISTFILE}")"
 
-source ~/.profile
-source ~/.posixrc
-
 # auto completion
-source /usr/share/git/completion/git-completion.bash # provides __git_main
+source "/usr/share/git/completion/git-completion.bash" # provides __git_main
 __git_complete dotgit __git_main
 __git_complete safegit __git_main
 
 # shell prompt
-source /usr/share/git/completion/git-prompt.sh # provides __git_ps1
+source "/usr/share/git/completion/git-prompt.sh" # provides __git_ps1
 __red_ps="$(tput setaf 1)"
 __green_ps="$(tput setaf 2)"
 __orange_ps="$(tput setaf 3)"
