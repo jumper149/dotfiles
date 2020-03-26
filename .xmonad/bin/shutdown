@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-OPTION="`~/.scripts/decide/main.sh 'shutdown' 'reboot' 'leave Xmonad'`"
-
-COMMAND=""
+OPTION="$(decide 'shutdown' 'reboot' 'leave Xmonad')"
 
 case "$OPTION" in
 	"shutdown")

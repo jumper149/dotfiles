@@ -183,10 +183,10 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-<Right>"     , screenWorkspace 1 >>= flip whenJust (windows . W.view))
 
          , ("M-S-r"         , restart "xmonad" True)
-         , ("M-S-e"         , spawn "~/.xmonad/scripts/shutdown.sh")
+         , ("M-S-e"         , spawn "~/.xmonad/bin/shutdown")
          , ("M-S-w"         , spawn "i3lock -c '000000' -f")
 
-         , ("M-S-a"         , spawn "~/.scripts/keyboard_toggle.sh")
+         , ("M-S-a"         , spawn "~/.bin/keyboard_toggle.sh")
 
          , ("M-C-\\"        , spawn "~/.scripts/brightness/up.sh")
          , ("M-C-/"         , spawn "~/.scripts/brightness/down.sh")
