@@ -29,7 +29,7 @@ for UUID in $UUID_LIST ; do
 	LABEL_LIST+=" $(lsblk -no LABEL $UUID)"
 done
 
-CHOSEN_LABEL="$(~/.scripts/decide/main.sh $LABEL_LIST)"
+CHOSEN_LABEL="$(decide $LABEL_LIST)"
 
 if [ "$CHOSEN_LABEL" == "" ] ; then
 	echo "ERROR: didn't choose anything to unmount, is 'decide' working?"
