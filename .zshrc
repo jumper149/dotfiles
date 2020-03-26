@@ -89,10 +89,3 @@ bindkey -v
 
 # fish-like syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# use colors from ~/.Xresources on tty, start tmux
-if [ "${TERM}" = "linux" ]
-then
-	source ~/.scripts/tty-colors.sh
-	tmux && tput reset && exit 0
-fi
