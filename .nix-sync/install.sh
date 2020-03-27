@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-installDir="$(dirname "${BASH_SOURCE[0]}")"
+installDir="$(dirname "$(readlink --canonicalize "${BASH_SOURCE[0]}")")"
 
 packages=(
     "mpd-utils"
