@@ -256,8 +256,8 @@ bindsym Control+$mod+bracketright exec --no-startup-id "~/.config/i3/scripts/vol
 bindsym $mod2+Shift+a exec "~/.scripts/keyboard_toggle.sh"
 
 # toggle touchpad
-bindsym XF86TouchpadToggle exec "~/.scripts/touchpad_toggle.sh"
-bindsym Control+$mod+t exec "~/.scripts/touchpad_toggle.sh"
+bindsym XF86TouchpadToggle exec "touchpad toggle"
+bindsym Control+$mod+t exec "touchpad toggle"
 
 # lock
 bindsym Control+$mod+l exec "i3lock -c '000000' -f"
