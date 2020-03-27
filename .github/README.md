@@ -100,7 +100,7 @@ Places that use hardcoded color configuration:
     ~/.vim/colors/wombat256jumper.vim
     ~/.config/blugon/config
     ~/.config/kitty/kitty.conf
-    ~/.config/rofi/jumper-i3.rasi
+    ~/.config/rofi/theme.rasi
     ~/.config/zathura/zathurarc
     ~/.config/i3blocks/scripts/battery.sh
     ~/.config/i3blocks/scripts/cpu.sh
