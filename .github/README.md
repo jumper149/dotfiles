@@ -30,18 +30,6 @@ Install custom keymap.
 
     sensors-detect
 
-### bluetooth headset
-Add the user to the `lp` group (accessing printers etc.) to access pulseaudio, if it is running as root.
-
-    gpasswd --add "${NONROOTUSER}" lp
-Add this to `/etc/pulse/default.pa` to enable A2DP:
-
-    # LDAC Standard Quality
-    #load-module module-bluetooth-discover a2dp_config="ldac_eqmid=sq"
-
-    # LDAC High Quality; Force LDAC/PA PCM sample format as Float32LE
-    load-module module-bluetooth-discover a2dp_config="ldac_eqmid=hq ldac_fmt=f32"
-
 ### vnstat (old, for i3)
 Update the desired interfaces if necessary:
 
@@ -78,11 +66,6 @@ Copy everything necessary into `$HOME/.gnupg`.
 Set up `$HOME/.trash` for ranger:
 
     mkdir "${HOME}/.trash"
-
-### hoogle
-Create offline hoogle database:
-
-    hoogle generate
 
 ### i3bar (old, for i3)
 Fill in some necessary information in `~/.system-info.sh`.
