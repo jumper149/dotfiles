@@ -17,4 +17,4 @@ blugon --waitforx --fade &
 conky --config="${XDG_CONFIG_HOME}/conky/clock.conf" &
 
 # disable touchpad, nixos libinput option "clickMethod" doesn't work
-~/.scripts/touchpad_toggle.sh &
+touchpad init &
