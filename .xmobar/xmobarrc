@@ -128,7 +128,6 @@ Config {
        , Run MPD [ "--template" , "<statei>"
                  , "--maxtwidth" , "0"
                  , "--"
-                   , "--host" , "127.0.0.1"
                    , "-P" , "<icon=music/music_playing.xpm/>" -- playing
                    , "-Z" , "<icon=music/music_paused.xpm/>"  -- paused
                    , "-S" , "<icon=music/music_stopped.xpm/>" -- stopped
