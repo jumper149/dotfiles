@@ -23,7 +23,7 @@ Set `$NONROOTHOME` without `'/'` at the end:
 Install custom keymap.
 
     mkdir -p "/usr/local/share/kbd/keymaps"
-    cp "${NONROOTHOME}/.readme/root-config/jumper.map.gz" "/usr/local/share/kbd/keymaps/"
+    cp "${NONROOTHOME}/.github/misc/jumper.map.gz" "/usr/local/share/kbd/keymaps/"
     localectl set-keymap --no-convert /usr/local/share/kbd/keymaps/jumper-us.map
 
 ### sensors
@@ -41,7 +41,7 @@ Update the desired interfaces if necessary:
     gpasswd --add "${NONROOTUSER}" {users,wheel,video,audio}
 
 ### example configuration files
-There are some examples in `~/.readme/root-config/`.
+There are some examples in `~/.github/misc/`.
 Check these out by yourself.
 
 ## Configuration by User
