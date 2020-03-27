@@ -23,24 +23,12 @@ Set `$NONROOTHOME` without `'/'` at the end:
 Install custom keymap.
 
     mkdir -p "/usr/local/share/kbd/keymaps"
-    cp "${NONROOTHOME}/.readme/root-config/jumper.map.gz" "/usr/local/share/kbd/keymaps/"
+    cp "${NONROOTHOME}/.github/misc/jumper.map.gz" "/usr/local/share/kbd/keymaps/"
     localectl set-keymap --no-convert /usr/local/share/kbd/keymaps/jumper-us.map
 
 ### sensors
 
     sensors-detect
-
-### bluetooth headset
-Add the user to the `lp` group (accessing printers etc.) to access pulseaudio, if it is running as root.
-
-    gpasswd --add "${NONROOTUSER}" lp
-Add this to `/etc/pulse/default.pa` to enable A2DP:
-
-    # LDAC Standard Quality
-    #load-module module-bluetooth-discover a2dp_config="ldac_eqmid=sq"
-
-    # LDAC High Quality; Force LDAC/PA PCM sample format as Float32LE
-    load-module module-bluetooth-discover a2dp_config="ldac_eqmid=hq ldac_fmt=f32"
 
 ### vnstat (old, for i3)
 Update the desired interfaces if necessary:
@@ -53,7 +41,7 @@ Update the desired interfaces if necessary:
     gpasswd --add "${NONROOTUSER}" {users,wheel,video,audio}
 
 ### example configuration files
-There are some examples in `~/.readme/root-config/`.
+There are some examples in `~/.github/misc/`.
 Check these out by yourself.
 
 ## Configuration by User
@@ -78,11 +66,6 @@ Copy everything necessary into `$HOME/.gnupg`.
 Set up `$HOME/.trash` for ranger:
 
     mkdir "${HOME}/.trash"
-
-### hoogle
-Create offline hoogle database:
-
-    hoogle generate
 
 ### i3bar (old, for i3)
 Fill in some necessary information in `~/.system-info.sh`.
