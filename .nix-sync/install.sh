@@ -4,9 +4,10 @@ installDir="$(dirname "$(readlink --canonicalize "${BASH_SOURCE[0]}")")"
 
 packages=(
     "atool"
+    "firefox"
+    "haskell-utils"
     "mpd-utils"
     "mutt"
-    "firefox"
     "ranger"
     "screenkey"
     "vim"
