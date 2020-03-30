@@ -186,7 +186,7 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-S-e"         , spawn "${XMONAD_CONFIG_DIR}/bin/shutdown")
          , ("M-S-w"         , spawn "i3lock -c '000000' -f")
 
-         , ("M-S-a"         , spawn "${HOME}/.bin/keyboard_toggle.sh")
+         , ("M-S-a"         , spawn "cyclexkbmap")
 
          , ("M-C-\\"        , spawn "brightness up")
          , ("M-C-/"         , spawn "brightness down")
