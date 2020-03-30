@@ -12,9 +12,9 @@ alias safegit='git --git-dir=${HOME}/.dotsafe --work-tree=${HOME}'
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'
 alias ixio='curl -F "f:1=<-" http://ix.io'
 
-# ranger-cd
-rangercd() {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
+# change directory with ranger
+cdranger() {
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
     ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
         if [ "$(cat -- "$tempfile")" != "$(echo -n "$(pwd)")" ]; then
@@ -22,9 +22,6 @@ rangercd() {
         fi
         rm -f -- "$tempfile"
     }
-
-# clear ranger-trash
-alias ranger-trash-clear='${HOME}/.config/ranger/empty_trash.sh'
 
 # fastermelee
 alias fastermelee='LD_LIBRARY_PATH=${HOME}/Templates/fm-git/lib/ ${HOME}/Templates/fm-git/FasterMelee-installer/src/launch-fm'
