@@ -62,11 +62,6 @@ Have an entry `test/test` with password `test` inside or create it with
     pass insert test/test
 Copy everything necessary into `$HOME/.gnupg`.
 
-### trash
-Set up `$HOME/.trash` for ranger:
-
-    mkdir "${HOME}/.trash"
-
 ### i3bar (old, for i3)
 Fill in some necessary information in `~/.system-info.sh`.
 Check everything in `$HOME/.config/i3blocks`, especially:
