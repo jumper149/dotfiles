@@ -252,12 +252,6 @@ bindsym Control+$mod+l exec "i3lock -c '000000' -f"
 # reload i3bar/i3blocks blocks
 bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
 
-# toggle compton compositor
-bindsym Control+$mod+c exec "~/.scripts/compton.sh"
-
-# wallpaper
-bindsym Control+$mod+w exec "~/.scripts/set-wallpaper.sh"
-
 # toggle login-status of gpg
 bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
 
@@ -283,16 +277,10 @@ bindsym Print exec "scrot"
 bindsym $mod+Print exec "scrot"
 
 # toggle screenkey
-bindsym Control+$mod+k exec  "~/.scripts/screenkey.sh"
-
-# play youtube videos with link from clipboard
-bindsym Control+$mod+y exec  "~/.scripts/mpv-clipboard.sh"
+bindsym Control+$mod+k exec  "screenkey-default"
 
 # fetch mail
 bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
-
-# startup scripts
-exec_always --no-startup-id "xrdb ~/.Xresources"
 
 # start applications
 bindsym $mod+grave [urgent=latest] focus
