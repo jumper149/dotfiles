@@ -42,43 +42,12 @@ import GHC.IO.Handle ( Handle
 
 import qualified XMonad.StackSet as W
 
-
--- black
-myColor0 = "#282a2e" :: String
-myColor8 = "#373b41" :: String
-
--- red
-myColor1 = "#a54242" :: String
-myColor9 = "#cc6666" :: String
-
--- green
-myColor2 = "#8c9440" :: String
-myColorA = "#b5bd68" :: String
-
--- yellow
-myColor3 = "#de935f" :: String
-myColorB = "#f0c674" :: String
-
--- blue
-myColor4 = "#5f819d" :: String
-myColorC = "#81a2be" :: String
-
--- magenta
-myColor5 = "#85678f" :: String
-myColorD = "#b294bb" :: String
-
--- cyan
-myColor6 = "#5e8d87" :: String
-myColorE = "#8abeb7" :: String
-
--- white
-myColor7 = "#707880" :: String
-myColorF = "#c5c8c6" :: String
+import Local.Color
 
 
 myBorderWidth = 4 :: Dimension
-myNormalBorderColor  = myColor7 :: String
-myFocusedBorderColor = myColor2 :: String
+myNormalBorderColor  = color7 colors
+myFocusedBorderColor = color2 colors
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = [ "1 Browser"
@@ -93,15 +62,15 @@ myWorkspaces = [ "1 Browser"
                ]
 
 myTabTheme :: Theme
-myTabTheme = def { activeColor         = myColor2
-                 , inactiveColor       = myColor0
-                 , urgentColor         = myColor3
-                 , activeBorderColor   = myColor2
-                 , inactiveBorderColor = myColor0
-                 , urgentBorderColor   = myColor3
-                 , activeTextColor     = myColor0
-                 , inactiveTextColor   = myColor7
-                 , urgentTextColor     = myColor0
+myTabTheme = def { activeColor         = color2 colors
+                 , inactiveColor       = color0 colors
+                 , urgentColor         = color3 colors
+                 , activeBorderColor   = color2 colors
+                 , inactiveBorderColor = color0 colors
+                 , urgentBorderColor   = color3 colors
+                 , activeTextColor     = color0 colors
+                 , inactiveTextColor   = color7 colors
+                 , urgentTextColor     = color0 colors
                  , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
                  }
 
