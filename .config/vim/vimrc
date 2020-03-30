@@ -3,6 +3,7 @@ if exists('skip_defaults_vim')
   finish
 endif
 
+set viminfo+=n~/.vim/viminfo
 set history=100
 set wildmenu
 
