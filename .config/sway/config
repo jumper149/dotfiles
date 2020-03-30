@@ -189,27 +189,27 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus i3blocks)
 bar {
-	mode hide
-	modifier $mod
-	
-	colors {
+        mode hide
+        modifier $mod
+
+        colors {
         background $colorf88
         focused_background $colorfff
         statusline $color8ff
         separator  $color8ff
 
-			 # border ff inside ff text   ff
+                         # border ff inside ff text   ff
         focused_workspace  $color8ff $color2ff $color0ff
         active_workspace   $color8ff $color5ff $color0ff
         inactive_workspace $color8ff $color7ff $color0ff
         urgent_workspace   $color8ff $color3ff $color0ff
         binding_mode       $color8ff $color1ff $color0ff
-   	}
+        }
 
-	position top
-	tray_output none
+        position top
+        tray_output none
 
-	status_command i3blocks -c ~/.config/i3blocks/config
+        status_command i3blocks -c ~/.config/i3blocks/config
 }
 
 # gaps
