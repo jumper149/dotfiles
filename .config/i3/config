@@ -240,7 +240,7 @@ bindsym $mod+XF86AudioMicMute exec --no-startup-id "volume mic mute"
 bindsym Control+$mod+bracketright exec --no-startup-id "volume mic mute"
 
 # toggle keyboard layout
-bindsym $mod2+Shift+a exec "~/.scripts/keyboard_toggle.sh"
+bindsym $mod2+Shift+a exec "cyclexkbmap"
 
 # toggle touchpad
 bindsym XF86TouchpadToggle exec "touchpad toggle"

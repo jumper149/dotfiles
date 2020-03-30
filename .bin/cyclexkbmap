@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+LAYOUT="$(setxkbmap -query | grep "layout" | cut --delimiter=":" --fields="2" | sed 's/\s//g')"
+
+case "${LAYOUT}" in
+    "us")
+        setxkbmap "de"
+        ;;
+    "de")
+        setxkbmap "us"
+        ;;
+    *)
+        exit 1
+        ;;
+esac
