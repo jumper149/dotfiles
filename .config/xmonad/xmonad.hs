@@ -214,8 +214,6 @@ myKeys = [ ("M-S-q"         , kill)
          , ("<XF86AudioPrev>"   , spawn "mpc prev")
          , ("M-<Print>"     , spawn "scrot")
          , ("<Print>"       , spawn "scrot")
-         , ("M-C-k"         , spawn "${HOME}/.bin/screenkey.sh")
-         , ("M-C-y"         , spawn "${HOME}/.bin/mpv-clipboard.sh")
          , ("M-C-m"         , spawnOn "9 Other" . inTerminal $ "offlineimap")
 
          , ("M-<Return>"    , spawn myTerminal)
