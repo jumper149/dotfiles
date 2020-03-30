@@ -183,10 +183,10 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-<Right>"     , screenWorkspace 1 >>= flip whenJust (windows . W.view))
 
          , ("M-S-r"         , restart "xmonad" True)
-         , ("M-S-e"         , spawn "~/.xmonad/bin/shutdown")
+         , ("M-S-e"         , spawn "${XMONAD_CONFIG_DIR}/bin/shutdown")
          , ("M-S-w"         , spawn "i3lock -c '000000' -f")
 
-         , ("M-S-a"         , spawn "~/.bin/keyboard_toggle.sh")
+         , ("M-S-a"         , spawn "${HOME}/.bin/keyboard_toggle.sh")
 
          , ("M-C-\\"        , spawn "brightness up")
          , ("M-C-/"         , spawn "brightness down")
@@ -214,8 +214,8 @@ myKeys = [ ("M-S-q"         , kill)
          , ("<XF86AudioPrev>"   , spawn "mpc prev")
          , ("M-<Print>"     , spawn "scrot")
          , ("<Print>"       , spawn "scrot")
-         , ("M-C-k"         , spawn "~/.scripts/screenkey.sh")
-         , ("M-C-y"         , spawn "~/.scripts/mpv-clipboard.sh")
+         , ("M-C-k"         , spawn "${HOME}/.bin/screenkey.sh")
+         , ("M-C-y"         , spawn "${HOME}/.bin/mpv-clipboard.sh")
          , ("M-C-m"         , spawnOn "9 Other" . inTerminal $ "offlineimap")
 
          , ("M-<Return>"    , spawn myTerminal)
