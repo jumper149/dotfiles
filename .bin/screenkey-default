@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# depends: inconsolata, screenkey
+
+XResFile="${HOME}/.Xresources"
+
+[[ ! -f "${XResFile}" ]] && exit 1
+
+regexpHexChar='[0-9a-fA-F]'
+
+regexpColor="#"
+for i in {1..6}; do regexpColor+="${regexpHexChar}"; done
+
+XRes="$(cat "${XResFile}")"
+COLOR0="$(echo "${XRes}" | grep 'color0:')"
+color0="${COLOR0:$(expr index "${COLOR0}" \# - 1)}"
+COLORe="$(echo "${XRes}" | grep 'color15:')"
+colore="${COLORe:$(expr index "${COLORe}" \# - 1)}"
+
+[[ "${color0}" != $regexpColor ]] && exit 2
+[[ "${colore}" != $regexpColor ]] && exit 3
+
+monitors="$(xrandr --listactivemonitors | grep "[0-9]\{1,\}:")"
+selectedMonitor="$(decide "${monitors}" | cut --delimiter=: --fields=1)"
+
+exec screenkey --no-detach --no-systray --font "Inconsolata Bold" --bg-color "${color0}" --font-color "${colore}" --opacity "0.75" --timeout "1.5" --scr "${selectedMonitor}"

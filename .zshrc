@@ -4,13 +4,14 @@
 [[ $- != *i* ]] && return
 
 # source general shell configuration
-source $HOME/.profile
-source $HOME/.posixrc
+source "${HOME}/.profile"
+source "${HOME}/.posixrc"
 
 unsetopt BEEP NOTIFY
 
 # history
-HISTFILE=~/.zsh_history
+HISTFILE="${XDG_DATA_HOME}/zsh/zsh_history"
+mkdir -p "$(dirname "${HISTFILE}")"
 HISTSIZE=1000
 SAVEHIST=1000
 
@@ -88,10 +89,3 @@ bindkey -v
 
 # fish-like syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# use colors from ~/.Xresources on tty, start tmux
-if [ "$TERM" = "linux" ]
-then
-	source ~/.scripts/tty-colors.sh
-	tmux && tput reset && exit 0
-fi

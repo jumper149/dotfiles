@@ -35,7 +35,7 @@ rofi.fullscreen:                     false
 ! "Scrolling method. (0: Page, 1: Centered)" Set from: Default
 rofi.scroll-method:                  1
 ! "New style theme file" Set from: Default
-rofi.theme:                          ~/.config/rofi/jumper-i3.rasi
+rofi.theme:                          ~/.config/rofi/theme.rasi
 ! "Max history size (WARNING: can cause slowdowns when set to high)." Set from: Default
 rofi.max-history-size:               100
 ! "Paste clipboard" Set from: Default

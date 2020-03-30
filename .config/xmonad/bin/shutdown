@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OPTION="$(decide 'shutdown' 'reboot' 'leave i3')"
+OPTION="$(decide 'shutdown' 'reboot' 'leave Xmonad')"
 
 case "$OPTION" in
 	"shutdown")
@@ -9,8 +9,8 @@ case "$OPTION" in
 	"reboot")
 		reboot
 		;;
-	"leave i3")
-		i3-msg "exit"
+	"leave Xmonad")
+		pkill xmonad
 		;;
 	*)
 		exit 1

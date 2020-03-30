@@ -3,16 +3,20 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source ~/.profile
-source ~/.posixrc
+source "${HOME}/.profile"
+source "${HOME}/.posixrc"
+
+# don't clutter home directory
+HISTFILE="${XDG_DATA_HOME}/bash/bash_history"
+mkdir -p "$(dirname "${HISTFILE}")"
 
 # auto completion
-source /usr/share/git/completion/git-completion.bash # provides __git_main
+source "/usr/share/git/completion/git-completion.bash" # provides __git_main
 __git_complete dotgit __git_main
 __git_complete safegit __git_main
 
 # shell prompt
-source /usr/share/git/completion/git-prompt.sh # provides __git_ps1
+source "/usr/share/git/completion/git-prompt.sh" # provides __git_ps1
 __red_ps="$(tput setaf 1)"
 __green_ps="$(tput setaf 2)"
 __orange_ps="$(tput setaf 3)"
@@ -64,7 +68,7 @@ PS2='$(__whitespace_ps2 \u \h \W)\001${__yellow_ps}${__bold_ps}\002|\001${__norm
 set -o vi
 
 if [ "${TERM}" = "linux" ]; then
-    __graphical_session="$("${HOME}/.scripts/decide/terminal.sh" "Xmonad" "i3" "tmux" "TTY")"
+    __graphical_session="$(decide "Xmonad" "i3" "tmux" "TTY")"
     case $__graphical_session in
         "TTY")
             ;;
