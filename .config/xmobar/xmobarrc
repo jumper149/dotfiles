@@ -34,7 +34,7 @@ Config {
   , borderWidth = 0
   , borderColor = "#373b41"
 
-  , iconRoot = "/home/jumper/.xmobar/icons"
+  , iconRoot = ".config/xmobar/icons"
 
   , sepChar  = "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment

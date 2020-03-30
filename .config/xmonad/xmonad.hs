@@ -271,7 +271,7 @@ myStartupHook = windows . W.greedyView $ "2 Hacking"
 
 
 main :: IO ()
-main = do xmproc <- spawnPipe "xmobar ~/.xmobar/xmobarrc"
+main = do xmproc <- spawnPipe "xmobar --iconroot=\"${XDG_CONFIG_HOME}/xmobar/icons\" \"${XDG_CONFIG_HOME}/xmobar/xmobarrc\""
           let c = def { borderWidth        = myBorderWidth
                       , normalBorderColor  = myNormalBorderColor
                       , focusedBorderColor = myFocusedBorderColor
