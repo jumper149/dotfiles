@@ -236,21 +236,21 @@ bindsym Control+$mod+period exec --no-startup-id "blugon --setcurrent='+600'"
 bindsym Control+$mod+comma exec --no-startup-id  "blugon --setcurrent='-600'"
 
 # audio volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
-bindsym Control+Shift+$mod+equal exec --no-startup-id "~/.config/i3/scripts/volume_up.sh"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "volume up; pkill --signal SIGRTMIN+14 i3blocks"
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id "volume up; pkill --signal SIGRTMIN+14 i3blocks"
+bindsym Control+Shift+$mod+equal exec --no-startup-id "volume up; pkill --signal SIGRTMIN+14 i3blocks"
 
-bindsym XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
-bindsym Control+$mod+minus exec --no-startup-id "~/.config/i3/scripts/volume_down.sh"
+bindsym XF86AudioLowerVolume exec --no-startup-id "volume down; pkill --signal SIGRTMIN+14 i3blocks"
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id "volume down; pkill --signal SIGRTMIN+14 i3blocks"
+bindsym Control+$mod+minus exec --no-startup-id "volume down; pkill --signal SIGRTMIN+14 i3blocks"
 
-bindsym XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
-bindsym $mod+XF86AudioMute exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
-bindsym Control+$mod+0 exec --no-startup-id "~/.config/i3/scripts/volume_mute.sh"
+bindsym XF86AudioMute exec --no-startup-id "volume mute; pkill --signal SIGRTMIN+14 i3blocks"
+bindsym $mod+XF86AudioMute exec --no-startup-id "volume mute; pkill --signal SIGRTMIN+14 i3blocks"
+bindsym Control+$mod+0 exec --no-startup-id "volume mute; pkill --signal SIGRTMIN+14 i3blocks"
 
-bindsym XF86AudioMicMute exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
-bindsym $mod+XF86AudioMicMute exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
-bindsym Control+$mod+bracketright exec --no-startup-id "~/.config/i3/scripts/volume_mute_mic.sh"
+bindsym XF86AudioMicMute exec --no-startup-id "volume mic mute"
+bindsym $mod+XF86AudioMicMute exec --no-startup-id "volume mic mute"
+bindsym Control+$mod+bracketright exec --no-startup-id "volume mic mute"
 
 # toggle keyboard layout
 bindsym $mod2+Shift+a exec "~/.scripts/keyboard_toggle.sh"

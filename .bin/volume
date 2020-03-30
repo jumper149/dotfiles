@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+source ~/.system-info.sh
+
+case "${1}" in
+    'down')
+        pactl set-sink-mute "${MAIN_PULSEAUDIO_SINK}" "false"
+        pactl set-sink-volume "${MAIN_PULSEAUDIO_SINK}" "-5%"
+        paplay "${XDG_DATA_HOME}/sounds/feedback.aiff"
+        ;;
+    'up')
+        pactl set-sink-mute "${MAIN_PULSEAUDIO_SINK}" "false"
+        pactl set-sink-volume "${MAIN_PULSEAUDIO_SINK}" "+5%"
+        paplay "${XDG_DATA_HOME}/sounds/feedback.aiff"
+        ;;
+    'mute')
+        pactl set-sink-mute "${MAIN_PULSEAUDIO_SINK}" "toggle"
+        ;;
+    'mic')
+        case "${2}" in
+            'mute')
+                pactl set-source-mute "${MAIN_PULSEAUDIO_SOURCE}" "toggle"
+                ;;
+            *)
+                exit 2
+                ;;
+        esac
+        ;;
+    *)
+        exit 1
+        ;;
+esac
