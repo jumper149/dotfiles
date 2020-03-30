@@ -57,7 +57,7 @@ signal=15
 [volume]
 command=~/.config/i3blocks/scripts/volume.sh
 interval=30
-signal=14 # from "~/.config/i3/scripts/volume_{down,mute,up}.sh"
+signal=14
 
 [battery]
 command=~/.config/i3blocks/scripts/battery.sh
