@@ -37,9 +37,6 @@ import Local.XMobar ( spawnXMobar
                     )
 
 
-myBorderWidth :: Dimension
-myBorderWidth = 4
-
 myNormalBorderColor :: Color
 myNormalBorderColor = color7 colors
 
@@ -91,23 +88,13 @@ myLayoutHook = onWorkspace (show WsBrowser) myBrowserLayout
              $ myMainLayout
 
 
-myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = False
-
-myModMask :: ButtonMask
-myModMask = mod4Mask
-
-myTerminal :: String
-myTerminal = "kitty"
-
-
 myStartupHook :: X ()
 myStartupHook = windows . S.greedyView $ show WsHacking
 
 
 main :: IO ()
 main = do xmproc <- spawnXMobar
-          let c = def { borderWidth        = myBorderWidth
+          let c = def { borderWidth        = 4
                       , normalBorderColor  = myNormalBorderColor
                       , focusedBorderColor = myFocusedBorderColor
                       , workspaces         = myWorkspaces
@@ -115,9 +102,9 @@ main = do xmproc <- spawnXMobar
                       , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
                       , startupHook        = myStartupHook
                       , logHook            = myLogHook xmproc
-                      , focusFollowsMouse  = myFocusFollowsMouse
-                      , modMask            = myModMask
-                      , terminal           = myTerminal
+                      , focusFollowsMouse  = False
+                      , modMask            = mod4Mask
+                      , terminal           = "kitty"
                       }
               fc = myApplyKeys . docks . ewmh $ c
           xmonad fc
