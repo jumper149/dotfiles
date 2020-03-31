@@ -1,7 +1,5 @@
 import XMonad hiding ( Color -- imports modules: Main, Core, Config, Layout, ManageHook, Operations
                      )
-import XMonad.Actions.SpawnOn ( manageSpawn
-                              )
 import XMonad.Hooks.ManageDocks ( docks
                                 )
 import XMonad.Hooks.EwmhDesktops ( ewmh
@@ -42,7 +40,7 @@ main = do xmproc <- spawnXMobar
                       , focusedBorderColor = myFocusedBorderColor
                       , workspaces         = workspaceIds
                       , layoutHook         = myLayoutHook
-                      , manageHook         = myManageHook <+> manageSpawn <+> manageHook def -- TODO move stuff to Local.ManageHook, remove manageHook?
+                      , manageHook         = myManageHook
                       , startupHook        = myStartupHook
                       , logHook            = myLogHook xmproc
                       , focusFollowsMouse  = False
