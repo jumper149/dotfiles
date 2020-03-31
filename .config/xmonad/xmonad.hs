@@ -39,6 +39,8 @@ import Local.LogHook ( myLogHook
                      )
 import Local.ManageHook ( myManageHook
                         )
+import Local.Workspace ( Workspace (..)
+                       )
 import Local.XMobar ( spawnXMobar
                     )
 
@@ -53,16 +55,8 @@ myFocusedBorderColor :: Color
 myFocusedBorderColor = color2 colors
 
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = [ "1 Browser"
-               , "2 Hacking"
-               , "3 Media"
-               , "4 Social"
-               , "5 Writing"
-               , "6 GIMP"
-               , "7 Gaming"
-               , "8 Control"
-               , "9 Other"
-               ]
+myWorkspaces = show <$> wss
+    where wss = [ minBound .. maxBound ] :: [Workspace]
 
 myTabTheme :: Theme
 myTabTheme = def { activeColor         = color2 colors
@@ -100,8 +94,8 @@ myWritingLayout =   myMainLayout
         topbot = 100
         sides  = 450
 
-myLayoutHook = onWorkspace "1 Browser" myBrowserLayout
-             . onWorkspace "5 Writing" myWritingLayout
+myLayoutHook = onWorkspace (show WsBrowser) myBrowserLayout
+             . onWorkspace (show WsWriting) myWritingLayout
              $ myMainLayout
 
 
@@ -155,30 +149,31 @@ myKeys = [ ("M-S-q"         , kill)
          , ("<XF86AudioPrev>"   , spawn "mpc prev")
          , ("M-<Print>"     , spawn "scrot")
          , ("<Print>"       , spawn "scrot")
-         , ("M-C-m"         , spawnOn "9 Other" . inTerminal $ "offlineimap")
+         , ("M-C-m"         , spawnOn (show WsOther) . inTerminal $ "offlineimap")
 
          , ("M-<Return>"    , spawn myTerminal)
          , ("M-d"           , spawn "rofi -show run")
          , ("M-r"           , spawn . inTerminal $ "ranger")
 
-         , ("M-f"           , spawnOnAndGoTo "1 Browser" "firefox")
-         , ("M-n"           , spawnOnAndGoTo "3 Media" $ inTerminal "ncmpcpp")
-         , ("M-t"           , spawnOnAndGoTo "4 Social" "telegram-desktop")
-         , ("M-m"           , spawnOnAndGoTo "4 Social" $ inTerminal "mutt")
-         , ("M-w"           , spawnOnAndGoTo "4 Social" $ inTerminal "weechat")
-         , ("M-g"           , spawnOnAndGoTo "6 GIMP" "gimp")
-         , ("M-p"           , spawnOnAndGoTo "8 Control" "pavucontrol")
-         , ("M-x"           , spawnOnAndGoTo "8 Control" "arandr")
-         , ("M-b"           , spawnOnAndGoTo "9 Other" "baobab")
+         , ("M-f"           , spawnOnAndGoTo WsBrowser "firefox")
+         , ("M-n"           , spawnOnAndGoTo WsMedia $ inTerminal "ncmpcpp")
+         , ("M-t"           , spawnOnAndGoTo WsSocial "telegram-desktop")
+         , ("M-m"           , spawnOnAndGoTo WsSocial $ inTerminal "mutt")
+         , ("M-w"           , spawnOnAndGoTo WsSocial $ inTerminal "weechat")
+         , ("M-g"           , spawnOnAndGoTo WsGIMP "gimp")
+         , ("M-p"           , spawnOnAndGoTo WsControl "pavucontrol")
+         , ("M-x"           , spawnOnAndGoTo WsControl "arandr")
+         , ("M-b"           , spawnOnAndGoTo WsOther "baobab")
          ]
   where inTerminal :: String -> String
         inTerminal prog = myTerminal ++ " --name '" ++ prog ++ "' -e '" ++ prog ++ "'"
 
         -- requires _NET_WM_PID to be set on creation; doesn't work on:
         --   urxvtc(offlineimap), qutebrowser, chromium
-        spawnOnAndGoTo :: WorkspaceId -> String -> X ()
-        spawnOnAndGoTo ws prog = do spawnOn ws prog
-                                    windows . W.greedyView $ ws
+        spawnOnAndGoTo :: Workspace -> String -> X ()
+        spawnOnAndGoTo ws prog = do spawnOn wsId prog
+                                    windows . W.greedyView $ wsId
+            where wsId = show ws
 
 myRemovedKeys :: [String]
 myRemovedKeys = [ "M-q"   -- quit
@@ -211,7 +206,7 @@ myApplyKeys = (`additionalKeysP` myKeys) . (`removeKeysP` myRemovedKeys)
 
 
 myStartupHook :: X ()
-myStartupHook = windows . W.greedyView $ "2 Hacking"
+myStartupHook = windows . W.greedyView $ show WsHacking
 
 
 main :: IO ()
