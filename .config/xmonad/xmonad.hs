@@ -46,7 +46,7 @@ import Local.XMobar ( spawnXMobar
 
 
 myBorderWidth :: Dimension
-myBorderWidth = 4 :: Dimension
+myBorderWidth = 4
 
 myNormalBorderColor :: Color
 myNormalBorderColor = color7 colors
@@ -193,13 +193,13 @@ myRemovedKeys = [ "M-q"   -- quit
                 ]
 
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = False :: Bool
+myFocusFollowsMouse = False
 
 myModMask :: ButtonMask
-myModMask = mod4Mask :: ButtonMask
+myModMask = mod4Mask
 
 myTerminal :: String
-myTerminal = "kitty" :: String
+myTerminal = "kitty"
 
 myApplyKeys :: XConfig l -> XConfig l
 myApplyKeys = (`additionalKeysP` myKeys) . (`removeKeysP` myRemovedKeys)
