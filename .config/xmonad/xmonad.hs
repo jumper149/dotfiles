@@ -25,24 +25,16 @@ import XMonad.Hooks.ManageDocks ( docks
 import XMonad.Util.EZConfig ( additionalKeysP
                             , removeKeysP
                             )
-import XMonad.Util.Run ( spawnPipe
-                       , hPutStrLn
-                       )
-import XMonad.Hooks.DynamicLog ( PP (..)
-                               , xmobarPP
-                               , dynamicLogWithPP
-                               )
 import XMonad.Hooks.EwmhDesktops ( ewmh
                                  )
 import XMonad.Hooks.ManageHelpers ( doCenterFloat
                                   )
 
-import GHC.IO.Handle ( Handle
-                     )
-
 import qualified XMonad.StackSet as W
 
 import Local.Color
+import Local.LogHook
+import Local.XMobar
 
 
 myBorderWidth = 4 :: Dimension
@@ -107,30 +99,6 @@ myManageHook = composeAll
                  , className =? "Gnuplot"    --> doCenterFloat
                  , className =? "gnuplot_qt" --> doCenterFloat
                  ]
-
-
-myPP :: Handle -> PP
-myPP h = xmobarPP { ppOutput           = hPutStrLn h
-                  , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                  , ppWsSep            = ""
-                  , ppCurrent          = xmobarWsPrep "current"
-                  , ppVisible          = xmobarWsPrep "visible"
-                  , ppUrgent           = xmobarWsPrep "urgent"
-                  , ppHidden           = xmobarWsPrep "hidden"
-                  , ppHiddenNoWindows  = xmobarWsPrep "hiddenNoWindows"
-                  } where
-
-  xmobarWsPrep :: String -> WorkspaceId -> String
-  xmobarWsPrep status = clickableIcon status . take 1
-
-  clickableIcon :: String -> WorkspaceId -> String
-  clickableIcon status ws = let n = take 1 ws
-                            in "<action=xdotool key super+" ++ n ++ ">" ++
-                               "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
-                               "</action>"
-
-myLogHook :: Handle -> X ()
-myLogHook = dynamicLogWithPP . myPP
 
 
 myKeys :: [(String , X ())]
@@ -238,7 +206,7 @@ myStartupHook = windows . W.greedyView $ "2 Hacking"
 
 
 main :: IO ()
-main = do xmproc <- spawnPipe "xmobar --iconroot=\"${XDG_CONFIG_HOME}/xmobar/icons\" \"${XDG_CONFIG_HOME}/xmobar/xmobarrc\""
+main = do xmproc <- spawnXMobar
           let c = def { borderWidth        = myBorderWidth
                       , normalBorderColor  = myNormalBorderColor
                       , focusedBorderColor = myFocusedBorderColor
