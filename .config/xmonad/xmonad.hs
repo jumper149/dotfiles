@@ -1,6 +1,5 @@
 import XMonad hiding ( Color -- imports modules: Main, Core, Config, Layout, ManageHook, Operations
                      )
-import qualified XMonad.StackSet as S
 import XMonad.Actions.SpawnOn ( manageSpawn
                               )
 import XMonad.Hooks.ManageDocks ( docks
@@ -20,7 +19,9 @@ import Local.LogHook ( myLogHook
                      )
 import Local.ManageHook ( myManageHook
                         )
-import Local.Workspace ( Workspace (..)
+import Local.StartupHook ( myStartupHook
+                         )
+import Local.Workspace ( workspaceIds
                        )
 import Local.XMobar ( spawnXMobar
                     )
@@ -32,19 +33,12 @@ myNormalBorderColor = color7 colors
 myFocusedBorderColor :: Color
 myFocusedBorderColor = color2 colors
 
-myWorkspaces :: [WorkspaceId]
-myWorkspaces = show <$> wss
-    where wss = [ minBound .. maxBound ] :: [Workspace]
-
-myStartupHook :: X ()
-myStartupHook = windows . S.greedyView $ show WsHacking
-
 main :: IO ()
 main = do xmproc <- spawnXMobar
           let c = def { borderWidth        = 4
                       , normalBorderColor  = myNormalBorderColor
                       , focusedBorderColor = myFocusedBorderColor
-                      , workspaces         = myWorkspaces
+                      , workspaces         = workspaceIds
                       , layoutHook         = myLayoutHook
                       , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
                       , startupHook        = myStartupHook
