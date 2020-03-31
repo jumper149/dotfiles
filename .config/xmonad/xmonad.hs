@@ -21,6 +21,8 @@ import Local.ManageHook ( myManageHook
                         )
 import Local.StartupHook ( myStartupHook
                          )
+import Local.UrgencyHook ( applyUrgencyHook
+                         )
 import Local.Workspace ( workspaceIds
                        )
 import Local.XMobar ( spawnXMobar
@@ -40,12 +42,12 @@ main = do xmproc <- spawnXMobar
                       , focusedBorderColor = myFocusedBorderColor
                       , workspaces         = workspaceIds
                       , layoutHook         = myLayoutHook
-                      , manageHook         = myManageHook <+> manageSpawn <+> manageHook def
+                      , manageHook         = myManageHook <+> manageSpawn <+> manageHook def -- TODO move stuff to Local.ManageHook, remove manageHook?
                       , startupHook        = myStartupHook
                       , logHook            = myLogHook xmproc
                       , focusFollowsMouse  = False
                       , modMask            = mod4Mask
                       , terminal           = "kitty"
                       }
-              fc = myApplyKeys . docks . ewmh $ c
+              fc = myApplyKeys . docks . applyUrgencyHook . ewmh $ c
           xmonad fc
