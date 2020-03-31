@@ -1,4 +1,5 @@
-import XMonad -- imports modules: Main, Core, Config, Layout, ManageHook, Operations
+import XMonad hiding ( Color -- imports modules: Main, Core, Config, Layout, ManageHook, Operations
+                     )
 import XMonad.Actions.CycleWS ( nextWS
                               , prevWS
                               )
@@ -25,60 +26,31 @@ import XMonad.Hooks.ManageDocks ( docks
 import XMonad.Util.EZConfig ( additionalKeysP
                             , removeKeysP
                             )
-import XMonad.Util.Run ( spawnPipe
-                       , hPutStrLn
-                       )
-import XMonad.Hooks.DynamicLog ( PP (..)
-                               , xmobarPP
-                               , dynamicLogWithPP
-                               )
 import XMonad.Hooks.EwmhDesktops ( ewmh
                                  )
-import XMonad.Hooks.ManageHelpers ( doCenterFloat
-                                  )
-
-import GHC.IO.Handle ( Handle
-                     )
 
 import qualified XMonad.StackSet as W
 
-
--- black
-myColor0 = "#282a2e" :: String
-myColor8 = "#373b41" :: String
-
--- red
-myColor1 = "#a54242" :: String
-myColor9 = "#cc6666" :: String
-
--- green
-myColor2 = "#8c9440" :: String
-myColorA = "#b5bd68" :: String
-
--- yellow
-myColor3 = "#de935f" :: String
-myColorB = "#f0c674" :: String
-
--- blue
-myColor4 = "#5f819d" :: String
-myColorC = "#81a2be" :: String
-
--- magenta
-myColor5 = "#85678f" :: String
-myColorD = "#b294bb" :: String
-
--- cyan
-myColor6 = "#5e8d87" :: String
-myColorE = "#8abeb7" :: String
-
--- white
-myColor7 = "#707880" :: String
-myColorF = "#c5c8c6" :: String
+import Local.Color ( Colors (..)
+                   , Color
+                   , colors
+                   )
+import Local.LogHook ( myLogHook
+                     )
+import Local.ManageHook ( myManageHook
+                        )
+import Local.XMobar ( spawnXMobar
+                    )
 
 
+myBorderWidth :: Dimension
 myBorderWidth = 4 :: Dimension
-myNormalBorderColor  = myColor7 :: String
-myFocusedBorderColor = myColor2 :: String
+
+myNormalBorderColor :: Color
+myNormalBorderColor = color7 colors
+
+myFocusedBorderColor :: Color
+myFocusedBorderColor = color2 colors
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = [ "1 Browser"
@@ -93,15 +65,15 @@ myWorkspaces = [ "1 Browser"
                ]
 
 myTabTheme :: Theme
-myTabTheme = def { activeColor         = myColor2
-                 , inactiveColor       = myColor0
-                 , urgentColor         = myColor3
-                 , activeBorderColor   = myColor2
-                 , inactiveBorderColor = myColor0
-                 , urgentBorderColor   = myColor3
-                 , activeTextColor     = myColor0
-                 , inactiveTextColor   = myColor7
-                 , urgentTextColor     = myColor0
+myTabTheme = def { activeColor         = color2 colors
+                 , inactiveColor       = color0 colors
+                 , urgentColor         = color3 colors
+                 , activeBorderColor   = color2 colors
+                 , inactiveBorderColor = color0 colors
+                 , urgentBorderColor   = color3 colors
+                 , activeTextColor     = color0 colors
+                 , inactiveTextColor   = color7 colors
+                 , urgentTextColor     = color0 colors
                  , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
                  }
 
@@ -131,37 +103,6 @@ myWritingLayout =   myMainLayout
 myLayoutHook = onWorkspace "1 Browser" myBrowserLayout
              . onWorkspace "5 Writing" myWritingLayout
              $ myMainLayout
-
-myManageHook :: ManageHook
-myManageHook = composeAll
-                 [ className =? "matplotlib" --> doCenterFloat
-                 , className =? "Gnuplot"    --> doCenterFloat
-                 , className =? "gnuplot_qt" --> doCenterFloat
-                 ]
-
-
-myPP :: Handle -> PP
-myPP h = xmobarPP { ppOutput           = hPutStrLn h
-                  , ppOrder            = \(workspaces:layout:title:_) -> [workspaces]
-                  , ppWsSep            = ""
-                  , ppCurrent          = xmobarWsPrep "current"
-                  , ppVisible          = xmobarWsPrep "visible"
-                  , ppUrgent           = xmobarWsPrep "urgent"
-                  , ppHidden           = xmobarWsPrep "hidden"
-                  , ppHiddenNoWindows  = xmobarWsPrep "hiddenNoWindows"
-                  } where
-
-  xmobarWsPrep :: String -> WorkspaceId -> String
-  xmobarWsPrep status = clickableIcon status . take 1
-
-  clickableIcon :: String -> WorkspaceId -> String
-  clickableIcon status ws = let n = take 1 ws
-                            in "<action=xdotool key super+" ++ n ++ ">" ++
-                               "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
-                               "</action>"
-
-myLogHook :: Handle -> X ()
-myLogHook = dynamicLogWithPP . myPP
 
 
 myKeys :: [(String , X ())]
@@ -256,8 +197,13 @@ myRemovedKeys = [ "M-q"   -- quit
                 , "M-m"   -- focus master window
                 ]
 
+myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False :: Bool
+
+myModMask :: ButtonMask
 myModMask = mod4Mask :: ButtonMask
+
+myTerminal :: String
 myTerminal = "kitty" :: String
 
 myApplyKeys :: XConfig l -> XConfig l
@@ -269,7 +215,7 @@ myStartupHook = windows . W.greedyView $ "2 Hacking"
 
 
 main :: IO ()
-main = do xmproc <- spawnPipe "xmobar --iconroot=\"${XDG_CONFIG_HOME}/xmobar/icons\" \"${XDG_CONFIG_HOME}/xmobar/xmobarrc\""
+main = do xmproc <- spawnXMobar
           let c = def { borderWidth        = myBorderWidth
                       , normalBorderColor  = myNormalBorderColor
                       , focusedBorderColor = myFocusedBorderColor
