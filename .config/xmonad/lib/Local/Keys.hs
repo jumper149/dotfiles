@@ -33,7 +33,7 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-<Tab>"       , nextWS)
          , ("M-S-<Tab>"     , prevWS)
          , ("M-<Space>"     , cycleLayout) -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged; fix in 'Overwrite.Layout';
-                                           --       maybe also don't clear the default-keybinds "M-<Space>" and "M-S-<Space>"
+                                           --       maybe also don't clear the default-keybinds "M-<Space>"
          , ("M-h"           , screenWorkspace 0 >>= flip whenJust (windows . S.view))
          , ("M-<Left>"      , screenWorkspace 0 >>= flip whenJust (windows . S.view))
          , ("M-l"           , screenWorkspace 1 >>= flip whenJust (windows . S.view))
@@ -103,22 +103,21 @@ terminalFromConf :: (MonadIO m, MonadReader XConf m) => m String
 terminalFromConf = reader $ terminal . config
 
 myRemovedKeys :: [String]
-myRemovedKeys = [ "M-q"   -- quit
-                , "M-S-q" -- restart
-                , "M-<Space>"   -- cycle layouts
-                , "M-S-<Space>" -- reset current layout
-                , "M-w"   -- Xinerama 1
+myRemovedKeys = [ "M-q"       -- quit
+                , "M-S-q"     -- restart
+                , "M-<Space>" -- cycle layouts
+                , "M-w"       -- Xinerama 1
                 , "M-S-w"
-                , "M-e"   -- Xinerama 2
+                , "M-e"       -- Xinerama 2
                 , "M-S-e"
-                , "M-r"   -- Xinerama 3
+                , "M-r"       -- Xinerama 3
                 , "M-S-r"
-                , "M-h"   -- resize master area
+                , "M-h"       -- resize master area
                 , "M-l"
-                , "M-t"   -- tile floating window
-                , "M-n"   -- refresh viewed sizes
-                , "M-c"   -- close window
-                , "M-m"   -- focus master window
+                , "M-t"       -- tile floating window
+                , "M-n"       -- refresh viewed sizes
+                , "M-c"       -- close window
+                , "M-m"       -- focus master window
                 ]
 
 myApplyKeys :: XConfig l -> XConfig l
