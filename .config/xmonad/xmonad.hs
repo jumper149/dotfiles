@@ -27,14 +27,18 @@ import XMonad.Util.EZConfig ( additionalKeysP
                             )
 import XMonad.Hooks.EwmhDesktops ( ewmh
                                  )
-import XMonad.Hooks.ManageHelpers ( doCenterFloat
-                                  )
 
 import qualified XMonad.StackSet as W
 
-import Local.Color
-import Local.LogHook
-import Local.XMobar
+import Local.Color ( Colors (..)
+                   , colors
+                   )
+import Local.LogHook ( myLogHook
+                     )
+import Local.ManageHook ( myManageHook
+                        )
+import Local.XMobar ( spawnXMobar
+                    )
 
 
 myBorderWidth = 4 :: Dimension
@@ -92,13 +96,6 @@ myWritingLayout =   myMainLayout
 myLayoutHook = onWorkspace "1 Browser" myBrowserLayout
              . onWorkspace "5 Writing" myWritingLayout
              $ myMainLayout
-
-myManageHook :: ManageHook
-myManageHook = composeAll
-                 [ className =? "matplotlib" --> doCenterFloat
-                 , className =? "Gnuplot"    --> doCenterFloat
-                 , className =? "gnuplot_qt" --> doCenterFloat
-                 ]
 
 
 myKeys :: [(String , X ())]

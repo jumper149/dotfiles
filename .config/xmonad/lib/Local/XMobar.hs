@@ -21,13 +21,13 @@ spawnXMobar = spawnPipe $ intercalate " " [ executable
                                           , fileXMobarRc
                                           ]
     where executable = "xmobar"
-          flagIconroot = "--iconroot=" <> xMobarConfigHome <> "/icons"
+          flagIconroot = "--iconroot=" <> xMobarConfigHome <> "/icons" -- can't be set with relative path in xmobarrc
           fileXMobarRc = xMobarConfigHome <> "/xmobarrc"
           xMobarConfigHome = "\"${XDG_CONFIG_HOME}\"/xmobar"
 
 myPP :: Handle -> PP
 myPP h = xmobarPP { ppOutput          = hPutStrLn h
-                  , ppOrder           = \(workspaces:layout:title:_) -> [workspaces]
+                  , ppOrder           = \ (wss:_) -> [wss]
                   , ppWsSep           = ""
                   , ppCurrent         = xmobarWsPrep "current"
                   , ppVisible         = xmobarWsPrep "visible"
@@ -41,6 +41,6 @@ xmobarWsPrep status = clickableIcon status . take 1
 
 clickableIcon :: String -> WorkspaceId -> String
 clickableIcon status ws = let n = take 1 ws
-                          in "<action=xdotool key super+" ++ n ++ ">" ++
-                             "<icon=workspaces/" ++ status ++ "/workspace_" ++ n ++ ".xpm/>" ++
+                          in "<action=xdotool key super+" <> n <> ">" <>
+                             "<icon=workspaces/" <> status <> "/workspace_" <> n <> ".xpm/>" <>
                              "</action>"
