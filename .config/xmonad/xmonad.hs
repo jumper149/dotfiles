@@ -1,7 +1,5 @@
 import XMonad hiding ( Color -- imports modules: Main, Core, Config, Layout, ManageHook, Operations
                      )
-import XMonad.Actions.SpawnOn ( manageSpawn
-                              )
 import XMonad.Hooks.ManageDocks ( docks
                                 )
 import XMonad.Hooks.EwmhDesktops ( ewmh
