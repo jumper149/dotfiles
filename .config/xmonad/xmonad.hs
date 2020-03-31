@@ -1,4 +1,5 @@
-import XMonad -- imports modules: Main, Core, Config, Layout, ManageHook, Operations
+import XMonad hiding ( Color -- imports modules: Main, Core, Config, Layout, ManageHook, Operations
+                     )
 import XMonad.Actions.CycleWS ( nextWS
                               , prevWS
                               )
@@ -31,6 +32,7 @@ import XMonad.Hooks.EwmhDesktops ( ewmh
 import qualified XMonad.StackSet as W
 
 import Local.Color ( Colors (..)
+                   , Color
                    , colors
                    )
 import Local.LogHook ( myLogHook
@@ -41,8 +43,13 @@ import Local.XMobar ( spawnXMobar
                     )
 
 
+myBorderWidth :: Dimension
 myBorderWidth = 4 :: Dimension
-myNormalBorderColor  = color7 colors
+
+myNormalBorderColor :: Color
+myNormalBorderColor = color7 colors
+
+myFocusedBorderColor :: Color
 myFocusedBorderColor = color2 colors
 
 myWorkspaces :: [WorkspaceId]
@@ -190,8 +197,13 @@ myRemovedKeys = [ "M-q"   -- quit
                 , "M-m"   -- focus master window
                 ]
 
+myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False :: Bool
+
+myModMask :: ButtonMask
 myModMask = mod4Mask :: ButtonMask
+
+myTerminal :: String
 myTerminal = "kitty" :: String
 
 myApplyKeys :: XConfig l -> XConfig l
