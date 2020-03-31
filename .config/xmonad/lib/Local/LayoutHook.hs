@@ -80,8 +80,7 @@ myLayoutHook = onWorkspace (show WsBrowser) myBrowserLayout
 
 -- | Toggle gaps on all workspaces.
 toggleGaps :: X ()
-toggleGaps = do traverse_ broadcastMessage messages
-                refresh
+toggleGaps = do traverse_ sendMessage messages
     where messages = [ ModifyWindowBorderEnabled not
                      , ModifyScreenBorderEnabled not
                      ]
