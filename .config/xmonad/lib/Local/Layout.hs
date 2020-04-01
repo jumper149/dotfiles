@@ -4,7 +4,8 @@ module Local.Layout ( MyChoose
                     , (||||)
                     , cycleLayout
                     , toggleGaps
-                    , myTabTheme
+                    , spacedTall
+                    , tabTheme
                     ) where
 
 import XMonad hiding ( Choose
@@ -15,11 +16,20 @@ import XMonad hiding ( Choose
 import XMonad.StackSet as S
 import XMonad.Layout.Decoration ( Theme (..)
                                 )
+import XMonad.Layout.LayoutModifier ( ModifiedLayout
+                                    )
 import XMonad.Layout.Spacing ( SpacingModifier (..)
+                             , Border (..)
+                             , Spacing
+                             , spacingRaw
                              )
 
-import Data.Foldable (traverse_)
-import Data.Maybe (fromMaybe)
+import Data.Foldable ( traverse_
+                     )
+import Data.Maybe ( fromMaybe
+                  )
+import Data.Ratio ( (%)
+                  )
 
 import Local.Overwrite.Layout ( Choose (..)
                               , (|||)
@@ -28,18 +38,27 @@ import Local.Overwrite.Layout ( Choose (..)
 
 import Local.Color
 
-myTabTheme :: Theme
-myTabTheme = def { activeColor         = color2 colors
-                 , inactiveColor       = color0 colors
-                 , urgentColor         = color3 colors
-                 , activeBorderColor   = color2 colors
-                 , inactiveBorderColor = color0 colors
-                 , urgentBorderColor   = color3 colors
-                 , activeTextColor     = color0 colors
-                 , inactiveTextColor   = color7 colors
-                 , urgentTextColor     = color0 colors
-                 , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
-                 }
+spacedTall :: ModifiedLayout Spacing Tall a
+spacedTall = spacingRaw False
+               (Border outer outer outer outer) True
+               (Border inner inner inner inner) True
+                --     n   increment ratio
+               (Tall   1   (3%100)   (1%2))
+    where outer = 20
+          inner = 10
+
+tabTheme :: Theme
+tabTheme = def { activeColor         = color2 colors
+               , inactiveColor       = color0 colors
+               , urgentColor         = color3 colors
+               , activeBorderColor   = color2 colors
+               , inactiveBorderColor = color0 colors
+               , urgentBorderColor   = color3 colors
+               , activeTextColor     = color0 colors
+               , inactiveTextColor   = color7 colors
+               , urgentTextColor     = color0 colors
+               , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
+               }
 
 -- | Toggle gaps on all workspaces.
 toggleGaps :: X ()
