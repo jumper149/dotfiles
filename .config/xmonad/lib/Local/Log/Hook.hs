@@ -1,5 +1,5 @@
-module Local.LogHook ( myLogHook
-                     ) where
+module Local.Log.Hook ( myLogHook
+                      ) where
 
 import XMonad
 import XMonad.Hooks.DynamicLog ( dynamicLogWithPP
@@ -8,8 +8,8 @@ import XMonad.Hooks.DynamicLog ( dynamicLogWithPP
 import GHC.IO.Handle ( Handle
                      )
 
-import Local.XMobar ( myPP
-                    )
+import Local.Log.XMobar ( myPP
+                        )
 
 myLogHook :: Handle -> X ()
 myLogHook = dynamicLogWithPP . myPP

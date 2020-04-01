@@ -1,5 +1,5 @@
-module Local.StartupHook ( myStartupHook
-                         ) where
+module Local.Startup.Hook ( myStartupHook
+                          ) where
 
 import XMonad
 import qualified XMonad.StackSet as S

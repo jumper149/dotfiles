@@ -5,39 +5,31 @@ import XMonad.Hooks.ManageDocks ( docks
 import XMonad.Hooks.EwmhDesktops ( ewmh
                                  )
 
-import Local.Color ( Colors (..)
-                   , Color
-                   , colors
-                   )
+import Local.Border ( BorderTheme (..)
+                    , myBorderTheme
+                    )
 import Local.Keys ( applyKeys
                   )
 import Local.Layout.Hook ( myLayoutHook
                          )
-import Local.LogHook ( myLogHook
-                     )
-import Local.ManageHook ( myManageHook
+import Local.Log.Hook ( myLogHook
+                      )
+import Local.Log.XMobar ( spawnXMobar
                         )
-import Local.StartupHook ( myStartupHook
+import Local.Manage.Hook ( myManageHook
                          )
+import Local.Startup.Hook ( myStartupHook
+                          )
 import Local.UrgencyHook ( applyUrgencyHook
                          )
 import Local.Workspace ( workspaceIds
                        )
-import Local.XMobar ( spawnXMobar
-                    )
-
-
-myNormalBorderColor :: Color
-myNormalBorderColor = color7 colors
-
-myFocusedBorderColor :: Color
-myFocusedBorderColor = color2 colors
 
 main :: IO ()
 main = do xmproc <- spawnXMobar
-          let c = def { borderWidth        = 4
-                      , normalBorderColor  = myNormalBorderColor
-                      , focusedBorderColor = myFocusedBorderColor
+          let c = def { borderWidth        = borderWidth' myBorderTheme
+                      , normalBorderColor  = inactiveBorderColor myBorderTheme
+                      , focusedBorderColor = activeBorderColor myBorderTheme
                       , workspaces         = workspaceIds
                       , layoutHook         = myLayoutHook
                       , manageHook         = myManageHook

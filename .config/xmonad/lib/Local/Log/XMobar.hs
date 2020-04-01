@@ -1,6 +1,6 @@
-module Local.XMobar ( myPP
-                    , spawnXMobar
-                    ) where
+module Local.Log.XMobar ( myPP
+                        , spawnXMobar
+                        ) where
 
 import XMonad
 import XMonad.Hooks.DynamicLog ( PP (..)
