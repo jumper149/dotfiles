@@ -13,26 +13,22 @@ import Local.Layout.Choose ( (-|||-)
                            )
 import Local.Layout.Util ( wsLayout
                          , space
+                         , spaceTabbed
                          , myMastered
                          , myTall
                          , myTabbed
+                         , mySpacedTabbed
                          )
 import Local.Workspace ( Workspace (..)
                        )
 
-basicLayout = avoidStruts (space myTall)
-        -|||- avoidStruts (Mirror (space myTall))
+basicLayout = avoidStruts (space 20 10 myTall)
+        -|||- avoidStruts (spaceTabbed 20 10 (myMastered mySpacedTabbed))
+        -|||- avoidStruts (Mirror (space 20 10 myTall))
         -|||- noBorders Full
 
 browserLayout = avoidStruts (noBorders myTabbed)
           -|||- noBorders Full
 
-writingLayout = basicLayout
-
-otherLayout = avoidStruts (myMastered (noBorders myTabbed))
-        -|||- basicLayout
-
 myLayoutHook = wsLayout WsBrowser browserLayout
-             . wsLayout WsWriting writingLayout
-             . wsLayout WsOther   otherLayout
              $ basicLayout
