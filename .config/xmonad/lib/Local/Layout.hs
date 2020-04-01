@@ -4,6 +4,7 @@ module Local.Layout ( MyChoose
                     , (||||)
                     , cycleLayout
                     , toggleGaps
+                    , wsLayout
                     , spacedTall
                     , tabTheme
                     ) where
@@ -13,11 +14,14 @@ import XMonad hiding ( Choose
                      , ChangeLayout ( NextLayout
                                     )
                      )
-import XMonad.StackSet as S
+import qualified XMonad.StackSet as S
 import XMonad.Layout.Decoration ( Theme (..)
                                 )
 import XMonad.Layout.LayoutModifier ( ModifiedLayout
                                     )
+import XMonad.Layout.PerWorkspace ( PerWorkspace
+                                  , onWorkspace
+                                  )
 import XMonad.Layout.Spacing ( SpacingModifier (..)
                              , Border (..)
                              , Spacing
@@ -36,7 +40,14 @@ import Local.Overwrite.Layout ( Choose (..)
                               , ChangeLayout (..)
                               )
 
-import Local.Color
+import Local.Color ( Colors (..)
+                   , colors
+                   )
+import Local.Workspace ( Workspace
+                       )
+
+wsLayout :: (LayoutClass l a, LayoutClass r a) => Workspace -> l a -> r a -> PerWorkspace l r a
+wsLayout ws l = onWorkspace (show ws) l
 
 spacedTall :: ModifiedLayout Spacing Tall a
 spacedTall = spacingRaw False

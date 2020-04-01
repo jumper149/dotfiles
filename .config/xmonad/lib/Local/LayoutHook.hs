@@ -10,13 +10,16 @@ import XMonad.Layout.Decoration ( shrinkText
                                 )
 import XMonad.Layout.NoBorders ( noBorders
                                )
-import XMonad.Layout.PerWorkspace ( onWorkspace
-                                  )
 import XMonad.Layout.Tabbed ( tabbed
                             )
 
-import Local.Layout
-import Local.Workspace
+import Local.Layout ( (||||)
+                    , wsLayout
+                    , spacedTall
+                    , tabTheme
+                    )
+import Local.Workspace ( Workspace (..)
+                       )
 
 basicLayout = avoidStruts spacedTall
          |||| avoidStruts (Mirror spacedTall)
@@ -27,6 +30,9 @@ browserLayout = avoidStruts (noBorders (tabbed shrinkText tabTheme))
 
 writingLayout = basicLayout -- TODO add other layouts
 
-myLayoutHook = onWorkspace (show WsBrowser) browserLayout
-             . onWorkspace (show WsWriting) writingLayout
+otherLayout = basicLayout
+
+myLayoutHook = wsLayout WsBrowser browserLayout
+             . wsLayout WsWriting writingLayout
+             . wsLayout WsOther   otherLayout
              $ basicLayout
