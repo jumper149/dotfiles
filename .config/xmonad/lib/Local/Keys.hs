@@ -1,6 +1,6 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-module Local.Keys ( myApplyKeys
+module Local.Keys ( applyKeys
                   ) where
 
 import XMonad
@@ -15,9 +15,9 @@ import XMonad.Util.EZConfig ( additionalKeysP
                             )
 
 import Local.Workspace
-import Local.LayoutHook ( toggleGaps
-                        , cycleLayout
-                        )
+import Local.Layout ( toggleGaps
+                    , cycleLayout
+                    )
 
 myKeys :: [(String , X ())]
 myKeys = [ ("M-S-q"         , kill)
@@ -120,5 +120,5 @@ myRemovedKeys = [ "M-q"       -- quit
                 , "M-m"       -- focus master window
                 ]
 
-myApplyKeys :: XConfig l -> XConfig l
-myApplyKeys = (`additionalKeysP` myKeys) . (`removeKeysP` myRemovedKeys)
+applyKeys :: XConfig l -> XConfig l
+applyKeys = (`additionalKeysP` myKeys) . (`removeKeysP` myRemovedKeys)
