@@ -8,8 +8,8 @@ import XMonad.Hooks.EwmhDesktops ( ewmh
 import Local.Border ( BorderTheme (..)
                     , myBorderTheme
                     )
-import Local.Keys ( applyKeys
-                  )
+import Local.Bindings.Keys ( applyKeys
+                           )
 import Local.Layout.Hook ( myLayoutHook
                          )
 import Local.Log.Hook ( myLogHook
