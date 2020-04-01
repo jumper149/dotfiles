@@ -6,32 +6,31 @@ module Local.Layout.Hook ( myLayoutHook
 import XMonad
 import XMonad.Hooks.ManageDocks ( avoidStruts
                                 )
-import XMonad.Layout.Decoration ( shrinkText
-                                )
 import XMonad.Layout.NoBorders ( noBorders
                                )
-import XMonad.Layout.Tabbed ( tabbed
-                            )
 
 import Local.Layout.Choose ( (-|||-)
                            )
 import Local.Layout.Util ( wsLayout
-                         , spacedTall
-                         , tabTheme
+                         , space
+                         , myMastered
+                         , myTall
+                         , myTabbed
                          )
 import Local.Workspace ( Workspace (..)
                        )
 
-basicLayout = avoidStruts spacedTall
-        -|||- avoidStruts (Mirror spacedTall)
+basicLayout = avoidStruts (space myTall)
+        -|||- avoidStruts (Mirror (space myTall))
         -|||- noBorders Full
 
-browserLayout = avoidStruts (noBorders (tabbed shrinkText tabTheme))
+browserLayout = avoidStruts (noBorders myTabbed)
           -|||- noBorders Full
 
 writingLayout = basicLayout
 
-otherLayout = basicLayout
+otherLayout = avoidStruts (myMastered (noBorders myTabbed))
+        -|||- basicLayout
 
 myLayoutHook = wsLayout WsBrowser browserLayout
              . wsLayout WsWriting writingLayout
