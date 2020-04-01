@@ -9,7 +9,7 @@ import Local.Color ( Colors (..)
                    , Color
                    , colors
                    )
-import Local.Keys ( myApplyKeys
+import Local.Keys ( applyKeys
                   )
 import Local.LayoutHook ( myLayoutHook
                         )
@@ -47,5 +47,5 @@ main = do xmproc <- spawnXMobar
                       , modMask            = mod4Mask
                       , terminal           = "kitty"
                       }
-              fc = myApplyKeys . docks . applyUrgencyHook . ewmh $ c
+              fc = applyKeys . docks . applyUrgencyHook . ewmh $ c
           xmonad fc
