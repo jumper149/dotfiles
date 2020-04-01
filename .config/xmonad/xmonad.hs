@@ -30,14 +30,15 @@ main = do xmproc <- spawnXMobar
           let c = def { borderWidth        = borderWidth' myBorderTheme
                       , normalBorderColor  = inactiveBorderColor myBorderTheme
                       , focusedBorderColor = activeBorderColor myBorderTheme
+                      , terminal           = "kitty"
+                      , modMask            = mod4Mask
+                      , focusFollowsMouse  = False
+                      , clickJustFocuses   = False
                       , workspaces         = workspaceIds
                       , layoutHook         = myLayoutHook
                       , manageHook         = myManageHook
                       , startupHook        = myStartupHook
                       , logHook            = myLogHook xmproc
-                      , focusFollowsMouse  = False
-                      , modMask            = mod4Mask
-                      , terminal           = "kitty"
                       }
               fc = applyKeys . docks . applyUrgencyHook . ewmh $ c
           xmonad fc
