@@ -32,7 +32,6 @@ import XMonad.Layout.Spacing ( SpacingModifier (..)
                              , spacingRaw
                              )
 import XMonad.Layout.Tabbed ( TabbedDecoration
-                            , tabbedAlways
                             , tabbed
                             , shrinkText
                             )
@@ -79,7 +78,7 @@ myTall = Tall 1 (3%100)   (1%2)
          --   n increment ratio
 
 mySpacedTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
-mySpacedTabbed = tabbedAlways shrinkText t
+mySpacedTabbed = tabbed shrinkText t
     where t = tabTheme { inactiveBorderColor = color7 colors -- TODO: change with xmonad-contrib 0.16
                        }
 
