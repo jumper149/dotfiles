@@ -13,7 +13,7 @@ import XMonad.Layout.NoBorders ( noBorders
 import XMonad.Layout.Tabbed ( tabbed
                             )
 
-import Local.Layout.Choose ( (||||)
+import Local.Layout.Choose ( (-|||-)
                            )
 import Local.Layout.Util ( wsLayout
                          , spacedTall
@@ -23,11 +23,11 @@ import Local.Workspace ( Workspace (..)
                        )
 
 basicLayout = avoidStruts spacedTall
-         |||| avoidStruts (Mirror spacedTall)
-         |||| noBorders Full
+        -|||- avoidStruts (Mirror spacedTall)
+        -|||- noBorders Full
 
 browserLayout = avoidStruts (noBorders (tabbed shrinkText tabTheme))
-           |||| noBorders Full
+          -|||- noBorders Full
 
 writingLayout = basicLayout
 

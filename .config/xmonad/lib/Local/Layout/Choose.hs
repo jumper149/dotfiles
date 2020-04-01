@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
 
-module Local.Layout.Choose ( MyChoose
-                           , (||||)
+module Local.Layout.Choose ( ChooseSpacingBoth
+                           , (-|||-)
                            ) where
 
 import XMonad hiding ( Choose
@@ -20,27 +20,27 @@ import Local.Overwrite.Layout ( Choose (..)
                               , (|||)
                               )
 
-newtype MyChoose l r a = MyChoose (Choose l r a)
+newtype ChooseSpacingBoth l r a = ChooseSpacingBoth (Choose l r a)
   deriving (Read, Show)
 
-(||||) :: l a -> r a -> MyChoose l r a
-(||||) l r = MyChoose $ l ||| r
-infixr 5 ||||
+(-|||-) :: l a -> r a -> ChooseSpacingBoth l r a
+(-|||-) l r = ChooseSpacingBoth $ l ||| r
+infixr 5 -|||-
 
-instance (LayoutClass l a, LayoutClass r a) => LayoutClass (MyChoose l r) a where
+instance (LayoutClass l a, LayoutClass r a) => LayoutClass (ChooseSpacingBoth l r) a where
 
-    runLayout (S.Workspace i (MyChoose c) a) r = do (ls , mbC) <- runLayout (S.Workspace i c a) r
-                                                    return (ls , MyChoose <$> mbC)
+    runLayout (S.Workspace i (ChooseSpacingBoth c) a) r = do (ls , mbC) <- runLayout (S.Workspace i c a) r
+                                                             return (ls , ChooseSpacingBoth <$> mbC)
 
-    description (MyChoose c) = description c
+    description (ChooseSpacingBoth c) = description c
 
-    handleMessage (MyChoose (Choose d l r)) sm =
+    handleMessage (ChooseSpacingBoth (Choose d l r)) sm =
         let sendBoth = do ml <- handleMessage l sm
                           mr <- handleMessage r sm
                           let l' = fromMaybe l $ ml
                               r' = fromMaybe r $ mr
-                          return . Just . MyChoose $ Choose d l' r'
+                          return . Just . ChooseSpacingBoth $ Choose d l' r'
         in case fromMessage sm of
              Just (ModifyWindowBorderEnabled _) -> sendBoth
              Just (ModifyScreenBorderEnabled _) -> sendBoth
-             _ -> do fmap MyChoose <$> handleMessage (Choose d l r) sm
+             _ -> do fmap ChooseSpacingBoth <$> handleMessage (Choose d l r) sm
