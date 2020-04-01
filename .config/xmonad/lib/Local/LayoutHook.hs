@@ -28,7 +28,7 @@ basicLayout = avoidStruts spacedTall
 browserLayout = avoidStruts (noBorders (tabbed shrinkText tabTheme))
            |||| noBorders Full
 
-writingLayout = basicLayout -- TODO add other layouts
+writingLayout = basicLayout
 
 otherLayout = basicLayout
 

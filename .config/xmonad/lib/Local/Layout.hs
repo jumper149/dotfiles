@@ -50,11 +50,13 @@ wsLayout :: (LayoutClass l a, LayoutClass r a) => Workspace -> l a -> r a -> Per
 wsLayout ws l = onWorkspace (show ws) l
 
 spacedTall :: ModifiedLayout Spacing Tall a
-spacedTall = spacingRaw False
-               (Border outer outer outer outer) True
-               (Border inner inner inner inner) True
-                --     n   increment ratio
-               (Tall   1   (3%100)   (1%2))
+spacedTall = space $ Tall 1 (3%100)   (1%2)
+                     --   n increment ratio
+
+space :: l a -> ModifiedLayout Spacing l a
+space = spacingRaw False
+          (Border outer outer outer outer) True
+          (Border inner inner inner inner) True
     where outer = 20
           inner = 10
 
@@ -71,7 +73,7 @@ tabTheme = def { activeColor         = color2 colors
                , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
                }
 
--- | Toggle gaps on all workspaces.
+-- | Toggle gaps on the current workspace.
 toggleGaps :: X ()
 toggleGaps = do traverse_ sendMessage messages
     where messages = [ ModifyWindowBorderEnabled not
