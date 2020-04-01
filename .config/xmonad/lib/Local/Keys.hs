@@ -33,8 +33,9 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-S-t"         , toggleGaps)
          , ("M-<Tab>"       , nextWS)
          , ("M-S-<Tab>"     , prevWS)
-         , ("M-<Space>"     , cycleLayout) -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged; fix in 'Overwrite.Layout';
-                                           --       maybe also don't clear the default-keybinds "M-<Space>"
+         , ("M-<Space>"     , cycleLayout) -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged;
+                                           --       fix in 'Local.Overwrite.Layout';
+                                           --       maybe also don't clear the default-keybind "M-<Space>"
          , ("M-h"           , screenWorkspace 0 >>= flip whenJust (windows . S.view))
          , ("M-<Left>"      , screenWorkspace 0 >>= flip whenJust (windows . S.view))
          , ("M-l"           , screenWorkspace 1 >>= flip whenJust (windows . S.view))
