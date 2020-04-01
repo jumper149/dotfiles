@@ -6,7 +6,9 @@ module Local.UrgencyHook ( applyUrgencyHook
 import XMonad
 import XMonad.Hooks.UrgencyHook
 
-import Local.Color
+import Local.Color ( Colors (..)
+                   , colors
+                   )
 
 myUrgencyHook :: BorderUrgencyHook
 myUrgencyHook = BorderUrgencyHook { urgencyBorderColor = color3 colors }

@@ -14,7 +14,8 @@ import XMonad.Util.EZConfig ( additionalKeysP
                             , removeKeysP
                             )
 
-import Local.Workspace
+import Local.Workspace ( Workspace (..)
+                       )
 import Local.Layout.Util ( toggleGaps
                          , cycleLayout
                          )

@@ -4,7 +4,8 @@ module Local.StartupHook ( myStartupHook
 import XMonad
 import qualified XMonad.StackSet as S
 
-import Local.Workspace
+import Local.Workspace ( Workspace (..)
+                       )
 
 myStartupHook :: X ()
 myStartupHook = do fixSupportedAtoms
