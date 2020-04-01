@@ -1,10 +1,11 @@
-module Local.StartupHook ( myStartupHook
-                         ) where
+module Local.Startup.Hook ( myStartupHook
+                          ) where
 
 import XMonad
 import qualified XMonad.StackSet as S
 
-import Local.Workspace
+import Local.Workspace ( Workspace (..)
+                       )
 
 myStartupHook :: X ()
 myStartupHook = do fixSupportedAtoms

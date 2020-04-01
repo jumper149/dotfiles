@@ -1,6 +1,6 @@
-module Local.XMobar ( myPP
-                    , spawnXMobar
-                    ) where
+module Local.Log.XMobar ( myPP
+                        , spawnXMobar
+                        ) where
 
 import XMonad
 import XMonad.Hooks.DynamicLog ( PP (..)
@@ -15,7 +15,8 @@ import Data.List ( intercalate
 import GHC.IO.Handle ( Handle
                      )
 
-import Local.Workspace
+import Local.Workspace ( Workspace
+                       )
 
 spawnXMobar :: MonadIO m => m Handle
 spawnXMobar = spawnPipe $ intercalate " " [ executable

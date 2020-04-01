@@ -1,7 +1,5 @@
-{-# LANGUAGE FlexibleContexts #-}
-
-module Local.Keys ( applyKeys
-                  ) where
+module Local.Bindings.Keys ( applyKeys
+                           ) where
 
 import XMonad
 import qualified XMonad.StackSet as S
@@ -14,10 +12,15 @@ import XMonad.Util.EZConfig ( additionalKeysP
                             , removeKeysP
                             )
 
-import Local.Workspace
-import Local.Layout ( toggleGaps
-                    , cycleLayout
-                    )
+import Local.Bindings.Util ( spawnOnAndGoTo
+                           , inTerminalFromConf
+                           , terminalFromConf
+                           )
+import Local.Layout.Util ( toggleGaps
+                         , cycleLayout
+                         )
+import Local.Workspace ( Workspace (..)
+                       )
 
 myKeys :: [(String , X ())]
 myKeys = [ ("M-S-q"         , kill)
@@ -32,8 +35,9 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-S-t"         , toggleGaps)
          , ("M-<Tab>"       , nextWS)
          , ("M-S-<Tab>"     , prevWS)
-         , ("M-<Space>"     , cycleLayout) -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged; fix in 'Overwrite.Layout';
-                                           --       maybe also don't clear the default-keybinds "M-<Space>"
+         , ("M-<Space>"     , cycleLayout) -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged;
+                                           --       fix in 'Local.Overwrite.Layout';
+                                           --       maybe also don't clear the default-keybind "M-<Space>"
          , ("M-h"           , screenWorkspace 0 >>= flip whenJust (windows . S.view))
          , ("M-<Left>"      , screenWorkspace 0 >>= flip whenJust (windows . S.view))
          , ("M-l"           , screenWorkspace 1 >>= flip whenJust (windows . S.view))
@@ -87,20 +91,6 @@ myKeys = [ ("M-S-q"         , kill)
          , ("M-x"           , spawnOnAndGoTo WsControl "arandr")
          , ("M-b"           , spawnOnAndGoTo WsOther "baobab")
          ]
-
--- requires _NET_WM_PID to be set on creation; doesn't work on:
---   urxvtc(offlineimap), qutebrowser, chromium
-spawnOnAndGoTo :: Workspace -> String -> X ()
-spawnOnAndGoTo ws prog = do spawnOn wsId prog
-                            windows . S.greedyView $ wsId
-    where wsId = show ws
-
-inTerminalFromConf :: (MonadIO m, MonadReader XConf m) => String -> m String
-inTerminalFromConf prog = do terminalEmulator <- terminalFromConf
-                             return $ terminalEmulator <> " --name '" <> prog <> "' -e '" <> prog <> "'"
-
-terminalFromConf :: (MonadIO m, MonadReader XConf m) => m String
-terminalFromConf = reader $ terminal . config
 
 myRemovedKeys :: [String]
 myRemovedKeys = [ "M-q"       -- quit

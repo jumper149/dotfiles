@@ -1,5 +1,5 @@
-module Local.ManageHook ( myManageHook
-                        ) where
+module Local.Manage.Hook ( myManageHook
+                         ) where
 
 import XMonad
 import XMonad.Actions.SpawnOn ( manageSpawn
