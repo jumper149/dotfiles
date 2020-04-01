@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures #-}
 
-module Local.LayoutHook ( myLayoutHook
-                        ) where
+module Local.Layout.Hook ( myLayoutHook
+                         ) where
 
 import XMonad
 import XMonad.Hooks.ManageDocks ( avoidStruts
@@ -13,11 +13,12 @@ import XMonad.Layout.NoBorders ( noBorders
 import XMonad.Layout.Tabbed ( tabbed
                             )
 
-import Local.Layout ( (||||)
-                    , wsLayout
-                    , spacedTall
-                    , tabTheme
-                    )
+import Local.Layout.Choose ( (||||)
+                           )
+import Local.Layout.Util ( wsLayout
+                         , spacedTall
+                         , tabTheme
+                         )
 import Local.Workspace ( Workspace (..)
                        )
 

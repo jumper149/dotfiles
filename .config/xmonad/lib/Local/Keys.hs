@@ -15,9 +15,9 @@ import XMonad.Util.EZConfig ( additionalKeysP
                             )
 
 import Local.Workspace
-import Local.Layout ( toggleGaps
-                    , cycleLayout
-                    )
+import Local.Layout.Util ( toggleGaps
+                         , cycleLayout
+                         )
 
 myKeys :: [(String , X ())]
 myKeys = [ ("M-S-q"         , kill)

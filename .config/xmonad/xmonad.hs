@@ -11,8 +11,8 @@ import Local.Color ( Colors (..)
                    )
 import Local.Keys ( applyKeys
                   )
-import Local.LayoutHook ( myLayoutHook
-                        )
+import Local.Layout.Hook ( myLayoutHook
+                         )
 import Local.LogHook ( myLogHook
                      )
 import Local.ManageHook ( myManageHook
