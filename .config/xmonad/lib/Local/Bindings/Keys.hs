@@ -28,73 +28,104 @@ import Local.Workspace ( Workspace (..)
                        )
 
 myKeys :: [Binding]
-myKeys = [ "M-S-q"         |/- "" ^> kill
-         , "M-S-<Return>"  |/- "" ^> windows S.swapMaster
-         , "M-<Up>"        |/- "" ^> windows S.focusUp
-         , "M-<Down>"      |/- "" ^> windows S.focusDown
-         , "M-S-<Up>"      |/- "" ^> windows S.swapUp
-         , "M-S-<Down>"    |/- "" ^> windows S.swapDown
-         , "M-S-h"         |/- "" ^> sendMessage Shrink
-         , "M-S-l"         |/- "" ^> sendMessage Expand
-         , "M-<Backspace>" |/- "" ^> withFocused $ windows . S.sink
-         , "M-S-t"         |/- "" ^> toggleGaps
-         , "M-<Tab>"       |/- "" ^> nextWS
-         , "M-S-<Tab>"     |/- "" ^> prevWS
-         , "M-<Space>"     |/- "" ^> cycleLayout -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged;
-                                          --       fix in 'Local.Overwrite.Layout';
-                                          --       maybe also don't clear the default-keybind "M-<Space>"
-         , "M-h"           |/- "" ^> screenWorkspace 0 >>= flip whenJust (windows . S.view)
-         , "M-<Left>"      |/- "" ^> screenWorkspace 0 >>= flip whenJust (windows . S.view)
-         , "M-l"           |/- "" ^> screenWorkspace 1 >>= flip whenJust (windows . S.view)
-         , "M-<Right>"     |/- "" ^> screenWorkspace 1 >>= flip whenJust (windows . S.view)
+myKeys = [ "M-S-q"                    |/- "kill focused window"
+                                       ^> kill
+         , "M-S-<Return>"             |/- "swap focused window with master"
+                                       ^> windows S.swapMaster
+         , "M-<Up>"                   |/- "focus previous window"
+                                       ^> windows S.focusUp
+         , "M-<Down>"                 |/- "focus next window"
+                                       ^> windows S.focusDown
+         , "M-S-<Up>"                 |/- "swap focused window with previous"
+                                       ^> windows S.swapUp
+         , "M-S-<Down>"               |/- "swap focused window with next"
+                                       ^> windows S.swapDown
+         , "M-S-h"                    |/- "shrink master pane"
+                                       ^> sendMessage Shrink
+         , "M-S-l"                    |/- "expand master pane"
+                                       ^> sendMessage Expand
+         , "M-<Backspace>"            |/- "put focused floating window back into layout"
+                                       ^> withFocused $ windows . S.sink
+         , "M-S-t"                    |/- "toggle gaps"
+                                       ^> toggleGaps
+         , "M-<Tab>"                  |/- "go to next workspace"
+                                       ^> nextWS
+         , "M-S-<Tab>"                |/- "go to previous workspace"
+                                       ^> prevWS
+         , "M-<Space>"                |/- "cycle layout on current workspace"
+                                       ^> cycleLayout -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged;
+                                                      --       fix in 'Local.Overwrite.Layout';
+                                                      --       maybe also don't clear the default-keybind "M-<Space>"
+         , "M-h"                      |/- "go to next Xinerama screen"
+                                       ^> screenWorkspace 0 >>= flip whenJust (windows . S.view)
+         , "M-<Left>"                 |/- "| alias for M-h"
+                                       ^> screenWorkspace 0 >>= flip whenJust (windows . S.view)
+         , "M-l"                      |/- "go to previous Xinerama screen"
+                                       ^> screenWorkspace 1 >>= flip whenJust (windows . S.view)
+         , "M-<Right>"                |/- "| alias for M-l"
+                                       ^> screenWorkspace 1 >>= flip whenJust (windows . S.view)
 
-         , "M-S-r"         |/- "" ^> restart "xmonad" True
-         , "M-S-e"         |/- "" ^> spawn "${XMONAD_CONFIG_DIR}/bin/shutdown"
-         , "M-S-w"         |/- "" ^> spawn "i3lock -c '000000' -f"
+         , "M-S-r"                    |/- "restart xmonad"
+                                       ^> restart "xmonad" True
+         , "M-S-e"                    |/- "shutdown menu"
+                                       ^> spawn "${XMONAD_CONFIG_DIR}/bin/shutdown"
+         , "M-S-w"                    |/- "i3lock"
+                                       ^> spawn "i3lock -c '000000' -f"
 
-         , "M-S-a"         |/- "" ^> spawn "cyclexkbmap"
+         , "M-S-a"                    |/- "cycle keyboard layout"
+                                       ^> spawn "cyclexkbmap"
 
-         , "M-C-\\"        |/- "" ^> spawn "brightness up"
-         , "M-C-/"         |/- "" ^> spawn "brightness down"
+         , "M-C-/"                    |/- "decrease brightness"
+                                        ^> spawn "brightness down"
+         , "M-C-\\"                   |/- "increase brightness"
+                                       ^> spawn "brightness up"
 
-         , "M-C--"                    |/- "" ^> spawn "volume down"
-         , "M-<XF86AudioLowerVolume>" |/- "" ^> spawn "volume down"
-         , "M-C-S-="                  |/- "" ^> spawn "volume up"
-         , "M-<XF86AudioRaiseVolume>" |/- "" ^> spawn "volume up"
-         , "M-C-0"             |/- "" ^> spawn "volume mute"
-         , "M-<XF86AudioMute>" |/- "" ^> spawn "volume mute"
-         , "M-C-]"               |/- "" ^> spawn "volume mic mute"
-         , "M-<XF86AudioMicMute" |/- "" ^> spawn "volume mic mute"
+         , "M-C--"                    |/- "decrease volume"
+                                       ^> spawn "volume down"
+         , "M-<XF86AudioLowerVolume>" |/- "| alias for M-C--"
+                                       ^> spawn "volume down"
+         , "M-C-S-="                  |/- "increase volume"
+                                       ^> spawn "volume up"
+         , "M-<XF86AudioRaiseVolume>" |/- "| alias for M-C-S-="
+                                       ^> spawn "volume up"
+         , "M-C-0"                    |/- "mute volume"
+                                       ^> spawn "volume mute"
+         , "M-<XF86AudioMute>"        |/- "| alias for M-C-0"
+                                       ^> spawn "volume mute"
+         , "M-C-]"                    |/- "mute microphone"
+                                       ^> spawn "volume mic mute"
+         , "M-<XF86AudioMicMute"      |/- "| alias for M-C-]"
+                                       ^> spawn "volume mic mute"
 
-         , "M-C-p"             |/- "" ^> spawn "mpc toggle"
-         , "M-<XF86AudioPlay>" |/- "" ^> spawn "mpc toggle"
-         , "<XF86AudioPlay>"   |/- "" ^> spawn "mpc toggle"
-         , "M-C-o"             |/- "" ^> spawn "mpc stop"
-         , "M-<XF86AudioStop>" |/- "" ^> spawn "mpc stop"
-         , "<XF86AudioStop>"   |/- "" ^> spawn "mpc stop"
-         , "M-C-["             |/- "" ^> spawn "mpc next"
-         , "M-<XF86AudioNext>" |/- "" ^> spawn "mpc next"
-         , "<XF86AudioNext>"   |/- "" ^> spawn "mpc next"
-         , "M-C-i"             |/- "" ^> spawn "mpc prev"
-         , "M-<XF86AudioPrev>" |/- "" ^> spawn "mpc prev"
-         , "<XF86AudioPrev>"   |/- "" ^> spawn "mpc prev"
-         , "M-<Print>"     |/- "" ^> spawn "scrot"
-         , "<Print>"       |/- "" ^> spawn "scrot"
-         , "M-C-m"         |/- "" ^> spawnOn (show WsOther) =<< inTerminalFromConf "offlineimap"
+         , "M-C-p"                    |/- "" ^> spawn "mpc toggle"
+         , "M-<XF86AudioPlay>"        |/- "" ^> spawn "mpc toggle"
+         , "<XF86AudioPlay>"          |/- "" ^> spawn "mpc toggle"
+         , "M-C-o"                    |/- "" ^> spawn "mpc stop"
+         , "M-<XF86AudioStop>"        |/- "" ^> spawn "mpc stop"
+         , "<XF86AudioStop>"          |/- "" ^> spawn "mpc stop"
+         , "M-C-["                    |/- "" ^> spawn "mpc next"
+         , "M-<XF86AudioNext>"        |/- "" ^> spawn "mpc next"
+         , "<XF86AudioNext>"          |/- "" ^> spawn "mpc next"
+         , "M-C-i"                    |/- "" ^> spawn "mpc prev"
+         , "M-<XF86AudioPrev>"        |/- "" ^> spawn "mpc prev"
+         , "<XF86AudioPrev>"          |/- "" ^> spawn "mpc prev"
+         , "M-<Print>"                |/- "" ^> spawn "scrot"
+         , "<Print>"                  |/- "" ^> spawn "scrot"
+         , "M-C-m"                    |/- "" ^> spawnOn (show WsOther) =<< inTerminalFromConf "offlineimap"
 
-         , "M-<Return>"    |/- "" ^> spawn =<< terminalFromConf
-         , "M-d"           |/- "" ^> spawn "rofi -show run"
-         , "M-r"           |/- "" ^> spawn =<< inTerminalFromConf "ranger"
+         , "M-<Return>"               |/- "" ^> spawn =<< terminalFromConf
+         , "M-d"                      |/- "" ^> spawn "rofi -show run"
+         , "M-r"                      |/- "" ^> spawn =<< inTerminalFromConf "ranger"
 
-         , "M-f"           |/- "" ^> spawnOnAndGoTo WsBrowser "firefox"
-         , "M-n"           |/- "" ^> spawnOnAndGoTo WsMedia =<< inTerminalFromConf "ncmpcpp"
-         , "M-t"           |/- "" ^> spawnOnAndGoTo WsSocial "telegram-desktop"
-         , "M-m"           |/- "" ^> spawnOnAndGoTo WsSocial =<< inTerminalFromConf "mutt"
-         , "M-w"           |/- "" ^> spawnOnAndGoTo WsSocial =<< inTerminalFromConf "weechat"
-         , "M-g"           |/- "" ^> spawnOnAndGoTo WsGIMP "gimp"
-         , "M-p"           |/- "" ^> spawnOnAndGoTo WsControl "pavucontrol"
-         , "M-x"           |/- "" ^> spawnOnAndGoTo WsControl "arandr"
-         , "M-b"           |/- "" ^> spawnOnAndGoTo WsOther "baobab"
+         , "M-f"                      |/- "" ^> spawnOnAndGoTo WsBrowser "firefox"
+         , "M-n"                      |/- "" ^> spawnOnAndGoTo WsMedia =<< inTerminalFromConf "ncmpcpp"
+         , "M-t"                      |/- "" ^> spawnOnAndGoTo WsSocial "telegram-desktop"
+         , "M-m"                      |/- "" ^> spawnOnAndGoTo WsSocial =<< inTerminalFromConf "mutt"
+         , "M-w"                      |/- "" ^> spawnOnAndGoTo WsSocial =<< inTerminalFromConf "weechat"
+         , "M-g"                      |/- "" ^> spawnOnAndGoTo WsGIMP "gimp"
+         , "M-p"                      |/- "" ^> spawnOnAndGoTo WsControl "pavucontrol"
+         , "M-x"                      |/- "" ^> spawnOnAndGoTo WsControl "arandr"
+         , "M-b"                      |/- "" ^> spawnOnAndGoTo WsOther "baobab"
          ]
 
 myRemovedKeys :: [String]
