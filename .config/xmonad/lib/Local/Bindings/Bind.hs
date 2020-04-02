@@ -1,10 +1,21 @@
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 module Local.Bindings.Bind ( Binding
                            , (|/-)
+                           , Binder
+                           , bind
                            , (^>)
                            , mkUsable
                            ) where
 
 import XMonad
+import Control.Monad.Writer
+
+newtype Binder a = Binder (Writer [Binding] a)
+    deriving (Functor, Applicative, Monad)
+
+bind :: Binder a -> [Binding]
+bind (Binder w) = execWriter w
 
 data Binding = Binding { combination :: String
                        , explanation :: String
@@ -19,12 +30,12 @@ data Binding = Binding { combination :: String
                       , explanation = d
                       , action = a
                       }
-infixl 5 |/-
+infix 5 |/-
 
 (^>) :: (X () -> Binding)
      -> X ()
-     -> Binding
-(^>) f x = f x
+     -> Binder ()
+(^>) f x = Binder $ tell [f x]
 infixr 0 ^>
 
 mkUsable :: Binding -> (String,X ())
