@@ -8,17 +8,17 @@ import XMonad.Actions.CycleWS ( nextWS
                               )
 import XMonad.Actions.SpawnOn ( spawnOn
                               )
-import XMonad.Util.EZConfig ( additionalKeysP
-                            , removeKeysP
-                            )
 
 import Local.Bindings.Bind ( (|/-)
                            , (^>)
+                           , (...)
                            , Binder
                            , bind
                            , bindAlias
+                           , bindZip
+                           , KeyMap
                            , runBinder
-                           , mkUsable
+                           , action
                            )
 import Local.Bindings.Util ( spawnOnAndGoTo
                            , inTerminalFromConf
@@ -28,168 +28,182 @@ import Local.Layout.Util ( toggleGaps
                          , cycleLayout
                          )
 import Local.Workspace ( Workspace (..)
+                       , workspaceIds
                        )
 
-myKeys :: Binder ()
-myKeys = do
-    bind $ "M-S-q"
+myKeys :: KeyMask -> Binder ()
+myKeys mask = do
+    bind $ mask .|. shiftMask ... xK_q
       |/- "kill focused window"
         ^> kill
-    bind $ "M-S-<Return>"
+    bind $ mask .|. shiftMask ... xK_Return
       |/- "swap focused window with master"
         ^> windows S.swapMaster
-    bind $ "M-<Up>"
+    bindAlias [ mask ... xK_Up
+              ] $ mask ... xK_k
       |/- "focus previous window"
         ^> windows S.focusUp
-    bind $ "M-<Down>"
+    bindAlias [ mask ... xK_Down
+              ] $ mask ... xK_j
       |/- "focus next window"
         ^> windows S.focusDown
-    bind $ "M-S-<Up>"
+    bindAlias [ mask .|. shiftMask ... xK_Up
+              ] $ mask .|. shiftMask ... xK_k
       |/- "swap focused window with previous"
         ^> windows S.swapUp
-    bind $ "M-S-<Down>"
+    bindAlias [ mask .|. shiftMask ... xK_Down
+              ] $ mask .|. shiftMask ... xK_j
       |/- "swap focused window with next"
         ^> windows S.swapDown
-    bind $ "M-S-h"
+    bind $ mask .|. shiftMask ... xK_h
       |/- "shrink master pane"
         ^> sendMessage Shrink
-    bind $ "M-S-l"
+    bind $ mask .|. shiftMask ... xK_l
       |/- "expand master pane"
         ^> sendMessage Expand
-    bind $ "M-<Backspace>"
-      |/- "put focused floating window back into layout"
+    bind $ mask ... xK_comma
+      |/- "increment number of windows in master pane"
+        ^> sendMessage $ IncMasterN 1
+    bind $ mask ... xK_period
+      |/- "decrement number of windows in master pane"
+        ^> sendMessage $ IncMasterN (-1)
+    bind $ mask ... xK_BackSpace
+      |/- "move focused floating window back into layout"
         ^> withFocused $ windows . S.sink
-    bind $ "M-S-t"
+    bind $ mask .|. shiftMask ... xK_t
       |/- "toggle gaps"
         ^> toggleGaps
-    bind $ "M-<Tab>"
-      |/- "go to next workspace"
-        ^> nextWS
-    bind $ "M-S-<Tab>"
-      |/- "go to previous workspace"
-        ^> prevWS
-    bind $ "M-<Space>"
+    bind $ mask ... xK_space
       |/- "cycle layout on current workspace"
         ^> cycleLayout -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged;
                        --       fix in 'Local.Overwrite.Layout';
                        --       maybe also don't clear the default-keybind "M-<Space>"
-    bindAlias ["M-<Left>"] $ "M-h"
+    bind $ mask ... xK_Tab
+      |/- "go to next workspace"
+        ^> nextWS
+    bind $ mask .|. shiftMask ... xK_Tab
+      |/- "go to previous workspace"
+        ^> prevWS
+    bindZip ((mask ...) <$> [ xK_1 .. xK_9 ])
+            (("go to workspace " <>) . pure <$> [ '1' .. '9' ])
+            (windows . S.greedyView <$> workspaceIds)
+    bindZip ((mask .|. shiftMask ...) <$> [ xK_1 .. xK_9 ])
+            (("move focused window to workspace " <>) . pure <$> [ '1' .. '9' ])
+            (windows . S.shift <$> workspaceIds)
+    bindAlias [ mask ... xK_Left
+              ] $ mask ... xK_h
       |/- "go to next Xinerama screen"
         ^> screenWorkspace 0 >>= flip whenJust (windows . S.view)
-    bindAlias ["M-<Right>"] $ "M-l"
+    bindAlias [ mask ... xK_Right
+              ] $ mask ... xK_l
       |/- "go to previous Xinerama screen"
         ^> screenWorkspace 1 >>= flip whenJust (windows . S.view)
 
-    bind $ "M-S-r"
+    bind $ mask .|. shiftMask ... xK_r
       |/- "restart xmonad"
         ^> restart "xmonad" True
-    bind $ "M-S-e"
+    bind $ mask .|. shiftMask ... xK_e
       |/- "shutdown menu"
         ^> spawn "${XMONAD_CONFIG_DIR}/bin/shutdown"
-    bind $ "M-S-w"
+    bind $ mask .|. shiftMask ... xK_w
       |/- "i3lock"
         ^> spawn "i3lock -c '000000' -f"
 
-    bind $ "M-S-a"
+    bind $ mask .|. shiftMask ... xK_a
       |/- "cycle keyboard layout"
         ^> spawn "cyclexkbmap"
 
-    bind $ "M-C-/"
+    bind $ mask .|. shiftMask ... xK_slash
       |/- "decrease brightness"
         ^> spawn "brightness down"
-    bind $ "M-C-\\"
+    bind $ mask .|. shiftMask ... xK_backslash
       |/- "increase brightness"
         ^> spawn "brightness up"
 
-    bindAlias ["M-<XF86AudioLowerVolume>"] $ "M-C--"
+    bindAlias [ mask ... stringToKeysym "<XF86AudioLowerVolume>"
+              ] $ mask .|. controlMask ... xK_minus
       |/- "decrease volume"
         ^> spawn "volume down"
-    bindAlias ["M-<XF86AudioRaiseVolume>"] $ "M-C-S-="
+    bindAlias [ mask ... stringToKeysym "<XF86AudioRaiseVolume>"
+              ] $ mask .|. controlMask ... xK_equal
       |/- "increase volume"
         ^> spawn "volume up"
-    bindAlias ["M-<XF86AudioMute>"] $ "M-C-0"
+    bindAlias [ mask ... stringToKeysym "<XF86AudioMute>"
+              ] $ mask .|. controlMask ... xK_0
       |/- "mute volume"
         ^> spawn "volume mute"
-    bindAlias ["M-<XF86AudioMicMute"] $ "M-C-]"
+    bindAlias [ mask ... stringToKeysym "<XF86AudioMicMute>"
+              ] $ mask .|. controlMask ... xK_bracketright
       |/- "mute microphone"
         ^> spawn "volume mic mute"
 
-    bindAlias [ "<XF86AudioPlay>" , "M-<XF86AudioPlay>" ] $ "M-C-p"
+    bindAlias [ noModMask ... stringToKeysym "<XF86AudioPlay>"
+              , mask ... stringToKeysym "<XF86AudioPlay>"
+              ] $ mask .|. controlMask ... xK_p
       |/- "MPD: play/pause"
         ^> spawn "mpc toggle"
-    bindAlias [ "<XF86AudioStop>" , "M-<XF86AudioStop>" ] $ "M-C-o"
+    bindAlias [ noModMask ... stringToKeysym "<XF86AudioStop>"
+              , mask ... stringToKeysym "<XF86AudioStop>"
+              ] $ mask .|. controlMask ... xK_o
       |/- "MPD: stop"
         ^> spawn "mpc stop"
-    bindAlias [ "<XF86AudioNext>" , "M-<XF86AudioNext>" ] $ "M-C-["
+    bindAlias [ noModMask ... stringToKeysym "<XF86AudioNext>"
+              , mask ... stringToKeysym "<XF86AudioNext>"
+              ] $ mask .|. controlMask ... xK_bracketleft
       |/- "MPD: next"
         ^> spawn "mpc next"
-    bindAlias [ "<XF86AudioPrev>" , "M-<XF86AudioPrev>" ] $ "M-C-i"
+    bindAlias [ noModMask ... stringToKeysym "<XF86AudioPrev>"
+              , mask ... stringToKeysym "<XF86AudioPrev>"
+              ] $ mask .|. controlMask ... xK_i
       |/- "MPD: previous"
         ^> spawn "mpc prev"
 
-    bindAlias ["<Print>"] $ "M-<Print>"
+    bindAlias [ noModMask ... stringToKeysym "<Print>"
+              ] $ mask ... stringToKeysym "<Print>"
       |/- "take screenshot"
         ^> spawn "scrot"
 
-    bind $ "M-C-m"
+    bind $ mask .|. controlMask ... xK_m
       |/- "fetch mail"
         ^> spawnOn (show WsOther) =<< inTerminalFromConf "offlineimap"
 
-    bind $ "M-<Return>"
+    bind $ mask ... xK_Return
       |/- "spawn terminal"
         ^> spawn =<< terminalFromConf
-    bind $ "M-d"
+    bind $ mask ... xK_d
       |/- "spawn launcher"
         ^> spawn "rofi -show run"
-    bind $ "M-r"
+    bind $ mask ... xK_r
       |/- "spawn ranger"
         ^> spawn =<< inTerminalFromConf "ranger"
 
-    bind $ "M-f"
+    bind $ mask ... xK_f
       |/- "spawn firefox"
         ^> spawnOnAndGoTo WsBrowser "firefox"
-    bind $ "M-n"
+    bind $ mask ... xK_n
       |/- "spawn ncmpcpp"
         ^> spawnOnAndGoTo WsMedia =<< inTerminalFromConf "ncmpcpp"
-    bind $ "M-t"
+    bind $ mask ... xK_t
       |/- "spawn telegram"
         ^> spawnOnAndGoTo WsSocial "telegram-desktop"
-    bind $ "M-m"
+    bind $ mask ... xK_m
       |/- "spawn mutt"
         ^> spawnOnAndGoTo WsSocial =<< inTerminalFromConf "mutt"
-    bind $ "M-w"
+    bind $ mask ... xK_w
       |/- "spawn weechat"
         ^> spawnOnAndGoTo WsSocial =<< inTerminalFromConf "weechat"
-    bind $ "M-g"
+    bind $ mask ... xK_g
       |/- "spawn gimp"
         ^> spawnOnAndGoTo WsGIMP "gimp"
-    bind $ "M-p"
+    bind $ mask ... xK_p
       |/- "spawn pavucontrol"
         ^> spawnOnAndGoTo WsControl "pavucontrol"
-    bind $ "M-x"
+    bind $ mask ... xK_x
       |/- "spawn arandr"
         ^> spawnOnAndGoTo WsControl "arandr"
-    bind $ "M-b"
+    bind $ mask ... xK_b
       |/- "spawn baobab"
         ^> spawnOnAndGoTo WsOther "baobab"
 
-myRemovedKeys :: [String]
-myRemovedKeys = [ "M-q"       -- quit
-                , "M-S-q"     -- restart
-                , "M-<Space>" -- cycle layouts
-                , "M-w"       -- Xinerama 1
-                , "M-S-w"
-                , "M-e"       -- Xinerama 2
-                , "M-S-e"
-                , "M-r"       -- Xinerama 3
-                , "M-S-r"
-                , "M-h"       -- resize master area
-                , "M-l"
-                , "M-t"       -- tile floating window
-                , "M-n"       -- refresh viewed sizes
-                , "M-c"       -- close window
-                , "M-m"       -- focus master window
-                ]
-
-applyKeys :: XConfig l -> XConfig l
-applyKeys = (`additionalKeysP` (fmap mkUsable $ runBinder myKeys)) . (`removeKeysP` myRemovedKeys)
+applyKeys :: XConfig Layout -> KeyMap
+applyKeys xConfig = action <$> runBinder (myKeys $ modMask xConfig)
