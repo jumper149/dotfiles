@@ -45,7 +45,7 @@ import Local.Overwrite.Layout ( ChangeLayout (..)
                               )
 
 import Local.Color ( Colors (..)
-                   , colors
+                   , myColors
                    )
 import Local.Workspace ( Workspace
                        )
@@ -79,22 +79,22 @@ myTall = Tall 1 (3%100)   (1%2)
 
 mySpacedTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
 mySpacedTabbed = tabbed shrinkText t
-    where t = tabTheme { inactiveBorderColor = color7 colors -- TODO: change with xmonad-contrib 0.16
+    where t = tabTheme { inactiveBorderColor = color7 myColors -- TODO: change with xmonad-contrib 0.16
                        }
 
 myTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
 myTabbed = tabbed shrinkText tabTheme
 
 tabTheme :: Theme
-tabTheme = def { activeColor         = color2 colors
-               , inactiveColor       = color0 colors
-               , urgentColor         = color3 colors
-               , activeBorderColor   = color2 colors
-               , inactiveBorderColor = color0 colors
-               , urgentBorderColor   = color3 colors
-               , activeTextColor     = color0 colors
-               , inactiveTextColor   = color7 colors
-               , urgentTextColor     = color0 colors
+tabTheme = def { activeColor         = color2 myColors
+               , inactiveColor       = color0 myColors
+               , urgentColor         = color3 myColors
+               , activeBorderColor   = color2 myColors
+               , inactiveBorderColor = color0 myColors
+               , urgentBorderColor   = color3 myColors
+               , activeTextColor     = color0 myColors
+               , inactiveTextColor   = color7 myColors
+               , urgentTextColor     = color0 myColors
 --               , activeBorderWidth   = 0 -- TODO: implement with xmonad-contrib 0.16
 --               , inactiveBorderWidth = 0
 --               , urgentBorderWidth   = 0

@@ -1,6 +1,6 @@
 module Local.Color ( Colors (..)
                    , Color
-                   , colors
+                   , myColors
                    ) where
 
 type Color = String
@@ -24,28 +24,28 @@ data Colors = Colors { color0 :: Color
                      }
   deriving (Eq, Read, Show)
 
-colors :: Colors
-colors = Colors { color0 = "#282a2e" -- black
-                , color8 = "#373b41"
+myColors :: Colors
+myColors = Colors { color0 = "#282a2e" -- black
+                  , color8 = "#373b41"
 
-                , color1 = "#a54242" -- red
-                , color9 = "#cc6666"
+                  , color1 = "#a54242" -- red
+                  , color9 = "#cc6666"
 
-                , color2 = "#8c9440" -- green
-                , colorA = "#b5bd68"
+                  , color2 = "#8c9440" -- green
+                  , colorA = "#b5bd68"
 
-                , color3 = "#de935f" -- yellow
-                , colorB = "#f0c674"
+                  , color3 = "#de935f" -- yellow
+                  , colorB = "#f0c674"
 
-                , color4 = "#5f819d" -- blue
-                , colorC = "#81a2be"
+                  , color4 = "#5f819d" -- blue
+                  , colorC = "#81a2be"
 
-                , color5 = "#85678f" -- magenta
-                , colorD = "#b294bb"
+                  , color5 = "#85678f" -- magenta
+                  , colorD = "#b294bb"
 
-                , color6 = "#5e8d87" -- cyan
-                , colorE = "#8abeb7"
+                  , color6 = "#5e8d87" -- cyan
+                  , colorE = "#8abeb7"
 
-                , color7 = "#707880" -- white
-                , colorF = "#c5c8c6"
-                }
+                  , color7 = "#707880" -- white
+                  , colorF = "#c5c8c6"
+                  }
