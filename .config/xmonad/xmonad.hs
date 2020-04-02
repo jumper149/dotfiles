@@ -45,5 +45,5 @@ main = do xmproc <- spawnXMobar
                       , startupHook        = myStartupHook
                       , logHook            = myLogHook xmproc
                       }
-              fc = (storeBindings explainableBindings) . docks . applyUrgencyHook . ewmh $ c
+              fc = storeBindings explainableBindings . docks . applyUrgencyHook . ewmh $ c
           xmonad fc

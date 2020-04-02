@@ -20,20 +20,21 @@ module Local.Bindings.Bind ( Binding
 import XMonad
 import qualified XMonad.Util.ExtensibleState as XS
 
+import Control.Arrow ( (&&&)
+                     )
 import Control.Monad.Writer
 import Data.Foldable ( traverse_
                      )
 import qualified Data.Map as M
 
-newtype Binder a = Binder (Writer (M.Map KeyCombinationId Binding) a)
+newtype Binder a = Binder (Writer [Binding] a)
     deriving (Functor, Applicative, Monad)
 
-runBinder :: Binder a -> M.Map KeyCombinationId Binding
+runBinder :: Binder a -> [Binding]
 runBinder (Binder w) = execWriter w
 
 bind :: Binding -> Binder ()
-bind binding = Binder . tell $ M.singleton kcId binding
-    where kcId = (modifier $ combination binding , key $ combination binding)
+bind binding = Binder $ tell [binding]
 
 bindAlias :: [KeyCombination] -- ^ alias combination
           -> Binding
@@ -41,9 +42,11 @@ bindAlias :: [KeyCombination] -- ^ alias combination
 bindAlias newCombinations binding = do bind binding
                                        traverse_ (bind . newBinding) newCombinations
     where newBinding c = Binding { combination = c
-                                 , explanation = "(alias: " <> show (combination binding) <> ") | " <> explanation binding
+                                 , explanation = paddedExplanation <> aliasExplanation
                                  , action = action binding
                                  }
+          paddedExplanation = take 50 $ explanation binding <> repeat ' '
+          aliasExplanation = "(alias: " <> keycombinationToString (combination binding) <> ")"
 
 bindZip :: [KeyCombination]
         -> [String]
@@ -77,11 +80,14 @@ getBindings = do DocBindings doc <- XS.get
 mapBindings :: (XConfig Layout -> Binder a)
             -> ((XConfig Layout -> KeyMap) , X DocBindings)
 mapBindings binder = let bindMap xConfig = runBinder $ binder xConfig
-                      in (fmap action . bindMap , DocBindings . explainBinds . bindMap <$> reader config)
+                         bindings = M.fromList . fmap ((modifier &&& key) . combination &&& action) . bindMap
+                         doc = DocBindings . explainBinds . bindMap <$> reader config
+                      in (bindings , doc)
 
 explainBinds :: Foldable f => f Binding -> String
 explainBinds = foldr ((<>) . explain) ""
-    where explain binding = show (combination binding) <> explanation binding <> "\n"
+    where explain binding = let paddedKeys = take 25 $ keycombinationToString (combination binding) <> repeat ' '
+                             in paddedKeys <> explanation binding <> "\n"
 
 data Binding = Binding { combination :: KeyCombination
                        , explanation :: String
@@ -117,8 +123,8 @@ data KeyCombination = KeyCombination { modifier :: ButtonMask
                            }
 infix 4 ...
 
-instance Show KeyCombination where
-    show c = show (modifier c) <> "-" <> show (key c)
+keycombinationToString :: KeyCombination -> String
+keycombinationToString c = show (modifier c) <> "-" <> keysymToString (key c)
 
 type KeyCombinationId = (ButtonMask,KeySym)
 

@@ -16,6 +16,7 @@ import Local.Bindings.Bind ( (|/-)
                            , bind
                            , bindAlias
                            , bindZip
+                           , getBindings
                            )
 import Local.Bindings.Util ( spawnOnAndGoTo
                            , inTerminalFromConf
@@ -30,6 +31,11 @@ import Local.Workspace ( Workspace (..)
 
 myKeys :: KeyMask -> Binder ()
 myKeys mask = do
+    bind $ mask ... xK_F1
+      |/- "view bindings"
+        ^> do doc <- getBindings
+              term <- terminalFromConf
+              spawn $ term <> " -e sh -c \"echo '" <> doc <> "' | less\""
     bind $ mask .|. shiftMask ... xK_q
       |/- "kill focused window"
         ^> kill
@@ -75,6 +81,9 @@ myKeys mask = do
         ^> cycleLayout -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged;
                        --       fix in 'Local.Overwrite.Layout';
                        --       maybe also don't clear the default-keybind "M-<Space>"
+    bind $ mask .|. shiftMask ... xK_space
+      |/- "reset layout on current workspace"
+        ^> setLayout =<< asks (layoutHook . config)
     bind $ mask ... xK_Tab
       |/- "go to next workspace"
         ^> nextWS
@@ -117,46 +126,46 @@ myKeys mask = do
       |/- "increase brightness"
         ^> spawn "brightness up"
 
-    bindAlias [ mask ... stringToKeysym "<XF86AudioLowerVolume>"
+    bindAlias [ mask ... stringToKeysym "XF86AudioLowerVolume"
               ] $ mask .|. controlMask ... xK_minus
       |/- "decrease volume"
         ^> spawn "volume down"
-    bindAlias [ mask ... stringToKeysym "<XF86AudioRaiseVolume>"
+    bindAlias [ mask ... stringToKeysym "XF86AudioRaiseVolume"
               ] $ mask .|. controlMask ... xK_equal
       |/- "increase volume"
         ^> spawn "volume up"
-    bindAlias [ mask ... stringToKeysym "<XF86AudioMute>"
+    bindAlias [ mask ... stringToKeysym "XF86AudioMute"
               ] $ mask .|. controlMask ... xK_0
       |/- "mute volume"
         ^> spawn "volume mute"
-    bindAlias [ mask ... stringToKeysym "<XF86AudioMicMute>"
+    bindAlias [ mask ... stringToKeysym "XF86AudioMicMute"
               ] $ mask .|. controlMask ... xK_bracketright
       |/- "mute microphone"
         ^> spawn "volume mic mute"
 
-    bindAlias [ noModMask ... stringToKeysym "<XF86AudioPlay>"
-              , mask ... stringToKeysym "<XF86AudioPlay>"
+    bindAlias [ noModMask ... stringToKeysym "XF86AudioPlay"
+              , mask ... stringToKeysym "XF86AudioPlay"
               ] $ mask .|. controlMask ... xK_p
       |/- "MPD: play/pause"
         ^> spawn "mpc toggle"
-    bindAlias [ noModMask ... stringToKeysym "<XF86AudioStop>"
-              , mask ... stringToKeysym "<XF86AudioStop>"
+    bindAlias [ noModMask ... stringToKeysym "XF86AudioStop"
+              , mask ... stringToKeysym "XF86AudioStop"
               ] $ mask .|. controlMask ... xK_o
       |/- "MPD: stop"
         ^> spawn "mpc stop"
-    bindAlias [ noModMask ... stringToKeysym "<XF86AudioNext>"
-              , mask ... stringToKeysym "<XF86AudioNext>"
+    bindAlias [ noModMask ... stringToKeysym "XF86AudioNext"
+              , mask ... stringToKeysym "XF86AudioNext"
               ] $ mask .|. controlMask ... xK_bracketleft
       |/- "MPD: next"
         ^> spawn "mpc next"
-    bindAlias [ noModMask ... stringToKeysym "<XF86AudioPrev>"
-              , mask ... stringToKeysym "<XF86AudioPrev>"
+    bindAlias [ noModMask ... stringToKeysym "XF86AudioPrev"
+              , mask ... stringToKeysym "XF86AudioPrev"
               ] $ mask .|. controlMask ... xK_i
       |/- "MPD: previous"
         ^> spawn "mpc prev"
 
-    bindAlias [ noModMask ... stringToKeysym "<Print>"
-              ] $ mask ... stringToKeysym "<Print>"
+    bindAlias [ noModMask ... stringToKeysym "Print"
+              ] $ mask ... stringToKeysym "Print"
       |/- "take screenshot"
         ^> spawn "scrot"
 
