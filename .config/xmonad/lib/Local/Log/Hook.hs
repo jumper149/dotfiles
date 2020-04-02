@@ -8,8 +8,8 @@ import XMonad.Hooks.DynamicLog ( dynamicLogWithPP
 import GHC.IO.Handle ( Handle
                      )
 
-import Local.Log.XMobar ( myPP
+import Local.Log.XMobar ( myXMobarPP
                         )
 
 myLogHook :: Handle -> X ()
-myLogHook = dynamicLogWithPP . myPP
+myLogHook = dynamicLogWithPP . myXMobarPP

@@ -118,7 +118,7 @@ data KeyCombination = KeyCombination { modifier :: ButtonMask
 infix 4 ...
 
 instance Show KeyCombination where
-    show c = show (modifier c) <> "-" <> show (key c)
+    show c = show (modifier c) <> "-" <> keysymToString (key c)
 
 type KeyCombinationId = (ButtonMask,KeySym)
 
