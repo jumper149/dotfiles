@@ -41,7 +41,7 @@ bindAlias :: [KeyCombination] -- ^ alias combination
 bindAlias newCombinations binding = do bind binding
                                        traverse_ (bind . newBinding) newCombinations
     where newBinding c = Binding { combination = c
-                                 , explanation = "(alias: " <> show (combination binding) <> ") | " <> explanation binding
+                                 , explanation = "(alias: " <> keycombinationToString (combination binding) <> ") | " <> explanation binding
                                  , action = action binding
                                  }
 
@@ -81,7 +81,8 @@ mapBindings binder = let bindMap xConfig = runBinder $ binder xConfig
 
 explainBinds :: Foldable f => f Binding -> String
 explainBinds = foldr ((<>) . explain) ""
-    where explain binding = show (combination binding) <> explanation binding <> "\n"
+    where explain binding = let paddedKeys = take 25 $ keycombinationToString (combination binding) <> repeat ' '
+                             in paddedKeys <> explanation binding <> "\n"
 
 data Binding = Binding { combination :: KeyCombination
                        , explanation :: String
@@ -117,8 +118,8 @@ data KeyCombination = KeyCombination { modifier :: ButtonMask
                            }
 infix 4 ...
 
-instance Show KeyCombination where
-    show c = show (modifier c) <> "-" <> keysymToString (key c)
+keycombinationToString :: KeyCombination -> String
+keycombinationToString c = show (modifier c) <> "-" <> keysymToString (key c)
 
 type KeyCombinationId = (ButtonMask,KeySym)
 
