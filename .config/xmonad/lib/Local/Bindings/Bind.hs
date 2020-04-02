@@ -9,11 +9,16 @@ module Local.Bindings.Bind ( Binding
                            , bind
                            , bindAlias
                            , bindZip
-                           , mapBindings
                            , KeyMap
+                           , mapBindings'
+                           , DocBindings
+                           , mapBindings
+                           , storeBindings
+                           , getBindings
                            ) where
 
 import XMonad
+import qualified XMonad.Util.ExtensibleState as XS
 
 import Control.Monad.Writer
 import Data.Foldable ( traverse_
@@ -46,10 +51,33 @@ bindZip :: [KeyCombination]
         -> Binder ()
 bindZip ks es as = traverse_ bind $ uncurry (uncurry (|/-)) <$> zip (zip ks es) as
 
+mapBindings' :: (XConfig Layout -> Binder a)
+             -> XConfig Layout -> KeyMap
+mapBindings' = fst . mapBindings
+
+newtype DocBindings = DocBindings String
+    deriving (Eq, Semigroup, Monoid)
+
+instance ExtensionClass DocBindings where
+    initialValue = DocBindings "no Bindings stored\n"
+
+storeBindings :: X DocBindings -> XConfig a -> XConfig a
+storeBindings explainableBindings xConfig = xConfig { startupHook = store <+> startupHook xConfig
+                                                    }
+    where store = do newDoc <- explainableBindings
+                     oldDoc <- XS.get :: X DocBindings
+                     if oldDoc == initialValue
+                        then XS.put newDoc
+                        else XS.modify (<> newDoc)
+
+getBindings :: X String
+getBindings = do DocBindings doc <- XS.get
+                 return doc
+
 mapBindings :: (XConfig Layout -> Binder a)
-            -> ((XConfig Layout -> KeyMap) , X String)
+            -> ((XConfig Layout -> KeyMap) , X DocBindings)
 mapBindings binder = let bindMap xConfig = runBinder $ binder xConfig
-                      in (fmap action . bindMap , explainBinds . bindMap <$> reader config)
+                      in (fmap action . bindMap , DocBindings . explainBinds . bindMap <$> reader config)
 
 explainBinds :: Foldable f => f Binding -> String
 explainBinds = foldr ((<>) . explain) ""

@@ -9,6 +9,7 @@ import Local.Border ( BorderTheme (..)
                     , myBorderTheme
                     )
 import Local.Bindings.Bind ( mapBindings
+                           , storeBindings
                            )
 import Local.Bindings.Keys ( myKeys
                            )
@@ -29,7 +30,7 @@ import Local.Workspace ( workspaceIds
 
 main :: IO ()
 main = do xmproc <- spawnXMobar
-          let (applicableKeys , _) = mapBindings (myKeys . modMask)
+          let (applicableKeys , explainableBindings) = mapBindings $ myKeys . modMask
               c = def { borderWidth        = borderWidth' myBorderTheme
                       , normalBorderColor  = inactiveBorderColor myBorderTheme
                       , focusedBorderColor = activeBorderColor myBorderTheme
@@ -44,5 +45,5 @@ main = do xmproc <- spawnXMobar
                       , startupHook        = myStartupHook
                       , logHook            = myLogHook xmproc
                       }
-              fc = docks . applyUrgencyHook . ewmh $ c
+              fc = (storeBindings explainableBindings) . docks . applyUrgencyHook . ewmh $ c
           xmonad fc
