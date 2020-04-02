@@ -75,6 +75,9 @@ myKeys mask = do
         ^> cycleLayout -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged;
                        --       fix in 'Local.Overwrite.Layout';
                        --       maybe also don't clear the default-keybind "M-<Space>"
+    bind $ mask .|. shiftMask ... xK_space
+      |/- "reset layout on current workspace"
+        ^> setLayout =<< asks (layoutHook . config)
     bind $ mask ... xK_Tab
       |/- "go to next workspace"
         ^> nextWS
