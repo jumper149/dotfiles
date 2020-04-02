@@ -1,6 +1,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module Local.Bindings.Bind ( Binding (action)
+module Local.Bindings.Bind ( Binding
                            , (|/-)
                            , (^>)
                            , KeyCombination
@@ -9,7 +9,7 @@ module Local.Bindings.Bind ( Binding (action)
                            , bind
                            , bindAlias
                            , bindZip
-                           , runBinder
+                           , mapBindings
                            , KeyMap
                            ) where
 
@@ -23,12 +23,12 @@ import qualified Data.Map as M
 newtype Binder a = Binder (Writer (M.Map KeyCombinationId Binding) a)
     deriving (Functor, Applicative, Monad)
 
+runBinder :: Binder a -> M.Map KeyCombinationId Binding
+runBinder (Binder w) = execWriter w
+
 bind :: Binding -> Binder ()
 bind binding = Binder . tell $ M.singleton kcId binding
     where kcId = (modifier $ combination binding , key $ combination binding)
-
-runBinder :: Binder a -> M.Map KeyCombinationId Binding
-runBinder (Binder w) = execWriter w
 
 bindAlias :: [KeyCombination] -- ^ alias combination
           -> Binding
@@ -45,6 +45,15 @@ bindZip :: [KeyCombination]
         -> [X ()]
         -> Binder ()
 bindZip ks es as = traverse_ bind $ uncurry (uncurry (|/-)) <$> zip (zip ks es) as
+
+mapBindings :: (XConfig Layout -> Binder a)
+            -> ((XConfig Layout -> KeyMap) , X String)
+mapBindings binder = let bindMap xConfig = runBinder $ binder xConfig
+                      in (fmap action . bindMap , explainBinds . bindMap <$> reader config)
+
+explainBinds :: Foldable f => f Binding -> String
+explainBinds = foldr ((<>) . explain) ""
+    where explain binding = show (combination binding) <> explanation binding <> "\n"
 
 data Binding = Binding { combination :: KeyCombination
                        , explanation :: String

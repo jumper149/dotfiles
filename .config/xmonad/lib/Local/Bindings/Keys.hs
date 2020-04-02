@@ -1,4 +1,4 @@
-module Local.Bindings.Keys ( applyKeys
+module Local.Bindings.Keys ( myKeys
                            ) where
 
 import XMonad
@@ -16,9 +16,6 @@ import Local.Bindings.Bind ( (|/-)
                            , bind
                            , bindAlias
                            , bindZip
-                           , KeyMap
-                           , runBinder
-                           , action
                            )
 import Local.Bindings.Util ( spawnOnAndGoTo
                            , inTerminalFromConf
@@ -204,6 +201,3 @@ myKeys mask = do
     bind $ mask ... xK_b
       |/- "spawn baobab"
         ^> spawnOnAndGoTo WsOther "baobab"
-
-applyKeys :: XConfig Layout -> KeyMap
-applyKeys xConfig = action <$> runBinder (myKeys $ modMask xConfig)

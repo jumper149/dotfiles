@@ -8,7 +8,9 @@ import XMonad.Hooks.EwmhDesktops ( ewmh
 import Local.Border ( BorderTheme (..)
                     , myBorderTheme
                     )
-import Local.Bindings.Keys ( applyKeys
+import Local.Bindings.Bind ( mapBindings
+                           )
+import Local.Bindings.Keys ( myKeys
                            )
 import Local.Layout.Hook ( myLayoutHook
                          )
@@ -27,14 +29,15 @@ import Local.Workspace ( workspaceIds
 
 main :: IO ()
 main = do xmproc <- spawnXMobar
-          let c = def { borderWidth        = borderWidth' myBorderTheme
+          let (applicableKeys , _) = mapBindings (myKeys . modMask)
+              c = def { borderWidth        = borderWidth' myBorderTheme
                       , normalBorderColor  = inactiveBorderColor myBorderTheme
                       , focusedBorderColor = activeBorderColor myBorderTheme
                       , terminal           = "kitty"
                       , focusFollowsMouse  = False
                       , clickJustFocuses   = False
                       , modMask            = mod4Mask
-                      , keys               = applyKeys
+                      , keys               = applicableKeys
                       , workspaces         = workspaceIds
                       , layoutHook         = myLayoutHook
                       , manageHook         = myManageHook
