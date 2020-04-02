@@ -41,7 +41,7 @@ import Data.Foldable ( traverse_
 import Data.Ratio ( (%)
                   )
 
-import Local.Overwrite.Layout ( ChangeLayout (..)
+import Local.Layout.Overwrite ( ChangeLayout (..)
                               )
 
 import Local.Color ( Colors (..)

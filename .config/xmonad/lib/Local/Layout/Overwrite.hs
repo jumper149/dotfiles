@@ -1,6 +1,6 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
 
-module Local.Overwrite.Layout ( Choose (..)
+module Local.Layout.Overwrite ( Choose (..)
                               , LR (..)
                               , (|||)
                               , ChangeLayout (..)
