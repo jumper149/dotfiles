@@ -44,9 +44,7 @@ import Data.Ratio ( (%)
 import Local.Layout.Overwrite ( ChangeLayout (..)
                               )
 
-import Local.Config.Color ( Colors (..)
-                          , myColors
-                          )
+import qualified Local.Config.Theme as T
 import Local.Config.Workspace ( Workspace
                               )
 
@@ -79,22 +77,22 @@ myTall = Tall 1 (3%100)   (1%2)
 
 mySpacedTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
 mySpacedTabbed = tabbed shrinkText t
-    where t = tabTheme { inactiveBorderColor = color7 myColors -- TODO: change with xmonad-contrib 0.16
+    where t = tabTheme { inactiveBorderColor = T.inactiveBorderColor T.myTheme -- TODO: change with xmonad-contrib 0.16
                        }
 
 myTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
 myTabbed = tabbed shrinkText tabTheme
 
 tabTheme :: Theme
-tabTheme = def { activeColor         = color2 myColors
-               , inactiveColor       = color0 myColors
-               , urgentColor         = color3 myColors
-               , activeBorderColor   = color2 myColors
-               , inactiveBorderColor = color0 myColors
-               , urgentBorderColor   = color3 myColors
-               , activeTextColor     = color0 myColors
-               , inactiveTextColor   = color7 myColors
-               , urgentTextColor     = color0 myColors
+tabTheme = def { activeColor         = T.activeColor         T.myTheme
+               , inactiveColor       = T.inactiveColor       T.myTheme
+               , urgentColor         = T.urgentColor         T.myTheme
+               , activeBorderColor   = T.activeBorderColor   T.myTheme
+               , inactiveBorderColor = T.inactiveColor       T.myTheme -- TODO: implement with xmonad-contrib 0.16; use T.inactiveBorderColor
+               , urgentBorderColor   = T.urgentBorderColor   T.myTheme
+               , activeTextColor     = T.activeTextColor     T.myTheme
+               , inactiveTextColor   = T.inactiveTextColor   T.myTheme
+               , urgentTextColor     = T.urgentTextColor     T.myTheme
 --               , activeBorderWidth   = 0 -- TODO: implement with xmonad-contrib 0.16
 --               , inactiveBorderWidth = 0
 --               , urgentBorderWidth   = 0
