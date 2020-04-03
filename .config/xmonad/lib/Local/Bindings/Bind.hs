@@ -42,11 +42,9 @@ bindAlias :: [KeyCombination] -- ^ alias combination
 bindAlias newCombinations binding = do bind binding
                                        traverse_ (bind . newBinding) newCombinations
     where newBinding c = Binding { combination = c
-                                 , explanation = paddedExplanation <> aliasExplanation
+                                 , explanation = AliasExplanation (combination binding) (unexplanation $ explanation binding)
                                  , action = action binding
                                  }
-          paddedExplanation = take 50 $ explanation binding <> repeat ' '
-          aliasExplanation = "(alias: " <> keycombinationToString (combination binding) <> ")"
 
 bindZip :: [KeyCombination]
         -> [String]
@@ -81,25 +79,20 @@ mapBindings :: (XConfig Layout -> Binder a)
             -> ((XConfig Layout -> KeyMap) , X DocBindings)
 mapBindings binder = let bindMap xConfig = runBinder $ binder xConfig
                          bindings = M.fromList . fmap ((modifier &&& key) . combination &&& action) . bindMap
-                         doc = DocBindings . explainBinds . bindMap <$> reader config
+                         doc = DocBindings . describeBinds . bindMap <$> reader config
                       in (bindings , doc)
 
-explainBinds :: Foldable f => f Binding -> String
-explainBinds = foldr ((<>) . explain) ""
-    where explain binding = let paddedKeys = take 25 $ keycombinationToString (combination binding) <> repeat ' '
-                             in paddedKeys <> explanation binding <> "\n"
-
 data Binding = Binding { combination :: KeyCombination
-                       , explanation :: String
+                       , explanation :: Explanation
                        , action      :: X ()
                        }
 
 (|/-) :: KeyCombination -- ^ combination
-      -> String         -- ^ description
+      -> String         -- ^ explanation
       -> X ()           -- ^ action
       -> Binding
-(|/-) c d a = Binding { combination = c
-                      , explanation = d
+(|/-) c e a = Binding { combination = c
+                      , explanation = Explanation e
                       , action = a
                       }
 infix 3 |/-
@@ -123,9 +116,55 @@ data KeyCombination = KeyCombination { modifier :: ButtonMask
                            }
 infix 4 ...
 
+maxKeycombinationStringLength :: Int
+maxKeycombinationStringLength = 20
+
 keycombinationToString :: KeyCombination -> String
-keycombinationToString c = show (modifier c) <> "-" <> keysymToString (key c)
+keycombinationToString c = take maxKeycombinationStringLength $ modString <> keyString
+    where modString = buttonmaskToString $ modifier c
+          keyString = keysymToString $ key c
+
+buttonmaskToString :: ButtonMask -> String
+buttonmaskToString m = maybe "" (<> "-") $ M.lookup m modMap
+    where modMap = M.fromList [ (mod1Mask , "M1")
+                              , (mod1Mask .|. shiftMask , "M1-S")
+                              , (mod1Mask .|. controlMask , "M1-C")
+                              , (mod2Mask , "M2")
+                              , (mod2Mask .|. shiftMask , "M2-S")
+                              , (mod2Mask .|. controlMask , "M2-C")
+                              , (mod3Mask , "M3")
+                              , (mod3Mask .|. shiftMask , "M3-S")
+                              , (mod3Mask .|. controlMask , "M3-C")
+                              , (mod4Mask , "M4")
+                              , (mod4Mask .|. shiftMask , "M4-S")
+                              , (mod4Mask .|. controlMask , "M4-C")
+                              , (mod5Mask , "M5")
+                              , (mod5Mask .|. shiftMask , "M5-S")
+                              , (mod5Mask .|. controlMask , "M5-C")
+                              ]
 
 type KeyCombinationId = (ButtonMask,KeySym)
 
+data Explanation = Explanation String
+                 | AliasExplanation KeyCombination String
+
+unexplanation :: Explanation -> String
+unexplanation (Explanation e) = e
+unexplanation (AliasExplanation _ e) = e
+
+explain :: Explanation -> String
+explain expl = case expl of
+                 Explanation e -> take paddingAmount padding <> e <> "\n"
+                 AliasExplanation kc e -> let alias = "(alias: " <> keycombinationToString kc <> ")"
+                                           in take paddingAmount (alias <> padding) <> e <> "\n"
+    where paddingAmount = maxKeycombinationStringLength + length "(alias: )"
+          padding = repeat ' '
+
 type KeyMap = M.Map KeyCombinationId (X ())
+
+describe :: Binding -> String
+describe binding = keyString <> explain (explanation binding)
+    where keyString = take maxKeycombinationStringLength $ keycombinationToString (combination binding) <> repeat ' '
+
+describeBinds :: Foldable f => f Binding -> String
+describeBinds = foldr ((<>) . describe) ""
