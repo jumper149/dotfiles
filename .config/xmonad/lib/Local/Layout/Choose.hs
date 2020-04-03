@@ -16,7 +16,7 @@ import XMonad.Layout.Spacing ( SpacingModifier (..)
 import Data.Maybe ( fromMaybe
                   )
 
-import Local.Overwrite.Layout ( Choose (..)
+import Local.Layout.Overwrite ( Choose (..)
                               , (|||)
                               )
 

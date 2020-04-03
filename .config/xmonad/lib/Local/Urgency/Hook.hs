@@ -1,17 +1,15 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-module Local.UrgencyHook ( applyUrgencyHook
-                         ) where
+module Local.Urgency.Hook ( applyUrgencyHook
+                          ) where
 
 import XMonad
 import XMonad.Hooks.UrgencyHook
 
-import Local.Color ( Colors (..)
-                   , colors
-                   )
+import qualified Local.Config.Theme as T
 
 myUrgencyHook :: BorderUrgencyHook
-myUrgencyHook = BorderUrgencyHook { urgencyBorderColor = color3 colors }
+myUrgencyHook = BorderUrgencyHook { urgencyBorderColor = T.urgentBorderColor T.myTheme }
 
 myUrgencyConfig :: UrgencyConfig
 myUrgencyConfig = UrgencyConfig { suppressWhen = Focused

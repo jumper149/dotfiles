@@ -10,8 +10,8 @@ import qualified XMonad.StackSet as S
 import XMonad.Actions.SpawnOn ( spawnOn
                               )
 
-import Local.Workspace ( Workspace (..)
-                       )
+import Local.Config.Workspace ( Workspace (..)
+                              )
 
 -- requires _NET_WM_PID to be set on creation; doesn't work on:
 --   urxvtc(offlineimap), qutebrowser, chromium
