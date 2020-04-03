@@ -1,7 +1,7 @@
-module Local.Color ( Colors (..)
-                   , Color
-                   , myColors
-                   ) where
+module Local.Config.Color ( Colors (..)
+                          , Color
+                          , myColors
+                          ) where
 
 type Color = String
 

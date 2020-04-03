@@ -1,14 +1,14 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-module Local.UrgencyHook ( applyUrgencyHook
-                         ) where
+module Local.Urgency.Hook ( applyUrgencyHook
+                          ) where
 
 import XMonad
 import XMonad.Hooks.UrgencyHook
 
-import Local.Color ( Colors (..)
-                   , myColors
-                   )
+import Local.Config.Color ( Colors (..)
+                          , myColors
+                          )
 
 myUrgencyHook :: BorderUrgencyHook
 myUrgencyHook = BorderUrgencyHook { urgencyBorderColor = color3 myColors }

@@ -1,6 +1,6 @@
-module Local.Workspace ( Workspace (..)
-                       , workspaceIds
-                       ) where
+module Local.Config.Workspace ( Workspace (..)
+                              , workspaceIds
+                              ) where
 
 import XMonad
 

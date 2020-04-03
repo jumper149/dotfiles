@@ -44,11 +44,11 @@ import Data.Ratio ( (%)
 import Local.Layout.Overwrite ( ChangeLayout (..)
                               )
 
-import Local.Color ( Colors (..)
-                   , myColors
-                   )
-import Local.Workspace ( Workspace
-                       )
+import Local.Config.Color ( Colors (..)
+                          , myColors
+                          )
+import Local.Config.Workspace ( Workspace
+                              )
 
 wsLayout :: (LayoutClass l a, LayoutClass r a) => Workspace -> l a -> r a -> PerWorkspace l r a
 wsLayout ws l = onWorkspace (show ws) l

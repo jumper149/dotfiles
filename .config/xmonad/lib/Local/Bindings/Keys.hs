@@ -22,12 +22,12 @@ import Local.Bindings.Util ( spawnOnAndGoTo
                            , inTerminalFromConf
                            , terminalFromConf
                            )
+import Local.Config.Workspace ( Workspace (..)
+                              , workspaceIds
+                              )
 import Local.Layout.Util ( toggleGaps
                          , cycleLayout
                          )
-import Local.Workspace ( Workspace (..)
-                       , workspaceIds
-                       )
 
 myKeys :: KeyMask -> Binder ()
 myKeys mask = do
