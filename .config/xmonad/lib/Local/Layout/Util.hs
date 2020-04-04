@@ -1,8 +1,10 @@
 module Local.Layout.Util ( cycleLayout
+                         , toggleFull
                          , toggleGaps
                          , wsLayout
                          , space
                          , spaceTabbed
+                         , myToggled
                          , myMastered
                          , myTall
                          , myTabbed
@@ -21,6 +23,15 @@ import XMonad.Layout.LayoutModifier ( ModifiedLayout
 import XMonad.Layout.Master ( AddMaster
                             , multimastered
                             )
+import XMonad.Layout.MultiToggle ( MultiToggle
+                                 , HCons
+                                 , EOT
+                                 , Toggle (..)
+                                 , mkToggle
+                                 , single
+                                 )
+import XMonad.Layout.MultiToggle.Instances ( StdTransformers (..)
+                                           )
 import XMonad.Layout.PerWorkspace ( PerWorkspace
                                   , onWorkspace
                                   )
@@ -50,6 +61,9 @@ import Local.Config.Workspace ( Workspace
 
 wsLayout :: (LayoutClass l a, LayoutClass r a) => Workspace -> l a -> r a -> PerWorkspace l r a
 wsLayout ws l = onWorkspace (show ws) l
+
+myToggled :: LayoutClass l a => l a -> MultiToggle (HCons StdTransformers EOT) l a
+myToggled = mkToggle (single NBFULL)
 
 space :: Integer -- ^ outer space
       -> Integer -- ^ inner space
@@ -98,6 +112,9 @@ tabTheme = def { activeColor         = T.activeColor         T.myTheme
 --               , urgentBorderWidth   = 0
                , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
                }
+
+toggleFull :: X ()
+toggleFull = sendMessage $ Toggle NBFULL
 
 -- | Toggle gaps on the current workspace.
 toggleGaps :: X ()

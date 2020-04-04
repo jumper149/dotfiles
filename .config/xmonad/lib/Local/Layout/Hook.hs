@@ -3,7 +3,6 @@
 module Local.Layout.Hook ( myLayoutHook
                          ) where
 
-import XMonad
 import XMonad.Layout.Magnifier ( magnifierOff
                                )
 import XMonad.Hooks.ManageDocks ( avoidStruts
@@ -18,6 +17,7 @@ import Local.Layout.Choose ( (-|||-)
 import Local.Layout.Util ( wsLayout
                          , space
                          , spaceTabbed
+                         , myToggled
                          , myMastered
                          , myTall
                          , myTabbed
@@ -26,11 +26,8 @@ import Local.Layout.Util ( wsLayout
 
 basicLayout = magnifierOff (avoidStruts (space 20 10 myTall))
         -|||- avoidStruts (spaceTabbed 20 10 (myMastered mySpacedTabbed))
-        -|||- avoidStruts (Mirror (space 20 10 myTall))
-        -|||- noBorders Full
 
 browserLayout = avoidStruts (noBorders myTabbed)
-          -|||- noBorders Full
 
-myLayoutHook = wsLayout WsBrowser browserLayout
-             $ basicLayout
+myLayoutHook = myToggled $ wsLayout WsBrowser browserLayout
+                         $ basicLayout

@@ -27,7 +27,8 @@ import Local.Bindings.Util ( spawnOnAndGoTo
 import Local.Config.Workspace ( Workspace (..)
                               , workspaceIds
                               )
-import Local.Layout.Util ( toggleGaps
+import Local.Layout.Util ( toggleFull
+                         , toggleGaps
                          , cycleLayout
                          )
 
@@ -75,10 +76,13 @@ myKeys mask = do
     bind $ mask ... xK_BackSpace
       |/- "move focused floating window back into layout"
         ^> withFocused $ windows . S.sink
+    bind $ mask ... xK_equal
+      |/- "toggle fullscreen"
+        ^> toggleFull
     bind $ mask .|. shiftMask ... xK_t
       |/- "toggle gaps"
         ^> toggleGaps
-    bind $ mask ... xK_equal
+    bind $ mask .|. shiftMask ... xK_equal
       |/- "toggle magnifier for focused window"
         ^> sendMessage Toggle
     bind $ mask ... xK_space
