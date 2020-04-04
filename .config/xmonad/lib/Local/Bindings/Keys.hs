@@ -8,6 +8,8 @@ import XMonad.Actions.CycleWS ( nextWS
                               )
 import XMonad.Actions.SpawnOn ( spawnOn
                               )
+import XMonad.Layout.Magnifier ( MagnifyMsg (..)
+                               )
 
 import Local.Bindings.Bind ( (|/-)
                            , (^>)
@@ -25,7 +27,8 @@ import Local.Bindings.Util ( spawnOnAndGoTo
 import Local.Config.Workspace ( Workspace (..)
                               , workspaceIds
                               )
-import Local.Layout.Util ( toggleGaps
+import Local.Layout.Util ( toggleFull
+                         , toggleGaps
                          , cycleLayout
                          )
 
@@ -73,9 +76,15 @@ myKeys mask = do
     bind $ mask ... xK_BackSpace
       |/- "move focused floating window back into layout"
         ^> withFocused $ windows . S.sink
+    bind $ mask ... xK_equal
+      |/- "toggle fullscreen"
+        ^> toggleFull
     bind $ mask .|. shiftMask ... xK_t
       |/- "toggle gaps"
         ^> toggleGaps
+    bind $ mask .|. shiftMask ... xK_equal
+      |/- "toggle magnifier for focused window"
+        ^> sendMessage Toggle
     bind $ mask ... xK_space
       |/- "cycle layout on current workspace"
         ^> cycleLayout -- TODO: only necessary because https://github.com/xmonad/xmonad/pull/219 is not merged;
@@ -131,7 +140,7 @@ myKeys mask = do
       |/- "decrease volume"
         ^> spawn "volume down"
     bindAlias [ mask ... stringToKeysym "XF86AudioRaiseVolume"
-              ] $ mask .|. controlMask ... xK_equal
+              ] $ mask .|. controlMask .|. shiftMask ... xK_equal
       |/- "increase volume"
         ^> spawn "volume up"
     bindAlias [ mask ... stringToKeysym "XF86AudioMute"
