@@ -4,6 +4,8 @@ module Local.Layout.Hook ( myLayoutHook
                          ) where
 
 import XMonad
+import XMonad.Layout.Magnifier ( magnifierOff
+                               )
 import XMonad.Hooks.ManageDocks ( avoidStruts
                                 )
 import XMonad.Layout.NoBorders ( noBorders
@@ -22,7 +24,7 @@ import Local.Layout.Util ( wsLayout
                          , mySpacedTabbed
                          )
 
-basicLayout = avoidStruts (space 20 10 myTall)
+basicLayout = magnifierOff (avoidStruts (space 20 10 myTall))
         -|||- avoidStruts (spaceTabbed 20 10 (myMastered mySpacedTabbed))
         -|||- avoidStruts (Mirror (space 20 10 myTall))
         -|||- noBorders Full
