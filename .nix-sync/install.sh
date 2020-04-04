@@ -10,6 +10,7 @@ packages=(
     "mutt"
     "ranger"
     "screenkey"
+    "theme"
     "vim"
 )
 
