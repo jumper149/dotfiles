@@ -12,6 +12,9 @@ export QT_QPA_PLATFORMTHEME="gtk2"
 # matplotlib backend
 export MPLBACKEND="Qt5Agg"
 
+# set cursor theme
+xsetroot -cursor_name left_ptr &
+
 # applications
 blugon --waitforx --fade &
 conky --config="${XDG_CONFIG_HOME}/conky/clock.conf" &
