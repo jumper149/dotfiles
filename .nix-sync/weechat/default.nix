@@ -1,5 +1,5 @@
 { pkgs , ... }:
-let aspellEnv = pkgs.aspellWithDicts (d: [d.en]);
+let aspellEnv = pkgs.aspellWithDicts (d: [d.en d.de]);
 in
   pkgs.symlinkJoin {
     name = "my-weechat";
