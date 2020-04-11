@@ -12,6 +12,7 @@ packages=(
     "screenkey"
     "theme"
     "vim"
+    "weechat"
 )
 
 function call() {
