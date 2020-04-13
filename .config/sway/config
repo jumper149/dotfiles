@@ -189,27 +189,27 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus i3blocks)
 bar {
-	mode hide
-	modifier $mod
-	
-	colors {
+        mode hide
+        modifier $mod
+
+        colors {
         background $colorf88
         focused_background $colorfff
         statusline $color8ff
         separator  $color8ff
 
-			 # border ff inside ff text   ff
+                         # border ff inside ff text   ff
         focused_workspace  $color8ff $color2ff $color0ff
         active_workspace   $color8ff $color5ff $color0ff
         inactive_workspace $color8ff $color7ff $color0ff
         urgent_workspace   $color8ff $color3ff $color0ff
         binding_mode       $color8ff $color1ff $color0ff
-   	}
+        }
 
-	position top
-	tray_output none
+        position top
+        tray_output none
 
-	status_command i3blocks -c ~/.config/i3blocks/config
+        status_command i3blocks -c ~/.config/i3blocks/config
 }
 
 # gaps
@@ -265,12 +265,6 @@ bindsym Control+$mod+l exec "i3lock -c '000000' -f"
 # reload i3bar/i3blocks blocks
 bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
 
-# toggle compton compositor
-bindsym Control+$mod+c exec "~/.scripts/compton.sh"
-
-# wallpaper
-bindsym Control+$mod+w exec "~/.scripts/set-wallpaper.sh"
-
 # toggle login-status of gpg
 bindsym Control+$mod+s exec  "~/.config/i3/scripts/gpg_toggle.sh"
 
@@ -296,16 +290,10 @@ bindsym Print exec "scrot"
 bindsym $mod+Print exec "scrot"
 
 # toggle screenkey
-bindsym Control+$mod+k exec  "~/.scripts/screenkey.sh"
-
-# play youtube videos with link from clipboard
-bindsym Control+$mod+y exec  "~/.scripts/mpv-clipboard.sh"
+bindsym Control+$mod+k exec  "screenkey-default"
 
 # fetch mail
 bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
-
-# startup scripts
-exec_always --no-startup-id "xrdb ~/.Xresources"
 
 # start applications
 bindsym $mod+grave [urgent=latest] focus

@@ -9,8 +9,14 @@ export TERMINAL="kitty"
 export QT_SELECT="5"
 export QT_QPA_PLATFORMTHEME="gtk2"
 
+# gtk theme
+export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
+
 # matplotlib backend
 export MPLBACKEND="Qt5Agg"
+
+# set cursor theme
+xsetroot -cursor_name left_ptr &
 
 # applications
 blugon --waitforx --fade &
