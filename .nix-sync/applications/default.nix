@@ -1,7 +1,7 @@
 { pkgs , ... }:
   pkgs.symlinkJoin {
     name = "my-applications";
-    paths = [
+    paths = with pkgs; [
       arandr
       baobab
       blugon
@@ -28,7 +28,7 @@
       xdotool
       xmobar
       youtube-dl
-      zathura-with-plugins
-      zoom-us
+      zathura
+      # zoom-us
     ];
   }
