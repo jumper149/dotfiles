@@ -8,7 +8,7 @@
       conky
       gimp
       i3lock
-      # kitty
+      kitty
       # libreoffice
       pavucontrol
       rofi
@@ -18,9 +18,9 @@
       xdotool
       xmobar
       zathura
-      # zoom-us
+      zoom-us
 
       # chromium
-      rxvt-unicode
+      # rxvt-unicode
     ];
   }
