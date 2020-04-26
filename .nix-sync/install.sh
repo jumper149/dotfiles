@@ -3,7 +3,8 @@
 installDir="$(dirname "$(readlink --canonicalize "${BASH_SOURCE[0]}")")"
 
 packages=(
-    "applications"
+    "applications-cli"
+    "applications-x"
     "atool"
     "firefox"
     "haskell-utils"
