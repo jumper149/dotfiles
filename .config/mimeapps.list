@@ -11,6 +11,7 @@ image/x-portable-bitmap=sxiv.desktop;
 image/x-portable-graymap=sxiv.desktop;
 image/x-tga=sxiv.desktop;
 image/x-xpixmap=sxiv.desktop;
+video/mp4=mpv.desktop;
 audio/mpeg=vlc-2.desktop;
 text/html=firefox.desktop
 text/xml=vim.desktop;
