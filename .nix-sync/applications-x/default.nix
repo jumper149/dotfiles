@@ -9,7 +9,7 @@
       gimp
       i3lock
       kitty
-      # libreoffice
+      libreoffice
       pavucontrol
       rofi
       scrot
