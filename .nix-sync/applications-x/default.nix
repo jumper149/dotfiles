@@ -18,9 +18,9 @@
       xdotool
       xmobar
       zathura
-      zoom-us
 
       # chromium
       # rxvt-unicode
+      # zoom-us
     ];
   }

@@ -3,5 +3,6 @@
     name = "my-theme";
     paths = [
       pkgs.bibata-cursors
+      pkgs.fira-code
     ];
   }
