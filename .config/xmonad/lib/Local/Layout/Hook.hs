@@ -21,10 +21,12 @@ import Local.Layout.Util ( wsLayout
                          , myMastered
                          , myTall
                          , myTabbed
+                         , mySpacedAlwaysTabbed
                          , mySpacedTabbed
                          )
 
 basicLayout = magnifierOff (avoidStruts (space 20 10 myTall))
+        -|||- avoidStruts (spaceTabbed 20 10 mySpacedAlwaysTabbed)
         -|||- avoidStruts (spaceTabbed 20 10 (myMastered mySpacedTabbed))
 
 browserLayout = avoidStruts (noBorders myTabbed)
