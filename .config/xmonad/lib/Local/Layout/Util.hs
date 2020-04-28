@@ -8,6 +8,7 @@ module Local.Layout.Util ( cycleLayout
                          , myMastered
                          , myTall
                          , myTabbed
+                         , mySpacedAlwaysTabbed
                          , mySpacedTabbed
                          ) where
 
@@ -44,6 +45,7 @@ import XMonad.Layout.Spacing ( SpacingModifier (..)
                              )
 import XMonad.Layout.Tabbed ( TabbedDecoration
                             , tabbed
+                            , tabbedAlways
                             , shrinkText
                             )
 
@@ -88,6 +90,11 @@ myMastered = multimastered 1 (3%100)   (1%2)
 myTall :: Tall a
 myTall = Tall 1 (3%100)   (1%2)
          --   n increment ratio
+
+mySpacedAlwaysTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
+mySpacedAlwaysTabbed = tabbedAlways shrinkText t
+    where t = tabTheme { inactiveBorderColor = T.inactiveBorderColor T.myTheme -- TODO: change with xmonad-contrib 0.16
+                       }
 
 mySpacedTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
 mySpacedTabbed = tabbed shrinkText t
