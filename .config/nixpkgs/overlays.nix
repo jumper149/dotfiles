@@ -20,7 +20,7 @@ let
 
       atool = let atoolDistribution = super.atool;
               in super.symlinkJoin {
-        name = atoolDistribution.name + "atool-jumper";
+        name = atoolDistribution.name + "-jumper";
         paths = [
           atoolDistribution
           super.cpio
