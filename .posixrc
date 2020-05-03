@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 # general variables, aliases and functions
 
-# colored ls
+# flag aliases
 alias ls='ls --color=auto'
+alias rm='rm --interactive=always'
 
 # dotfiles
 alias dotgit='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
