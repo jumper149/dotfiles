@@ -164,6 +164,7 @@ let
           # texlive-combined-basic
           tmux
           vimpager-latest
+          xdg-user-dirs
           youtube-dl
         ] ++ (with self.myPackages; [
           # atool
