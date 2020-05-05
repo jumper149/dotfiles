@@ -167,7 +167,7 @@ let
           xdg-user-dirs
           youtube-dl
         ] ++ (with self.myPackages; [
-          # atool
+          atool
           haskell-utils
           mpd-utils
           mutt
@@ -202,6 +202,7 @@ let
           # zoom-us
         ] ++ (with self.myPackages; [
           firefox
+          screenkey
         ]);
       };
 
