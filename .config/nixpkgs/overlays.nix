@@ -161,6 +161,7 @@ let
           offlineimap
           openconnect
           pass
+          sshfs
           # texlive-combined-basic
           tmux
           vimpager-latest
