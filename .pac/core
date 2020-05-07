@@ -33,6 +33,7 @@ xorg-xinit
 
 xmonad
 xmonad-contrib
+xmobar
 i3lock
 conky
 # haskell-http-conduit
