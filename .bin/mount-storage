@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+MOUNTPATH="${HOME}/Storage"
+
+case "${1}" in
+    'mount')
+        echo "mounting Storage at: ${MOUNTPATH}"
+        sshfs "jumper@local.felixspringer.xyz:Storage" "${MOUNTPATH}"
+        ;;
+
+    'umount')
+        echo "unmounting Storage from: ${MOUNTPATH}"
+        fusermount3 -u "${MOUNTPATH}"
+        ;;
+
+    *)
+        exit 1
+        ;;
+esac
