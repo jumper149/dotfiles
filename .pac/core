@@ -36,6 +36,7 @@ xmonad-contrib
 xmobar
 i3lock
 conky
+glava
 # haskell-http-conduit
 # libmpd
 
