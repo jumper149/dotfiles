@@ -93,7 +93,7 @@ let g:Tex_SmartKeyQuote=0 " Dont change quotation marks to special upper and low
 
 " Commands
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit
+command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit!
 
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>

@@ -75,6 +75,7 @@ Check everything in `$HOME/.config/i3blocks`, especially:
 Places that use hardcoded color configuration:
 
     ~/.Xresources
+    ~/.bin/glava-default
     ~/.vim/colors/wombat256jumper.vim
     ~/.config/blugon/config
     ~/.config/kitty/kitty.conf
