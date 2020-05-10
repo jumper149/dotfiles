@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
-# depends: glava, xrandr
+# depends: glava (3cc5e226aa719328f1b96870617a0e9a95f02c8a), xrandr
+
+FOREGROUND="#85678f"
+BACKGROUND="#373b41"
 
 # in pixel (eg. "100") or percent (eg. "10%")
-WIDTH="35%"
-HEIGHT="300" # default bars amplitude
+WIDTH="$(( (128 * 2) + (150 * 2) ))"
+HEIGHT="${WIDTH}"
 
 MONITORS="$(xrandr --listactivemonitors)"
 MONITOR="$(echo "${MONITORS}" | grep --extended-regexp '^\s+[0-9]+:\s+\+\*')"
@@ -36,9 +39,9 @@ function percentage_to_pixel {
 WIDTH="$(percentage_to_pixel "${XRES}" "${WIDTH}")"
 HEIGHT="$(percentage_to_pixel "${YRES}" "${HEIGHT}")"
 
-# 60 pixel padding bottom_right hardcoded
-XPAD="$(( XRES - (WIDTH + 60) ))"
-YPAD="$(( YRES - (HEIGHT + 60) ))"
+# 30 pixel padding bottom_right hardcoded
+XPAD="$(( XRES - (WIDTH + 30) ))"
+YPAD="$(( YRES - (HEIGHT + 30) ))"
 
 XFULL="$((XPAD + WIDTH))"
 YFULL="$((YPAD + HEIGHT))"
@@ -49,8 +52,12 @@ if [[ "${XRES}" -lt "${XFULL}" ]] || \
     exit 2
 fi
 
-glava --desktop --verbose \
-    --request="mod bars" \
-    --request="setopacity \"xroot\"" \
-    --request="setgeometry ${XPAD} ${YPAD} ${WIDTH} ${HEIGHT}" \
-    --request="setxwintype \"!-\""
+echo "fg = ${FOREGROUND}; bg = ${BACKGROUND}" \
+    | sed 's/;\s*/\n/g' \
+    | glava --desktop --verbose \
+        --pipe="fg" \
+        --pipe="bg" \
+        --request="mod radial" \
+        --request="setopacity \"xroot\"" \
+        --request="setgeometry ${XPAD} ${YPAD} ${WIDTH} ${HEIGHT}" \
+        --request="setxwintype \"!-\""
