@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# depends: glava, xrandr
+
+# in pixel (eg. "100") or percent (eg. "10%")
+WIDTH="35%"
+HEIGHT="300" # default bars amplitude
+
+MONITORS="$(xrandr --listactivemonitors)"
+MONITOR="$(echo "${MONITORS}" | grep --extended-regexp '^\s+[0-9]+:\s+\+\*')"
+RESOLUTION="$(echo "${MONITOR}" | cut --fields=4 --delimiter=' ' \
+    | cut --fields=1 --delimiter='+' | sed 's/x/\n/g' \
+    | cut --fields=1 --delimiter='/' | tr '\n' ' ')"
+XRES=$(echo "${RESOLUTION}" | cut --fields=1 --delimiter=' ' \
+    | grep --extended-regexp '^[0-9]+$')
+YRES=$(echo "${RESOLUTION}" | cut --fields=2 --delimiter=' ' \
+    | grep --extended-regexp '^[0-9]+$')
+
+if [[ -z "${XRES}" ]] || [[ -z "${YRES}" ]]; then
+    echo "can't access screen resolution"
+    exit 1
+fi
+
+function percentage_to_pixel {
+    local res="${1}"
+    local prcnt="$(echo "${2}" | grep --extended-regexp '^[0-9]+%$' \
+        | tr --delete '%')"
+    if [[ -z "${prcnt}" ]]
+    then
+        echo "${2}"
+    else
+        echo "$(( (res * prcnt) / 100 ))"
+    fi
+}
+
+WIDTH="$(percentage_to_pixel "${XRES}" "${WIDTH}")"
+HEIGHT="$(percentage_to_pixel "${YRES}" "${HEIGHT}")"
+
+# 60 pixel padding bottom_right hardcoded
+XPAD="$(( XRES - (WIDTH + 60) ))"
+YPAD="$(( YRES - (HEIGHT + 60) ))"
+
+XFULL="$((XPAD + WIDTH))"
+YFULL="$((YPAD + HEIGHT))"
+
+if [[ "${XRES}" -lt "${XFULL}" ]] || \
+    [[ "${YRES}" -lt "${YFULL}" ]]; then
+    echo "screen resolution is only ${XRES}x${YRES} but is required to be at least ${XFULL}x${YFULL}"
+    exit 2
+fi
+
+glava --desktop --verbose \
+    --request="mod bars" \
+    --request="setopacity \"xroot\"" \
+    --request="setgeometry ${XPAD} ${YPAD} ${WIDTH} ${HEIGHT}" \
+    --request="setxwintype \"!-\""
