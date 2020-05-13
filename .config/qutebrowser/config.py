@@ -88,7 +88,7 @@ c.colors.downloads.stop.fg = myColorF
 #c.colors.downloads.system.bg (Current: rgb)
 #c.colors.downloads.system.fg (Current: rgb)
 
-c.colors.hints.bg = myTransparent(myColorB, 0.5)
+c.colors.hints.bg = myTransparent(myColorB, 0.7)
 c.colors.hints.fg = myColor0
 c.colors.hints.match.fg = myColor9
 c.colors.keyhint.bg = myTransparent(myColorC, 0.5)
@@ -109,3 +109,27 @@ c.colors.prompts.bg = myColor8
 c.colors.prompts.border = '1px solid ' + myColor0
 c.colors.prompts.fg = myColorF
 c.colors.prompts.selected.bg = myColor0
+
+c.colors.statusbar.caret.bg = myTransparent(myColor5, 0.25)
+c.colors.statusbar.caret.fg = myColorF
+c.colors.statusbar.caret.selection.bg = myTransparent(myColorD, 0.25)
+c.colors.statusbar.caret.selection.fg = myColorF
+c.colors.statusbar.command.bg = myColor0
+c.colors.statusbar.command.fg = myColorF
+c.colors.statusbar.command.private.bg = myColor8
+c.colors.statusbar.command.private.fg = myColorF
+c.colors.statusbar.insert.bg = myTransparent(myColor2, 0.25)
+c.colors.statusbar.insert.fg = myColorF
+c.colors.statusbar.normal.bg = myColor0
+c.colors.statusbar.normal.fg = myColorF
+c.colors.statusbar.passthrough.bg = myTransparent(myColor4, 0.25)
+c.colors.statusbar.passthrough.fg = myColorF
+c.colors.statusbar.private.bg = myColor8
+c.colors.statusbar.private.fg = myColorF
+c.colors.statusbar.progress.bg = myColor2
+c.colors.statusbar.url.error.fg = myColor9
+c.colors.statusbar.url.fg = myColorF
+c.colors.statusbar.url.hover.fg = myColorE
+c.colors.statusbar.url.success.http.fg = myColor2
+c.colors.statusbar.url.success.https.fg = myColorA
+c.colors.statusbar.url.warn.fg = myColorB
