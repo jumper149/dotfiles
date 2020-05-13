@@ -195,6 +195,12 @@ myKeys mask = do
     bind $ mask ... xK_f
       |/- "spawn firefox"
         ^> spawnOnAndGoTo WsBrowser "firefox"
+    bind $ mask ... xK_c
+      |/- "spawn chromium"
+        ^> spawnOnAndGoTo WsBrowser "chromium"
+    bind $ mask ... xK_q
+      |/- "spawn qutebrowser"
+        ^> spawnOnAndGoTo WsBrowser "qutebrowser"
     bind $ mask ... xK_n
       |/- "spawn ncmpcpp"
         ^> spawnOnAndGoTo WsMedia =<< inTerminalFromConf "ncmpcpp"

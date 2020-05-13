@@ -17,6 +17,8 @@ settings:
     global:
     - multiple-tabs
     - downloads
+  downloads.remove_finished:
+    global: 1000
   scrolling.smooth:
     global: true
   statusbar.hide:
