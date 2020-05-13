@@ -104,3 +104,8 @@ c.colors.messages.info.fg = myColor0
 c.colors.messages.warning.bg = myTransparent(myColorB, 0.7)
 c.colors.messages.warning.border = myTransparent(myColor3, 0.85)
 c.colors.messages.warning.fg = myColor0
+
+c.colors.prompts.bg = myColor8
+c.colors.prompts.border = '1px solid ' + myColor0
+c.colors.prompts.fg = myColorF
+c.colors.prompts.selected.bg = myColor0
