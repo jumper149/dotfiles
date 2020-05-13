@@ -133,3 +133,25 @@ c.colors.statusbar.url.hover.fg = myColorE
 c.colors.statusbar.url.success.http.fg = myColor2
 c.colors.statusbar.url.success.https.fg = myColorA
 c.colors.statusbar.url.warn.fg = myColorB
+
+c.colors.tabs.bar.bg = myColor0
+c.colors.tabs.even.bg = myColor8
+c.colors.tabs.even.fg = myColorF
+c.colors.tabs.indicator.error = myColor1
+c.colors.tabs.indicator.start = myColor4
+c.colors.tabs.indicator.stop = myColor2
+#c.colors.tabs.indicator.system (Current: rgb)
+c.colors.tabs.odd.bg = myColor0
+c.colors.tabs.odd.fg = myColorF
+c.colors.tabs.pinned.even.bg = myColor8
+c.colors.tabs.pinned.even.fg = myColorF
+c.colors.tabs.pinned.odd.bg = myColor0
+c.colors.tabs.pinned.odd.fg = myColorF
+c.colors.tabs.pinned.selected.even.bg = myColorA
+c.colors.tabs.pinned.selected.even.fg = myColor0
+c.colors.tabs.pinned.selected.odd.bg = myColorA
+c.colors.tabs.pinned.selected.odd.fg = myColor0
+c.colors.tabs.selected.even.bg = myColorA
+c.colors.tabs.selected.even.fg = myColor0
+c.colors.tabs.selected.odd.bg = myColorA
+c.colors.tabs.selected.odd.fg = myColor0
