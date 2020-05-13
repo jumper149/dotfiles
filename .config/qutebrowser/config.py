@@ -66,3 +66,19 @@ c.colors.completion.match.fg = myColor9
 c.colors.completion.odd.bg = myColor8
 c.colors.completion.scrollbar.bg = myColor0
 c.colors.completion.scrollbar.fg = myColor7
+
+# Don't set to keep Qt defaults
+#colors.contextmenu.menu.bg (Current: )
+#colors.contextmenu.menu.fg (Current: )
+#colors.contextmenu.selected.bg (Current: )
+#colors.contextmenu.selected.fg (Current: )
+
+c.colors.downloads.bar.bg = myColor0
+c.colors.downloads.error.bg = myColor1
+c.colors.downloads.error.fg = myColorF
+c.colors.downloads.start.bg = myColor3
+c.colors.downloads.start.fg = myColorF
+c.colors.downloads.stop.bg = myColor2
+c.colors.downloads.stop.fg = myColorF
+#c.colors.downloads.system.bg (Current: rgb)
+#c.colors.downloads.system.fg (Current: rgb)
