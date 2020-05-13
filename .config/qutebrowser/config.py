@@ -91,7 +91,7 @@ c.colors.downloads.stop.fg = myColorF
 c.colors.hints.bg = myTransparent(myColorB, 0.7)
 c.colors.hints.fg = myColor0
 c.colors.hints.match.fg = myColor9
-c.colors.keyhint.bg = myTransparent(myColorC, 0.5)
+c.colors.keyhint.bg = myTransparent(myColorC, 0.7)
 c.colors.keyhint.fg = myColor0
 c.colors.keyhint.suffix.fg = myColor9
 
