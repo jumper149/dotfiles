@@ -1,5 +1,20 @@
-# Still load settings configured via autoconfig.yml
-config.load_autoconfig()
+# Uncomment to also load settings configured via autoconfig.yml
+#config.load_autoconfig()
+
+c.scrolling.smooth = True
+
+c.confirm_quit = [ 'multiple-tabs', 'downloads' ]
+
+c.downloads.remove_finished = 1000
+c.statusbar.hide = True;
+c.tabs.show = 'multiple'
+
+
+
+config.bind(',P', 'spawn --userscript qute-pass --password-only')
+config.bind(',p', 'spawn --userscript qute-pass')
+config.bind('Z', 'spawn mpv {url}')
+config.bind('z', 'hint links spawn mpv {hint-url}')
 
 
 
@@ -93,7 +108,7 @@ c.colors.hints.fg = myColor0
 c.colors.hints.match.fg = myColor9
 c.colors.keyhint.bg = myTransparent(myColorC, 0.7)
 c.colors.keyhint.fg = myColor0
-c.colors.keyhint.suffix.fg = myColor9
+c.colors.keyhint.suffix.fg = myColor1
 
 c.colors.messages.error.bg = myTransparent(myColor9, 0.7)
 c.colors.messages.error.border = myTransparent(myColor1, 0.85)
