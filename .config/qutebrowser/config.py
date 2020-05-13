@@ -11,6 +11,20 @@ c.tabs.show = 'multiple'
 
 
 
+config.unbind('q') # record macro
+config.unbind('d') # close tab
+config.unbind('u') # restore tab
+
+config.bind('d', 'scroll-page 0 0.5')
+config.bind('<Ctrl-d>', 'scroll-page 0 0.75')
+config.bind('u', 'scroll-page 0 -0.5')
+config.bind('<Ctrl-u>', 'scroll-page 0 -0.75')
+
+config.bind('K', 'tab-next')
+config.bind('J', 'tab-next')
+
+config.bind('q', 'tab-close')
+
 config.bind(',P', 'spawn --userscript qute-pass --password-only')
 config.bind(',p', 'spawn --userscript qute-pass')
 config.bind('Z', 'spawn mpv {url}')
