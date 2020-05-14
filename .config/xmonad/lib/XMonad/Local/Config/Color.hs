@@ -1,7 +1,7 @@
-module Local.Config.Color ( Colors (..)
-                          , Color
-                          , myColors
-                          ) where
+module XMonad.Local.Config.Color ( Colors (..)
+                                 , Color
+                                 , myColors
+                                 ) where
 
 type Color = String
 

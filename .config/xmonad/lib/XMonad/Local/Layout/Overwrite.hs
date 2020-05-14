@@ -1,10 +1,10 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
 
-module Local.Layout.Overwrite ( Choose (..)
-                              , LR (..)
-                              , (|||)
-                              , ChangeLayout (..)
-                              ) where
+module XMonad.Local.Layout.Overwrite ( Choose (..)
+                                     , LR (..)
+                                     , (|||)
+                                     , ChangeLayout (..)
+                                     ) where
 
 import XMonad hiding ( Choose
                      , (|||)

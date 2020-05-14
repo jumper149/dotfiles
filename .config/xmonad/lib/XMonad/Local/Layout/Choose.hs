@@ -1,8 +1,8 @@
 {-# LANGUAGE FlexibleInstances, MultiParamTypeClasses #-}
 
-module Local.Layout.Choose ( ChooseSpacingBoth
-                           , (-|||-)
-                           ) where
+module XMonad.Local.Layout.Choose ( ChooseSpacingBoth
+                                  , (-|||-)
+                                  ) where
 
 import XMonad hiding ( Choose
                      , (|||)
@@ -16,9 +16,9 @@ import XMonad.Layout.Spacing ( SpacingModifier (..)
 import Data.Maybe ( fromMaybe
                   )
 
-import Local.Layout.Overwrite ( Choose (..)
-                              , (|||)
-                              )
+import XMonad.Local.Layout.Overwrite ( Choose (..)
+                                     , (|||)
+                                     )
 
 newtype ChooseSpacingBoth l r a = ChooseSpacingBoth (Choose l r a)
   deriving (Read, Show)
