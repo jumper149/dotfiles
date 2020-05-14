@@ -1,12 +1,14 @@
 # Uncomment to also load settings configured via autoconfig.yml
 #config.load_autoconfig()
 
+c.content.autoplay = False
+
 c.scrolling.smooth = True
 
 c.confirm_quit = [ 'multiple-tabs', 'downloads' ]
 
 c.downloads.remove_finished = 1000
-c.statusbar.hide = True;
+c.statusbar.hide = True
 c.tabs.show = 'multiple'
 
 
