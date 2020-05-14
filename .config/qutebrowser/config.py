@@ -117,21 +117,21 @@ c.colors.downloads.stop.fg = myColorF
 #c.colors.downloads.system.bg (Current: rgb)
 #c.colors.downloads.system.fg (Current: rgb)
 
-c.colors.hints.bg = myTransparent(myColorB, 0.7)
+c.colors.hints.bg = myTransparent(myColorB, 0.8)
 c.colors.hints.fg = myColor0
 c.colors.hints.match.fg = myColor9
-c.colors.keyhint.bg = myTransparent(myColorC, 0.7)
+c.colors.keyhint.bg = myTransparent(myColorC, 0.9)
 c.colors.keyhint.fg = myColor0
 c.colors.keyhint.suffix.fg = myColor1
 
-c.colors.messages.error.bg = myTransparent(myColor9, 0.7)
-c.colors.messages.error.border = myTransparent(myColor1, 0.85)
+c.colors.messages.error.bg = myTransparent(myColor9, 0.9)
+c.colors.messages.error.border = myTransparent(myColor1, 0.95)
 c.colors.messages.error.fg = myColor0
-c.colors.messages.info.bg = myTransparent(myColorC, 0.7)
-c.colors.messages.info.border = myTransparent(myColor4, 0.85)
+c.colors.messages.info.bg = myTransparent(myColorC, 0.9)
+c.colors.messages.info.border = myTransparent(myColor4, 0.95)
 c.colors.messages.info.fg = myColor0
-c.colors.messages.warning.bg = myTransparent(myColorB, 0.7)
-c.colors.messages.warning.border = myTransparent(myColor3, 0.85)
+c.colors.messages.warning.bg = myTransparent(myColorB, 0.9)
+c.colors.messages.warning.border = myTransparent(myColor3, 0.95)
 c.colors.messages.warning.fg = myColor0
 
 c.colors.prompts.bg = myColor8
