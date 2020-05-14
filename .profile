@@ -9,7 +9,7 @@ export PATH="${PATH}:${HOME}/.bin:${HOME}/.cabal/bin"
 export VISUAL="vim"
 export EDITOR="${VISUAL}"
 export PAGER="vimpager"
-export BROWSER="firefox"
+export BROWSER="qutebrowser"
 
 export MAIL="${HOME}/.mail/"
 

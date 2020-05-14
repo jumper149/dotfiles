@@ -1,21 +1,21 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module Local.Bindings.Bind ( Binding
-                           , (|/-)
-                           , (^>)
-                           , KeyCombination
-                           , (...)
-                           , Binder
-                           , bind
-                           , bindAlias
-                           , bindZip
-                           , KeyMap
-                           , mapBindings'
-                           , DocBindings
-                           , mapBindings
-                           , storeBindings
-                           , getBindings
-                           ) where
+module XMonad.Local.Bindings.Bind ( Binding
+                                  , (|/-)
+                                  , (^>)
+                                  , KeyCombination
+                                  , (...)
+                                  , Binder
+                                  , bind
+                                  , bindAlias
+                                  , bindZip
+                                  , KeyMap
+                                  , mapBindings'
+                                  , DocBindings
+                                  , mapBindings
+                                  , storeBindings
+                                  , getBindings
+                                  ) where
 
 import XMonad
 import qualified XMonad.Util.ExtensibleState as XS

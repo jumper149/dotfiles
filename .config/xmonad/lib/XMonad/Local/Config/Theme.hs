@@ -1,15 +1,15 @@
-module Local.Config.Theme ( Theme (..)
-                          , myTheme
-                          ) where
+module XMonad.Local.Config.Theme ( Theme (..)
+                                 , myTheme
+                                 ) where
 
 import XMonad hiding ( Color
                      , borderWidth
                      )
 
-import Local.Config.Color ( Colors (..)
-                          , Color
-                          , myColors
-                          )
+import XMonad.Local.Config.Color ( Colors (..)
+                                 , Color
+                                 , myColors
+                                 )
 
 data Theme = Theme { borderWidth         :: Dimension
                    , activeColor         :: Color
