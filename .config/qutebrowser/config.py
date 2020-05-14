@@ -21,7 +21,7 @@ config.bind('u', 'scroll-page 0 -0.5')
 config.bind('<Ctrl-u>', 'scroll-page 0 -0.75')
 
 config.bind('K', 'tab-next')
-config.bind('J', 'tab-next')
+config.bind('J', 'tab-prev')
 
 config.bind('q', 'tab-close')
 
@@ -41,6 +41,32 @@ c.url.searchengines['y'] = "https://www.youtube.com/results?search_query={}"
 c.url.searchengines['aw'] = "https://wiki.archlinux.org/?search={}"
 c.url.searchengines['aur'] = "https://aur.archlinux.org/packages/?O=0&K={}&SB=p&SO=d"
 c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
+
+
+
+#c.fonts.completion.category (Current: bold default_size default_family)
+#c.fonts.completion.entry (Current: default_size default_family)
+#c.fonts.contextmenu (Current: )
+#c.fonts.debug_console (Current: default_size default_family)
+c.fonts.default_family = 'Fira Code'
+#c.fonts.default_size (Current: 10pt)
+#c.fonts.downloads (Current: default_size default_family)
+#c.fonts.hints (Current: bold default_size default_family)
+#c.fonts.keyhint (Current: default_size default_family)
+#c.fonts.messages.error (Current: default_size default_family)
+#c.fonts.messages.info (Current: default_size default_family)
+#c.fonts.messages.warning (Current: default_size default_family)
+#c.fonts.prompts (Current: default_size sans-serif)
+#c.fonts.statusbar (Current: default_size default_family)
+#c.fonts.tabs (Current: default_size default_family)
+
+# style=... isn't applied
+c.fonts.web.family.standard = 'Liberation Sans'
+#c.fonts.web.family.cursive = 'Liberation Sans:style=Italic'
+#c.fonts.web.family.fantasy = 'Liberation Sans:style=Bold Italic'
+c.fonts.web.family.fixed = 'Liberation Mono'
+c.fonts.web.family.sans_serif = 'Liberation Sans'
+c.fonts.web.family.serif = 'Liberation Serif'
 
 
 
@@ -117,21 +143,21 @@ c.colors.downloads.stop.fg = myColorF
 #c.colors.downloads.system.bg (Current: rgb)
 #c.colors.downloads.system.fg (Current: rgb)
 
-c.colors.hints.bg = myTransparent(myColorB, 0.7)
+c.colors.hints.bg = myTransparent(myColorB, 0.8)
 c.colors.hints.fg = myColor0
 c.colors.hints.match.fg = myColor9
-c.colors.keyhint.bg = myTransparent(myColorC, 0.7)
+c.colors.keyhint.bg = myTransparent(myColorC, 0.9)
 c.colors.keyhint.fg = myColor0
 c.colors.keyhint.suffix.fg = myColor1
 
-c.colors.messages.error.bg = myTransparent(myColor9, 0.7)
-c.colors.messages.error.border = myTransparent(myColor1, 0.85)
+c.colors.messages.error.bg = myTransparent(myColor9, 0.9)
+c.colors.messages.error.border = myTransparent(myColor1, 0.95)
 c.colors.messages.error.fg = myColor0
-c.colors.messages.info.bg = myTransparent(myColorC, 0.7)
-c.colors.messages.info.border = myTransparent(myColor4, 0.85)
+c.colors.messages.info.bg = myTransparent(myColorC, 0.9)
+c.colors.messages.info.border = myTransparent(myColor4, 0.95)
 c.colors.messages.info.fg = myColor0
-c.colors.messages.warning.bg = myTransparent(myColorB, 0.7)
-c.colors.messages.warning.border = myTransparent(myColor3, 0.85)
+c.colors.messages.warning.bg = myTransparent(myColorB, 0.9)
+c.colors.messages.warning.border = myTransparent(myColor3, 0.95)
 c.colors.messages.warning.fg = myColor0
 
 c.colors.prompts.bg = myColor8
@@ -184,3 +210,6 @@ c.colors.tabs.selected.even.bg = myColorA
 c.colors.tabs.selected.even.fg = myColor0
 c.colors.tabs.selected.odd.bg = myColorA
 c.colors.tabs.selected.odd.fg = myColor0
+
+c.colors.webpage.bg = myColorF
+c.colors.webpage.prefers_color_scheme_dark = True
