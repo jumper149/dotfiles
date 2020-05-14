@@ -5,26 +5,26 @@ import XMonad.Hooks.ManageDocks ( docks
 import XMonad.Hooks.EwmhDesktops ( ewmh
                                  )
 
-import Local.Bindings.Bind ( mapBindings
-                           , storeBindings
-                           )
-import Local.Bindings.Keys ( myKeys
-                           )
-import qualified Local.Config.Theme as T
-import Local.Config.Workspace ( workspaceIds
-                              )
-import Local.Layout.Hook ( myLayoutHook
-                         )
-import Local.Log.Hook ( myLogHook
-                      )
-import Local.Log.XMobar ( spawnXMobar
-                        )
-import Local.Manage.Hook ( myManageHook
-                         )
-import Local.Startup.Hook ( myStartupHook
-                          )
-import Local.Urgency.Hook ( applyUrgencyHook
-                          )
+import XMonad.Local.Bindings.Bind ( mapBindings
+                                  , storeBindings
+                                  )
+import XMonad.Local.Bindings.Keys ( myKeys
+                                  )
+import qualified XMonad.Local.Config.Theme as T
+import XMonad.Local.Config.Workspace ( workspaceIds
+                                     )
+import XMonad.Local.Layout.Hook ( myLayoutHook
+                                )
+import XMonad.Local.Log.Hook ( myLogHook
+                             )
+import XMonad.Local.Log.XMobar ( spawnXMobar
+                               )
+import XMonad.Local.Manage.Hook ( myManageHook
+                                )
+import XMonad.Local.Startup.Hook ( myStartupHook
+                                 )
+import XMonad.Local.Urgency.Hook ( applyUrgencyHook
+                                 )
 
 main :: IO ()
 main = do xmproc <- spawnXMobar

@@ -1,17 +1,17 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-module Local.Bindings.Util ( spawnOnAndGoTo
-                           , inTerminalFromConf
-                           , terminalFromConf
-                           ) where
+module XMonad.Local.Bindings.Util ( spawnOnAndGoTo
+                                  , inTerminalFromConf
+                                  , terminalFromConf
+                                  ) where
 
 import XMonad
 import qualified XMonad.StackSet as S
 import XMonad.Actions.SpawnOn ( spawnOn
                               )
 
-import Local.Config.Workspace ( Workspace (..)
-                              )
+import XMonad.Local.Config.Workspace ( Workspace (..)
+                                     )
 
 -- requires _NET_WM_PID to be set on creation; doesn't work on:
 --   urxvtc(offlineimap), qutebrowser, chromium

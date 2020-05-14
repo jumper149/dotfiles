@@ -32,15 +32,17 @@ config.bind('z', 'hint links spawn mpv {hint-url}')
 
 
 
-c.url.start_pages = "https://www.google.com"
-
-c.url.searchengines['DEFAULT'] = "https://www.google.com/search?hl=en&q={}"
-c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
+c.url.searchengines['DEFAULT'] = "https://duckduckgo.com/?q={}"
 c.url.searchengines['d'] = "https://duckduckgo.com/?q={}"
+c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
+c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
 c.url.searchengines['y'] = "https://www.youtube.com/results?search_query={}"
+c.url.searchengines['gh'] = "https://github.com/search?q={}"
+c.url.searchengines['h'] = "https://hackage.haskell.org/packages/search?terms={}"
+c.url.searchengines['np'] = "https://nixos.org/nixos/packages.html?query={}"
+c.url.searchengines['no'] = "https://nixos.org/nixos/options.html#{}"
 c.url.searchengines['aw'] = "https://wiki.archlinux.org/?search={}"
 c.url.searchengines['aur'] = "https://aur.archlinux.org/packages/?O=0&K={}&SB=p&SO=d"
-c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
 
 
 
@@ -48,17 +50,17 @@ c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
 #c.fonts.completion.entry (Current: default_size default_family)
 #c.fonts.contextmenu (Current: )
 #c.fonts.debug_console (Current: default_size default_family)
-c.fonts.default_family = 'Fira Code'
-#c.fonts.default_size (Current: 10pt)
+c.fonts.default_family = 'Inconsolata'
+c.fonts.default_size = '11pt'
 #c.fonts.downloads (Current: default_size default_family)
 #c.fonts.hints (Current: bold default_size default_family)
 #c.fonts.keyhint (Current: default_size default_family)
 #c.fonts.messages.error (Current: default_size default_family)
 #c.fonts.messages.info (Current: default_size default_family)
 #c.fonts.messages.warning (Current: default_size default_family)
-#c.fonts.prompts (Current: default_size sans-serif)
+c.fonts.prompts = 'default_size default_family'
 #c.fonts.statusbar (Current: default_size default_family)
-#c.fonts.tabs (Current: default_size default_family)
+#c.fonts.tabs #(Current: default_size default_family)
 
 # style=... isn't applied
 c.fonts.web.family.standard = 'Liberation Sans'
@@ -150,14 +152,14 @@ c.colors.keyhint.bg = myTransparent(myColorC, 0.9)
 c.colors.keyhint.fg = myColor0
 c.colors.keyhint.suffix.fg = myColor1
 
-c.colors.messages.error.bg = myTransparent(myColor9, 0.9)
-c.colors.messages.error.border = myTransparent(myColor1, 0.95)
+c.colors.messages.error.bg = myTransparent(myColor9, 0.8)
+c.colors.messages.error.border = myTransparent(myColor1, 0.9)
 c.colors.messages.error.fg = myColor0
-c.colors.messages.info.bg = myTransparent(myColorC, 0.9)
-c.colors.messages.info.border = myTransparent(myColor4, 0.95)
+c.colors.messages.info.bg = myTransparent(myColorC, 0.8)
+c.colors.messages.info.border = myTransparent(myColor4, 0.9)
 c.colors.messages.info.fg = myColor0
-c.colors.messages.warning.bg = myTransparent(myColorB, 0.9)
-c.colors.messages.warning.border = myTransparent(myColor3, 0.95)
+c.colors.messages.warning.bg = myTransparent(myColorB, 0.8)
+c.colors.messages.warning.border = myTransparent(myColor3, 0.9)
 c.colors.messages.warning.fg = myColor0
 
 c.colors.prompts.bg = myColor8

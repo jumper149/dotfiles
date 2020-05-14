@@ -1,16 +1,16 @@
-module Local.Layout.Util ( cycleLayout
-                         , toggleFull
-                         , toggleGaps
-                         , wsLayout
-                         , space
-                         , spaceTabbed
-                         , myToggled
-                         , myMastered
-                         , myTall
-                         , myTabbed
-                         , mySpacedAlwaysTabbed
-                         , mySpacedTabbed
-                         ) where
+module XMonad.Local.Layout.Util ( cycleLayout
+                                , toggleFull
+                                , toggleGaps
+                                , wsLayout
+                                , space
+                                , spaceTabbed
+                                , myToggled
+                                , myMastered
+                                , myTall
+                                , myTabbed
+                                , mySpacedAlwaysTabbed
+                                , mySpacedTabbed
+                                ) where
 
 import XMonad hiding ( ChangeLayout ( NextLayout
                                     )
@@ -54,12 +54,12 @@ import Data.Foldable ( traverse_
 import Data.Ratio ( (%)
                   )
 
-import Local.Layout.Overwrite ( ChangeLayout (..)
-                              )
+import XMonad.Local.Layout.Overwrite ( ChangeLayout (..)
+                                     )
 
-import qualified Local.Config.Theme as T
-import Local.Config.Workspace ( Workspace
-                              )
+import qualified XMonad.Local.Config.Theme as T
+import XMonad.Local.Config.Workspace ( Workspace
+                                     )
 
 wsLayout :: (LayoutClass l a, LayoutClass r a) => Workspace -> l a -> r a -> PerWorkspace l r a
 wsLayout ws l = onWorkspace (show ws) l

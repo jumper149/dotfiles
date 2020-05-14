@@ -1,5 +1,5 @@
-module Local.Bindings.Keys ( myKeys
-                           ) where
+module XMonad.Local.Bindings.Keys ( myKeys
+                                  ) where
 
 import XMonad
 import qualified XMonad.StackSet as S
@@ -11,26 +11,26 @@ import XMonad.Actions.SpawnOn ( spawnOn
 import XMonad.Layout.Magnifier ( MagnifyMsg (..)
                                )
 
-import Local.Bindings.Bind ( (|/-)
-                           , (^>)
-                           , (...)
-                           , Binder
-                           , bind
-                           , bindAlias
-                           , bindZip
-                           , getBindings
-                           )
-import Local.Bindings.Util ( spawnOnAndGoTo
-                           , inTerminalFromConf
-                           , terminalFromConf
-                           )
-import Local.Config.Workspace ( Workspace (..)
-                              , workspaceIds
-                              )
-import Local.Layout.Util ( toggleFull
-                         , toggleGaps
-                         , cycleLayout
-                         )
+import XMonad.Local.Bindings.Bind ( (|/-)
+                                  , (^>)
+                                  , (...)
+                                  , Binder
+                                  , bind
+                                  , bindAlias
+                                  , bindZip
+                                  , getBindings
+                                  )
+import XMonad.Local.Bindings.Util ( spawnOnAndGoTo
+                                  , inTerminalFromConf
+                                  , terminalFromConf
+                                  )
+import XMonad.Local.Config.Workspace ( Workspace (..)
+                                     , workspaceIds
+                                     )
+import XMonad.Local.Layout.Util ( toggleFull
+                                , toggleGaps
+                                , cycleLayout
+                                )
 
 myKeys :: KeyMask -> Binder ()
 myKeys mask = do
