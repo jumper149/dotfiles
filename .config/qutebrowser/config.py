@@ -48,17 +48,17 @@ c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
 #c.fonts.completion.entry (Current: default_size default_family)
 #c.fonts.contextmenu (Current: )
 #c.fonts.debug_console (Current: default_size default_family)
-c.fonts.default_family = 'Fira Code'
-#c.fonts.default_size (Current: 10pt)
+c.fonts.default_family = 'Inconsolata'
+c.fonts.default_size = '11pt'
 #c.fonts.downloads (Current: default_size default_family)
 #c.fonts.hints (Current: bold default_size default_family)
 #c.fonts.keyhint (Current: default_size default_family)
 #c.fonts.messages.error (Current: default_size default_family)
 #c.fonts.messages.info (Current: default_size default_family)
 #c.fonts.messages.warning (Current: default_size default_family)
-#c.fonts.prompts (Current: default_size sans-serif)
+c.fonts.prompts = 'default_size default_family'
 #c.fonts.statusbar (Current: default_size default_family)
-#c.fonts.tabs (Current: default_size default_family)
+#c.fonts.tabs #(Current: default_size default_family)
 
 # style=... isn't applied
 c.fonts.web.family.standard = 'Liberation Sans'
