@@ -184,3 +184,6 @@ c.colors.tabs.selected.even.bg = myColorA
 c.colors.tabs.selected.even.fg = myColor0
 c.colors.tabs.selected.odd.bg = myColorA
 c.colors.tabs.selected.odd.fg = myColor0
+
+c.colors.webpage.bg = myColor8
+c.colors.webpage.prefers_color_scheme_dark = True
