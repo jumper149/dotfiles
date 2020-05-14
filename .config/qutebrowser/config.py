@@ -21,7 +21,7 @@ config.bind('u', 'scroll-page 0 -0.5')
 config.bind('<Ctrl-u>', 'scroll-page 0 -0.75')
 
 config.bind('K', 'tab-next')
-config.bind('J', 'tab-next')
+config.bind('J', 'tab-prev')
 
 config.bind('q', 'tab-close')
 
@@ -41,6 +41,16 @@ c.url.searchengines['y'] = "https://www.youtube.com/results?search_query={}"
 c.url.searchengines['aw'] = "https://wiki.archlinux.org/?search={}"
 c.url.searchengines['aur'] = "https://aur.archlinux.org/packages/?O=0&K={}&SB=p&SO=d"
 c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
+
+
+
+# style=... isn't applied
+c.fonts.web.family.standard = 'Liberation Sans'
+#c.fonts.web.family.cursive = 'Liberation Sans:style=Italic'
+#c.fonts.web.family.fantasy = 'Liberation Sans:style=Bold Italic'
+c.fonts.web.family.fixed = 'Liberation Mono'
+c.fonts.web.family.sans_serif = 'Liberation Sans'
+c.fonts.web.family.serif = 'Liberation Serif'
 
 
 
