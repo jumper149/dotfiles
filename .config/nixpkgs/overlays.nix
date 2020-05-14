@@ -186,6 +186,7 @@ let
           blugon
           conky
           gimp
+          glava
           i3lock
           kitty
           # libreoffice
