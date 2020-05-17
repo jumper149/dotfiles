@@ -50,7 +50,7 @@ font pango: Inconsolata Bold 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec "kitty"
+bindsym $mod+Return exec "alacritty"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -297,19 +297,19 @@ bindsym Control+$mod+m exec  "~/.config/i3/scripts/mail_fetch.sh"
 
 # start applications
 bindsym $mod+grave [urgent=latest] focus
-bindsym $mod+$mod2+r exec "kitty 'ranger'"
-bindsym $mod+$mod2+h workspace $ws0; exec "kitty 'htop'"
+bindsym $mod+$mod2+r exec "alacritty -e 'ranger'"
+bindsym $mod+$mod2+h workspace $ws0; exec "alacritty -e 'htop'"
 bindsym $mod+$mod2+d workspace $ws0; exec "baobab"
 bindsym $mod+$mod2+q workspace $ws1; exec "qutebrowser"
 bindsym $mod+$mod2+o workspace $ws1; exec "tor-browser"
 bindsym $mod+$mod2+v workspace $ws3; exec "vlc"
-bindsym $mod+$mod2+n workspace $ws3; exec "kitty 'ncmpcpp'"
+bindsym $mod+$mod2+n workspace $ws3; exec "alacritty -e 'ncmpcpp'"
 bindsym $mod+$mod2+c workspace $ws3; exec "chromium"
-bindsym $mod+$mod2+p workspace $ws3; exec "kitty 'pulsemixer'"
+bindsym $mod+$mod2+p workspace $ws3; exec "alacritty -e 'pulsemixer'"
 bindsym $mod+$mod2+x workspace $ws3; exec "arandr"
-bindsym $mod+$mod2+m workspace $ws4; exec "kitty 'mutt'"
-bindsym $mod+$mod2+i workspace $ws4; exec "kitty 'irssi'"
-bindsym $mod+$mod2+w workspace $ws4; exec "kitty 'weechat'"
+bindsym $mod+$mod2+m workspace $ws4; exec "alacritty -e 'mutt'"
+bindsym $mod+$mod2+i workspace $ws4; exec "alacritty -e 'irssi'"
+bindsym $mod+$mod2+w workspace $ws4; exec "alacritty -e 'weechat'"
 bindsym $mod+$mod2+t workspace $ws4; exec "telegram-desktop"
 bindsym $mod+$mod2+b workspace $ws4; exec "blueman-manager"
 bindsym $mod+$mod2+g workspace $ws6; exec "gimp"
