@@ -79,6 +79,7 @@ Places that use hardcoded color configuration:
     ~/.config/alacritty/alacritty.yml
     ~/.config/blugon/config
     ~/.config/kitty/kitty.conf
+    ~/.config/qutebrowser/config.py
     ~/.config/rofi/theme.rasi
     ~/.config/zathura/zathurarc
     ~/.config/i3blocks/scripts/battery.sh
