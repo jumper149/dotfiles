@@ -32,7 +32,7 @@ main = do xmproc <- spawnXMobar
               c = def { borderWidth        = T.borderWidth T.myTheme
                       , normalBorderColor  = T.inactiveBorderColor T.myTheme
                       , focusedBorderColor = T.activeBorderColor T.myTheme
-                      , terminal           = "kitty"
+                      , terminal           = "alacritty"
                       , focusFollowsMouse  = False
                       , clickJustFocuses   = False
                       , modMask            = mod4Mask

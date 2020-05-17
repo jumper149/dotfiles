@@ -3,7 +3,7 @@
 . ~/.profile
 
 # terminal emulator for rofi
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 
 # qt theme
 export QT_SELECT="5"
