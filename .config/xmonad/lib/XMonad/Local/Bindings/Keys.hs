@@ -20,7 +20,10 @@ import XMonad.Local.Bindings.Bind ( (|/-)
                                   , bindZip
                                   , getBindings
                                   )
-import XMonad.Local.Bindings.Util ( spawnOnAndGoTo
+import XMonad.Local.Bindings.Util ( Direction (..)
+                                  , moveFloating
+                                  , resizeFloating
+                                  , spawnOnAndGoTo
                                   , inTerminalFromConf
                                   , terminalFromConf
                                   )
@@ -73,7 +76,8 @@ myKeys mask = do
     bind $ mask ... xK_period
       |/- "decrement number of windows in master pane"
         ^> sendMessage $ IncMasterN (-1)
-    bind $ mask ... xK_BackSpace
+    bindAlias [ mask .|. controlMask ... xK_BackSpace
+              ] $ mask ... xK_BackSpace
       |/- "move focused floating window back into layout"
         ^> withFocused $ windows . S.sink
     bind $ mask ... xK_equal
@@ -93,6 +97,38 @@ myKeys mask = do
     bind $ mask .|. shiftMask ... xK_space
       |/- "reset layout on current workspace"
         ^> setLayout =<< asks (layoutHook . config)
+    bindAlias [ mask .|. controlMask ... xK_Left
+              ] $ mask .|. controlMask ... xK_h
+      |/- "move floating window left"
+        ^> withFocused $ moveFloating L
+    bindAlias [ mask .|. controlMask ... xK_Down
+              ] $ mask .|. controlMask ... xK_j
+      |/- "move floating window down"
+        ^> withFocused $ moveFloating D
+    bindAlias [ mask .|. controlMask ... xK_Up
+              ] $ mask .|. controlMask ... xK_k
+      |/- "move floating window up"
+        ^> withFocused $ moveFloating U
+    bindAlias [ mask .|. controlMask ... xK_Right
+              ] $ mask .|. controlMask ... xK_l
+      |/- "move floating window right"
+        ^> withFocused $ moveFloating R
+    bindAlias [ mask .|. controlMask .|. shiftMask ... xK_Left
+              ] $ mask .|. controlMask .|. shiftMask ... xK_h
+      |/- "shrink floating window horizontally"
+        ^> withFocused $ resizeFloating L
+    bindAlias [ mask .|. controlMask .|. shiftMask ... xK_Down
+              ] $ mask .|. controlMask .|. shiftMask ... xK_j
+      |/- "expand floating window vertically"
+        ^> withFocused $ resizeFloating D
+    bindAlias [ mask .|. controlMask .|. shiftMask ... xK_Up
+              ] $ mask .|. controlMask .|. shiftMask ... xK_k
+      |/- "shrink floating window vertically"
+        ^> withFocused $ resizeFloating U
+    bindAlias [ mask .|. controlMask .|. shiftMask ... xK_Right
+              ] $ mask .|. controlMask .|. shiftMask ... xK_l
+      |/- "expand floating window horizontally"
+        ^> withFocused $ resizeFloating R
     bind $ mask ... xK_Tab
       |/- "go to next workspace"
         ^> nextWS

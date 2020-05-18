@@ -1,0 +1,97 @@
+# Default options from: https://github.com/alacritty/alacritty/releases
+# Version 0.4.2
+
+font:
+  normal:
+    family: Inconsolata
+    style: Regular
+
+  bold:
+    family: Inconsolata
+    style: Bold
+
+  italic:
+    family: Inconsolata
+    style: Regular
+
+  bold_italic:
+    family: Inconsolata
+    style: Bold
+
+  size: 12.0
+
+colors:
+  primary:
+    background: '#1c1c1c'
+    foreground: '#c5c8c6'
+
+  cursor:
+    text:   '#1c1c1c'
+    cursor: '#c5c8c6'
+
+  selection:
+    text:       '#1c1c1c'
+    background: '#b294bb'
+
+  normal:
+    black:   '#282a2e'
+    red:     '#a54242'
+    green:   '#8c9440'
+    yellow:  '#de935f'
+    blue:    '#5f819d'
+    magenta: '#85678f'
+    cyan:    '#5e8d87'
+    white:   '#707880'
+
+  bright:
+    black:   '#373b41'
+    red:     '#cc6666'
+    green:   '#b5bd68'
+    yellow:  '#f0c674'
+    blue:    '#81a2be'
+    magenta: '#b294bb'
+    cyan:    '#8abeb7'
+    white:   '#c5c8c6'
+
+visual_bell:
+  duration: 30
+  color: '#85678f'
+
+mouse:
+  url:
+    modifiers: Control|Alt
+
+mouse_bindings:
+  #- { mouse: Middle, action: PasteSelection }
+  - { mouse: Middle, action: None           }
+
+key_bindings:
+  #- { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: V,        mods: Control|Shift, action: ReceiveChar      }
+  #- { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: C,        mods: Control|Shift, action: ReceiveChar      }
+  #- { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Insert,   mods: Shift,         action: ReceiveChar      }
+  #- { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Key0,     mods: Control,       action: ReceiveChar      }
+  #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Equals,   mods: Control,       action: ReceiveChar      }
+  #- { key: Add,      mods: Control,       action: IncreaseFontSize }
+  - { key: Add,      mods: Control,       action: ReceiveChar      }
+  #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  - { key: Subtract, mods: Control,       action: ReceiveChar      }
+  #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: Minus,    mods: Control,       action: ReceiveChar      }
+
+  - { key: C,        mods: Control|Alt,       action: Copy             }
+  - { key: V,        mods: Control|Alt,       action: Paste            }
+  - { key: D,        mods: Control|Alt,       action: ScrollPageDown   }
+  - { key: U,        mods: Control|Alt,       action: ScrollPageUp     }
+  - { key: J,        mods: Control|Alt,       action: ScrollLineDown   }
+  - { key: K,        mods: Control|Alt,       action: ScrollLineUp     }
+  - { key: Equals,   mods: Control|Alt,       action: ResetFontSize    }
+  #- { key: Equals,   mods: Control,           action: ResetFontSize    }
+  - { key: Add,      mods: Control|Alt|Shift, action: IncreaseFontSize }
+  #- { key: Add,      mods: Control|Shift,     action: IncreaseFontSize }
+  - { key: Subtract, mods: Control|Alt,       action: DecreaseFontSize }
+  #- { key: Subtract, mods: Control,           action: DecreaseFontSize }
