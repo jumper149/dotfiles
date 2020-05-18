@@ -32,12 +32,12 @@ resizeFloating d = keysResizeWindow (direction d) (0 , 0)
 
 direction :: Direction -> D
 direction d = (dx , dy)
-  where (dx , dy) = case d of
-                      L -> (-pixel , 0)
-                      D -> (0 , pixel)
-                      U -> (0 , -pixel)
-                      R -> (pixel , 0)
-        pixel = 20
+    where (dx , dy) = case d of
+                        L -> (-pixel , 0)
+                        D -> (0 , pixel)
+                        U -> (0 , -pixel)
+                        R -> (pixel , 0)
+          pixel = 20
 
 -- requires _NET_WM_PID to be set on creation; doesn't work on:
 --   urxvtc(offlineimap), qutebrowser, chromium
