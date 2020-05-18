@@ -181,6 +181,7 @@ let
       applications-x = super.symlinkJoin {
         name = "applications-x-jumper";
         paths = with super; [
+          alacritty
           arandr
           baobab
           blugon
@@ -188,9 +189,9 @@ let
           gimp
           glava
           i3lock
-          kitty
           # libreoffice
           pavucontrol
+          qutebrowser
           rofi
           scrot
           sxiv
@@ -200,11 +201,13 @@ let
           zathura
 
           # chromium
+          # kitty
           # rxvt-unicode
           # zoom-us
         ] ++ (with self.myPackages; [
-          firefox
           screenkey
+
+          # firefox
         ]);
       };
 
