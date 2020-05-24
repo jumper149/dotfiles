@@ -94,9 +94,11 @@ let
         paths = [
           vimDistribution
 
+          super.vimPlugins.colorizer
           super.vimPlugins.supertab
           super.vimPlugins.vim-airline
           super.vimPlugins.vim-airline-themes
+          super.vimPlugins.vim-indent-guides
           super.vimPlugins.vim-fugitive
           super.vimPlugins.wombat256-vim
 
