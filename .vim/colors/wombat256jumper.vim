@@ -51,9 +51,12 @@ hi String		ctermfg=113		ctermbg=none	cterm=none		guifg=#95e454					gui=none
 hi Comment		ctermfg=246		ctermbg=none	cterm=italic	guifg=#99968b					gui=italic
 hi Todo			ctermfg=88		ctermbg=none	cterm=bold		guifg=#8f8f8f					gui=bold
 
-
 " Links
 hi! link FoldColumn		Folded
 hi! link CursorColumn	CursorLine
+
+" vim-indent-guides
+hi IndentGuidesOdd				ctermbg=236		cterm=none						guibg=#343434	gui=none
+hi IndentGuidesEven				ctermbg=235		cterm=none						guibg=#282828	gui=none
 
 " vim:set ts=4 sw=4 noet:
