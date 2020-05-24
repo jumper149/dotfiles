@@ -91,6 +91,11 @@ let g:tex_flavor="latex"
 let g:tex_no_error=1      " Dont highlight underscores (_)
 let g:Tex_SmartKeyQuote=0 " Dont change quotation marks to special upper and lower
 
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors=0
+
 " Commands
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit!
