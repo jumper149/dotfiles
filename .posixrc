@@ -4,6 +4,7 @@
 # flag aliases
 alias ls='ls --color=auto'
 alias rm='rm --interactive=always'
+alias mv='mv --interactive'
 
 # dotfiles
 alias dotgit='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
