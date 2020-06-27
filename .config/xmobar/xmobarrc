@@ -136,7 +136,6 @@ Config {
 
        , Run Mail [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
                   , ("<fc=#5f819d>U</fc>" , "~/.mail/stud-uni-hannover/INBOX")
-                  , ("<fc=#8c9440>B</fc>" , "~/.mail/botanik-uni-hannover/INBOX")
                   ] "mail"
 
        , Run WeatherX "EDDV" [ (""                        , "<fc=#5e8d87>?</fc>")

@@ -19,13 +19,5 @@ from           felix.springer@stud.uni-hannover.de
 user           felix.springer@stud.uni-hannover.de
 passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/Mail/stud-uni-hannover.gpg"
 
-# stud-uni-hannover
-account        botanik-uni-hannover
-host           smtp.uni-hannover.de
-port           587
-from           f.springer@botanik.uni-hannover.de
-user           f.springer@botanik.uni-hannover.de
-passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/Mail/botanik-uni-hannover.gpg"
-
 # Set a default account
 account default : gmail

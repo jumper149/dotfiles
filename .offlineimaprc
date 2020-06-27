@@ -1,6 +1,6 @@
 [general]
 # List of accounts to be synced, separated by a comma.
-accounts = gmail,stud-uni-hannover,botanik-uni-hannover
+accounts = gmail,stud-uni-hannover
 # for access to gmail
 pythonfile = ~/.offlineimap/offlineimap_pass.py
 # SSL/TLS
@@ -48,22 +48,4 @@ remotehost = mail.uni-hannover.de
 remoteport = 993
 remoteuser = felix.springer@stud.uni-hannover.de
 remotepasseval = get_pass("stud-uni-hannover")
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-#####
-
-[Account botanik-uni-hannover]
-localrepository = botanik-uni-hannover-local
-remoterepository = botanik-uni-hannover-remote
-
-[Repository botanik-uni-hannover-local]
-type = Maildir
-localfolders = ~/.mail/botanik-uni-hannover
-
-[Repository botanik-uni-hannover-remote]
-type = IMAP
-remotehost = mail.uni-hannover.de
-remoteport = 993
-remoteuser = f.springer@botanik.uni-hannover.de
-remotepasseval = get_pass("botanik-uni-hannover")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt

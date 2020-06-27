@@ -44,9 +44,6 @@ macro pager U "<pipe-message>urlscan<enter>" "Extract URLs with urlscan"
 source "~/.mutt/stud-uni-hannover"
 folder-hook $folder 'source ~/.mutt/stud-uni-hannover'
 
-source "~/.mutt/botanik-uni-hannover"
-folder-hook $folder 'source ~/.mutt/botanik-uni-hannover'
-
 # at the end of config to focus on startup
 source "~/.mutt/gmail"
 folder-hook $folder 'source ~/.mutt/gmail'
