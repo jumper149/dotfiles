@@ -76,7 +76,7 @@ getBindings = do DocBindings doc <- XS.get
                  return doc
 
 mapBindings :: (XConfig Layout -> Binder a)
-            -> ((XConfig Layout -> KeyMap) , X DocBindings)
+            -> (XConfig Layout -> KeyMap , X DocBindings)
 mapBindings binder = let bindMap xConfig = runBinder $ binder xConfig
                          bindings = M.fromList . fmap ((modifier &&& key) . combination &&& action) . bindMap
                          doc = DocBindings . describeBinds . bindMap <$> reader config
@@ -100,7 +100,7 @@ infix 3 |/-
 (^>) :: (X () -> Binding)
      -> X ()
      -> Binding
-(^>) f x = f x
+(^>) f = f
 infixr 0 ^>
 
 data KeyCombination = KeyCombination { modifier :: ButtonMask

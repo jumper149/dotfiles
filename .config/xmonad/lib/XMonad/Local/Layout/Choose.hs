@@ -37,8 +37,8 @@ instance (LayoutClass l a, LayoutClass r a) => LayoutClass (ChooseSpacingBoth l 
     handleMessage (ChooseSpacingBoth (Choose d l r)) sm =
         let sendBoth = do ml <- handleMessage l sm
                           mr <- handleMessage r sm
-                          let l' = fromMaybe l $ ml
-                              r' = fromMaybe r $ mr
+                          let l' = fromMaybe l ml
+                              r' = fromMaybe r mr
                           return . Just . ChooseSpacingBoth $ Choose d l' r'
         in case fromMessage sm of
              Just (ModifyWindowBorderEnabled _) -> sendBoth
