@@ -24,9 +24,10 @@ import XMonad.Local.Layout.Util ( wsLayout
                                 )
 
 basicLayout = avoidStruts (space 20 10 myTall)
-        -|||- avoidStruts (spaceTabbed 20 10 mySpacedAlwaysTabbed)
         -|||- avoidStruts (spaceTabbed 20 10 (myMastered mySpacedTabbed))
 
 browserLayout = avoidStruts (noBorders myTabbed)
 
-myLayoutHook = myToggled $ wsLayout WsBrowser browserLayout basicLayout
+myLayoutHook = myToggled $ wsLayout WsBrowser browserLayout $
+                           basicLayout
+                           -|||- avoidStruts (spaceTabbed 20 10 mySpacedAlwaysTabbed)
