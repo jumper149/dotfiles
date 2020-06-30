@@ -62,7 +62,7 @@ import XMonad.Local.Config.Workspace ( Workspace
                                      )
 
 wsLayout :: (LayoutClass l a, LayoutClass r a) => Workspace -> l a -> r a -> PerWorkspace l r a
-wsLayout ws l = onWorkspace (show ws) l
+wsLayout ws = onWorkspace $ show ws
 
 myToggled :: LayoutClass l a => l a -> MultiToggle (HCons StdTransformers EOT) l a
 myToggled = mkToggle (single NBFULL)
@@ -125,7 +125,7 @@ toggleFull = sendMessage $ Toggle NBFULL
 
 -- | Toggle gaps on the current workspace.
 toggleGaps :: X ()
-toggleGaps = do traverse_ sendMessage messages
+toggleGaps = traverse_ sendMessage messages
     where messages = [ ModifyWindowBorderEnabled not
                      , ModifyScreenBorderEnabled not
                      ]
