@@ -9,7 +9,7 @@ c.confirm_quit = [ 'multiple-tabs', 'downloads' ]
 
 c.downloads.remove_finished = 1000
 c.scrolling.bar = 'never'
-c.statusbar.hide = True
+c.statusbar.show = 'in-mode'
 c.tabs.show = 'multiple'
 
 
@@ -170,20 +170,20 @@ c.colors.prompts.border = '1px solid ' + myColor0
 c.colors.prompts.fg = myColorF
 c.colors.prompts.selected.bg = myColor0
 
-c.colors.statusbar.caret.bg = myTransparent(myColor5, 0.25)
-c.colors.statusbar.caret.fg = myColorF
-c.colors.statusbar.caret.selection.bg = myTransparent(myColorD, 0.25)
-c.colors.statusbar.caret.selection.fg = myColorF
+c.colors.statusbar.caret.bg = myColor8
+c.colors.statusbar.caret.fg = myColor5
+c.colors.statusbar.caret.selection.bg = myColor8
+c.colors.statusbar.caret.selection.fg = myColorD
 c.colors.statusbar.command.bg = myColor0
 c.colors.statusbar.command.fg = myColorF
 c.colors.statusbar.command.private.bg = myColor8
 c.colors.statusbar.command.private.fg = myColorF
-c.colors.statusbar.insert.bg = myTransparent(myColor2, 0.25)
-c.colors.statusbar.insert.fg = myColorF
+c.colors.statusbar.insert.bg = myColor8
+c.colors.statusbar.insert.fg = myColor2
 c.colors.statusbar.normal.bg = myColor0
 c.colors.statusbar.normal.fg = myColorF
-c.colors.statusbar.passthrough.bg = myTransparent(myColor4, 0.25)
-c.colors.statusbar.passthrough.fg = myColorF
+c.colors.statusbar.passthrough.bg = myColor8
+c.colors.statusbar.passthrough.fg = myColor4
 c.colors.statusbar.private.bg = myColor8
 c.colors.statusbar.private.fg = myColorF
 c.colors.statusbar.progress.bg = myColor2
