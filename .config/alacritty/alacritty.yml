@@ -53,7 +53,7 @@ colors:
     cyan:    '#8abeb7'
     white:   '#c5c8c6'
 
-visual_bell:
+bell:
   duration: 30
   color: '#85678f'
 
