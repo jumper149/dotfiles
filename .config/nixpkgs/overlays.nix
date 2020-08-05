@@ -52,6 +52,7 @@ let
                  runtimeInputs = [
                    super.abook
                    super.enscript
+                   super.ghostscript
                    super.msmtp
                    super.urlscan
                    super.w3m
@@ -102,6 +103,7 @@ let
           super.vimPlugins.vim-fugitive
           super.vimPlugins.wombat256-vim
 
+          super.vimPlugins.agda-vim
           super.vimPlugins.purescript-vim
           super.vimPlugins.haskell-vim
         ];
@@ -156,6 +158,7 @@ let
       applications-cli = super.symlinkJoin {
         name = "applications-cli-jumper";
         paths = with super; [
+          file
           git
           htop
           killall
