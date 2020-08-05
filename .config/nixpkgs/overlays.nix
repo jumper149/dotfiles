@@ -58,7 +58,7 @@ let
                    super.w3m
                  ];
              in super.symlinkJoin {
-        name = "mutt-jumper";
+        name = muttDistribution.name + "-jumper";
         paths = [ muttDistribution ];
         buildInputs = [ super.makeWrapper ] ++ runtimeInputs;
         postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib;};
