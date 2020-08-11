@@ -218,10 +218,6 @@ bindsym Control+$mod+backslash exec --no-startup-id "brightness up"
 #bindsym XF86MonBrightnessDown exec --no-startup-id "brightness down"
 bindsym Control+$mod+slash exec --no-startup-id "brightness down"
 
-# blue light filter
-bindsym Control+$mod+period exec --no-startup-id "blugon --setcurrent='+600'"
-bindsym Control+$mod+comma exec --no-startup-id  "blugon --setcurrent='-600'"
-
 # audio volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "volume up; pkill --signal SIGRTMIN+14 i3blocks"
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id "volume up; pkill --signal SIGRTMIN+14 i3blocks"

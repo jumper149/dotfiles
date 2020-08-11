@@ -72,11 +72,6 @@ if [ "${TERM}" = "linux" ]; then
     case $__graphical_session in
         "TTY")
             ;;
-        "tmux")
-            blugon --once --backend="tty" && clear
-            (blugon --backend="tty")&
-            tmux && tput reset && exit
-            ;;
         "i3")
             startx ~/.xinitrc "i3" && exit
             ;;
