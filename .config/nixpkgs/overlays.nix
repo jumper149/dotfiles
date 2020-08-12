@@ -189,7 +189,6 @@ let
           alacritty
           arandr
           baobab
-          blugon
           conky
           gimp
           glava
