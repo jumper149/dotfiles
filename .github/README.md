@@ -77,7 +77,6 @@ Places that use hardcoded color configuration:
     ~/.Xresources
     ~/.vim/colors/wombat256jumper.vim
     ~/.config/alacritty/alacritty.yml
-    ~/.config/blugon/config
     ~/.config/kitty/kitty.conf
     ~/.config/qutebrowser/config.py
     ~/.config/rofi/theme.rasi

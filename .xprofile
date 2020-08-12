@@ -19,7 +19,7 @@ export MPLBACKEND="Qt5Agg"
 xsetroot -cursor_name left_ptr &
 
 # applications
-blugon --waitforx --fade &
+blucontrol &
 conky --config="${XDG_CONFIG_HOME}/conky/clock.conf" &
 
 # disable touchpad, nixos libinput option "clickMethod" doesn't work
