@@ -97,6 +97,7 @@ let
 
           super.vimPlugins.colorizer
           super.vimPlugins.supertab
+          super.vimPlugins.LanguageClient-neovim
           super.vimPlugins.vim-airline
           super.vimPlugins.vim-airline-themes
           super.vimPlugins.vim-indent-guides
