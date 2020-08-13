@@ -50,6 +50,9 @@ hi Special		ctermfg=194		ctermbg=none	cterm=none		guifg=#e7f6da					gui=none
 hi String		ctermfg=113		ctermbg=none	cterm=none		guifg=#95e454					gui=none
 hi Comment		ctermfg=246		ctermbg=none	cterm=italic	guifg=#99968b					gui=italic
 hi Todo			ctermfg=88		ctermbg=none	cterm=bold		guifg=#8f8f8f					gui=bold
+hi Error                        ctermbg=88      cterm=none                      guibg=#870000
+hi Warning                      ctermbg=178     cterm=none                      guibg=#d7af00
+hi SpellCap     ctermfg=205                     cterm=underline guifg=#ff5faf
 
 " Links
 hi! link FoldColumn		Folded
@@ -58,5 +61,10 @@ hi! link CursorColumn	CursorLine
 " vim-indent-guides
 hi IndentGuidesOdd				ctermbg=236		cterm=none						guibg=#343434	gui=none
 hi IndentGuidesEven				ctermbg=235		cterm=none						guibg=#282828	gui=none
+
+" LanguageClient-neovim
+hi link ALEError Error
+hi link ALEWarning Warning
+hi link ALEInfo SpellCap
 
 " vim:set ts=4 sw=4 noet:
