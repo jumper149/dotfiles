@@ -45,20 +45,19 @@ hi String		ctermfg=113		ctermbg=none	cterm=none		guifg=#87d75f					gui=none
 hi Number		ctermfg=173		ctermbg=none	cterm=none		guifg=#d7875f					gui=none
 hi Boolean		ctermfg=180		ctermbg=none	cterm=none		guifg=#d7af87					gui=none
 
-hi Identifier	ctermfg=192		ctermbg=none	cterm=none		guifg=#d7ff87					gui=none
+hi Identifier	ctermfg=193		ctermbg=none	cterm=none		guifg=#d7ffaf					gui=none
 hi Function		ctermfg=191		ctermbg=none	cterm=none		guifg=#d7ff5f					gui=none
 
 hi Statement	ctermfg=111		ctermbg=none	cterm=none		guifg=#87afff					gui=none
-hi Keyword		ctermfg=109		ctermbg=none	cterm=none		guifg=#87afaf					gui=none
 
 hi PreProc		ctermfg=167		ctermbg=none	cterm=none		guifg=#d75f5f					gui=none
 hi Include		ctermfg=169		ctermbg=none	cterm=none		guifg=#d75faf					gui=none
 hi PreCondit	ctermfg=134		ctermbg=none	cterm=none		guifg=#af5fd7					gui=none
 
 hi Type			ctermfg=228		ctermbg=none	cterm=none		guifg=#ffff87					gui=none
-hi StorageClass	ctermfg=227		ctermbg=none	cterm=none		guifg=#ffff5f					gui=none
-hi Structure	ctermfg=221		ctermbg=none	cterm=none		guifg=#ffd75f					gui=none
-hi Typedef		ctermfg=222		ctermbg=none	cterm=none		guifg=#ffd787					gui=none
+hi StorageClass	ctermfg=108		ctermbg=none	cterm=none		guifg=#87af87					gui=none
+hi Structure	ctermfg=110		ctermbg=none	cterm=none		guifg=#87afd7					gui=none
+hi Typedef		ctermfg=110		ctermbg=none	cterm=none		guifg=#87afd7					gui=none
 
 hi Special		ctermfg=194		ctermbg=none	cterm=none		guifg=#e7f6da					gui=none
 
