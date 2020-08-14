@@ -1,2 +1,2 @@
 autocmd BufRead,BufNewFile *.agda setfiletype agda
-autocmd FileType agda let maplocalleader=','
+autocmd FileType agda let maplocalleader='ma'
