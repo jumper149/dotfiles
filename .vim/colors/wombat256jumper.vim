@@ -38,18 +38,37 @@ hi PmenuSel		ctermfg=234		ctermbg=192		cterm=bold		guifg=#000000	guibg=#cae682	g
 endif
 
 " Syntax highlighting
-hi Keyword		ctermfg=110		ctermbg=none	cterm=none		guifg=#8ac6f2					gui=none
-hi Statement	ctermfg=111		ctermbg=none	cterm=none		guifg=#8ac6f2					gui=none
-hi Constant		ctermfg=179		ctermbg=none	cterm=none		guifg=#e5786d					gui=none
-hi Number		ctermfg=173		ctermbg=none	cterm=none		guifg=#e5786d					gui=none
-hi PreProc		ctermfg=167		ctermbg=none	cterm=none		guifg=#e5786d					gui=none
-hi Function		ctermfg=191		ctermbg=none	cterm=none		guifg=#cae682					gui=none
-hi Identifier	ctermfg=193		ctermbg=none	cterm=none		guifg=#cae682					gui=none
-hi Type			ctermfg=192		ctermbg=none	cterm=none		guifg=#cae682					gui=none
-hi Special		ctermfg=194		ctermbg=none	cterm=none		guifg=#e7f6da					gui=none
-hi String		ctermfg=113		ctermbg=none	cterm=none		guifg=#95e454					gui=none
 hi Comment		ctermfg=246		ctermbg=none	cterm=italic	guifg=#99968b					gui=italic
+
+hi Constant		ctermfg=179		ctermbg=none	cterm=none		guifg=#d7af5f					gui=none
+hi String		ctermfg=113		ctermbg=none	cterm=none		guifg=#87d75f					gui=none
+hi Number		ctermfg=173		ctermbg=none	cterm=none		guifg=#d7875f					gui=none
+hi Boolean		ctermfg=180		ctermbg=none	cterm=none		guifg=#d7af87					gui=none
+
+hi Identifier	ctermfg=193		ctermbg=none	cterm=none		guifg=#d7ffaf					gui=none
+hi Function		ctermfg=190		ctermbg=none	cterm=none		guifg=#d7ff00					gui=none
+
+hi Statement	ctermfg=111		ctermbg=none	cterm=none		guifg=#87afff					gui=none
+hi Keyword		ctermfg=109		ctermbg=none	cterm=none		guifg=#87afaf					gui=none
+
+hi PreProc		ctermfg=167		ctermbg=none	cterm=none		guifg=#d75f5f					gui=none
+hi Include		ctermfg=169		ctermbg=none	cterm=none		guifg=#d75faf					gui=none
+hi PreCondit	ctermfg=135		ctermbg=none	cterm=none		guifg=#8787ff					gui=none
+
+hi Type			ctermfg=228		ctermbg=none	cterm=none		guifg=#ffff87					gui=none
+hi StorageClass	ctermfg=221		ctermbg=none	cterm=none		guifg=#ffd75f					gui=none
+hi Structure	ctermfg=182		ctermbg=none	cterm=none		guifg=#d7afd7					gui=none
+hi Typedef		ctermfg=218		ctermbg=none	cterm=none		guifg=#ffafd7					gui=none
+
+hi Special		ctermfg=194		ctermbg=none	cterm=none		guifg=#e7f6da					gui=none
+
 hi Todo			ctermfg=88		ctermbg=none	cterm=bold		guifg=#8f8f8f					gui=bold
+hi Error                        ctermbg=88      cterm=none                      guibg=#870000
+
+
+hi Warning                      ctermbg=178     cterm=none                      guibg=#d7af00
+
+hi SpellCap     ctermfg=205                     cterm=underline guifg=#ff5faf
 
 " Links
 hi! link FoldColumn		Folded
@@ -58,5 +77,10 @@ hi! link CursorColumn	CursorLine
 " vim-indent-guides
 hi IndentGuidesOdd				ctermbg=236		cterm=none						guibg=#343434	gui=none
 hi IndentGuidesEven				ctermbg=235		cterm=none						guibg=#282828	gui=none
+
+" LanguageClient-neovim
+hi link ALEError Error
+hi link ALEWarning Warning
+hi link ALEInfo SpellCap
 
 " vim:set ts=4 sw=4 noet:
