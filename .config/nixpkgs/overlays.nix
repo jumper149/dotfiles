@@ -105,8 +105,9 @@ let
           super.vimPlugins.wombat256-vim
 
           super.vimPlugins.agda-vim
-          super.vimPlugins.purescript-vim
           super.vimPlugins.haskell-vim
+          super.vimPlugins.idris-vim
+          super.vimPlugins.purescript-vim
         ];
       };
 
