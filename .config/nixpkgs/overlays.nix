@@ -8,6 +8,8 @@ let
     '';
   };
 
+      #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
+
   overlay = self: super: {
 
     myDependencies = {
@@ -16,7 +18,14 @@ let
 
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
-    myPackages = {
+    userPackages = {
+
+      nix-rebuild = super.writeScriptBin "nix-rebuild" ''
+        #!${super.stdenv.shell}
+        exec nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+      '';
+
+      #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
       atool = let atoolDistribution = super.atool;
               in super.symlinkJoin {
@@ -39,6 +48,8 @@ let
         ];
       };
 
+      file = super.file;
+
       firefox = let firefoxDistribution = super.firefox;
                 in super.symlinkJoin {
         name = firefoxDistribution.name + "-jumper";
@@ -47,6 +58,16 @@ let
           super.passff-host
         ];
       };
+
+      git = super.git;
+
+      htop = super.htop;
+
+      killall = super.killall;
+
+      mpc = super.mpc_cli;
+
+      mpv = super.mpv;
 
       mutt = let muttDistribution = super.mutt;
                  runtimeInputs = [
@@ -63,6 +84,14 @@ let
         buildInputs = [ super.makeWrapper ] ++ runtimeInputs;
         postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib;};
       };
+
+      ncmpcpp = super.ncmpcpp;
+
+      offlineimap = super.offlineimap;
+
+      #openconnect = super.openconnect;
+
+      pass = super.pass;
 
       ranger = let rangerDistribution = super.ranger;
                    runtimeInputs = [
@@ -89,6 +118,12 @@ let
         ];
       });
 
+      sshfs = super.sshfs;
+
+      #texlive-combined-basic = super.texlive-combined-basic
+
+      tmux = super.tmux;
+
       vim = let vimDistribution = super.vimHugeX;
             in super.symlinkJoin {
         name = vimDistribution.name + "-jumper";
@@ -111,6 +146,8 @@ let
         ];
       };
 
+      vimpager = super.vimpager-latest;
+
       weechat = let weechatDistribution = super.weechat;
                 in super.symlinkJoin {
         name = weechatDistribution.name + "-jumper";
@@ -125,6 +162,10 @@ let
         '';
       };
 
+      xdg-user-dirs = super.xdg-user-dirs;
+
+      youtube-dl = super.youtube-dl;
+
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
       haskell-utils = super.symlinkJoin {
@@ -134,14 +175,6 @@ let
           super.cabal2nix
           super.ghc
           super.haskellPackages.hoogle
-        ];
-      };
-
-      mpd-utils = super.symlinkJoin {
-        name = "mpd-utils-jumper";
-        paths = [
-          super.mpc_cli
-          super.ncmpcpp
         ];
       };
 
@@ -156,34 +189,6 @@ let
       };
 
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
-
-      applications-cli = super.symlinkJoin {
-        name = "applications-cli-jumper";
-        paths = with super; [
-          file
-          git
-          htop
-          killall
-          mpv
-          offlineimap
-          openconnect
-          pass
-          sshfs
-          # texlive-combined-basic
-          tmux
-          vimpager-latest
-          xdg-user-dirs
-          youtube-dl
-        ] ++ (with self.myPackages; [
-          atool
-          haskell-utils
-          mpd-utils
-          mutt
-          ranger
-          vim
-          weechat
-        ]);
-      };
 
       applications-x = super.symlinkJoin {
         name = "applications-x-jumper";
@@ -210,23 +215,10 @@ let
           # kitty
           # rxvt-unicode
           # zoom-us
-        ] ++ (with self.myPackages; [
-          screenkey
-
-          # firefox
-        ]);
+        ];
       };
 
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
-
-      applications = super.symlinkJoin {
-        name = "applications-jumper";
-        paths = with self.myPackages; [
-          applications-cli
-          applications-x
-          theme
-        ];
-      };
 
     };
 
