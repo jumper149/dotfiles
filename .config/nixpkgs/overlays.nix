@@ -206,6 +206,26 @@ let
 
       baobab = super.baobab;
 
+      blucontrol = let
+        #src = fetchFromGitHub {
+        #  owner = "jumper149";
+        #  repo = "blucontrol";
+        #  rev = "0.2.1.1"
+        #  #sha256 = "";
+        #};
+        src = fetchGit {
+          url = "https://github.com/jumper149/blucontrol.git";
+          ref = "master";
+          rev = "dd4b18a33923fcab99a4cc230fb70ae1e9642928";
+        };
+      in
+        import "${src}/default.nix" {
+          stdenv = super.stdenv;
+          makeWrapper = super.makeWrapper;
+          makeBinPath = super.lib.makeBinPath;
+          ghcWithPackages = super.haskellPackages.ghcWithPackages;
+        };
+
       #chromium = super.chromium;
 
       conky = super.conky;
