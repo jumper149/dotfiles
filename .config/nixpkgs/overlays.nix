@@ -10,7 +10,7 @@ let
 
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
-  overlay = self: super: {
+  overlay-base = self: super: {
 
     myDependencies = {
       aspell-configured = super.aspellWithDicts (d: with d; [en de]);
@@ -25,7 +25,15 @@ let
         exec nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
       '';
 
+    };
+
+  };
+
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
+
+  overlay-cli = self: super: {
+
+    userPackages = super.userPackages // {
 
       atool = let atoolDistribution = super.atool;
               in super.symlinkJoin {
@@ -95,7 +103,7 @@ let
 
       ranger = let rangerDistribution = super.ranger;
                    runtimeInputs = [
-                     self.atool
+                     self.userPackages.atool
                      super.ffmpegthumbnailer
                      super.highlight
                      super.imagemagick
@@ -111,12 +119,6 @@ let
         buildInputs = [ super.makeWrapper ] ++ runtimeInputs;
         postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib; };
       };
-
-      screenkey = super.screenkey.overrideAttrs ({ buildInputs ? [], ... }: {
-        buildInputs = buildInputs ++ [
-          super.inconsolata
-        ];
-      });
 
       sshfs = super.sshfs;
 
@@ -178,7 +180,15 @@ let
         ];
       };
 
+    };
+
+  };
+
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
+
+  overlay-x = self: super: {
+
+    userPackages = super.userPackages // {
 
       theme = super.symlinkJoin {
         name = "theme-jumper";
@@ -190,38 +200,56 @@ let
 
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
-      applications-x = super.symlinkJoin {
-        name = "applications-x-jumper";
-        paths = with super; [
-          alacritty
-          arandr
-          baobab
-          conky
-          gimp
-          glava
-          i3lock
-          # libreoffice
-          pavucontrol
-          qutebrowser
-          rofi
-          scrot
-          sxiv
-          tdesktop
-          xdotool
-          xmobar
-          zathura
+      alacritty = super.alacritty;
 
-          # chromium
-          # kitty
-          # rxvt-unicode
-          # zoom-us
+      arandr = super.arandr;
+
+      baobab = super.baobab;
+
+      #chromium = super.chromium;
+
+      conky = super.conky;
+
+      gimp = super.gimp;
+
+      glava = super.glava;
+
+      i3lock = super.i3lock;
+
+      #libreoffice = super.libreoffice;
+
+      #kitty = super.kitty;
+
+      pavucontrol = super.pavucontrol;
+
+      qutebrowser = super.qutebrowser;
+
+      rofi = super.rofi;
+
+      #rxvt-unicode = super.rxvt-unicode;
+
+      screenkey = super.screenkey.overrideAttrs ({ buildInputs ? [], ... }: {
+        buildInputs = buildInputs ++ [
+          super.inconsolata
         ];
-      };
+      });
 
-      #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
+      scrot = super.scrot;
+
+      sxiv = super.sxiv;
+
+      tdesktop = super.tdesktop;
+
+      xdotool = super.xdotool;
+
+      xmobar = super.xmobar;
+
+      zathura = super.zathura;
+
+      #zoom-us = super.zoom-us
 
     };
 
   };
 
-in [ overlay ]
+in [ overlay-base overlay-cli ]
