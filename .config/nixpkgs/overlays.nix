@@ -69,6 +69,8 @@ let
 
       git = super.git;
 
+      gnupg = super.gnupg;
+
       htop = super.htop;
 
       killall = super.killall;
@@ -100,6 +102,8 @@ let
       #openconnect = super.openconnect;
 
       pass = super.pass;
+
+      pinentry = super.pinentry;
 
       ranger = let rangerDistribution = super.ranger;
                    runtimeInputs = [
