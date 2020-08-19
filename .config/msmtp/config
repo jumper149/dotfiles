@@ -9,7 +9,7 @@ host           smtp.gmail.com
 port           587
 from           felixspringer149@gmail.com
 user           felixspringer149@gmail.com
-passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/Mail/gmail.gpg"
+passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/mail/gmail.gpg"
 
 # stud-uni-hannover
 account        stud-uni-hannover
@@ -17,7 +17,7 @@ host           smtp.uni-hannover.de
 port           587
 from           felix.springer@stud.uni-hannover.de
 user           felix.springer@stud.uni-hannover.de
-passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/Mail/stud-uni-hannover.gpg"
+passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/mail/stud-uni-hannover.gpg"
 
 # Set a default account
 account default : gmail
