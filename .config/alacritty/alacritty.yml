@@ -1,18 +1,18 @@
 font:
   normal:
-    family: Iosevka Term Slab
+    family: Iosevka Term
     style: Regular
 
   bold:
-    family: Iosevka Term Slab
+    family: Iosevka Term
     style: Bold
 
   italic:
-    family: Iosevka Term Slab
+    family: Iosevka Term
     style: Oblique
 
   bold_italic:
-    family: Iosevka Term Slab
+    family: Iosevka Term
     style: Bold Oblique
 
   size: 11.0
