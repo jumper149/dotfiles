@@ -67,6 +67,8 @@ let
         ];
       };
 
+      flashrom = super.flashrom;
+
       git = super.git;
 
       gnupg = super.gnupg;
