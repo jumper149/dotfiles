@@ -1,19 +1,19 @@
 font:
   normal:
-    family: Fira Code
+    family: Iosevka Term Slab
     style: Regular
 
   bold:
-    family: Fira Code
+    family: Iosevka Term Slab
     style: Bold
 
   italic:
-    family: Fira Code
-    style: Light
+    family: Iosevka Term Slab
+    style: Oblique
 
   bold_italic:
-    family: Fira Code
-    style: Bold
+    family: Iosevka Term Slab
+    style: Bold Oblique
 
   size: 11.0
 
