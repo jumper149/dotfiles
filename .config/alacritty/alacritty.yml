@@ -1,24 +1,21 @@
-# Default options from: https://github.com/alacritty/alacritty/releases
-# Version 0.4.2
-
 font:
   normal:
-    family: Inconsolata
+    family: Fira Code
     style: Regular
 
   bold:
-    family: Inconsolata
+    family: Fira Code
     style: Bold
 
   italic:
-    family: Inconsolata
-    style: Regular
+    family: Fira Code
+    style: Light
 
   bold_italic:
-    family: Inconsolata
+    family: Fira Code
     style: Bold
 
-  size: 12.0
+  size: 11.0
 
 colors:
   primary:
