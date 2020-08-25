@@ -201,6 +201,7 @@ let
         paths = [
           super.bibata-cursors
           super.fira-code
+          super.iosevka
         ];
       };
 
