@@ -1,24 +1,21 @@
-# Default options from: https://github.com/alacritty/alacritty/releases
-# Version 0.4.2
-
 font:
   normal:
-    family: Inconsolata
+    family: Iosevka
     style: Regular
 
   bold:
-    family: Inconsolata
+    family: Iosevka
     style: Bold
 
   italic:
-    family: Inconsolata
-    style: Regular
+    family: Iosevka
+    style: Oblique
 
   bold_italic:
-    family: Inconsolata
-    style: Bold
+    family: Iosevka
+    style: Bold Oblique
 
-  size: 12.0
+  size: 11.0
 
 colors:
   primary:

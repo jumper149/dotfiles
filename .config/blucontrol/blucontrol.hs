@@ -16,5 +16,5 @@ main = blucontrol configControl
                , 05:.30 ==> temperature 3000
                , 08:.30 ==> temperature 5500
                ]
-        configWait = ConfigWait { interval = 120 * 1000000
+        configWait = ConfigWait { interval = 10 * 1000000
                                 }
