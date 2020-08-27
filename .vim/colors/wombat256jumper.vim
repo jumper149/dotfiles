@@ -46,8 +46,9 @@ hi Function     ctermfg=191  ctermbg=none cterm=none      guifg=#d7ff5f         
 hi Statement    ctermfg=111  ctermbg=none cterm=none      guifg=#87afff               gui=none
 
 hi PreProc      ctermfg=167  ctermbg=none cterm=none      guifg=#d75f5f               gui=none
-hi Include      ctermfg=169  ctermbg=none cterm=none      guifg=#d75faf               gui=none
-hi PreCondit    ctermfg=134  ctermbg=none cterm=none      guifg=#af5fd7               gui=none
+hi Define       ctermfg=134  ctermbg=none cterm=none      guifg=#af5fd7               gui=none
+hi Macro        ctermfg=133  ctermbg=none cterm=none      guifg=#af5faf               gui=none
+hi PreCondit    ctermfg=169  ctermbg=none cterm=none      guifg=#d75faf               gui=none
 
 hi Type         ctermfg=228  ctermbg=none cterm=none      guifg=#ffff87               gui=none
 hi StorageClass ctermfg=108  ctermbg=none cterm=none      guifg=#87af87               gui=none
