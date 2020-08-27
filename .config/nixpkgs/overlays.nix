@@ -201,6 +201,7 @@ let
         paths = [
           super.bibata-cursors
           super.fira-code
+          super.iosevka-bin
         ];
       };
 
@@ -278,4 +279,4 @@ let
 
   };
 
-in [ overlay-base overlay-cli ]
+in [ overlay-base overlay-cli overlay-x ]
