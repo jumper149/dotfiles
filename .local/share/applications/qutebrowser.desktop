@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=qutebrowser
+Comment=A keyboard-driven, vim-like browser
+Terminal=false
+Exec=qutebrowser
+Categories=Network;WebBrowser
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;x-scheme-handler/https;x-scheme-handler/http;text/html;
