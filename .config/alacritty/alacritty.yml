@@ -88,8 +88,5 @@ key_bindings:
   - { key: J,        mods: Control|Alt,       action: ScrollLineDown   }
   - { key: K,        mods: Control|Alt,       action: ScrollLineUp     }
   - { key: Equals,   mods: Control|Alt,       action: ResetFontSize    }
-  - { key: Equals,   mods: Control,           action: ResetFontSize    }
-  - { key: Add,      mods: Control|Alt|Shift, action: IncreaseFontSize } # not working
-  - { key: Add,      mods: Control|Shift,     action: IncreaseFontSize }
+  - { key: Add,      mods: Control|Alt|Shift, action: IncreaseFontSize }
   - { key: Subtract, mods: Control|Alt,       action: DecreaseFontSize }
-  - { key: Subtract, mods: Control,           action: DecreaseFontSize }
