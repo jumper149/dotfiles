@@ -1,0 +1,19 @@
+[calendars]
+
+[[private]]
+path = /home/jumper/.local/share/khal/calendars/private
+type = calendar
+
+[[birthdays]]
+path = /home/jumper/.contacts/family
+type = birthdays
+
+[default]
+default_calendar = private
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
