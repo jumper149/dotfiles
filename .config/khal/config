@@ -1,0 +1,38 @@
+[calendars]
+
+[[private]]
+path = ~/.calendars/private
+type = calendar
+color = light green
+
+[[uni]]
+path = ~/.calendars/uni
+type = calendar
+color = light blue
+
+[[birthdays_family]]
+path = ~/.contacts/family
+type = birthdays
+color = dark red
+
+[[birthdays_friends]]
+path = ~/.contacts/friends
+type = birthdays
+color = dark red
+
+[default]
+default_calendar = private
+highlight_event_days = True
+print_new = event
+timedelta = 7d
+
+[locale]
+timeformat = %H:%M
+dateformat = %Y-%m-%d
+longdateformat = %Y-%m-%d
+datetimeformat = %Y-%m-%d %H:%M
+longdatetimeformat = %Y-%m-%d %H:%M
+
+[view]
+bold_for_light_color = False
+theme = dark
