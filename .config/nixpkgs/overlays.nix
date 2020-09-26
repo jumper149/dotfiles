@@ -81,6 +81,8 @@ let
 
       mpv = super.mpv;
 
+      mumble = super.mumble;
+
       mutt = let muttDistribution = super.mutt;
                  runtimeInputs = [
                    super.abook
