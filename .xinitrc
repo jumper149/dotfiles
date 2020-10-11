@@ -12,7 +12,6 @@ xmodmap "/etc/X11/xinit/.Xmodmap"
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-xset r rate 200 30
 setxkbmap -option caps:escape
 touchpad init
 xset b off
