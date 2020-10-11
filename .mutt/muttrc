@@ -32,10 +32,10 @@ auto_view text/html
 source "~/.mutt/gpg.rc"
 source "~/.mutt/sec"
 
-# abook
-set query_command="abook --mutt-query '%s'"
-macro index,pager a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
-bind editor <tab> complete-query
+# khard
+set query_command="khard email --parsable %s"
+macro index,pager a "<pipe-message>khard add-email<return>" "Add this sender to khard"
+bind editor <Tab> complete-query
 
 # urlscan
 macro pager U "<pipe-message>urlscan<enter>" "Extract URLs with urlscan"
