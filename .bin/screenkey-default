@@ -23,4 +23,4 @@ colore="${COLORe:$(expr index "${COLORe}" \# - 1)}"
 monitors="$(xrandr --listactivemonitors | grep "[0-9]\{1,\}:")"
 selectedMonitor="$(decide "${monitors}" | cut --delimiter=: --fields=1)"
 
-exec screenkey --no-detach --no-systray --font "Inconsolata Bold" --bg-color "${color0}" --font-color "${colore}" --opacity "0.75" --timeout "1.5" --scr "${selectedMonitor}"
+exec screenkey --no-systray --font "Inconsolata Bold" --bg-color "${color0}" --font-color "${colore}" --opacity "0.75" --timeout "1.5" --scr "${selectedMonitor}"
