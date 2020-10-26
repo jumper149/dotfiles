@@ -78,10 +78,12 @@ bind index         x          noop # exit
 bind index         \cd        half-down
 bind index         \cu        half-up
 bind index         D          delete-message
+bind index         G          last-entry
 bind index         U          undelete-message
 bind index         j          next-entry
 bind index         k          previous-entry
 bind index         l          display-message
+bind index         gg         first-entry
 bind index         i          limit
 bind index         t          tag-entry
 
