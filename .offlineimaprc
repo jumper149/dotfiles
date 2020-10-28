@@ -29,9 +29,6 @@ remoteuser = felixspringer149@gmail.com
 remotepasseval = get_pass("gmail")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
-# temporary fix for offlinimap/gmail compatibility
-ssl_version = tls1_2
-
 #####
 
 [Account stud-uni-hannover]
