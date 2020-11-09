@@ -19,6 +19,6 @@ set statusbar-home-tilde true
 set window-title-home-tilde true
 
 set recolor-keephue true
-set recolor-darkcolor "#FFFFFF"
+set recolor-darkcolor "#EEEEEE"
 set recolor-lightcolor "#111111"
 set recolor true
