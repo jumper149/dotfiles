@@ -153,6 +153,7 @@ let
           super.vimPlugins.haskell-vim
           super.vimPlugins.idris-vim
           super.vimPlugins.purescript-vim
+          super.vimPlugins.vimtex
         ];
       };
 
