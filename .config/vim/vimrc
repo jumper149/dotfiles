@@ -58,6 +58,7 @@ endif
 
 " Configure vim-airline
 let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#gen_tags#enabled=0 " fixes error on NixOS 20.09
 if &t_Co >= 256 || has("gui_running")
   let g:airline_theme='wombat'
 else
@@ -86,23 +87,8 @@ imap <C-v> <C-r><C-o>+
 " Removes Highlighting from search patterns
 nnoremap <silent> <Space> :nohlsearch<Enter>
 
-" vim-latexsuite
-let mapleader="m"
-let g:Tex_Flavor="latex"
-let g:Tex_No_Error=1      " Dont highlight underscores (_)
-let g:Tex_SmartKeyQuote=0 " Dont change quotation marks to special upper and lower
-let g:Tex_DefaultTargetFormat="pdf"
-let g:Tex_ViewRule_pdf="zathura"
-let g:Tex_CompileRule_pdf="pdflatex -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-error $*"
-
-let theuniqueserv = expand("%:r")
-let g:Tex_ViewRuleComplete_pdf = 'zathura -x "vim --servername '.theuniqueserv.' --remote +\%{line} \%{input}" $*.pdf 2>/dev/null &'
-function! SynctexForward()
-        let execstr = 'silent! !zathura --synctex-forward '.line('.').':1:"'.expand('%').'" "'.expand("%:p:r").'".pdf'
-        execute execstr
-        redraw!
-endfunction
-nmap mts :call SynctexForward() <Enter>
+" vimtex
+let g:tex_flavor="latex"
 
 " vim-indent-guides
 let g:indent_guides_enable_on_vim_startup=1
