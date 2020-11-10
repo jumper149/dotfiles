@@ -58,6 +58,7 @@ endif
 
 " Configure vim-airline
 let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#gen_tags#enabled=0 " fixes annoying error
 if &t_Co >= 256 || has("gui_running")
   let g:airline_theme='wombat'
 else
