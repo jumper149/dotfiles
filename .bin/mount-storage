@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
 MOUNTPATH="${HOME}/Storage"
+DOMAIN="local.felixspringer.xyz"
 
 case "${1}" in
     'mount')
         echo "mounting Storage at: ${MOUNTPATH}"
-        sshfs "jumper@local.felixspringer.xyz:Storage" "${MOUNTPATH}"
+        sshfs "jumper@${DOMAIN}:Storage" "${MOUNTPATH}"
         ;;
 
     'umount')
