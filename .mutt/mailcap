@@ -1,6 +1,8 @@
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
 
-image/*; sxiv %s
+image/*; sxiv %s;
 
-image/x-eps; zathura %s
-application/pdf; zathura %s
+video/*; mpv %s;
+
+image/x-eps; zathura %s;
+application/pdf; zathura %s;
