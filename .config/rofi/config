@@ -7,7 +7,7 @@ rofi.lines:                          15
 ! "Number of columns" Set from: Default
 rofi.columns:                        1
 ! "Font to use" Set from: Default
-rofi.font:                           Inconsolata Bold 14
+rofi.font:                           Iosevka Bold 14
 ! "Whether to load and show icons" Set from: Default
 rofi.show-icons:                     false
 ! "Terminal to use" Set from: Default
