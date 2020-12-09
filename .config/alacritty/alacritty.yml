@@ -68,18 +68,26 @@ key_bindings:
   - { key: V,        mods: Control|Shift, action: ReceiveChar      }
   #- { key: C,        mods: Control|Shift, action: Copy             }
   - { key: C,        mods: Control|Shift, action: ReceiveChar      }
+  #- { key: F,        mods: Control|Shift, action: SearchForward    }
+  - { key: F,        mods: Control|Shift, action: ReceiveChar      }
+  #- { key: B,        mods: Control|Shift, action: SearchBackward   }
+  - { key: B,        mods: Control|Shift, action: ReceiveChar   }
+  #- { key: C,        mods: Control|Shift, mode: Vi, action: ClearSelection   }
+  - { key: C,        mods: Control|Shift, mode: Vi, action: ReceiveChar      }
   #- { key: Insert,   mods: Shift,         action: PasteSelection   }
   - { key: Insert,   mods: Shift,         action: ReceiveChar      }
   #- { key: Key0,     mods: Control,       action: ResetFontSize    }
   - { key: Key0,     mods: Control,       action: ReceiveChar      }
   #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
   - { key: Equals,   mods: Control,       action: ReceiveChar      }
-  #- { key: Add,      mods: Control,       action: IncreaseFontSize }
-  - { key: Add,      mods: Control,       action: ReceiveChar      }
-  #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  - { key: Subtract, mods: Control,       action: ReceiveChar      }
+  #- { key: Plus,     mods: Control,       action: IncreaseFontSize }
+  - { key: Plus,     mods: Control,       action: ReceiveChar      }
   #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
   - { key: Minus,    mods: Control,       action: ReceiveChar      }
+  #- { key: NumpadAdd, mods: Control,       action: DecreaseFontSize }
+  - { key: NumpadAdd, mods: Control,       action: ReceiveChar      }
+  #- { key: NumpadSubtract, mods: Control,       action: DecreaseFontSize }
+  - { key: NumpadSubtract, mods: Control,       action: ReceiveChar      }
 
   - { key: C,        mods: Control|Alt,       action: Copy             }
   - { key: V,        mods: Control|Alt,       action: Paste            }
@@ -88,5 +96,5 @@ key_bindings:
   - { key: J,        mods: Control|Alt,       action: ScrollLineDown   }
   - { key: K,        mods: Control|Alt,       action: ScrollLineUp     }
   - { key: Equals,   mods: Control|Alt,       action: ResetFontSize    }
-  - { key: Add,      mods: Control|Alt|Shift, action: IncreaseFontSize }
-  - { key: Subtract, mods: Control|Alt,       action: DecreaseFontSize }
+  - { key: Plus,     mods: Control|Alt|Shift, action: IncreaseFontSize }
+  - { key: Minus,    mods: Control|Alt,       action: DecreaseFontSize }

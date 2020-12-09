@@ -25,7 +25,7 @@ Config {
   --     color7:  #707880
   --     color15: #c5c8c6
 
-    font        = "xft:Inconsolata:size=13:style=Regular:antialias=true"
+    font        = "xft:Iosevka:size=12:style=Regular"
   , bgColor     = "#282a2e"
   , fgColor     = "#c5c8c6"
   , alpha       = 0

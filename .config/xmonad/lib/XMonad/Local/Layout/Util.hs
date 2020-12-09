@@ -117,7 +117,7 @@ tabTheme = def { activeColor         = T.activeColor         T.myTheme
 --               , activeBorderWidth   = 0 -- TODO: implement with xmonad-contrib 0.16
 --               , inactiveBorderWidth = 0
 --               , urgentBorderWidth   = 0
-               , fontName            = "xft:Inconsolata:size=12:style=Bold:antialias=true"
+               , fontName            = "xft:Iosevka:size=11:style=Bold"
                }
 
 toggleFull :: X ()

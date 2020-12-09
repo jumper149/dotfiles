@@ -53,7 +53,7 @@ c.url.searchengines['aur'] = "https://aur.archlinux.org/packages/?O=0&K={}&SB=p&
 #c.fonts.completion.entry (Current: default_size default_family)
 #c.fonts.contextmenu (Current: )
 #c.fonts.debug_console (Current: default_size default_family)
-c.fonts.default_family = 'Inconsolata'
+c.fonts.default_family = 'Iosevka'
 c.fonts.default_size = '11pt'
 #c.fonts.downloads (Current: default_size default_family)
 #c.fonts.hints (Current: bold default_size default_family)
@@ -218,3 +218,4 @@ c.colors.tabs.selected.odd.fg = myColor0
 
 c.colors.webpage.bg = myColorF
 c.colors.webpage.prefers_color_scheme_dark = True
+c.colors.webpage.darkmode.enabled = True
