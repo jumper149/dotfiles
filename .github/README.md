@@ -46,6 +46,17 @@ Check these out by yourself.
 
 ## Configuration by User
 
+### nix package management
+Add main `'<nixpkgs>'` and fallback `'<nixos>'` channel:
+
+    nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+    nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
+
+Use the nix-rebuild script to fetch the packages:
+
+    nix-enx -iA userPackages "nix-rebuild"
+    nix-rebuild --upgrade
+
 ### safegit
 Set up repository for private files:
 
