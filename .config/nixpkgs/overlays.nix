@@ -1,11 +1,21 @@
 let
 
+  fallbackPackages = [
+    "firefox"
+    "qutebrowser"
+  ];
+
+  removePackages = [
+  ];
+
   lib = {
+
     runtimeWrapper = { lib, runtimeInputs ? [] }: ''
       for f in $out/bin/* ; do
         wrapProgram "$f" --prefix PATH : ${lib.makeBinPath runtimeInputs}
       done
     '';
+
   };
 
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
@@ -20,9 +30,15 @@ let
 
     userPackages = {
 
+      # nix-channels <nixpkgs> and <nixos> need to be set up
       nix-rebuild = super.writeScriptBin "nix-rebuild" ''
         #!${super.stdenv.shell}
-        exec nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+        set -e
+        if [ "$1" = "--upgrade" ]; then
+          nix-channel --update nixpkgs nixos
+        fi
+        nix-env -f '<nixpkgs>' -r -iA userPackages "$@"
+        nix-env -f '<nixos>' -iA userPackagesFallback "$@"
       '';
 
     };
@@ -282,4 +298,22 @@ let
 
   };
 
-in [ overlay-base overlay-cli overlay-x ]
+  overlay-fallback = self: super: {
+
+    userPackagesFallback = super.lib.getAttrs fallbackPackages super.userPackages;
+
+  };
+
+  overlay-remove = self: super: {
+
+    userPackages = removeAttrs super.userPackages (fallbackPackages ++ removePackages);
+
+  };
+
+in [
+  overlay-base
+  overlay-cli
+  overlay-x
+  overlay-fallback
+  overlay-remove
+]
