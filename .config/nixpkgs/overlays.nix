@@ -53,7 +53,7 @@ let
 
       atool = let atoolDistribution = super.atool;
               in super.symlinkJoin {
-        name = atoolDistribution.name + "-jumper";
+        name = atoolDistribution.name;
         paths = [
           atoolDistribution
           super.cpio
@@ -76,7 +76,7 @@ let
 
       firefox = let firefoxDistribution = super.firefox;
                 in super.symlinkJoin {
-        name = firefoxDistribution.name + "-jumper";
+        name = firefoxDistribution.name;
         paths = [
           firefoxDistribution
           super.passff-host
@@ -109,7 +109,7 @@ let
                    super.w3m
                  ];
              in super.symlinkJoin {
-        name = muttDistribution.name + "-jumper";
+        name = muttDistribution.name;
         paths = [ muttDistribution ];
         buildInputs = [ super.makeWrapper ] ++ runtimeInputs;
         postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib;};
@@ -138,7 +138,7 @@ let
                      # not in nixpkgs: djvutxt, epub-thumbnailer, od2txt, fontimage
                    ];
                in super.symlinkJoin {
-        name = rangerDistribution.name + "-jumper";
+        name = rangerDistribution.name;
         paths = rangerDistribution;
         buildInputs = [ super.makeWrapper ] ++ runtimeInputs;
         postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib; };
@@ -151,8 +151,13 @@ let
       tmux = super.tmux;
 
       vim = let vimDistribution = super.vimHugeX;
+                runtimeInputs = [
+                  super.nodePackages.bash-language-server
+                  super.nodePackages.vim-language-server
+                  super.rnix-lsp
+                ];
             in super.symlinkJoin {
-        name = vimDistribution.name + "-jumper";
+        name = vimDistribution.name;
         paths = [
           vimDistribution
 
@@ -171,13 +176,15 @@ let
           super.vimPlugins.purescript-vim
           super.vimPlugins.vimtex
         ];
+        buildInputs = [ super.makeWrapper ] ++ runtimeInputs;
+        postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib; };
       };
 
       vimpager = super.vimpager-latest;
 
       weechat = let weechatDistribution = super.weechat;
                 in super.symlinkJoin {
-        name = weechatDistribution.name + "-jumper";
+        name = weechatDistribution.name;
         paths = [ weechatDistribution ];
         buildInputs = [
           super.makeWrapper
@@ -196,7 +203,7 @@ let
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
       haskell-utils = super.symlinkJoin {
-        name = "haskell-utils-jumper";
+        name = "haskell-utils";
         paths = [
           super.cabal-install
           super.cabal2nix
@@ -216,7 +223,7 @@ let
     userPackages = super.userPackages // {
 
       theme = super.symlinkJoin {
-        name = "theme-jumper";
+        name = "theme";
         paths = [
           super.bibata-cursors
           super.fira-code
