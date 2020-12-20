@@ -72,6 +72,8 @@ let
         ];
       };
 
+      elinks = super.elinks;
+
       file = super.file;
 
       firefox = let firefoxDistribution = super.firefox;
@@ -84,6 +86,8 @@ let
       };
 
       flashrom = super.flashrom;
+
+      fzf = super.fzf;
 
       git = super.git;
 
