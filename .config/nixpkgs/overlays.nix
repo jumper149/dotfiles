@@ -158,6 +158,7 @@ let
                 runtimeInputs = [
                   super.nodePackages.bash-language-server
                   super.nodePackages.vim-language-server
+                  super.python38Packages.python-language-server
                   super.rnix-lsp
                 ];
             in super.symlinkJoin {
