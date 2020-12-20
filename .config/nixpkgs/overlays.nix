@@ -26,6 +26,8 @@ let
       aspell-configured = super.aspellWithDicts (d: with d; [en de]);
     };
 
+    pythonLatestPackages = super.python38Packages;
+
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
     userPackages = {
@@ -137,7 +139,7 @@ let
                      super.imagemagick
                      super.jq
                      super.mediainfo
-                     super.python37Packages.pdftotext
+                     super.pythonLatestPackages.pdftotext
                      super.w3m
                      # not in nixpkgs: djvutxt, epub-thumbnailer, od2txt, fontimage
                    ];
@@ -158,7 +160,7 @@ let
                 runtimeInputs = [
                   super.nodePackages.bash-language-server
                   super.nodePackages.vim-language-server
-                  super.python38Packages.python-language-server
+                  super.pythonLatestPackages.python-language-server
                   super.rnix-lsp
                 ];
             in super.symlinkJoin {
