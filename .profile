@@ -6,6 +6,8 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 
 export PATH="${PATH}:${HOME}/.bin:${HOME}/.cabal/bin"
 
+export INPUTRC="${XDG_CONFIG_HOME}/inputrc"
+
 export VISUAL="vim"
 export EDITOR="${VISUAL}"
 export PAGER="vimpager"
