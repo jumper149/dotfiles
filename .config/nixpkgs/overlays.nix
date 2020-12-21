@@ -156,33 +156,47 @@ let
 
       tmux = super.tmux;
 
-      vim = let vimDistribution = super.vimHugeX;
-                runtimeInputs = [
-                  super.nodePackages.bash-language-server
-                  super.nodePackages.vim-language-server
-                  super.pythonLatestPackages.python-language-server
-                  super.rnix-lsp
-                ];
-            in super.symlinkJoin {
+      vim = let
+        vimDistribution = super.vimHugeX;
+        vimPlugins = with super.vimPlugins; [
+          colorizer
+          supertab
+          LanguageClient-neovim
+          vim-airline
+          vim-airline-themes
+          vim-indent-guides
+          vim-fugitive
+          wombat256-vim
+
+          agda-vim
+          haskell-vim
+          idris-vim
+          purescript-vim
+          vimtex
+          vim-nix
+        ];
+        runtimeInputs = [
+          super.nodePackages.bash-language-server
+          super.nodePackages.vim-language-server
+          super.pythonLatestPackages.python-language-server
+          super.rnix-lsp
+        ];
+      in super.symlinkJoin {
         name = vimDistribution.name;
         paths = [
           vimDistribution
 
-          super.vimPlugins.colorizer
-          super.vimPlugins.supertab
-          super.vimPlugins.LanguageClient-neovim
-          super.vimPlugins.vim-airline
-          super.vimPlugins.vim-airline-themes
-          super.vimPlugins.vim-indent-guides
-          super.vimPlugins.vim-fugitive
-          super.vimPlugins.wombat256-vim
-
-          super.vimPlugins.agda-vim
-          super.vimPlugins.haskell-vim
-          super.vimPlugins.idris-vim
-          super.vimPlugins.purescript-vim
-          super.vimPlugins.vimtex
-        ];
+          (super.neovim.override {
+            configure = {
+              customRC = ''
+                source $XDG_CONFIG_HOME/nvim/init.vim
+              '';
+              packages.myVimPackage = {
+                start = vimPlugins;
+              };
+            };
+          })
+        ] ++ vimPlugins;
         buildInputs = [ super.makeWrapper ] ++ runtimeInputs;
         postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib; };
       };
