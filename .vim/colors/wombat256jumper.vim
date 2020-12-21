@@ -58,12 +58,12 @@ hi Typedef      ctermfg=110  ctermbg=none cterm=none      guifg=#87afd7         
 hi Special      ctermfg=194  ctermbg=none cterm=none      guifg=#e7f6da               gui=none
 
 hi Todo         ctermfg=88   ctermbg=none cterm=bold      guifg=#8f8f8f               gui=bold
-hi Error        ctermbg=88                cterm=none                    guibg=#870000
+hi Error                     ctermbg=88   cterm=none                    guibg=#870000
 
 
-hi Warning      ctermbg=178               cterm=none      guibg=#d7af00
+hi Warning                   ctermbg=130  cterm=none                    guibg=#af5f00
 
-hi SpellCap     ctermfg=205               cterm=underline guifg=#ff5faf
+hi SpellCap                  ctermbg=22   cterm=none                    guibg=#005f00
 
 " Links
 hi! link FoldColumn   Folded

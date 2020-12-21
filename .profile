@@ -13,7 +13,7 @@ export BROWSER="qutebrowser"
 
 export MAIL="${HOME}/.mail/"
 
-export VIMINIT=":source ${XDG_CONFIG_HOME}/vim/vimrc"
+export VIMINIT=":source ${XDG_CONFIG_HOME}/vim/init.vim"
 
 export XMONAD_CACHE_DIR="${XDG_CACHE_HOME}/xmonad"
 export XMONAD_CONFIG_DIR="${XDG_CONFIG_HOME}/xmonad"
