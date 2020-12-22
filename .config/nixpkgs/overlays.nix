@@ -162,6 +162,7 @@ let
           colorizer
           supertab
           LanguageClient-neovim
+          rainbow
           vim-airline
           vim-airline-themes
           vim-indent-guides
