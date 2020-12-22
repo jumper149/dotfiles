@@ -64,8 +64,8 @@ let g:rainbow_active=1
 let g:rainbow_conf = {
   \   'guifgs'  : ['#8787d7', '#5f87d7', '#87af87', '#afaf87', '#af87af']
   \ , 'ctermfgs': [     104 ,       68 ,      108 ,      144 ,      139 ]
-  \ , 'guis'    : ['']
-  \ , 'cterms'  : ['']
+  \ , 'guis'    : [       '',        '',        '',        '',        '']
+  \ , 'cterms'  : [       '',        '',        '',        '',        '']
   \ , 'operators': '_,_'
   \ , 'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold']
   \ , 'separately': {
