@@ -27,7 +27,7 @@ hi NonText      ctermfg=246  ctermbg=237  cterm=none        guifg=#808080 guibg=
 " Vim >= 7.0 specific colors
 if version >= 700
     hi CursorLine   ctermfg=none ctermbg=236  cterm=none                      guibg=#2d2d2d gui=none
-    hi MatchParen   ctermfg=52   ctermbg=243  cterm=bold        guifg=#f6f3e8 guibg=#857b6f gui=bold
+    hi MatchParen   ctermfg=none ctermbg=233  cterm=bold        guifg=none    guibg=#121212 gui=bold
     hi Pmenu        ctermfg=251  ctermbg=238  cterm=none        guifg=#f6f3e8 guibg=#444444 gui=none
     hi PmenuSel     ctermfg=234  ctermbg=192  cterm=bold        guifg=#000000 guibg=#cae682 gui=bold
 endif
