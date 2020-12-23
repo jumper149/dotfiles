@@ -98,7 +98,7 @@ let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
 
 " LanguageClient-neovim
-let g:LanguageClient_diagnosticsSignsMax = 0
+let g:LanguageClient_diagnosticsSignsMax=0
 let g:LanguageClient_serverCommands = {
   \   'haskell': ['haskell-language-server-wrapper', '--lsp']
   \ , 'nix'    : ['rnix-lsp']
