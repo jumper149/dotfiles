@@ -20,7 +20,7 @@ set relativenumber
 set scrolloff=8
 
 " Enable Highlighting
-set syntax=on
+syntax on
 
 " Set colorscheme
 if &t_Co >= 256 || has("gui_running")
