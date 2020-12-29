@@ -74,6 +74,8 @@ let
         ];
       };
 
+      bind = super.bind;
+
       elinks = super.elinks;
 
       file = super.file;
@@ -171,7 +173,14 @@ let
 
           agda-vim
           haskell-vim
-          idris-vim
+          #idris-vim
+          (idris2-vim.overrideAttrs ({ ... }: {
+            src = fetchGit {
+              url = "https://github.com/edwinb/idris2-vim.git";
+              ref = "master";
+              rev = "099129e08c89d9526ad092b7980afa355ddaa24c";
+            };
+          }))
           purescript-vim
           vimtex
           vim-nix
