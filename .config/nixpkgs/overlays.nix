@@ -173,7 +173,6 @@ let
 
           agda-vim
           haskell-vim
-          #idris-vim
           (idris2-vim.overrideAttrs ({ ... }: {
             src = fetchGit {
               url = "https://github.com/edwinb/idris2-vim.git";
