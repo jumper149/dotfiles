@@ -49,9 +49,13 @@ let
 
       #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
-  overlay-cli = self: super: {
+  overlay-main = self: super: {
 
     userPackages = super.userPackages // {
+
+      alacritty = super.alacritty;
+
+      arandr = super.arandr;
 
       atool = let atoolDistribution = super.atool;
               in super.symlinkJoin {
@@ -74,7 +78,33 @@ let
         ];
       };
 
+      baobab = super.baobab;
+
       bind = super.bind;
+
+      blucontrol = let
+        #src = fetchFromGitHub {
+        #  owner = "jumper149";
+        #  repo = "blucontrol";
+        #  rev = "0.2.1.1"
+        #  #sha256 = "";
+        #};
+        src = fetchGit {
+          url = "https://github.com/jumper149/blucontrol.git";
+          ref = "master";
+          rev = "dd4b18a33923fcab99a4cc230fb70ae1e9642928";
+        };
+      in
+        import "${src}/default.nix" {
+          stdenv = super.stdenv;
+          makeWrapper = super.makeWrapper;
+          makeBinPath = super.lib.makeBinPath;
+          ghcWithPackages = super.haskellPackages.ghcWithPackages;
+        };
+
+      #chromium = super.chromium;
+
+      conky = super.conky;
 
       elinks = super.elinks;
 
@@ -93,17 +123,37 @@ let
 
       fzf = super.fzf;
 
+      gimp = super.gimp;
+
       git = super.git;
+
+      glava = super.glava;
 
       gnupg = super.gnupg;
 
+      haskell-utils = super.symlinkJoin {
+        name = "haskell-utils";
+        paths = [
+          super.cabal-install
+          super.cabal2nix
+          super.ghc
+          super.haskellPackages.hoogle
+        ];
+      };
+
       htop = super.htop;
+
+      i3lock = super.i3lock;
 
       khal = super.khal;
 
       khard = super.khard;
 
       killall = super.killall;
+
+      #kitty = super.kitty;
+
+      #libreoffice = super.libreoffice;
 
       mpc = super.mpc_cli;
 
@@ -135,7 +185,11 @@ let
 
       pass = super.pass;
 
+      pavucontrol = super.pavucontrol;
+
       pinentry = super.pinentry;
+
+      qutebrowser = super.qutebrowser;
 
       ranger = let rangerDistribution = super.ranger;
                    runtimeInputs = [
@@ -156,9 +210,34 @@ let
         postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib; };
       };
 
+      rofi = super.rofi;
+
+      #rxvt-unicode = super.rxvt-unicode;
+
+      screenkey = super.screenkey.overrideAttrs ({ buildInputs ? [], ... }: {
+        buildInputs = buildInputs ++ [
+          super.inconsolata
+        ];
+      });
+
+      scrot = super.scrot;
+
       sshfs = super.sshfs;
 
+      sxiv = super.sxiv;
+
+      tdesktop = super.tdesktop;
+
       #texlive-combined-basic = super.texlive-combined-basic
+
+      theme = super.symlinkJoin {
+        name = "theme";
+        paths = [
+          super.bibata-cursors
+          super.fira-code
+          super.iosevka-bin
+        ];
+      };
 
       tmux = super.tmux;
 
@@ -232,104 +311,11 @@ let
 
       xdg-user-dirs = super.xdg-user-dirs;
 
-      youtube-dl = super.youtube-dl;
-
-      #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
-
-      haskell-utils = super.symlinkJoin {
-        name = "haskell-utils";
-        paths = [
-          super.cabal-install
-          super.cabal2nix
-          super.ghc
-          super.haskellPackages.hoogle
-        ];
-      };
-
-    };
-
-  };
-
-      #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
-
-  overlay-x = self: super: {
-
-    userPackages = super.userPackages // {
-
-      theme = super.symlinkJoin {
-        name = "theme";
-        paths = [
-          super.bibata-cursors
-          super.fira-code
-          super.iosevka-bin
-        ];
-      };
-
-      #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
-
-      alacritty = super.alacritty;
-
-      arandr = super.arandr;
-
-      baobab = super.baobab;
-
-      blucontrol = let
-        #src = fetchFromGitHub {
-        #  owner = "jumper149";
-        #  repo = "blucontrol";
-        #  rev = "0.2.1.1"
-        #  #sha256 = "";
-        #};
-        src = fetchGit {
-          url = "https://github.com/jumper149/blucontrol.git";
-          ref = "master";
-          rev = "dd4b18a33923fcab99a4cc230fb70ae1e9642928";
-        };
-      in
-        import "${src}/default.nix" {
-          stdenv = super.stdenv;
-          makeWrapper = super.makeWrapper;
-          makeBinPath = super.lib.makeBinPath;
-          ghcWithPackages = super.haskellPackages.ghcWithPackages;
-        };
-
-      #chromium = super.chromium;
-
-      conky = super.conky;
-
-      gimp = super.gimp;
-
-      glava = super.glava;
-
-      i3lock = super.i3lock;
-
-      #libreoffice = super.libreoffice;
-
-      #kitty = super.kitty;
-
-      pavucontrol = super.pavucontrol;
-
-      qutebrowser = super.qutebrowser;
-
-      rofi = super.rofi;
-
-      #rxvt-unicode = super.rxvt-unicode;
-
-      screenkey = super.screenkey.overrideAttrs ({ buildInputs ? [], ... }: {
-        buildInputs = buildInputs ++ [
-          super.inconsolata
-        ];
-      });
-
-      scrot = super.scrot;
-
-      sxiv = super.sxiv;
-
-      tdesktop = super.tdesktop;
-
       xdotool = super.xdotool;
 
       xmobar = super.xmobar;
+
+      youtube-dl = super.youtube-dl;
 
       zathura = super.zathura;
 
@@ -338,6 +324,8 @@ let
     };
 
   };
+
+      #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
   overlay-fallback = self: super: {
 
@@ -353,8 +341,7 @@ let
 
 in [
   overlay-base
-  overlay-cli
-  overlay-x
+  overlay-main
   overlay-fallback
   overlay-remove
 ]
