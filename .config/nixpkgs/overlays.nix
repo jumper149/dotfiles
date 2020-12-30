@@ -106,6 +106,8 @@ let
 
       conky = super.conky;
 
+      dict = super.dict;
+
       elinks = super.elinks;
 
       file = super.file;
