@@ -99,6 +99,10 @@ let
 
       htop = super.htop;
 
+      khal = super.khal;
+
+      khard = super.khard;
+
       killall = super.killall;
 
       mpc = super.mpc_cli;
