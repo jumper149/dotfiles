@@ -108,6 +108,8 @@ let
 
       dict = super.dict;
 
+      dig = super.sysdig;
+
       elinks = super.elinks;
 
       file = super.file;
