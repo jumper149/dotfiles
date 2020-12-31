@@ -243,6 +243,8 @@ let
 
       tmux = super.tmux;
 
+      traceroute = super.traceroute;
+
       vim = let
         vimDistribution = super.vimHugeX;
         vimPlugins = with super.vimPlugins; [
