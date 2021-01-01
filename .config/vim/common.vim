@@ -22,6 +22,10 @@ set scrolloff=8
 " Enable Highlighting
 syntax on
 
+" Leader keys
+let mapleader='ml'
+let maplocalleader='mi'
+
 " Set colorscheme
 if &t_Co >= 256 || has("gui_running")
   colorscheme wombat256jumper
@@ -73,9 +77,6 @@ let g:rainbow_conf = {
   \   , 'markdown': {
   \       'parentheses_options': 'containedin=markdownCode contained'
   \     }
-  \   , 'lisp': {
-  \       'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3']
-  \     }
   \   , 'haskell': {
   \       'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold']
   \     }
@@ -107,9 +108,9 @@ let g:LanguageClient_serverCommands = {
   \ , 'sh'     : ['bash-language-server', 'start']
   \ , 'vim'    : ['vim-language-server', '--stdio']
   \ }
-nnoremap mlc :call LanguageClient_contextMenu()<CR>
-nnoremap mlk :call LanguageClient#textDocument_hover()<CR>
-nnoremap mlg :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>c :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>k :call LanguageClient#textDocument_hover()<CR>
+nnoremap <Leader>g :call LanguageClient#textDocument_definition()<CR>
 
 " Commands
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
