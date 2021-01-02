@@ -11,6 +11,8 @@ endif
 
 let g:loaded_airline = 1
 
+let indent_guides_enable_on_vim_startup = 0
+
 if !exists('g:vimpager.enabled')
   let g:vimpager = {}
 endif
