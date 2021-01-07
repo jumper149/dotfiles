@@ -93,32 +93,36 @@ myTall = Tall 1 (3%100)   (1%2)
 
 mySpacedAlwaysTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
 mySpacedAlwaysTabbed = tabbedAlways shrinkText t
-    where t = tabTheme { inactiveBorderColor = T.inactiveBorderColor T.myTheme -- TODO: change with xmonad-contrib 0.16
+    where t = tabTheme { inactiveBorderWidth = 1
                        }
 
 mySpacedTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
 mySpacedTabbed = tabbed shrinkText t
-    where t = tabTheme { inactiveBorderColor = T.inactiveBorderColor T.myTheme -- TODO: change with xmonad-contrib 0.16
+    where t = tabTheme { inactiveBorderWidth = 1
                        }
 
 myTabbed :: (Eq a, Read a) => ModifiedLayout (Decoration TabbedDecoration DefaultShrinker) Simplest a
 myTabbed = tabbed shrinkText tabTheme
 
 tabTheme :: Theme
-tabTheme = def { activeColor         = T.activeColor         T.myTheme
-               , inactiveColor       = T.inactiveColor       T.myTheme
-               , urgentColor         = T.urgentColor         T.myTheme
-               , activeBorderColor   = T.activeBorderColor   T.myTheme
-               , inactiveBorderColor = T.inactiveColor       T.myTheme -- TODO: implement with xmonad-contrib 0.16; use T.inactiveBorderColor
-               , urgentBorderColor   = T.urgentBorderColor   T.myTheme
-               , activeTextColor     = T.activeTextColor     T.myTheme
-               , inactiveTextColor   = T.inactiveTextColor   T.myTheme
-               , urgentTextColor     = T.urgentTextColor     T.myTheme
---               , activeBorderWidth   = 0 -- TODO: implement with xmonad-contrib 0.16
---               , inactiveBorderWidth = 0
---               , urgentBorderWidth   = 0
-               , fontName            = "xft:Iosevka:size=11:style=Bold"
-               }
+tabTheme = Theme { activeColor         = T.activeColor         T.myTheme
+                 , inactiveColor       = T.inactiveColor       T.myTheme
+                 , urgentColor         = T.urgentColor         T.myTheme
+                 , activeBorderColor   = T.activeBorderColor   T.myTheme
+                 , inactiveBorderColor = T.inactiveBorderColor T.myTheme
+                 , urgentBorderColor   = T.urgentBorderColor   T.myTheme
+                 , activeTextColor     = T.activeTextColor     T.myTheme
+                 , inactiveTextColor   = T.inactiveTextColor   T.myTheme
+                 , urgentTextColor     = T.urgentTextColor     T.myTheme
+                 , decoWidth           = 100 -- TODO: unsure, what effect this has
+                 , decoHeight          = 23
+                 , activeBorderWidth   = 0
+                 , inactiveBorderWidth = 0
+                 , urgentBorderWidth   = 0
+                 , fontName            = "xft:Iosevka:size=11:style=Bold"
+                 , windowTitleAddons   = []
+                 , windowTitleIcons    = []
+                 }
 
 toggleFull :: X ()
 toggleFull = sendMessage $ Toggle NBFULL
