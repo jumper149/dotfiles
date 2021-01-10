@@ -2,7 +2,7 @@
 set realname="Felix Springer"
 
 # general
-set editor="vim"
+set editor="$EDITOR"
 set send_charset="utf-8"
 set sort_aux="reverse-date"
 unset markers # remove "+" at the beginning of wrapped lines in pager
