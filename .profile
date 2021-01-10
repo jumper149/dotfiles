@@ -8,7 +8,7 @@ export PATH="${PATH}:${HOME}/.bin:${HOME}/.cabal/bin"
 
 export INPUTRC="${XDG_CONFIG_HOME}/inputrc"
 
-export VISUAL="vim"
+export VISUAL="nvim"
 export EDITOR="${VISUAL}"
 export PAGER="vimpager"
 export BROWSER="qutebrowser"
