@@ -14,10 +14,10 @@ image/x-xpixmap=sxiv.desktop;
 video/mp4=mpv.desktop;
 audio/mpeg=vlc-2.desktop;
 text/html=qutebrowser.desktop;
-text/xml=vim.desktop;
+text/xml=nvim.desktop;
 application/xhtml+xml=qutebrowser.desktop;
-application/xml=vim.desktop;
-application/rdf+xml=vim.desktop;
+application/xml=nvim.desktop;
+application/rdf+xml=nvim.desktop;
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 application/postscript=zathura-ps.desktop;
 application/eps=zathura-ps.desktop;
@@ -35,3 +35,7 @@ application/x-extension-xhtml=qutebrowser.desktop;
 application/x-extension-xht=qutebrowser.desktop;
 x-scheme-handler/about=qutebrowser.desktop;
 x-scheme-handler/unknown=qutebrowser.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-BDKNW0.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-BDKNW0.desktop;
