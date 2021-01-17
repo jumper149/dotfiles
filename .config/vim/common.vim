@@ -24,6 +24,7 @@ syntax on
 
 " Leader keys
 let mapleader='ml'
+" Local Leader mainly for idris2
 let maplocalleader='mi'
 
 " Set colorscheme
@@ -106,7 +107,7 @@ autocmd VimEnter * call deoplete#custom#option({
   \   'auto_complete_delay': 0
   \ })
 " Use <Tab> for auto-completion
-" TODO: it would be awesome to automatically select the first entry with Tab,
+" TODO: It would be awesome to automatically select the first entry with Tab,
 " even when it was so slow, that it was activated with manual_complete. Not
 " sure, how I can select the first entry from the popup-menu after having
 " called deoplete#manual_complete().
@@ -125,10 +126,21 @@ let g:LanguageClient_serverCommands = {
   \ , 'sh'     : ['bash-language-server', 'start']
   \ , 'vim'    : ['vim-language-server', '--stdio']
   \ }
-nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
-nnoremap <Leader>c :call LanguageClient#handleCodeLensAction()<CR>
-nnoremap <Leader>h :call LanguageClient#textDocument_hover()<CR>
+" TODO: Is this the only way to handle the hls eval plugin?
+nnoremap <Leader>e :call LanguageClient#handleCodeLensAction()<CR>
+nnoremap <Leader>f :call LanguageClient#textDocument_references()<CR>
+nnoremap <Leader>F :call LanguageClient#textDocument_formatting()<CR>
+" TODO: This doesn't seem to be working for range
+vnoremap <Leader>F :call LanguageClient#textDocument_rangeFormatting()<CR>
 nnoremap <Leader>g :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>h :call LanguageClient#textDocument_hover()<CR>
+" Alias for <Leader>h
+nnoremap <Leader>k :call LanguageClient#textDocument_hover()<CR>
+nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>r :call LanguageClient#textDocument_rename()<CR>
+nnoremap <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <Leader>v :call LanguageClient#textDocument_documentHighlight()<CR>
+nnoremap <Leader>V :call LanguageClient#clearDocumentHighlight()<CR>
 
 " Commands
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
