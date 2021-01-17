@@ -98,8 +98,25 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
 
+" deoplete
+" Don't show documentation popup window with LanguageClient_neovim
+set completeopt-=preview
+let g:deoplete#enable_at_startup=1
+autocmd VimEnter * call deoplete#custom#option({
+  \   'auto_complete_delay': 0
+  \ })
+" Use <Tab> for auto-completion
+" TODO: it would be awesome to automatically select the first entry with Tab,
+" even when it was so slow, that it was activated with manual_complete. Not
+" sure, how I can select the first entry from the popup-menu after having
+" called deoplete#manual_complete().
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : deoplete#manual_complete()
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " LanguageClient-neovim
 let g:LanguageClient_diagnosticsSignsMax=0
+let g:LanguageClient_selectionUI="fzf"
+let g:LanguageClient_setOmnifunc=v:false
 let g:LanguageClient_serverCommands = {
   \   'haskell': ['haskell-language-server-wrapper', '--lsp']
   \ , 'nix'    : ['rnix-lsp']
@@ -108,8 +125,9 @@ let g:LanguageClient_serverCommands = {
   \ , 'sh'     : ['bash-language-server', 'start']
   \ , 'vim'    : ['vim-language-server', '--stdio']
   \ }
-nnoremap <Leader>c :call LanguageClient_contextMenu()<CR>
-nnoremap <Leader>k :call LanguageClient#textDocument_hover()<CR>
+nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>c :call LanguageClient#handleCodeLensAction()<CR>
+nnoremap <Leader>h :call LanguageClient#textDocument_hover()<CR>
 nnoremap <Leader>g :call LanguageClient#textDocument_definition()<CR>
 
 " Commands
