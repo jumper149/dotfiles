@@ -251,7 +251,8 @@ let
         vimDistribution = super.vimHugeX;
         vimPlugins = with super.vimPlugins; [
           colorizer
-          supertab
+          deoplete-nvim
+          fzf-vim
           LanguageClient-neovim
           rainbow
           vim-airline
@@ -262,18 +263,14 @@ let
 
           agda-vim
           haskell-vim
-          (idris2-vim.overrideAttrs ({ ... }: {
-            src = fetchGit {
-              url = "https://github.com/edwinb/idris2-vim.git";
-              ref = "master";
-              rev = "099129e08c89d9526ad092b7980afa355ddaa24c";
-            };
-          }))
+          idris2-vim
           purescript-vim
           vimtex
           vim-nix
         ];
         runtimeInputs = [
+          super.haskellPackages.haskell-language-server
+          super.idris2
           super.nodePackages.bash-language-server
           super.nodePackages.vim-language-server
           super.pythonLatestPackages.python-language-server
