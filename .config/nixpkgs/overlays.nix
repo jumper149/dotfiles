@@ -1,42 +1,10 @@
 let
 
   fallbackPackages = [
-    "chromium"
-    "firefox"
-    "libreoffice"
-    "qutebrowser"
   ];
 
   unstablePackages = let
     XPackages = [
-    "alacritty"
-    "arandr"
-    "baobab"
-    "blucontrol"
-    #"chromium"
-    "conky"
-    #"firefox"
-    "gimp"
-    "glava"
-    "i3lock"
-    "kitty"
-    #"libreoffice"
-    "mpv"
-    "mumble"
-    "pavucontrol"
-    "pinentry" # TODO: is this necessary for CLI?
-    #"qutebrowser"
-    "rofi"
-    "rxvt-unicode"
-    "screenkey"
-    "scrot"
-    "sxiv"
-    "telegram"
-    "theme"
-    "xdotool"
-    "xmobar"
-    "zathura"
-    #"zoom-us"
   ];
     CLIPackages = [
     "atool"
