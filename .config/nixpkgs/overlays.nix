@@ -7,6 +7,7 @@ let
     XPackages = [
   ];
     CLIPackages = [
+    "amfora"
     "atool"
     #"bind" # TODO: remove?
     "dict"

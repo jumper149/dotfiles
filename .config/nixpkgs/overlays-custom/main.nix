@@ -15,6 +15,8 @@ in
 
       alacritty = super.alacritty;
 
+      amfora = super.amfora;
+
       arandr = super.arandr;
 
       atool = let atoolDistribution = super.atool;
@@ -163,7 +165,7 @@ in
                      super.imagemagick
                      super.jq
                      super.mediainfo
-                     super.pythonLatestPackages.pdftotext
+                     super.poppler_utils
                      super.w3m
                      # not in nixpkgs: djvutxt, epub-thumbnailer, od2txt, fontimage
                    ];
