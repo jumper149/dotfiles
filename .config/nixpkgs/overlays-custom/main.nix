@@ -163,7 +163,7 @@ in
                      super.imagemagick
                      super.jq
                      super.mediainfo
-                     super.pythonLatestPackages.pdftotext
+                     super.poppler_utils
                      super.w3m
                      # not in nixpkgs: djvutxt, epub-thumbnailer, od2txt, fontimage
                    ];
