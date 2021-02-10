@@ -39,6 +39,7 @@ let
     #"zoom-us"
   ];
     CLIPackages = [
+    "amfora"
     "atool"
     #"bind" # TODO: remove?
     "dict"

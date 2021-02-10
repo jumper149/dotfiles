@@ -15,6 +15,8 @@ in
 
       alacritty = super.alacritty;
 
+      amfora = super.amfora;
+
       arandr = super.arandr;
 
       atool = let atoolDistribution = super.atool;
