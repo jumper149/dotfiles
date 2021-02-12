@@ -192,6 +192,8 @@ in
 
       sxiv = super.sxiv;
 
+      task = super.taskwarrior;
+
       telegram = super.tdesktop;
 
       texlive = super.texlive-combined-basic;

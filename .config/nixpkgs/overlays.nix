@@ -31,6 +31,7 @@ let
       "pass"
       "ranger"
       "sshfs"
+      "task"
       #"texlive"
       "tmux"
       "traceroute"
