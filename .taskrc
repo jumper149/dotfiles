@@ -13,24 +13,13 @@
 # Files
 data.location=~/.task
 
-# Color theme (uncomment one to use)
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/light-16.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/light-256.theme
-include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-16.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-red-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-green-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-blue-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-violets-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-yellow-green.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-gray-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/dark-gray-blue-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/solarized-dark-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/solarized-light-256.theme
-#include /nix/store/r7pfaxz282vyw56b8lxrpg12cgd3d0ci-taskwarrior-2.5.2/share/doc/task/rc/no-color.theme
+# Theme
+include ~/.task/jumper.theme
 
+# Server
 taskd.server = remote.felixspringer.xyz:53589
 
+# Authentication
 taskd.certificate=\/home\/jumper\/.task\/keys\/public.cert
 taskd.key=\/home\/jumper\/.task\/keys\/private.key
 taskd.ca=\/home\/jumper\/.task\/keys\/ca.cert
