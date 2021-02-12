@@ -31,6 +31,7 @@ let
       "screenkey"
       "scrot"
       "sxiv"
+      "task"
       "telegram"
       "theme"
       "xdotool"
