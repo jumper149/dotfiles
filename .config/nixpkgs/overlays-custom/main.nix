@@ -223,6 +223,17 @@ in
           vim-airline-themes
           vim-indent-guides
           vim-fugitive
+          (super.vimUtils.buildVimPluginFrom2Nix {
+            pname = "suda";
+            version = "2020-09-08";
+            src = super.fetchFromGitHub {
+              owner = "lambdalisue";
+              repo = "suda.vim";
+              rev = "v0.2.0";
+              sha256 = "0apf28b569qz4vik23jl0swka37qwmbxxiybfrksy7i1yaq6d38g";
+            };
+          meta.homepage = "https://github.com/lambdalisue/suda.vim";
+          })
           wombat256-vim
 
           agda-vim
