@@ -192,7 +192,13 @@ in
 
       sxiv = super.sxiv;
 
-      task = super.taskwarrior;
+      task = super.symlinkJoin {
+        name = "task";
+        paths = [
+          super.taskwarrior
+          super.taskwarrior-tui
+        ];
+      };
 
       telegram = super.tdesktop;
 
