@@ -20,7 +20,7 @@ include ~/.task/jumper.theme
 taskd.server = remote.felixspringer.xyz:53589
 
 # Authentication
-taskd.certificate=\/home\/jumper\/.task\/keys\/public.cert
-taskd.key=\/home\/jumper\/.task\/keys\/private.key
-taskd.ca=\/home\/jumper\/.task\/keys\/ca.cert
-taskd.credentials=private\/jumper\/b91868b2-0c58-4fb4-9fe7-a29a69e77280
+taskd.ca=~/.task/keys/ca.cert
+taskd.certificate=~/.task/keys/public.cert
+taskd.key=~/.task/keys/private.key
+taskd.credentials=private/jumper/b91868b2-0c58-4fb4-9fe7-a29a69e77280
