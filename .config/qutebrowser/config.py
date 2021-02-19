@@ -1,5 +1,4 @@
-# Uncomment to also load settings configured via autoconfig.yml
-#config.load_autoconfig()
+config.load_autoconfig(False)
 
 c.content.autoplay = False
 
