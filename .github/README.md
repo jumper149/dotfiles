@@ -19,24 +19,17 @@ Set `$NONROOTHOME` without `'/'` at the end:
 
     NONROOTHOME="/home/${NONROOTUSER}"
 
-### keyboard
-Install custom keymap.
+## configuration.nix
+Use nixos-configuration:
 
-    mkdir -p "/usr/local/share/kbd/keymaps"
-    cp "${NONROOTHOME}/.github/misc/jumper.map.gz" "/usr/local/share/kbd/keymaps/"
-    localectl set-keymap --no-convert /usr/local/share/kbd/keymaps/jumper-us.map
+    mkdir -p "${HOME}/git"
+    git clone git@github.com:jumper149/nixos-configuration.git "${HOME}/git/nixos-configuration"
+
+Follow instructions of `"${HOME}/git/nixos-configuration/README.md"`.
 
 ### sensors
 
     sensors-detect
-
-### groups
-
-    gpasswd --add "${NONROOTUSER}" {users,wheel,video,audio}
-
-### example configuration files
-There are some examples in `~/.github/misc/`.
-Check these out by yourself.
 
 ## Configuration by User
 
