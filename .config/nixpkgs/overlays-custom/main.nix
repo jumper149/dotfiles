@@ -207,6 +207,7 @@ in
       theme = super.symlinkJoin {
         name = "theme";
         paths = [
+          super.arc-theme
           super.bibata-cursors
           super.fira-code
           super.iosevka-bin
