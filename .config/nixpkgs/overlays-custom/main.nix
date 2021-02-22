@@ -155,7 +155,13 @@ in
 
       pinentry = super.pinentry;
 
-      qutebrowser = super.qutebrowser;
+      qutebrowser = super.symlinkJoin {
+        name = super.qutebrowser.name;
+        paths = [
+          super.qutebrowser
+          super.pythonLatestPackages.adblock
+        ];
+      };
 
       ranger = let rangerDistribution = super.ranger;
                    runtimeInputs = [

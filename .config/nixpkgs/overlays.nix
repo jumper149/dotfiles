@@ -4,7 +4,6 @@ let
     "chromium"
     "firefox"
     "libreoffice"
-    "qutebrowser"
   ];
 
   unstablePackages = let
@@ -25,7 +24,7 @@ let
       "mumble"
       "pavucontrol"
       "pinentry" # TODO: is this necessary for CLI?
-      #"qutebrowser"
+      "qutebrowser"
       "rofi"
       "rxvt-unicode"
       "screenkey"
