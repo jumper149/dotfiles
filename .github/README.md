@@ -34,10 +34,9 @@ Follow instructions of `"${HOME}/git/nixos-configuration/README.md"`.
 ## Configuration by User
 
 ### nix package management
-Add main `'<nixpkgs>'` and fallback `'<nixos>'` channel:
+Add main `'<nixpkgs>'` (use `'<nixos>'` from system configuration as fallback) channel:
 
     nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-    nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
 
 Use the nix-rebuild script to fetch the packages:
 
