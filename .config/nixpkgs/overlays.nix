@@ -33,6 +33,7 @@ let
       "telegram"
       "theme"
       "xdotool"
+      "xournal"
       "xmobar"
       "zathura"
       #"zoom-us"

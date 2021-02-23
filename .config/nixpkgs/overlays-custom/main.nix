@@ -306,6 +306,8 @@ in
 
       xmobar = super.xmobar;
 
+      xournal = super.xournalpp;
+
       youtube-dl = super.youtube-dl;
 
       zathura = super.zathura;
