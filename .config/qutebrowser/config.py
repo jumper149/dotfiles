@@ -34,6 +34,7 @@ config.bind('z', 'hint links spawn mpv {hint-url}')
 
 
 
+c.url.default_page = "https://remote.felixspringer.xyz:8019/"
 c.url.start_pages = "https://remote.felixspringer.xyz:8019/"
 
 c.url.searchengines['DEFAULT'] = "https://remote.felixspringer.xyz:8019/search?q={}"
