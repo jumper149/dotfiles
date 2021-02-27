@@ -1,4 +1,4 @@
-#config.load_autoconfig(False)
+config.load_autoconfig(False)
 
 c.content.autoplay = False
 
