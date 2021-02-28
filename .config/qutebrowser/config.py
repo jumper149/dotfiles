@@ -34,7 +34,11 @@ config.bind('z', 'hint links spawn mpv {hint-url}')
 
 
 
-c.url.searchengines['DEFAULT'] = "https://duckduckgo.com/?q={}"
+c.url.default_page = "https://remote.felixspringer.xyz:8019/"
+c.url.start_pages = "https://remote.felixspringer.xyz:8019/"
+
+c.url.searchengines['DEFAULT'] = "https://remote.felixspringer.xyz:8019/search?q={}"
+c.url.searchengines['s'] = "https://remote.felixspringer.xyz:8019/search?q={}"
 c.url.searchengines['d'] = "https://duckduckgo.com/?q={}"
 c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
 c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
