@@ -216,6 +216,7 @@ in
           super.arc-theme
           super.bibata-cursors
           super.fira-code
+          super.libsForQt5.qtstyleplugin-kvantum # TODO: check if qt4 applications look nice too
           super.iosevka-bin
         ];
       };
