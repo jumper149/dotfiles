@@ -35,7 +35,4 @@ application/x-extension-xhtml=qutebrowser.desktop;
 application/x-extension-xht=qutebrowser.desktop;
 x-scheme-handler/about=qutebrowser.desktop;
 x-scheme-handler/unknown=qutebrowser.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-BDKNW0.desktop
-
-[Added Associations]
-x-scheme-handler/tg=userapp-Telegram Desktop-BDKNW0.desktop;
+x-scheme-handler/tg=telegramdesktop.desktop:
