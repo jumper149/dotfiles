@@ -14,6 +14,7 @@ let
       "blucontrol"
       #"chromium"
       "conky"
+      "element"
       #"firefox"
       "gimp"
       "glava"
