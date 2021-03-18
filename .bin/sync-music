@@ -8,4 +8,4 @@
 
 # TODO: somehow this needs to be run twice to sync all directories (also those with spaces in the name)
 # paths, users and hosts are hardcoded here!
-rsync --archive --verbose --chown=jumper:mpd --chmod="D0755,F644" jumper@local.felixspringer.xyz:~/Storage/Music /var/lib/mpd/music/Storage
+rsync --archive --verbose --chown=jumper:mpd --chmod="D0755,F644" jumper@nix200.wireguard:~/Storage/Music /var/lib/mpd/music/Storage
