@@ -34,11 +34,11 @@ config.bind('z', 'hint links spawn mpv {hint-url}')
 
 
 
-c.url.default_page = "http://nixremote.wireguard:8019/"
-c.url.start_pages = "http://nixremote.wireguard:8019/"
+c.url.default_page = "https://nixremote.wireguard/searx/"
+c.url.start_pages = "https://nixremote.wireguard/searx/"
 
-c.url.searchengines['DEFAULT'] = "http://nixremote.wireguard:8019/search?q={}"
-c.url.searchengines['s'] = "http://nixremote.wireguard:8019/search?q={}"
+c.url.searchengines['DEFAULT'] = "https://nixremote.wireguard/searx/search?q={}"
+c.url.searchengines['s'] = "https://nixremote.wireguard/searx/search?q={}"
 c.url.searchengines['d'] = "https://duckduckgo.com/?q={}"
 c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
 c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
