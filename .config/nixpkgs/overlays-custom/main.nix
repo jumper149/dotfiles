@@ -72,6 +72,8 @@ in
 
       dig = super.sysdig;
 
+      element = super.element-desktop;
+
       elinks = super.elinks;
 
       file = super.file;
@@ -155,7 +157,13 @@ in
 
       pinentry = super.pinentry;
 
-      qutebrowser = super.qutebrowser;
+      qutebrowser = super.symlinkJoin {
+        name = super.qutebrowser.name;
+        paths = [
+          super.qutebrowser
+          super.pythonLatestPackages.adblock
+        ];
+      };
 
       ranger = let rangerDistribution = super.ranger;
                    runtimeInputs = [
@@ -207,8 +215,10 @@ in
       theme = super.symlinkJoin {
         name = "theme";
         paths = [
+          super.arc-theme
           super.bibata-cursors
           super.fira-code
+          super.libsForQt5.qtstyleplugin-kvantum # TODO: check if qt4 applications look nice too
           super.iosevka-bin
         ];
       };
@@ -280,9 +290,25 @@ in
       vimpager = super.vimpager-latest;
 
       weechat = let weechatDistribution = super.weechat;
+                    matrixPlugin = super.weechatScripts.weechat-matrix.overrideAttrs ({ version, ... }: {
+                      version = version + "-latest";
+                      src = super.fetchFromGitHub {
+                        owner = "poljar";
+                        repo = "weechat-matrix";
+                        rev = "ef09292005d67708511a44c8285df1342ab66bd1";
+                        sha256 = "0rjfmzj5mp4b1kbxi61z6k46mrpybxhbqh6a9zm9lv2ip3z6bhlw";
+                      };
+                    });
                 in super.symlinkJoin {
         name = weechatDistribution.name;
-        paths = [ weechatDistribution ];
+        paths = [
+          (weechatDistribution.override {
+            configure = { availablePlugins, ... }: {
+              scripts = [ matrixPlugin ];
+            };
+          })
+          matrixPlugin
+        ];
         buildInputs = [
           super.makeWrapper
           self.myDependencies.aspell-configured
@@ -298,6 +324,8 @@ in
       xdotool = super.xdotool;
 
       xmobar = super.xmobar;
+
+      xournal = super.xournalpp;
 
       youtube-dl = super.youtube-dl;
 

@@ -19,38 +19,24 @@ Set `$NONROOTHOME` without `'/'` at the end:
 
     NONROOTHOME="/home/${NONROOTUSER}"
 
-### keyboard
-Install custom keymap.
+## configuration.nix
+Use nixos-configuration:
 
-    mkdir -p "/usr/local/share/kbd/keymaps"
-    cp "${NONROOTHOME}/.github/misc/jumper.map.gz" "/usr/local/share/kbd/keymaps/"
-    localectl set-keymap --no-convert /usr/local/share/kbd/keymaps/jumper-us.map
+    mkdir -p "${HOME}/git"
+    git clone git@github.com:jumper149/nixos-configuration.git "${HOME}/git/nixos-configuration"
+
+Follow instructions of `"${HOME}/git/nixos-configuration/README.md"`.
 
 ### sensors
 
     sensors-detect
 
-### vnstat (old, for i3)
-Update the desired interfaces if necessary:
-
-    vnstat -u -i wlp2s0
-    vnstat -u -i enp0s25
-
-### groups
-
-    gpasswd --add "${NONROOTUSER}" {users,wheel,video,audio}
-
-### example configuration files
-There are some examples in `~/.github/misc/`.
-Check these out by yourself.
-
 ## Configuration by User
 
 ### nix package management
-Add main `'<nixpkgs>'` and fallback `'<nixos>'` channel:
+Add main `'<nixpkgs>'` (use `'<nixos>'` from system configuration as fallback) channel:
 
     nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-    nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
 
 Use the nix-rebuild script to fetch the packages:
 
@@ -65,21 +51,20 @@ Set up repository for private files:
     safegit checkout
 
 ### pass
-Copy your `.password-store` to `$HOME/.password-store`:
+Set up repository for passwords:
 
-    cp .password-store "${HOME}/.password-store"
-Have an entry `test/test` with password `test` inside or create it with
+    git clone git@github.com:jumper149/password-store.git "${HOME}/.password-store"
 
-    pass insert test/test
-Copy everything necessary into `$HOME/.gnupg`.
+## Keys
+Import GPG keys:
 
-### i3bar (old, for i3)
-Fill in some necessary information in `~/.system-info.sh`.
-Check everything in `$HOME/.config/i3blocks`, especially:
+    gpg import example.key
+    gpg import example.secretkey
 
-    temperature.sh
-    fan.sh
-    battery.sh
+Copy SSH keys:
+
+    cp example.pub "${HOME}/.ssh"
+    cp example.secretkey "${HOME}/.ssh"
 
 ## Additional Information
 

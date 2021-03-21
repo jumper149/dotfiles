@@ -1,5 +1,4 @@
-# Uncomment to also load settings configured via autoconfig.yml
-#config.load_autoconfig()
+config.load_autoconfig(False)
 
 c.content.autoplay = False
 
@@ -35,7 +34,11 @@ config.bind('z', 'hint links spawn mpv {hint-url}')
 
 
 
-c.url.searchengines['DEFAULT'] = "https://duckduckgo.com/?q={}"
+c.url.default_page = "http://nixremote.wireguard/searx/"
+c.url.start_pages = "http://nixremote.wireguard/searx/"
+
+c.url.searchengines['DEFAULT'] = "http://nixremote.wireguard/searx/search?q={}"
+c.url.searchengines['s'] = "http://nixremote.wireguard/searx/search?q={}"
 c.url.searchengines['d'] = "https://duckduckgo.com/?q={}"
 c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
 c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"

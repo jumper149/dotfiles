@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 MOUNTPATH="${HOME}/Storage"
-DOMAIN="local.felixspringer.xyz"
+DOMAIN="nix200.wireguard"
 
 case "${1}" in
     'mount')

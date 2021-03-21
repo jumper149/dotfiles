@@ -7,7 +7,7 @@ export TERMINAL="alacritty"
 
 # qt theme
 export QT_SELECT="5"
-export QT_QPA_PLATFORMTHEME="gtk2"
+export QT_STYLE_OVERRIDE="kvantum-dark"
 
 # gtk theme
 export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc"
