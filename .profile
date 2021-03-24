@@ -23,7 +23,7 @@ export LESS_TERMCAP_se="$(tput rmso; tput sgr0)"    # stop standout
 export LESS_TERMCAP_so="$(tput smso; tput setaf 5)" # standout
 export LESS_TERMCAP_ue="$(tput rmul; tput sgr0)"    # stop underline
 export LESS_TERMCAP_us="$(tput smul; tput setaf 2)" # start underline
-export LESS_TERMCAP_vb="$(tput flash)"              # visual bell
+#export LESS_TERMCAP_vb="$(tput flash)"              # visual bell, TODO: leads to error on TTY
 
 export MAIL="${HOME}/.mail/"
 
