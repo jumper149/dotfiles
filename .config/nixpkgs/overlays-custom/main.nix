@@ -155,7 +155,7 @@ in
 
       pavucontrol = super.pavucontrol;
 
-      pinentry = super.pinentry;
+      pinentry = super.pinentry-gtk2;
 
       qutebrowser = super.symlinkJoin {
         name = super.qutebrowser.name;
