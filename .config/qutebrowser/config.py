@@ -220,4 +220,3 @@ c.colors.tabs.selected.odd.bg = myColorA
 c.colors.tabs.selected.odd.fg = myColor0
 
 c.colors.webpage.prefers_color_scheme_dark = True
-c.colors.webpage.darkmode.enabled = True
