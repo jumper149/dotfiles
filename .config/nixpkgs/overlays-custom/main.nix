@@ -155,6 +155,8 @@ in
 
       pavucontrol = super.pavucontrol;
 
+      pdfpc = super.pdfpc;
+
       pinentry = super.pinentry-gtk2;
 
       qutebrowser = super.symlinkJoin {

@@ -24,6 +24,7 @@ let
       "mpv"
       "mumble"
       "pavucontrol"
+      "pdfpc"
       "pinentry" # TODO: is this necessary for CLI?
       "qutebrowser"
       "rofi"
