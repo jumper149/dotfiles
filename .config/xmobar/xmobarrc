@@ -39,7 +39,7 @@ Config {
   , sepChar  = "%"   -- delineator between plugin names and straight text
   , alignSep = "}{"  -- separator between left-right alignment
 
-  , template = " %battery% <icon=seperators/seperator.xpm/> %cpu% <icon=seperators/seperator.xpm/> %multicoretemp% <icon=seperators/seperator.xpm/> %memory% <icon=seperators/seperator.xpm/> %dynnetwork% <icon=seperators/seperator.xpm/> %kbd%}<icon=seperators/seperator.xpm/> %UnsafeStdinReader% <icon=seperators/seperator.xpm/>{%mail% <icon=seperators/seperator.xpm/> %mpd% <icon=seperators/seperator.xpm/> %EDDV% <icon=seperators/seperator.xpm/> %date% "
+  , template = " %battery% <icon=seperators/seperator.xpm/> %cpu% <icon=seperators/seperator.xpm/> %multicoretemp% <icon=seperators/seperator.xpm/> %memory% <icon=seperators/seperator.xpm/> %dynnetwork% <icon=seperators/seperator.xpm/> %kbd%}<icon=seperators/seperator.xpm/> %UnsafeStdinReader% <icon=seperators/seperator.xpm/>{%mail% <icon=seperators/seperator.xpm/> %mpd% <icon=seperators/seperator.xpm/> %EDMA% <icon=seperators/seperator.xpm/> %date% "
 
   , lowerOnStart     = True    -- send to bottom of window stack on start
   , hideOnStart      = False   -- start with window unmapped (hidden)
@@ -138,7 +138,7 @@ Config {
                   , ("<fc=#5f819d>U</fc>" , "~/.mail/stud-uni-hannover/INBOX")
                   ] "mail"
 
-       , Run WeatherX "EDDV" [ (""                        , "<fc=#5e8d87>?</fc>")
+       , Run WeatherX "EDMA" [ (""                        , "<fc=#5e8d87>?</fc>")
                              , ("clear"                   , "<icon=weather/weather_sunny.xpm/>")
                              , ("mostly clear"            , "<icon=weather/weather_mostly_sunny.xpm/>")
                              , ("sunny"                   , "<icon=weather/weather_sunny.xpm/>")
