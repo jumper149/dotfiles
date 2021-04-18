@@ -54,14 +54,14 @@ in
         src = fetchGit {
           url = "https://github.com/jumper149/blucontrol.git";
           ref = "master";
-          rev = "dd4b18a33923fcab99a4cc230fb70ae1e9642928";
+          rev = "fcfb3e1e994e3e07b1e8ca4d78a0a8aab08351da";
         };
       in
         import "${src}/default.nix" {
           stdenv = super.stdenv;
+          lib = super.lib;
           makeWrapper = super.makeWrapper;
-          makeBinPath = super.lib.makeBinPath;
-          ghcWithPackages = super.haskellPackages.ghcWithPackages;
+          haskellPackages = super.haskellPackages;
         };
 
       chromium = super.chromium;
