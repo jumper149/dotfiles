@@ -79,11 +79,41 @@ in
       file = super.file;
 
       firefox = let firefoxDistribution = super.firefox;
+                    ff2mpv = super.stdenv.mkDerivation rec {
+                      pname = "ff2mpv";
+                      version = "3.7.1";
+
+                      src = super.fetchFromGitHub {
+                        owner = "woodruffw";
+                        repo = pname;
+                        rev = "v${version}";
+                        sha256 = "1ixgpa1hygii2y65jkgpn6ka1dc5zkcknvmlzam20lqqpya9530i";
+                      };
+
+                      buildInputs = [ super.python3 ];
+
+                      patchPhase = ''
+                        sed -i "s|/home/william/scripts/ff2mpv|$out/share/ff2mpv/ff2mpv.py|g" ff2mpv.json
+                      '';
+
+                      installPhase = ''
+                        install -D -m644 ff2mpv.json $out/share/ff2mpv/ff2mpv.json
+                        install -D -m755 ff2mpv.py $out/share/ff2mpv/ff2mpv.py
+                      '';
+
+                      meta = with super.lib; {
+                        description = "A Firefox add-on for playing URLs in mpv.";
+                        homepage = "https://github.com/woodruffw/ff2mpv";
+                        license = licenses.mit;
+                        maintainers = with maintainers; [ jumper149 ];
+                      };
+                    };
                 in super.symlinkJoin {
         name = firefoxDistribution.name;
         paths = [
           firefoxDistribution
           super.passff-host
+          ff2mpv
         ];
       };
 
