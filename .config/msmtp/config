@@ -19,5 +19,14 @@ from           felix.springer@stud.uni-hannover.de
 user           felix.springer@stud.uni-hannover.de
 passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/mail/stud-uni-hannover.gpg"
 
+# possehl-analytics
+account        possehl-analytics
+host           smtp.office365.com
+port           587
+auth           xoauth2
+from           felix.springer@possehl-analytics.com
+user           felix.springer@possehl-analytics.com
+passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/passwords/Possehl_Analytics/Office/felix.springer@possehl-analytics.com-OAuth2-Token.gpg"
+
 # Set a default account
 account default : gmail
