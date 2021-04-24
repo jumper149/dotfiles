@@ -136,6 +136,7 @@ Config {
 
        , Run Mail [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
                   , ("<fc=#5f819d>U</fc>" , "~/.mail/stud-uni-hannover/INBOX")
+                  , ("<fc=#85678f>P</fc>" , "~/.mail/possehl-analytics/INBOX")
                   ] "mail"
 
        , Run WeatherX "EDMA" [ (""                        , "<fc=#5e8d87>?</fc>")
