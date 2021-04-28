@@ -44,25 +44,7 @@ in
 
       bind = super.bind;
 
-      blucontrol = let
-        #src = fetchFromGitHub {
-        #  owner = "jumper149";
-        #  repo = "blucontrol";
-        #  rev = "0.2.1.1"
-        #  #sha256 = "";
-        #};
-        src = fetchGit {
-          url = "https://github.com/jumper149/blucontrol.git";
-          ref = "master";
-          rev = "fcfb3e1e994e3e07b1e8ca4d78a0a8aab08351da";
-        };
-      in
-        import "${src}/default.nix" {
-          stdenv = super.stdenv;
-          lib = super.lib;
-          makeWrapper = super.makeWrapper;
-          haskellPackages = super.haskellPackages;
-        };
+      blucontrol = super.blucontrol;
 
       chromium = super.chromium;
 
