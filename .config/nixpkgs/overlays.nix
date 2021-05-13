@@ -2,8 +2,8 @@ let
 
   fallbackPackages = [
     "chromium"
-    "firefox"
     "libreoffice"
+    "telegram"
   ];
 
   unstablePackages = let
@@ -15,7 +15,7 @@ let
       #"chromium"
       "conky"
       "element"
-      #"firefox"
+      "firefox"
       "gimp"
       "glava"
       "i3lock"
@@ -32,7 +32,7 @@ let
       "screenkey"
       "scrot"
       "sxiv"
-      "telegram"
+      #"telegram"
       "theme"
       "xdotool"
       "xournal"

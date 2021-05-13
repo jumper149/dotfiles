@@ -33,8 +33,8 @@ in
           super.lzop
           super.lhasa # works with atool?
           super.p7zip
-          #asuper.unarj # not free
-          #asuper.unrar # not free
+          #super.unarj # not free
+          #super.unrar # not free
           super.unzip
           # missing?: unace, rpm, arc, nomarch, unalz
         ];
@@ -229,7 +229,7 @@ in
       theme = super.symlinkJoin {
         name = "theme";
         paths = [
-          super.arc-theme
+          super.pop-gtk-theme
           super.bibata-cursors
           super.fira-code
           super.libsForQt5.qtstyleplugin-kvantum # TODO: check if qt4 applications look nice too
