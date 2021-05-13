@@ -171,6 +171,8 @@ in
 
       pinentry = super.pinentry-gtk2;
 
+      pulsemixer = super.pulsemixer;
+
       qutebrowser = super.symlinkJoin {
         name = super.qutebrowser.name;
         paths = [

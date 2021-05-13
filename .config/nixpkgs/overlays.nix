@@ -63,6 +63,7 @@ let
       "offlineimap"
       "openconnect"
       "pass"
+      "pulsemixer"
       "ranger"
       "sshfs"
       "task"
