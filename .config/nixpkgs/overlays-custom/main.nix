@@ -204,6 +204,8 @@ in
 
       rxvt-unicode = super.rxvt-unicode;
 
+      sc-im = super.sc-im;
+
       screenkey = super.screenkey.overrideAttrs ({ buildInputs ? [], ... }: {
         buildInputs = buildInputs ++ [
           super.inconsolata

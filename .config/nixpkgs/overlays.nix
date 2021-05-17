@@ -65,6 +65,7 @@ let
       "pass"
       "pulsemixer"
       "ranger"
+      "sc-im"
       "sshfs"
       "task"
       #"texlive"
