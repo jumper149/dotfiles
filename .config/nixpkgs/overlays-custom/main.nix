@@ -251,10 +251,9 @@ in
           fzf-vim
           LanguageClient-neovim
           rainbow
-          vim-airline
-          vim-airline-themes
           vim-indent-guides
           vim-fugitive
+          lightline-vim
           (super.vimUtils.buildVimPluginFrom2Nix {
             pname = "suda";
             version = "2020-09-08";
