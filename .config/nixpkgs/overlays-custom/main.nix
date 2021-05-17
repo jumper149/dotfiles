@@ -274,6 +274,7 @@ in
           purescript-vim
           vimtex
           vim-nix
+          vim-terraform
         ];
         runtimeInputs = [
           super.haskellPackages.haskell-language-server
