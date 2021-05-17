@@ -114,7 +114,36 @@ inoremap <expr><Tab> pumvisible() ? "\<C-n>" : deoplete#manual_complete()
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " LanguageClient-neovim
-let g:LanguageClient_diagnosticsSignsMax=0
+let g:LanguageClient_diagnosticsDisplay={
+  \   1: {
+  \     "name": "Error"
+  \   , "texthl": "LanguageClientError"
+  \   , "signText": "X "
+  \   , "signTexthl": "LanguageClientErrorSign"
+  \   , "virtualTexthl": "Error"
+  \   }
+  \ , 2: {
+  \     "name": "Warning"
+  \   , "texthl": "LanguageClientWarning"
+  \   , "signText": "! "
+  \   , "signTexthl": "LanguageClientWarningSign"
+  \   , "virtualTexthl": "Todo"
+  \   }
+  \ , 3: {
+  \     "name": "Information"
+  \   , "texthl": "LanguageClientInfo"
+  \   , "signText": "i "
+  \   , "signTexthl": "LanguageClientInfoSign"
+  \   , "virtualTexthl": "Todo"
+  \   }
+  \ , 4: {
+  \     "name": "Hint"
+  \   , "texthl": "LanguageClientInfo"
+  \   , "signText": ">>"
+  \   , "signTexthl": "LanguageClientInfoSign"
+  \   , "virtualTexthl": "Todo"
+  \   }
+  \ }
 let g:LanguageClient_selectionUI="fzf"
 let g:LanguageClient_setOmnifunc=v:false
 let g:LanguageClient_serverCommands = {
