@@ -34,12 +34,11 @@ else
   colorscheme default
 endif
 
-" Configure vim-airline
-let g:airline#extensions#tabline#enabled=1
+" Configure lightline
 if &t_Co >= 256 || has("gui_running")
-  let g:airline_theme='wombat'
-else
-  let g:airline_symbols_ascii=1
+  let g:lightline = {
+    \ 'colorscheme': 'wombat'
+    \ }
 endif
 
 " Highlight current line
@@ -49,7 +48,7 @@ augroup CursorLine
   autocmd WinLeave * setlocal nocursorline
 augroup END
 
-" Makes information not be shown 2 times with vim-airline
+" Makes information not be shown 2 times with lightline
 set shortmess=F
 
 " Enable file type detection
