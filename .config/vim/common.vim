@@ -124,6 +124,7 @@ let g:LanguageClient_serverCommands = {
   \ , 'python' : ['pyls']
   \ , 'rust'   : ['rls']
   \ , 'sh'     : ['bash-language-server', 'start']
+  \ , 'terraform': ['terraform-ls', 'serve']
   \ , 'vim'    : ['vim-language-server', '--stdio']
   \ }
 " TODO: Is this the only way to handle the hls eval plugin?
