@@ -119,12 +119,13 @@ let g:LanguageClient_diagnosticsSignsMax=0
 let g:LanguageClient_selectionUI="fzf"
 let g:LanguageClient_setOmnifunc=v:false
 let g:LanguageClient_serverCommands = {
-  \   'haskell': ['haskell-language-server-wrapper', '--lsp']
-  \ , 'nix'    : ['rnix-lsp']
-  \ , 'python' : ['pyls']
-  \ , 'rust'   : ['rls']
-  \ , 'sh'     : ['bash-language-server', 'start']
-  \ , 'vim'    : ['vim-language-server', '--stdio']
+  \   'haskell'  : ['haskell-language-server-wrapper', '--lsp']
+  \ , 'nix'      : ['rnix-lsp']
+  \ , 'python'   : ['pyls']
+  \ , 'rust'     : ['rls']
+  \ , 'sh'       : ['bash-language-server', 'start']
+  \ , 'terraform': ['terraform-ls', 'serve']
+  \ , 'vim'      : ['vim-language-server', '--stdio']
   \ }
 " TODO: Is this the only way to handle the hls eval plugin?
 nnoremap <Leader>e :call LanguageClient#handleCodeLensAction()<CR>
