@@ -114,6 +114,7 @@ inoremap <expr><Tab> pumvisible() ? "\<C-n>" : deoplete#manual_complete()
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " LanguageClient-neovim
+set signcolumn=yes:1
 let g:LanguageClient_diagnosticsDisplay={
   \   1: {
   \     "name": "Error"
