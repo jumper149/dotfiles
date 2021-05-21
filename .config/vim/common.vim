@@ -119,30 +119,30 @@ let g:LanguageClient_diagnosticsDisplay={
   \   1: {
   \     "name": "Error"
   \   , "texthl": "LanguageClientError"
-  \   , "signText": "X "
+  \   , "signText": "X"
   \   , "signTexthl": "LanguageClientErrorSign"
-  \   , "virtualTexthl": "Error"
+  \   , "virtualTexthl": "LanguageClientErrorVirtual"
   \   }
   \ , 2: {
   \     "name": "Warning"
   \   , "texthl": "LanguageClientWarning"
-  \   , "signText": "! "
+  \   , "signText": "W"
   \   , "signTexthl": "LanguageClientWarningSign"
-  \   , "virtualTexthl": "Todo"
+  \   , "virtualTexthl": "LanguageClientWarningVirtual"
   \   }
   \ , 3: {
   \     "name": "Information"
   \   , "texthl": "LanguageClientInfo"
-  \   , "signText": "i "
+  \   , "signText": "i"
   \   , "signTexthl": "LanguageClientInfoSign"
-  \   , "virtualTexthl": "Todo"
+  \   , "virtualTexthl": "LanguageClientInfoVirtual"
   \   }
   \ , 4: {
   \     "name": "Hint"
   \   , "texthl": "LanguageClientInfo"
-  \   , "signText": ">>"
+  \   , "signText": ">"
   \   , "signTexthl": "LanguageClientInfoSign"
-  \   , "virtualTexthl": "Todo"
+  \   , "virtualTexthl": "LanguageClientHintVirtual"
   \   }
   \ }
 let g:LanguageClient_selectionUI="fzf"
