@@ -74,9 +74,6 @@ hi IndentGuidesOdd  ctermbg=236               cterm=none                    guib
 hi IndentGuidesEven ctermbg=235               cterm=none                    guibg=#282828 gui=none
 
 " LanguageClient-neovim
-hi link ALEError   Error
-hi link ALEWarning Warning
-hi link ALEInfo    SpellCap
 hi SignColumn                   ctermfg=250 ctermbg=0    cterm=bold          guifg=#808080 guibg=none    gui=italic
 hi LanguageClientError                                   cterm=strikethrough
 hi LanguageClientWarning                                 cterm=undercurl
