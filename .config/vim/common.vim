@@ -156,19 +156,36 @@ let g:LanguageClient_serverCommands = {
   \ , 'terraform': ['terraform-ls', 'serve']
   \ , 'vim'      : ['vim-language-server', '--stdio']
   \ }
+
+" codeaction (e)
 " TODO: Is this the only way to handle the hls eval plugin?
 nnoremap <Leader>e :call LanguageClient#handleCodeLensAction()<CR>
+
+" Find reference (f)
 nnoremap <Leader>f :call LanguageClient#textDocument_references()<CR>
+
+" Format (F)
 nnoremap <Leader>F :call LanguageClient#textDocument_formatting()<CR>
-" TODO: This doesn't seem to be working for range
 vnoremap <Leader>F :call LanguageClient#textDocument_rangeFormatting()<CR>
+
+" Goto definition (d) (g)
 nnoremap <Leader>g :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>d :call LanguageClient#textDocument_definition()<CR>
+
+" Hover (h) (k)
 nnoremap <Leader>h :call LanguageClient#textDocument_hover()<CR>
-" Alias for <Leader>h
 nnoremap <Leader>k :call LanguageClient#textDocument_hover()<CR>
+
+" context Menu (m)
 nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
+
+" Rename (r)
 nnoremap <Leader>r :call LanguageClient#textDocument_rename()<CR>
+
+" Symbol (s)
 nnoremap <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
+
+" highlight hovered (v) (~V)
 nnoremap <Leader>v :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <Leader>V :call LanguageClient#clearDocumentHighlight()<CR>
 
