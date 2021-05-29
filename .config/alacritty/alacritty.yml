@@ -90,9 +90,10 @@ bell:
   duration: 30
   color: '#85678f'
 
-mouse:
-  url:
-    modifiers: Control|Alt
+hints:
+  mouse:
+    url:
+      modifiers: Control|Alt
 
 mouse_bindings:
   #- { mouse: Middle, action: PasteSelection }
