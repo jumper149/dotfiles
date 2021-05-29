@@ -246,7 +246,7 @@ in
       traceroute = super.traceroute;
 
       vim = let
-        vimDistribution = super.vimHugeX;
+        vimDistribution = super.neovim;
         vimPlugins = with super.vimPlugins; [
           colorizer
           deoplete-nvim
@@ -286,11 +286,9 @@ in
           super.rnix-lsp
         ];
       in super.symlinkJoin {
-        name = vimDistribution.name;
+        name = vimDistribution.name + "-with-plugins";
         paths = [
-          vimDistribution
-
-          (super.neovim.override {
+          (vimDistribution.override {
             configure = {
               customRC = ''
                 source $XDG_CONFIG_HOME/nvim/init.vim
