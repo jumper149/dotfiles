@@ -270,6 +270,7 @@ in
           wombat256-vim
 
           agda-vim
+          dhall-vim
           haskell-vim
           idris2-vim
           purescript-vim
@@ -278,6 +279,7 @@ in
           vim-terraform
         ];
         runtimeInputs = [
+          super.dhall-lsp-server
           super.haskellPackages.haskell-language-server
           super.idris2
           super.nodePackages.bash-language-server
