@@ -148,7 +148,8 @@ let g:LanguageClient_diagnosticsDisplay={
 let g:LanguageClient_selectionUI="fzf"
 let g:LanguageClient_setOmnifunc=v:false
 let g:LanguageClient_serverCommands = {
-  \   'haskell'  : ['haskell-language-server-wrapper', '--lsp']
+  \   'dhall'    : ['dhall-lsp-server']
+  \ , 'haskell'  : ['haskell-language-server-wrapper', '--lsp']
   \ , 'nix'      : ['rnix-lsp']
   \ , 'python'   : ['pyls']
   \ , 'rust'     : ['rls']
