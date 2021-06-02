@@ -169,9 +169,11 @@ nnoremap <Leader>f :call LanguageClient#textDocument_references()<CR>
 nnoremap <Leader>F :call LanguageClient#textDocument_formatting()<CR>
 vnoremap <Leader>F :call LanguageClient#textDocument_rangeFormatting()<CR>
 
-" Goto definition (d) (g)
+" Goto definition (d) (g) (D) (G)
 nnoremap <Leader>g :call LanguageClient#textDocument_definition()<CR>
 nnoremap <Leader>d :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>G :call LanguageClient#textDocument_definition({'gotoCmd': 'tabedit'})<CR>
+nnoremap <Leader>D :call LanguageClient#textDocument_definition({'gotoCmd': 'tabedit'})<CR>
 
 " Hover (h) (k)
 nnoremap <Leader>h :call LanguageClient#textDocument_hover()<CR>
