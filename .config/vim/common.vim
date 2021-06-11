@@ -185,8 +185,10 @@ nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
 " Rename (r)
 nnoremap <Leader>r :call LanguageClient#textDocument_rename()<CR>
 
-" Symbol (s)
+" Symbol (s) (S)
 nnoremap <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
+" TODO: Is it possible to open the symbol in a new tab?
+nnoremap <Leader>S :call LanguageClient#workspace_symbol()<CR>
 
 " highlight hovered (v) (~V)
 nnoremap <Leader>v :call LanguageClient#textDocument_documentHighlight()<CR>
