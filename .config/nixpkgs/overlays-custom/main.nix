@@ -275,6 +275,7 @@ in
           idris2-vim
           purescript-vim
           vimtex
+          vim-ledger
           vim-nix
           vim-terraform
         ];
