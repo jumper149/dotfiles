@@ -1,6 +1,6 @@
 [general]
 # List of accounts to be synced, separated by a comma.
-accounts = gmail,stud-uni-hannover,possehl-analytics
+accounts = gmail,possehl-analytics
 # for access to gmail
 pythonfile = ~/.offlineimap/offlineimap_pass.py
 # SSL/TLS
@@ -27,24 +27,6 @@ type = Gmail
 remoteuser = felixspringer149@gmail.com
 # Password for gmail account usage of apps is in the application pass
 remotepasseval = get_pass("gmail")
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-#####
-
-[Account stud-uni-hannover]
-localrepository = stud-uni-hannover-local
-remoterepository = stud-uni-hannover-remote
-
-[Repository stud-uni-hannover-local]
-type = Maildir
-localfolders = ~/.mail/stud-uni-hannover
-
-[Repository stud-uni-hannover-remote]
-type = IMAP
-remotehost = mail.uni-hannover.de
-remoteport = 993
-remoteuser = felix.springer@stud.uni-hannover.de
-remotepasseval = get_pass("stud-uni-hannover")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 #####

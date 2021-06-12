@@ -33,8 +33,8 @@ in
           super.lzop
           super.lhasa # works with atool?
           super.p7zip
-          #asuper.unarj # not free
-          #asuper.unrar # not free
+          #super.unarj # not free
+          #super.unrar # not free
           super.unzip
           # missing?: unace, rpm, arc, nomarch, unalz
         ];
@@ -171,6 +171,8 @@ in
 
       pinentry = super.pinentry-gtk2;
 
+      pulsemixer = super.pulsemixer;
+
       qutebrowser = super.symlinkJoin {
         name = super.qutebrowser.name;
         paths = [
@@ -202,6 +204,8 @@ in
 
       rxvt-unicode = super.rxvt-unicode;
 
+      sc-im = super.sc-im;
+
       screenkey = super.screenkey.overrideAttrs ({ buildInputs ? [], ... }: {
         buildInputs = buildInputs ++ [
           super.inconsolata
@@ -229,7 +233,7 @@ in
       theme = super.symlinkJoin {
         name = "theme";
         paths = [
-          super.arc-theme
+          super.pop-gtk-theme
           super.bibata-cursors
           super.fira-code
           super.libsForQt5.qtstyleplugin-kvantum # TODO: check if qt4 applications look nice too
@@ -242,17 +246,16 @@ in
       traceroute = super.traceroute;
 
       vim = let
-        vimDistribution = super.vimHugeX;
+        vimDistribution = super.neovim;
         vimPlugins = with super.vimPlugins; [
           colorizer
           deoplete-nvim
           fzf-vim
           LanguageClient-neovim
           rainbow
-          vim-airline
-          vim-airline-themes
           vim-indent-guides
           vim-fugitive
+          lightline-vim
           (super.vimUtils.buildVimPluginFrom2Nix {
             pname = "suda";
             version = "2020-09-08";
@@ -267,13 +270,16 @@ in
           wombat256-vim
 
           agda-vim
+          dhall-vim
           haskell-vim
           idris2-vim
           purescript-vim
           vimtex
           vim-nix
+          vim-terraform
         ];
         runtimeInputs = [
+          super.dhall-lsp-server
           super.haskellPackages.haskell-language-server
           super.idris2
           super.nodePackages.bash-language-server
@@ -282,11 +288,9 @@ in
           super.rnix-lsp
         ];
       in super.symlinkJoin {
-        name = vimDistribution.name;
+        name = vimDistribution.name + "-with-plugins";
         paths = [
-          vimDistribution
-
-          (super.neovim.override {
+          (vimDistribution.override {
             configure = {
               customRC = ''
                 source $XDG_CONFIG_HOME/nvim/init.vim

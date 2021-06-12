@@ -34,12 +34,11 @@ else
   colorscheme default
 endif
 
-" Configure vim-airline
-let g:airline#extensions#tabline#enabled=1
+" Configure lightline
 if &t_Co >= 256 || has("gui_running")
-  let g:airline_theme='wombat'
-else
-  let g:airline_symbols_ascii=1
+  let g:lightline = {
+    \ 'colorscheme': 'wombat'
+    \ }
 endif
 
 " Highlight current line
@@ -49,7 +48,7 @@ augroup CursorLine
   autocmd WinLeave * setlocal nocursorline
 augroup END
 
-" Makes information not be shown 2 times with vim-airline
+" Makes information not be shown 2 times with lightline
 set shortmess=F
 
 " Enable file type detection
@@ -115,30 +114,83 @@ inoremap <expr><Tab> pumvisible() ? "\<C-n>" : deoplete#manual_complete()
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " LanguageClient-neovim
-let g:LanguageClient_diagnosticsSignsMax=0
+set signcolumn=yes:1
+let g:LanguageClient_diagnosticsDisplay={
+  \   1: {
+  \     "name": "Error"
+  \   , "texthl": "LanguageClientError"
+  \   , "signText": "X"
+  \   , "signTexthl": "LanguageClientErrorSign"
+  \   , "virtualTexthl": "LanguageClientErrorVirtual"
+  \   }
+  \ , 2: {
+  \     "name": "Warning"
+  \   , "texthl": "LanguageClientWarning"
+  \   , "signText": "W"
+  \   , "signTexthl": "LanguageClientWarningSign"
+  \   , "virtualTexthl": "LanguageClientWarningVirtual"
+  \   }
+  \ , 3: {
+  \     "name": "Information"
+  \   , "texthl": "LanguageClientInfo"
+  \   , "signText": "i"
+  \   , "signTexthl": "LanguageClientInfoSign"
+  \   , "virtualTexthl": "LanguageClientInfoVirtual"
+  \   }
+  \ , 4: {
+  \     "name": "Hint"
+  \   , "texthl": "LanguageClientInfo"
+  \   , "signText": ">"
+  \   , "signTexthl": "LanguageClientInfoSign"
+  \   , "virtualTexthl": "LanguageClientHintVirtual"
+  \   }
+  \ }
 let g:LanguageClient_selectionUI="fzf"
 let g:LanguageClient_setOmnifunc=v:false
 let g:LanguageClient_serverCommands = {
-  \   'haskell': ['haskell-language-server-wrapper', '--lsp']
-  \ , 'nix'    : ['rnix-lsp']
-  \ , 'python' : ['pyls']
-  \ , 'rust'   : ['rls']
-  \ , 'sh'     : ['bash-language-server', 'start']
-  \ , 'vim'    : ['vim-language-server', '--stdio']
+  \   'dhall'    : ['dhall-lsp-server']
+  \ , 'haskell'  : ['haskell-language-server-wrapper', '--lsp']
+  \ , 'nix'      : ['rnix-lsp']
+  \ , 'python'   : ['pyls']
+  \ , 'rust'     : ['rls']
+  \ , 'sh'       : ['bash-language-server', 'start']
+  \ , 'terraform': ['terraform-ls', 'serve']
+  \ , 'vim'      : ['vim-language-server', '--stdio']
   \ }
+
+" codeaction (e)
 " TODO: Is this the only way to handle the hls eval plugin?
 nnoremap <Leader>e :call LanguageClient#handleCodeLensAction()<CR>
+
+" Find reference (f)
 nnoremap <Leader>f :call LanguageClient#textDocument_references()<CR>
+
+" Format (F)
 nnoremap <Leader>F :call LanguageClient#textDocument_formatting()<CR>
-" TODO: This doesn't seem to be working for range
 vnoremap <Leader>F :call LanguageClient#textDocument_rangeFormatting()<CR>
+
+" Goto definition (d) (g) (D) (G)
 nnoremap <Leader>g :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>d :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>G :call LanguageClient#textDocument_definition({'gotoCmd': 'tabedit'})<CR>
+nnoremap <Leader>D :call LanguageClient#textDocument_definition({'gotoCmd': 'tabedit'})<CR>
+
+" Hover (h) (k)
 nnoremap <Leader>h :call LanguageClient#textDocument_hover()<CR>
-" Alias for <Leader>h
 nnoremap <Leader>k :call LanguageClient#textDocument_hover()<CR>
+
+" context Menu (m)
 nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
+
+" Rename (r)
 nnoremap <Leader>r :call LanguageClient#textDocument_rename()<CR>
+
+" Symbol (s) (S)
 nnoremap <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
+" TODO: Is it possible to open the symbol in a new tab?
+nnoremap <Leader>S :call LanguageClient#workspace_symbol()<CR>
+
+" highlight hovered (v) (~V)
 nnoremap <Leader>v :call LanguageClient#textDocument_documentHighlight()<CR>
 nnoremap <Leader>V :call LanguageClient#clearDocumentHighlight()<CR>
 

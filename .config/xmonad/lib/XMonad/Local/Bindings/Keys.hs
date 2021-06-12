@@ -248,8 +248,8 @@ myKeys mask = do
       |/- "spawn gimp"
         ^> spawnOnAndGoTo WsGIMP "gimp"
     bind $ mask ... xK_p
-      |/- "spawn pavucontrol"
-        ^> spawnOnAndGoTo WsControl "pavucontrol"
+      |/- "spawn pulsemixer"
+        ^> spawnOnAndGoTo WsControl =<< inTerminalFromConf "pulsemixer"
     bind $ mask ... xK_x
       |/- "spawn arandr"
         ^> spawnOnAndGoTo WsControl "arandr"

@@ -19,6 +19,7 @@ let
       "htop"
       "killall"
       "ranger"
+      "sc-im"
       "sshfs"
       "tmux"
       "traceroute"

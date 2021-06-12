@@ -135,7 +135,6 @@ Config {
                  ] 10
 
        , Run Mail [ ("<fc=#a54242>G</fc>" , "~/.mail/gmail/INBOX")
-                  , ("<fc=#5f819d>U</fc>" , "~/.mail/stud-uni-hannover/INBOX")
                   , ("<fc=#85678f>P</fc>" , "~/.mail/possehl-analytics/INBOX")
                   ] "mail"
 

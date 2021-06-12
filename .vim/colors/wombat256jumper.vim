@@ -74,6 +74,16 @@ hi IndentGuidesOdd  ctermbg=236               cterm=none                    guib
 hi IndentGuidesEven ctermbg=235               cterm=none                    guibg=#282828 gui=none
 
 " LanguageClient-neovim
-hi link ALEError   Error
-hi link ALEWarning Warning
-hi link ALEInfo    SpellCap
+hi SignColumn                   ctermfg=250 ctermbg=0    cterm=bold          guifg=#808080 guibg=none    gui=italic
+hi LanguageClientError                                   cterm=strikethrough
+hi LanguageClientWarning                                 cterm=undercurl
+hi LanguageClientInfo                                    cterm=underline
+hi LanguageClientHint                                    cterm=underline
+hi LanguageClientErrorVirtual   ctermfg=88               cterm=italic        guifg=#808080               gui=italic
+hi LanguageClientWarningVirtual ctermfg=94               cterm=italic        guifg=#808080               gui=italic
+hi LanguageClientInfoVirtual    ctermfg=58               cterm=italic        guifg=#808080               gui=italic
+hi LanguageClientHintVirtual    ctermfg=58               cterm=italic        guifg=#808080               gui=italic
+hi LanguageClientErrorSign      ctermfg=124 ctermbg=232  cterm=bold          guifg=#af0000 guibg=#080808 gui=italic
+hi LanguageClientWarningSign    ctermfg=172 ctermbg=233  cterm=bold          guifg=#d78700 guibg=#121212 gui=italic
+hi LanguageClientInfoSign       ctermfg=64  ctermbg=234  cterm=bold          guifg=#5f8700 guibg=#1c1c1c gui=italic
+hi LanguageClientHintSign       ctermfg=64  ctermbg=235  cterm=bold          guifg=#5f8700 guibg=#262626 gui=italic
