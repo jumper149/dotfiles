@@ -1,14 +1,16 @@
 {-# LANGUAGE TypeApplications #-}
 
+import Control.Monad (void)
+
 import Blucontrol
-import Blucontrol.Control.Count
-import Blucontrol.Control.Wait
-import Blucontrol.Gamma.Linear
-import Blucontrol.Recolor.X
-import Blucontrol.RGB.Temperature
+import Blucontrol.Monad.Control.Count
+import Blucontrol.Monad.Control.Wait
+import Blucontrol.Monad.Gamma.Linear
+import Blucontrol.Monad.Recolor.X
+import Blucontrol.Value.RGB.Temperature
 
 main :: IO ()
-main = blucontrol configControl
+main = void $ blucontrol configControl
   where configControl = ConfigControl { runControl = runControlCountT def !> runControlWaitT configWait
                                       , runGamma = runGammaLinearT @Temperature rgbMap
                                       , runRecolor = runRecolorXTIO def
