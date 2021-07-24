@@ -11,14 +11,5 @@ from           felixspringer149@gmail.com
 user           felixspringer149@gmail.com
 passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/mail/gmail.gpg"
 
-# possehl-analytics
-account        possehl-analytics
-host           smtp.office365.com
-port           587
-auth           xoauth2
-from           felix.springer@possehl-analytics.com
-user           felix.springer@possehl-analytics.com
-passwordeval   "gpg --quiet --for-your-eyes-only --no-tty --decrypt ~/.password-store/passwords/Possehl_Analytics/Office/felix.springer@possehl-analytics.com-OAuth2-Token.gpg"
-
 # Set a default account
 account default : gmail

@@ -1,6 +1,6 @@
 [general]
 # List of accounts to be synced, separated by a comma.
-accounts = gmail,possehl-analytics
+accounts = gmail
 # for access to gmail
 pythonfile = ~/.offlineimap/offlineimap_pass.py
 # SSL/TLS
@@ -28,32 +28,3 @@ remoteuser = felixspringer149@gmail.com
 # Password for gmail account usage of apps is in the application pass
 remotepasseval = get_pass("gmail")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-
-#####
-
-[Account possehl-analytics]
-localrepository = possehl-analytics-local
-remoterepository = possehl-analytics-remote
-
-[Repository possehl-analytics-local]
-type = Maildir
-localfolders = ~/.mail/possehl-analytics
-
-[Repository possehl-analytics-remote]
-type = IMAP
-folderfilter = lambda foldername: foldername in [
-    'INBOX', 'Sent Items', 'Deleted Items', 'Drafts', 'Junk Email']
-auth_mechanisms = XOAUTH2
-remotehost = outlook.office365.com
-remoteport = 993
-remoteuser = felix.springer@possehl-analytics.com
-remotepasseval = get_pass("possehl-analytics")
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-oauth2_request_url = https://login.microsoftonline.com/common/oauth2/v2.0/token
-
-# from Thunderbird: https://hg.mozilla.org/comm-central/file/tip/mailnews/base/src/OAuth2Providers.jsm
-oauth2_client_id = 08162f7c-0fd2-4200-a84a-f25a4db0b584
-oauth2_client_secret = TxRBilcHdC6WGBee]fs?QR:SJ8nI[g82
-
-# actual secret, generated with: https://github.com/UvA-FNWI/M365-IMAP
-oauth2_refresh_token = get_pass("possehl-analytics-oauth2")
