@@ -287,6 +287,7 @@ in
           super.nodePackages.vscode-css-languageserver-bin
           super.nodePackages.vscode-html-languageserver-bin
           super.nodePackages.vscode-json-languageserver-bin
+          super.nodePackages.yaml-language-server
           super.pythonLatestPackages.python-language-server
           super.rnix-lsp
         ];
