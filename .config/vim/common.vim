@@ -138,4 +138,5 @@ lua << EOF
   nvim_lsp.jsonls.setup { on_attach=on_attach, cmd={ "json-languageserver", "--stdio" } }
   nvim_lsp.rnix.setup { on_attach=on_attach }
   nvim_lsp.vimls.setup { on_attach=on_attach }
+  nvim_lsp.yamlls.setup { on_attach=on_attach }
 EOF
