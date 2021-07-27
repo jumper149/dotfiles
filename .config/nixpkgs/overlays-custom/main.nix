@@ -249,13 +249,12 @@ in
         vimDistribution = super.neovim;
         vimPlugins = with super.vimPlugins; [
           colorizer
-          deoplete-nvim
           fzf-vim
-          LanguageClient-neovim
           rainbow
           vim-indent-guides
           vim-fugitive
           lightline-vim
+          nvim-lspconfig
           (super.vimUtils.buildVimPluginFrom2Nix {
             pname = "suda";
             version = "2020-09-08";
@@ -285,6 +284,9 @@ in
           super.idris2
           super.nodePackages.bash-language-server
           super.nodePackages.vim-language-server
+          super.nodePackages.vscode-css-languageserver-bin
+          super.nodePackages.vscode-html-languageserver-bin
+          super.nodePackages.vscode-json-languageserver-bin
           super.pythonLatestPackages.python-language-server
           super.rnix-lsp
         ];
