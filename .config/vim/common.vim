@@ -105,11 +105,29 @@ command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit!
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>
 
-" LSP, nvim-lspconfig
-set signcolumn=yes:1
+" LSP, nvim-lspconfig, nvim-compe
+set completeopt=menuone,noselect
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.source = {}
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.emoji = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.path = v:true
+let g:compe.source.tags = v:true
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : compe#complete()
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set signcolumn=no
+sign define LspDiagnosticsSignError text=E texthl=LspDiagnosticsSignError linehl= numhl=LspDiagnosticsSignError
+sign define LspDiagnosticsSignWarning text=W texthl=LspDiagnosticsSignWarning linehl= numhl=LspDiagnosticsSignWarning
+sign define LspDiagnosticsSignInformation text=W texthl=LspDiagnosticsSignInformation linehl= numhl=LspDiagnosticsSignInformation
+sign define LspDiagnosticsSignHint text=W texthl=LspDiagnosticsSignHint linehl= numhl=LspDiagnosticsSignHint
 lua << EOF
   local nvim_lsp = require('lspconfig')
   local on_attach = function(client, bufnr)
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local opts = { noremap=true, silent=true }
     buf_set_keymap('n',  'mla', '<CMD>lua vim.lsp.buf.code_action()<CR>'                               , opts)
