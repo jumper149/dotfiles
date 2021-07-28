@@ -31,6 +31,7 @@ config.bind(',P', 'spawn --userscript qute-pass --password-only')
 config.bind(',p', 'spawn --userscript qute-pass')
 config.bind('Z', 'spawn mpv {url}')
 config.bind('z', 'hint links spawn mpv {hint-url}')
+config.bind('<Ctrl-r>', 'jseval -w main DarkReader.disable()')
 
 
 
