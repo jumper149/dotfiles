@@ -254,6 +254,7 @@ in
           vim-indent-guides
           vim-fugitive
           lightline-vim
+          nvim-compe
           nvim-lspconfig
           (super.vimUtils.buildVimPluginFrom2Nix {
             pname = "suda";
