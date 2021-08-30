@@ -3,17 +3,17 @@
 import Control.Monad (void)
 
 import Blucontrol
+import Blucontrol.Monad.ApplyValue.X
 import Blucontrol.Monad.Control.Count
 import Blucontrol.Monad.Control.Wait
-import Blucontrol.Monad.Gamma.Linear
-import Blucontrol.Monad.Recolor.X
+import Blucontrol.Monad.PrepareValue.Linear
 import Blucontrol.Value.RGB.Temperature
 
 main :: IO ()
 main = void $ blucontrol configControl
   where configControl = ConfigControl { runControl = runControlCountT def !> runControlWaitT configWait
-                                      , runGamma = runGammaLinearT @Temperature rgbMap
-                                      , runRecolor = runRecolorXTIO def
+                                      , runPrepareValue = runPrepareValueLinearT @Temperature rgbMap
+                                      , runApplyValue = runApplyValueXTIO def
                                       }
         rgbMap = 13:.00 ==> 7000
             :| [ 17:.00 ==> 5000
