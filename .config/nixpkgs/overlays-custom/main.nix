@@ -267,6 +267,7 @@ in
             };
           meta.homepage = "https://github.com/lambdalisue/suda.vim";
           })
+          telescope-nvim
           wombat256-vim
 
           agda-vim
