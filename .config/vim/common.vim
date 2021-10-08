@@ -98,105 +98,64 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
 
-" deoplete
-" Don't show documentation popup window with LanguageClient_neovim
-set completeopt-=preview
-let g:deoplete#enable_at_startup=1
-autocmd VimEnter * call deoplete#custom#option({
-  \   'auto_complete_delay': 0
-  \ })
-" Use <Tab> for auto-completion
-" TODO: It would be awesome to automatically select the first entry with Tab,
-" even when it was so slow, that it was activated with manual_complete. Not
-" sure, how I can select the first entry from the popup-menu after having
-" called deoplete#manual_complete().
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : deoplete#manual_complete()
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" LanguageClient-neovim
-set signcolumn=yes:1
-let g:LanguageClient_diagnosticsDisplay={
-  \   1: {
-  \     "name": "Error"
-  \   , "texthl": "LanguageClientError"
-  \   , "signText": "X"
-  \   , "signTexthl": "LanguageClientErrorSign"
-  \   , "virtualTexthl": "LanguageClientErrorVirtual"
-  \   }
-  \ , 2: {
-  \     "name": "Warning"
-  \   , "texthl": "LanguageClientWarning"
-  \   , "signText": "W"
-  \   , "signTexthl": "LanguageClientWarningSign"
-  \   , "virtualTexthl": "LanguageClientWarningVirtual"
-  \   }
-  \ , 3: {
-  \     "name": "Information"
-  \   , "texthl": "LanguageClientInfo"
-  \   , "signText": "i"
-  \   , "signTexthl": "LanguageClientInfoSign"
-  \   , "virtualTexthl": "LanguageClientInfoVirtual"
-  \   }
-  \ , 4: {
-  \     "name": "Hint"
-  \   , "texthl": "LanguageClientInfo"
-  \   , "signText": ">"
-  \   , "signTexthl": "LanguageClientInfoSign"
-  \   , "virtualTexthl": "LanguageClientHintVirtual"
-  \   }
-  \ }
-let g:LanguageClient_selectionUI="fzf"
-let g:LanguageClient_setOmnifunc=v:false
-let g:LanguageClient_serverCommands = {
-  \   'dhall'    : ['dhall-lsp-server']
-  \ , 'haskell'  : ['haskell-language-server-wrapper', '--lsp']
-  \ , 'nix'      : ['rnix-lsp']
-  \ , 'python'   : ['pyls']
-  \ , 'rust'     : ['rls']
-  \ , 'sh'       : ['bash-language-server', 'start']
-  \ , 'terraform': ['terraform-ls', 'serve']
-  \ , 'vim'      : ['vim-language-server', '--stdio']
-  \ }
-
-" codeaction (e)
-" TODO: Is this the only way to handle the hls eval plugin?
-nnoremap <Leader>e :call LanguageClient#handleCodeLensAction()<CR>
-
-" Find reference (f)
-nnoremap <Leader>f :call LanguageClient#textDocument_references()<CR>
-
-" Format (F)
-nnoremap <Leader>F :call LanguageClient#textDocument_formatting()<CR>
-vnoremap <Leader>F :call LanguageClient#textDocument_rangeFormatting()<CR>
-
-" Goto definition (d) (g) (D) (G)
-nnoremap <Leader>g :call LanguageClient#textDocument_definition()<CR>
-nnoremap <Leader>d :call LanguageClient#textDocument_definition()<CR>
-nnoremap <Leader>G :call LanguageClient#textDocument_definition({'gotoCmd': 'tabedit'})<CR>
-nnoremap <Leader>D :call LanguageClient#textDocument_definition({'gotoCmd': 'tabedit'})<CR>
-
-" Hover (h) (k)
-nnoremap <Leader>h :call LanguageClient#textDocument_hover()<CR>
-nnoremap <Leader>k :call LanguageClient#textDocument_hover()<CR>
-
-" context Menu (m)
-nnoremap <Leader>m :call LanguageClient_contextMenu()<CR>
-
-" Rename (r)
-nnoremap <Leader>r :call LanguageClient#textDocument_rename()<CR>
-
-" Symbol (s) (S)
-nnoremap <Leader>s :call LanguageClient#textDocument_documentSymbol()<CR>
-" TODO: Is it possible to open the symbol in a new tab?
-nnoremap <Leader>S :call LanguageClient#workspace_symbol()<CR>
-
-" highlight hovered (v) (~V)
-nnoremap <Leader>v :call LanguageClient#textDocument_documentHighlight()<CR>
-nnoremap <Leader>V :call LanguageClient#clearDocumentHighlight()<CR>
-
 " Commands
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit!
 
 " Hotkeys
 nmap mm :w <Enter>:!./% <Enter>
+
+" LSP, nvim-lspconfig, nvim-compe
+set completeopt=menuone,noselect
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.source = {}
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.emoji = v:true
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.path = v:true
+let g:compe.source.tags = v:true
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : compe#complete()
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+set signcolumn=no
+sign define LspDiagnosticsSignError text=E texthl=LspDiagnosticsSignError linehl= numhl=LspDiagnosticsSignError
+sign define LspDiagnosticsSignWarning text=W texthl=LspDiagnosticsSignWarning linehl= numhl=LspDiagnosticsSignWarning
+sign define LspDiagnosticsSignInformation text=W texthl=LspDiagnosticsSignInformation linehl= numhl=LspDiagnosticsSignInformation
+sign define LspDiagnosticsSignHint text=W texthl=LspDiagnosticsSignHint linehl= numhl=LspDiagnosticsSignHint
+lua << EOF
+  local nvim_lsp = require('lspconfig')
+  local on_attach = function(client, bufnr)
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    local opts = { noremap=true, silent=true }
+    buf_set_keymap('n', 'mla', '<CMD>lua vim.lsp.buf.code_action()<CR>'    , opts)
+    buf_set_keymap('n', 'mld', '<CMD>lua vim.lsp.buf.declaration()<CR>'    , opts)
+    buf_set_keymap('n', 'mlg', '<CMD>lua vim.lsp.buf.definition()<CR>'     , opts)
+    buf_set_keymap('n', 'mlG', '<CMD>lua require(\'telescope.builtin\').lsp_definitions( { jump_type = "tab" } )<CR>', opts)
+    buf_set_keymap('n', 'mlf', '<CMD>lua vim.lsp.buf.formatting()<CR>'     , opts)
+    buf_set_keymap('n', 'mlk', '<CMD>lua vim.lsp.buf.hover()<CR>'          , opts)
+    buf_set_keymap('n', 'mli', '<CMD>lua vim.lsp.buf.implementation()<CR>' , opts)
+    buf_set_keymap('n', 'mlr', '<CMD>lua vim.lsp.buf.references()<CR>'     , opts)
+    buf_set_keymap('n', 'mlc', '<CMD>lua vim.lsp.buf.rename()<CR>'         , opts)
+    buf_set_keymap('n', 'mlh', '<CMD>lua vim.lsp.buf.signature_help()<CR>' , opts)
+    buf_set_keymap('n', 'mlt', '<CMD>lua vim.lsp.buf.type_definition()<CR>', opts)
+    buf_set_keymap('n', 'mlwa', '<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>'   , opts)
+    buf_set_keymap('n', 'mlwr', '<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+    buf_set_keymap('n', 'mlwl', '<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+    buf_set_keymap('n', 'ml<SPACE><SPACE>', '<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>'  , opts)
+    buf_set_keymap('n', 'ml<SPACE>p', '<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>'                    , opts)
+    buf_set_keymap('n', 'ml<SPACE>n', '<CMD>lua vim.lsp.diagnostic.goto_next()<CR>'                    , opts)
+    buf_set_keymap('n', 'ml<SPACE>q', '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>'                  , opts)
+  end
+  nvim_lsp.bashls.setup { on_attach=on_attach }
+  nvim_lsp.cssls.setup { on_attach=on_attach, cmd={ "css-languageserver", "--stdio" } }
+  nvim_lsp.dhall_lsp_server.setup { on_attach=on_attach }
+  nvim_lsp.hls.setup { on_attach=on_attach }
+  nvim_lsp.html.setup { on_attach=on_attach, cmd={ "html-languageserver", "--stdio" } }
+  nvim_lsp.jsonls.setup { on_attach=on_attach, cmd={ "json-languageserver", "--stdio" } }
+  nvim_lsp.rnix.setup { on_attach=on_attach }
+  nvim_lsp.vimls.setup { on_attach=on_attach }
+  nvim_lsp.yamlls.setup { on_attach=on_attach }
+EOF

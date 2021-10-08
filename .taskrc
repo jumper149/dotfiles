@@ -17,7 +17,7 @@ data.location=~/.task
 include ~/.task/jumper.theme
 
 # Server
-taskd.server = remote.felixspringer.xyz:53589
+taskd.server = felixspringer.xyz:53589
 
 # Authentication
 taskd.ca=/etc/ssl/certs/ca-certificates.crt

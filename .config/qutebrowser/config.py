@@ -11,6 +11,8 @@ c.scrolling.bar = 'never'
 c.statusbar.show = 'in-mode'
 c.tabs.show = 'multiple'
 
+c.tabs.mousewheel_switching = False
+
 
 
 config.unbind('q') # record macro
@@ -31,6 +33,7 @@ config.bind(',P', 'spawn --userscript qute-pass --password-only')
 config.bind(',p', 'spawn --userscript qute-pass')
 config.bind('Z', 'spawn mpv {url}')
 config.bind('z', 'hint links spawn mpv {hint-url}')
+config.bind('<Ctrl-r>', 'jseval -w main DarkReader.disable()')
 
 
 
@@ -75,6 +78,10 @@ c.fonts.web.family.standard = 'Liberation Sans'
 c.fonts.web.family.fixed = 'Liberation Mono'
 c.fonts.web.family.sans_serif = 'Liberation Sans'
 c.fonts.web.family.serif = 'Liberation Serif'
+
+
+
+c.colors.webpage.preferred_color_scheme = "dark"
 
 
 
@@ -218,5 +225,3 @@ c.colors.tabs.selected.even.bg = myColorA
 c.colors.tabs.selected.even.fg = myColor0
 c.colors.tabs.selected.odd.bg = myColorA
 c.colors.tabs.selected.odd.fg = myColor0
-
-c.colors.webpage.preferred_color_scheme = "dark"
