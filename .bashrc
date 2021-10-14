@@ -11,8 +11,9 @@ HISTFILE="${XDG_DATA_HOME}/bash/bash_history"
 mkdir -p "$(dirname "${HISTFILE}")"
 
 # auto completion
-source "${HOME}/.nix-profile/share/bash-completion/completions/git"
-source "${HOME}/.nix-profile/share/bash-completion/completions/git-prompt.sh"
+BASH_COMPLETION_DIR="/run/current-system/sw/share/bash-completion"
+source "${BASH_COMPLETION_DIR}/completions/git"
+source "${BASH_COMPLETION_DIR}/completions/git-prompt.sh"
 __git_complete dotgit __git_main
 __git_complete safegit __git_main
 
