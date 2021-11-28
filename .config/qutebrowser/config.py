@@ -37,11 +37,11 @@ config.bind('<Ctrl-r>', 'jseval -w main DarkReader.disable()')
 
 
 
-c.url.default_page = "http://nixremote.wireguard/searx/"
-c.url.start_pages = "http://nixremote.wireguard/searx/"
+c.url.default_page = "http://nixbase.wireguard/searx/"
+c.url.start_pages = "http://nixbase.wireguard/searx/"
 
-c.url.searchengines['DEFAULT'] = "http://nixremote.wireguard/searx/search?q={}"
-c.url.searchengines['s'] = "http://nixremote.wireguard/searx/search?q={}"
+c.url.searchengines['DEFAULT'] = "http://nixbase.wireguard/searx/search?q={}"
+c.url.searchengines['s'] = "http://nixbase.wireguard/searx/search?q={}"
 c.url.searchengines['d'] = "https://duckduckgo.com/?q={}"
 c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"
 c.url.searchengines['w'] = "https://de.wikipedia.org/w/index.php?search={}"
