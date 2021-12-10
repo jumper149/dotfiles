@@ -95,3 +95,13 @@ hi LspDiagnosticsSignError              ctermfg=124 ctermbg=232  cterm=bold     
 hi LspDiagnosticsSignWarning            ctermfg=172 ctermbg=233  cterm=bold          guifg=#d78700 guibg=#121212 gui=bold
 hi LspDiagnosticsSignInformation        ctermfg=64  ctermbg=234  cterm=bold          guifg=#5f8700 guibg=#1c1c1c gui=bold
 hi LspDiagnosticsSignHint               ctermfg=64  ctermbg=235  cterm=bold          guifg=#5f8700 guibg=#262626 gui=bold
+
+" idris2-nvim
+hi      LspSemantic_variable              ctermfg=217  ctermbg=none cterm=none          guifg=#ffafaf               gui=none
+hi      LspSemantic_enumMember            ctermfg=179  ctermbg=none cterm=none          guifg=#d7af5f               gui=none
+hi      LspSemantic_function              ctermfg=229  ctermbg=none cterm=none          guifg=#ffffaf               gui=none
+hi      LspSemantic_type                  ctermfg=166  ctermbg=none cterm=none          guifg=#d75f5f               gui=none
+hi      LspSemantic_keyword               ctermfg=109  ctermbg=none cterm=none          guifg=#87afaf               gui=none
+hi      LspSemantic_namespace             ctermfg=106  ctermbg=none cterm=none          guifg=#87af5f               gui=none
+hi      LspSemantic_postulate             ctermfg=123  ctermbg=none cterm=none          guifg=#87ffff               gui=none
+hi      LspSemantic_module                ctermfg=70   ctermbg=none cterm=none          guifg=#5faf00               gui=none
