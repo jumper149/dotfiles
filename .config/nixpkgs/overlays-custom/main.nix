@@ -265,7 +265,7 @@ in
               rev = "v0.2.0";
               sha256 = "0apf28b569qz4vik23jl0swka37qwmbxxiybfrksy7i1yaq6d38g";
             };
-          meta.homepage = "https://github.com/lambdalisue/suda.vim";
+            meta.homepage = "https://github.com/lambdalisue/suda.vim";
           })
           telescope-nvim
           wombat256-vim
@@ -273,7 +273,28 @@ in
           agda-vim
           dhall-vim
           haskell-vim
-          idris2-vim
+          (super.vimUtils.buildVimPluginFrom2Nix {
+            pname = "nui.nvim";
+            version = "2021-11-27";
+            src = super.fetchFromGitHub {
+              owner = "MunifTanjim";
+              repo = "nui.nvim";
+              rev = "a37e38b6801ccdbffb4b69507aa234b8d0509977";
+              sha256 = "0v290zncw2p5ygisjy68r77kx175bbhz73bcbf0k8wg173y4hhsl";
+            };
+            meta.homepage = "https://github.com/MunifTanjim/nui.nvim/";
+          })
+          (super.vimUtils.buildVimPluginFrom2Nix {
+            pname = "idris2-nvim";
+            version = "2021-12-09";
+            src = super.fetchFromGitHub {
+              owner = "jumper149";
+              repo = "idris2-nvim";
+              rev = "e077ca5c3bd2d0f26c758440e21e77262ead52b1";
+              sha256 = "SIrN4cgQfD8VPZxjmbypAFN3Z4NomMwNlzxQLoe2wng=";
+            };
+            meta.homepage = "https://github.com/jumper149/idris2-nvim/";
+          })
           purescript-vim
           vimtex
           vim-ledger
@@ -290,7 +311,7 @@ in
           super.nodePackages.vscode-html-languageserver-bin
           super.nodePackages.vscode-json-languageserver-bin
           super.nodePackages.yaml-language-server
-          super.pythonLatestPackages.python-language-server
+          super.pythonLatestPackages.python-lsp-server
           super.rnix-lsp
         ];
       in super.symlinkJoin {
