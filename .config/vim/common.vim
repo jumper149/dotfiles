@@ -154,6 +154,7 @@ lua << EOF
   nvim_lsp.dhall_lsp_server.setup { on_attach=on_attach }
   nvim_lsp.hls.setup { on_attach=on_attach }
   nvim_lsp.html.setup { on_attach=on_attach, cmd={ "html-languageserver", "--stdio" } }
+  require('idris2').setup { server = { on_attach=on_attach } }
   nvim_lsp.jsonls.setup { on_attach=on_attach, cmd={ "json-languageserver", "--stdio" } }
   nvim_lsp.rnix.setup { on_attach=on_attach }
   nvim_lsp.vimls.setup { on_attach=on_attach }
