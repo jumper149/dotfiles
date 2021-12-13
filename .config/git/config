@@ -1,3 +1,5 @@
 [user]
 	name = Felix Springer
 	email = felixspringer149@gmail.com
+[pull]
+	ff = only
