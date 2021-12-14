@@ -1,9 +1,6 @@
 let
 
   fallbackPackages = [
-    "chromium"
-    "libreoffice"
-    "telegram"
   ];
 
   unstablePackages = let
@@ -12,7 +9,7 @@ let
       "arandr"
       "baobab"
       "blucontrol"
-      #"chromium"
+      "chromium"
       "conky"
       "element"
       "firefox"
@@ -20,7 +17,7 @@ let
       "glava"
       "i3lock"
       "kitty"
-      #"libreoffice"
+      "libreoffice"
       "mpv"
       "mumble"
       "pavucontrol"
@@ -32,7 +29,7 @@ let
       "screenkey"
       "scrot"
       "sxiv"
-      #"telegram"
+      "telegram"
       "theme"
       "xdotool"
       "xournal"

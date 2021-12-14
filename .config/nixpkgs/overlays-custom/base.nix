@@ -15,10 +15,9 @@ self: super: {
       #!${super.stdenv.shell}
       set -e
       if [ "$1" = "--upgrade" ]; then
-        nix-channel --update nixpkgs nixos
+        nix-channel --update nixpkgs
       fi
       nix-env -f '<nixpkgs>' -r -iA userPackagesUnstable "$@"
-      nix-env -f '<nixos>' -iA userPackagesFallback "$@"
     '';
 
   };
