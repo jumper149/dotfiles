@@ -16,7 +16,6 @@ configuration {
   m: "-1";
   fullscreen: false;
   scroll-method: 1;
-  theme: "~/.config/rofi/theme.rasi";
   max-history-size: 100;
   kb-secondary-paste: "Control+v,Insert";
   kb-clear-line: "Alt+D";
@@ -54,4 +53,4 @@ configuration {
   kb-select-8: "Control+Alt+8";
   kb-select-9: "Control+Alt+9";
   kb-select-10: "Control+Alt+0";
-}
+} @theme "~/.config/rofi/theme.rasi"
