@@ -332,8 +332,6 @@ in
         postBuild = lib.runtimeWrapper { runtimeInputs = runtimeInputs; lib = super.lib; };
       };
 
-      vimpager = super.vimpager-latest;
-
       weechat = let weechatDistribution = super.weechat;
                     matrixPlugin = super.weechatScripts.weechat-matrix;
                 in super.symlinkJoin {
