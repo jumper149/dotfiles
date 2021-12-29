@@ -335,15 +335,7 @@ in
       vimpager = super.vimpager-latest;
 
       weechat = let weechatDistribution = super.weechat;
-                    matrixPlugin = super.weechatScripts.weechat-matrix.overrideAttrs ({ version, ... }: {
-                      version = version + "-latest";
-                      src = super.fetchFromGitHub {
-                        owner = "poljar";
-                        repo = "weechat-matrix";
-                        rev = "ef09292005d67708511a44c8285df1342ab66bd1";
-                        sha256 = "0rjfmzj5mp4b1kbxi61z6k46mrpybxhbqh6a9zm9lv2ip3z6bhlw";
-                      };
-                    });
+                    matrixPlugin = super.weechatScripts.weechat-matrix;
                 in super.symlinkJoin {
         name = weechatDistribution.name;
         paths = [
