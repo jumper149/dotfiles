@@ -20,4 +20,42 @@ autocmd GUIEnter * set visualbell t_vb=
 set encoding=utf-8
 set fileencoding=utf-8
 
-source $XDG_CONFIG_HOME/vim/common.vim
+" Convert tab to spaces
+set expandtab
+set shiftwidth=4
+set softtabstop=-1
+
+" Automatic indentation
+set smartindent
+
+" Sets line numbers relative to the current line
+set number
+set relativenumber
+
+" Set minimal distance from cursor to border
+set scrolloff=8
+
+" Enable Highlighting
+syntax on
+
+" Set colorscheme
+colorscheme default
+
+" Enable file type detection
+filetype plugin indent on
+
+" Provides X-clipboard support (requires gvim)
+vmap <C-c> "+yi<ESC>
+vmap <C-x> "+c<ESC>
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
+" Removes Highlighting from search patterns
+nnoremap <silent> <Space> :nohlsearch<Enter>
+
+" Commands
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit!
+
+" Hotkeys
+nmap mm :w <Enter>:!./% <Enter>
