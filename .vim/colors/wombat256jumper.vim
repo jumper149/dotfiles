@@ -22,11 +22,12 @@ hi VertSplit    ctermfg=238  ctermbg=238  cterm=none        guifg=#444444 guibg=
 hi StatusLineNC ctermfg=243  ctermbg=238  cterm=none        guifg=#857b6f guibg=#444444 gui=none
 hi LineNr       ctermfg=243  ctermbg=0    cterm=none        guifg=#857b6f guibg=#000000 gui=none
 hi SpecialKey   ctermfg=244  ctermbg=236  cterm=none        guifg=#808080 guibg=#343434 gui=none
-hi NonText      ctermfg=246  ctermbg=237  cterm=none        guifg=#808080 guibg=#303030 gui=none
+hi NonText      ctermfg=236  ctermbg=none cterm=none        guifg=none    guibg=#343434 gui=none
+hi Whitespace   ctermfg=236  ctermbg=none cterm=none        guifg=none    guibg=#343434 gui=none
 
 " Vim >= 7.0 specific colors
 if version >= 700
-    hi CursorLine   ctermfg=none ctermbg=236  cterm=none                      guibg=#2d2d2d gui=none
+    hi CursorLine   ctermfg=none ctermbg=235  cterm=none                      guibg=#282828 gui=none
     hi MatchParen                ctermbg=233  cterm=bold                      guibg=#121212 gui=bold
     hi Pmenu        ctermfg=251  ctermbg=238  cterm=none        guifg=#f6f3e8 guibg=#444444 gui=none
     hi PmenuSel     ctermfg=234  ctermbg=192  cterm=bold        guifg=#000000 guibg=#cae682 gui=bold
@@ -70,8 +71,11 @@ hi! link FoldColumn   Folded
 hi! link CursorColumn CursorLine
 
 " vim-indent-guides
-hi IndentGuidesOdd  ctermbg=236               cterm=none                    guibg=#343434 gui=none
-hi IndentGuidesEven ctermbg=235               cterm=none                    guibg=#282828 gui=none
+hi IndentBlanklineChar                ctermfg=236  ctermbg=none cterm=none guifg=none    guibg=#343434 gui=none
+hi IndentBlanklineSpaceChar           ctermfg=236  ctermbg=none cterm=none guifg=none    guibg=#343434 gui=none
+hi IndentBlanklineSpaceCharBlankline  ctermfg=236  ctermbg=none cterm=none guifg=none    guibg=#343434 gui=none
+hi IndentBlanklineContextChar         ctermfg=242  ctermbg=none cterm=none guifg=none    guibg=#343434 gui=none
+hi IndentBlanklineContextStart        ctermfg=none ctermbg=none cterm=none guifg=none    guibg=#343434 gui=none
 
 " LanguageClient-neovim
 hi SignColumn                           ctermfg=250 ctermbg=0    cterm=bold          guifg=#808080 guibg=none    gui=italic
