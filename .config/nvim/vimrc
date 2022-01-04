@@ -98,10 +98,18 @@ let g:rainbow_conf = {
   \   }
   \ }
 
-" vim-indent-guides
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
-let g:indent_guides_auto_colors=0
+" Highlight spaces
+lua << EOF
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+EOF
+
+" indent-blankline-nvim, nvim-treesitter, nvim-treesitter-context
+let g:indent_blankline_char_list = ['|', '¦', '┆', '┊', '│', '│', '│', '│', '│', '│']
+let g:space_char_blankline = " "
+let g:indent_blankline_use_treesitter = v:true " required for context indent highlighting
+let g:indent_blankline_context_char = '│'
+let g:indent_blankline_show_current_context = v:true
 
 " Commands
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
