@@ -250,8 +250,8 @@ in
         vimPlugins = with super.vimPlugins; [
           colorizer
           fzf-vim
+          indent-blankline-nvim
           rainbow
-          vim-indent-guides
           vim-fugitive
           lightline-vim
           nvim-compe
@@ -268,6 +268,10 @@ in
             meta.homepage = "https://github.com/lambdalisue/suda.vim";
           })
           telescope-nvim
+          (nvim-treesitter.withPlugins (
+            plugins: with plugins; super.tree-sitter.allGrammars
+          ))
+          nvim-treesitter-context
           wombat256-vim
 
           agda-vim
