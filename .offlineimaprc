@@ -1,6 +1,6 @@
 [general]
 # List of accounts to be synced, separated by a comma.
-accounts = gmail
+accounts = gmail,contact-felixspringer
 # for access to gmail
 pythonfile = ~/.offlineimap/offlineimap_pass.py
 # SSL/TLS
@@ -27,4 +27,27 @@ type = Gmail
 remoteuser = felixspringer149@gmail.com
 # Password for gmail account usage of apps is in the application pass
 remotepasseval = get_pass("gmail")
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+#####
+
+[Account contact-felixspringer]
+# Identifier for the local repository; e.g. the maildir to be synced via IMAP.
+localrepository = contact-felixspringer-local
+# Identifier for the remote repository; i.e. the actual IMAP, usually non-local.
+remoterepository = contact-felixspringer-remote
+
+[Repository contact-felixspringer-local]
+# OfflineIMAP supports Maildir, GmailMaildir, and IMAP for local repositories.
+type = Maildir
+# Where should the mail be placed?
+localfolders = ~/.mail/contact-felixspringer
+
+[Repository contact-felixspringer-remote]
+# Remote repos can be IMAP or Gmail, the latter being a preconfigured IMAP.
+type = IMAP
+remotehost = felixspringer.xyz
+remoteport = 993
+remoteuser = contact@felixspringer.xyz
+remotepasseval = get_pass("contact-felixspringer")
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt

@@ -1,0 +1,27 @@
+set imap_user 		= "contact@felixspringer.xyz"
+
+set from 		= "contact@felixspringer.xyz"
+
+set edit_headers 	= yes
+set mbox_type 		= Maildir
+
+set use_from 		= yes
+set envelope_from 	= yes
+set sendmail 		= "msmtp -a contact-felixspringer"
+
+set folder = "~/.mail/contact-felixspringer"
+
+set spoolfile = "+INBOX"
+
+unset mbox
+set record = "+Sent"
+set postponed = "+Drafts"
+
+mailboxes "+ " "+------felix-------" "+INBOX" "+Sent" "+Junk" "+Drafts" "+Trash"
+
+# hook important
+account-hook $folder "set imap_user=contact@felixspringer.xyz"
+
+set signature = "~/.mutt/signature"
+
+# vim: syntax=muttrc
