@@ -4,7 +4,7 @@ self: super: {
     aspell-configured = super.aspellWithDicts (d: with d; [en de]);
   };
 
-  pythonLatestPackages = super.python38Packages;
+  pythonLatestPackages = super.python39Packages;
 
     #### #### #### #### #### #### #### #### #### #### #### #### #### #### #### ####
 
