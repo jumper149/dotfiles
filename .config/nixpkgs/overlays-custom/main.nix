@@ -290,14 +290,14 @@ in
           })
           (super.vimUtils.buildVimPluginFrom2Nix {
             pname = "idris2-nvim";
-            version = "2021-12-09";
+            version = "2022-01-22";
             src = super.fetchFromGitHub {
-              owner = "jumper149";
+              owner = "ShinKage";
               repo = "idris2-nvim";
-              rev = "e077ca5c3bd2d0f26c758440e21e77262ead52b1";
-              sha256 = "SIrN4cgQfD8VPZxjmbypAFN3Z4NomMwNlzxQLoe2wng=";
+              rev = "4e7d2e278e350fbf061de640f7a3ff9f5c722d47";
+              sha256 = "8VX+pgB65ihu6OSGNusZ7IIX1rhJX4DhCvpezXezfVU=";
             };
-            meta.homepage = "https://github.com/jumper149/idris2-nvim/";
+            meta.homepage = "https://github.com/ShinKage/idris2-nvim/";
           })
           purescript-vim
           vimtex
