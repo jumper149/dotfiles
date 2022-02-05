@@ -157,6 +157,8 @@ in
 
       ncmpcpp = super.ncmpcpp;
 
+      nnn = super.nnn;
+
       offlineimap = super.offlineimap;
 
       openconnect = super.openconnect;

@@ -56,6 +56,7 @@ let
       "mpc"
       "mutt"
       "ncmpcpp"
+      "nnn"
       "offlineimap"
       "openconnect"#!
       "pass"
