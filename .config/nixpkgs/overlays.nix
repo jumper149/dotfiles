@@ -50,7 +50,6 @@ let
       "git"
       "gnupg"
       "haskell-utils"#!
-      "htop"
       "khal"
       "khard"
       "killall"
@@ -64,6 +63,7 @@ let
       "ranger"
       "sc-im"
       "sshfs"
+      "system-monitor"
       "task"
       #"texlive"#!
       "tmux"

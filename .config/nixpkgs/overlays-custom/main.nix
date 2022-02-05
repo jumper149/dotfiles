@@ -121,8 +121,6 @@ in
         ];
       };
 
-      htop = super.htop;
-
       i3lock = super.i3lock;
 
       khal = super.khal;
@@ -217,6 +215,8 @@ in
       sshfs = super.sshfs;
 
       sxiv = super.sxiv;
+
+      system-monitor = super.btop;
 
       task = super.symlinkJoin {
         name = "task";
