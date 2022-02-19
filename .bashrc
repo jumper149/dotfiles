@@ -11,8 +11,18 @@ HISTFILE="${XDG_DATA_HOME}/bash/bash_history"
 mkdir -p "$(dirname "${HISTFILE}")"
 
 # auto completion
-source "${HOME}/.nix-profile/share/bash-completion/completions/git"
-source "${HOME}/.nix-profile/share/bash-completion/completions/git-prompt.sh"
+if [ -f "${HOME}/.nix-profile/share/bash-completion/completions/git" ]
+then
+    source "${HOME}/.nix-profile/share/bash-completion/completions/git"
+else
+    source "$(dirname $(readlink $(which git)))/../share/bash-completion/completions/git"
+fi
+if [ -f "${HOME}/.nix-profile/share/bash-completion/completions/git-prompt" ]
+then
+    source "${HOME}/.nix-profile/share/bash-completion/completions/git-prompt.sh"
+else
+    source "$(dirname $(readlink $(which git)))/../share/bash-completion/completions/git-prompt.sh"
+fi
 __git_complete dotgit __git_main
 __git_complete safegit __git_main
 
