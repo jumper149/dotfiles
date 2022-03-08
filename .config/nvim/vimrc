@@ -112,6 +112,10 @@ let g:space_char_blankline = " "
 let g:indent_blankline_use_treesitter = v:true " required for context indent highlighting
 let g:indent_blankline_context_char = '│'
 let g:indent_blankline_show_current_context = v:true
+lua << EOF
+-- Enable tree-sitter syntax highlighting
+require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+EOF
 
 " Commands
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
