@@ -25,13 +25,16 @@ data Direction = L
                | R
 
 moveFloating :: Direction -> Window -> X ()
-moveFloating d = keysMoveWindow (direction d)
+moveFloating d = keysMoveWindow (dx , dy)
+    where (dx , dy) = case d of
+                        L -> (-pixel , 0)
+                        D -> (0 , pixel)
+                        U -> (0 , -pixel)
+                        R -> (pixel , 0)
+          pixel = 20
 
 resizeFloating :: Direction -> Window -> X ()
-resizeFloating d = keysResizeWindow (direction d) (0 , 0)
-
-direction :: Direction -> D
-direction d = (dx , dy)
+resizeFloating d = keysResizeWindow (dx , dy) (0 , 0)
     where (dx , dy) = case d of
                         L -> (-pixel , 0)
                         D -> (0 , pixel)
