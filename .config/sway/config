@@ -211,8 +211,6 @@ bar {
 
         position top
         tray_output none
-
-        status_command i3blocks -c ~/.config/i3blocks/config
 }
 
 # gaps
