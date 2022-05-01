@@ -58,6 +58,9 @@ bindsym $mod+Return exec "alacritty"
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# lock screen
+bindsym $mod+Shift+w exec "swaylock --color 000000 --show-failed-attempts"
+
 # start rofi to launch a program
 bindsym $mod+d exec "rofi -show 'run'"
 
@@ -255,9 +258,6 @@ bindsym $mod2+Shift+a exec "cyclexkbmap"
 # toggle touchpad
 bindsym XF86TouchpadToggle exec "touchpad toggle"
 bindsym Control+$mod+t exec "touchpad toggle"
-
-# lock
-bindsym Control+$mod+l exec "i3lock -c '000000' -f"
 
 # reload i3bar/i3blocks blocks
 bindsym Control+$mod+b exec "~/.config/i3blocks/reload.sh"
