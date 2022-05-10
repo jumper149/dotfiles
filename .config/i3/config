@@ -233,7 +233,7 @@ bindsym Control+$mod+0 exec --no-startup-id "volume mute; pkill --signal SIGRTMI
 
 bindsym XF86AudioMicMute exec --no-startup-id "volume mic mute"
 bindsym $mod+XF86AudioMicMute exec --no-startup-id "volume mic mute"
-bindsym Control+$mod+bracketright exec --no-startup-id "volume mic mute"
+bindsym Control+$mod+9 exec --no-startup-id "volume mic mute"
 
 # toggle keyboard layout
 bindsym $mod2+Shift+a exec "cyclexkbmap"
@@ -262,11 +262,11 @@ bindsym Control+$mod+o exec "mpc stop"
 
 bindsym XF86AudioNext exec "mpc next"
 bindsym $mod+XF86AudioNext exec "mpc next"
-bindsym Control+$mod+bracketleft exec "mpc next"
+bindsym Control+$mod+bracketright exec "mpc next"
 
 bindsym XF86AudioPrev exec "mpc prev"
 bindsym $mod+XF86AudioPrev exec "mpc prev"
-bindsym Control+$mod+i exec"mpc prev"
+bindsym Control+$mod+bracketlight exec"mpc prev"
 
 # scrot
 bindsym Print exec "scrot"

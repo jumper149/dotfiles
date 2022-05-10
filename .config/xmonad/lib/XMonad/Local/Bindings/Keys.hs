@@ -179,7 +179,7 @@ myKeys mask = do
       |/- "mute volume"
         ^> spawn "volume mute"
     bindAlias [ mask ... stringToKeysym "XF86AudioMicMute"
-              ] $ mask .|. controlMask ... xK_bracketright
+              ] $ mask .|. controlMask ... xK_9
       |/- "mute microphone"
         ^> spawn "volume mic mute"
 
@@ -195,12 +195,12 @@ myKeys mask = do
         ^> spawn "mpc stop"
     bindAlias [ noModMask ... stringToKeysym "XF86AudioNext"
               , mask ... stringToKeysym "XF86AudioNext"
-              ] $ mask .|. controlMask ... xK_bracketleft
+              ] $ mask .|. controlMask ... xK_bracketright
       |/- "MPD: next"
         ^> spawn "mpc next"
     bindAlias [ noModMask ... stringToKeysym "XF86AudioPrev"
               , mask ... stringToKeysym "XF86AudioPrev"
-              ] $ mask .|. controlMask ... xK_i
+              ] $ mask .|. controlMask ... xK_bracketleft
       |/- "MPD: previous"
         ^> spawn "mpc prev"
 
