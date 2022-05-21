@@ -33,8 +33,6 @@ syntax on
 
 " Leader keys
 let mapleader='ml'
-" Local Leader mainly for idris2
-let maplocalleader='mi'
 
 " Set colorscheme
 if &t_Co >= 256 || has("gui_running")
