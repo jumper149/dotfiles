@@ -41,13 +41,6 @@ else
   colorscheme default
 endif
 
-" Configure lightline
-if &t_Co >= 256 || has("gui_running")
-  let g:lightline = {
-    \ 'colorscheme': 'wombat'
-    \ }
-endif
-
 " Highlight current line
 augroup CursorLine
   autocmd!
@@ -55,8 +48,8 @@ augroup CursorLine
   autocmd WinLeave * setlocal nocursorline
 augroup END
 
-" Makes information not be shown 2 times with lightline
-set shortmess=F
+" Configure lightline
+source $XDG_CONFIG_HOME/nvim/lightline.vim
 
 " Enable file type detection
 filetype plugin indent on
