@@ -94,13 +94,6 @@ lua << EOF
 require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 EOF
 
-" Commands
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
-command Wq :execute ':silent w !sudo tee % > /dev/null' | :quit!
-
-" Hotkeys
-nmap mm :w <Enter>:!./% <Enter>
-
 " LSP, nvim-lspconfig, nvim-cmp
 set completeopt=menuone,noselect
 let g:compe = {}
