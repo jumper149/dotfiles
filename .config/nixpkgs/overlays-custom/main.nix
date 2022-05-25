@@ -271,7 +271,7 @@ in
           })
           telescope-nvim
           (nvim-treesitter.withPlugins (
-            plugins: with plugins; super.tree-sitter.allGrammars
+            plugins: super.tree-sitter.allGrammars
           ))
           nvim-treesitter-context
           wombat256-vim
