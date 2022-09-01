@@ -43,6 +43,9 @@ client.placeholder      #000000     #0c0c0c     #ffffff     #000000     #0c0c0c
 
 client.background       #ffffff
 
+# fix screen sharing
+exec "~/.config/sway/fix-screen-sharing.sh"
+
 input type:keyboard repeat_delay 200
 input type:keyboard repeat_rate 30
 input "type:keyboard" {
