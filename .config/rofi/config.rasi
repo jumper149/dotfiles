@@ -32,11 +32,11 @@ configuration {
   kb-remove-to-eol: "Alt+d";
   kb-remove-to-sol: "Alt+c";
   kb-accept-entry: "Return,KP_Enter";
-  kb-mode-next: "Shift+Right,Alt+L,Super+L,Control+Tab";
-  kb-mode-previous: "Shift+Left,Alt+H,Super+H,Control+ISO_Left_Tab";
-  kb-row-up: "Up,Alt+k,Super+k,Control+p,Control+N,ISO_Left_Tab";
+  kb-mode-next: "Shift+Right,Alt+L,Super+L";
+  kb-mode-previous: "Shift+Left,Alt+H,Super+H";
+  kb-row-up: "Up,Alt+k,Super+k,Control+p,Control+N";
   kb-row-down: "Down,Alt+j,Super+j,Control+n";
-  kb-row-tab: "Tab";
+  kb-row-tab: "";
   kb-page-prev: "Page_Up,Control+u,Alt+K,Super+K";
   kb-page-next: "Page_Down,Control+d,Alt+J,Super+J";
   kb-screenshot: "Control+Print";
