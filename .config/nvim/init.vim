@@ -124,10 +124,10 @@ lua << EOF
     buf_set_keymap('n', 'mlwa', '<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>'   , opts)
     buf_set_keymap('n', 'mlwr', '<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     buf_set_keymap('n', 'mlwl', '<CMD>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-    buf_set_keymap('n', 'ml<SPACE><SPACE>', '<CMD>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>'  , opts)
-    buf_set_keymap('n', 'ml<SPACE>p', '<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>'                    , opts)
-    buf_set_keymap('n', 'ml<SPACE>n', '<CMD>lua vim.lsp.diagnostic.goto_next()<CR>'                    , opts)
-    buf_set_keymap('n', 'ml<SPACE>q', '<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>'                  , opts)
+    buf_set_keymap('n', 'ml<SPACE><SPACE>', '<CMD>lua vim.diagnostic.open_float()<CR>'                 , opts)
+    buf_set_keymap('n', 'ml<SPACE>p', '<CMD>lua vim.diagnostic.goto_prev()<CR>'                        , opts)
+    buf_set_keymap('n', 'ml<SPACE>n', '<CMD>lua vim.diagnostic.goto_next()<CR>'                        , opts)
+    buf_set_keymap('n', 'ml<SPACE>q', '<CMD>lua vim.diagnostic.set_loclist()<CR>'                      , opts)
   end
   nvim_lsp.bashls.setup { on_attach=on_attach }
   nvim_lsp.cssls.setup { on_attach=on_attach, cmd={ "css-languageserver", "--stdio" } }
