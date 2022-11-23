@@ -136,6 +136,7 @@ lua << EOF
   nvim_lsp.html.setup { on_attach=on_attach, cmd={ "html-languageserver", "--stdio" } }
   require('idris2').setup { server = { on_attach=on_attach } }
   nvim_lsp.jsonls.setup { on_attach=on_attach, cmd={ "json-languageserver", "--stdio" } }
+  nvim_lsp.pyright.setup { on_attach=on_attach }
   nvim_lsp.rnix.setup { on_attach=on_attach }
   nvim_lsp.vimls.setup { on_attach=on_attach }
   nvim_lsp.yamlls.setup { on_attach=on_attach }
