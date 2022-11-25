@@ -61,6 +61,7 @@ hi Special      ctermfg=194  ctermbg=none cterm=none      guifg=#e7f6da         
 hi Todo         ctermfg=88   ctermbg=none cterm=bold      guifg=#8f8f8f               gui=bold
 hi Error                     ctermbg=88   cterm=none                    guibg=#870000
 
+hi ColorColumn  ctermfg=212  ctermbg=238  cterm=none      guifg=#ff87d7 guibg=#444444 gui=none
 
 hi Warning                   ctermbg=130  cterm=none                    guibg=#af5f00
 
