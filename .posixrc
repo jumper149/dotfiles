@@ -54,9 +54,6 @@ cdnnn () {
     fi
 }
 
-# fastermelee
-alias fastermelee='LD_LIBRARY_PATH=${HOME}/Templates/fm-git/lib/ ${HOME}/Templates/fm-git/FasterMelee-installer/src/launch-fm'
-
 # generate a random password
 randompassword(){ < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c"${1:-16}";echo;}
 
