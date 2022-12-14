@@ -80,3 +80,10 @@ if [ "${TERM}" = "linux" ]; then
             ;;
     esac
 fi
+
+# start graphical environment
+if [ -z ${DISPLAY} ] && [ "$(tty)" = "/dev/tty1" ] && [[ $(type -P sway) ]]
+then
+       echo "Executing sway."
+       exec sway
+fi
