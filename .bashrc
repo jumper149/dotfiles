@@ -76,3 +76,10 @@ PS2='$(__whitespace_ps2 \u \h \W)\001${__yellow_ps}${__bold_ps}\002|\001${__norm
 
 # vim input
 set -o vi
+
+# start graphical environment
+if [ -z ${DISPLAY} ] && [ "$(tty)" = "/dev/tty1" ] && [[ $(type -P sway) ]]
+then
+       echo "Executing sway."
+       exec sway
+fi
