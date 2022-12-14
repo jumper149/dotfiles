@@ -67,20 +67,6 @@ PS2='$(__whitespace_ps2 \u \h \W)\001${__yellow_ps}${__bold_ps}\002|\001${__norm
 # vim input
 set -o vi
 
-if [ "${TERM}" = "linux" ]; then
-    __graphical_session="$(decide "Xmonad" "i3" "TTY")"
-    case $__graphical_session in
-        "TTY")
-            ;;
-        "i3")
-            startx ~/.xinitrc "i3" && exit
-            ;;
-        "Xmonad")
-            startx ~/.xinitrc "xmonad" && exit
-            ;;
-    esac
-fi
-
 # start graphical environment
 if [ -z ${DISPLAY} ] && [ "$(tty)" = "/dev/tty1" ] && [[ $(type -P sway) ]]
 then
