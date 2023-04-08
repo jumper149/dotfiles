@@ -104,6 +104,7 @@ lua << EOF
   nvim_lsp.bashls.setup { on_attach=on_attach }
   nvim_lsp.cssls.setup { on_attach=on_attach, cmd={ "css-languageserver", "--stdio" } }
   nvim_lsp.dhall_lsp_server.setup { on_attach=on_attach }
+  nvim_lsp.elmls.setup { on_attach=on_attach }
   nvim_lsp.hls.setup { on_attach=on_attach }
   nvim_lsp.html.setup { on_attach=on_attach, cmd={ "html-languageserver", "--stdio" } }
   require('idris2').setup { server = { on_attach=on_attach } }
