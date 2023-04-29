@@ -86,7 +86,7 @@ lua << EOF
     buf_set_keymap('n', 'mld', '<CMD>lua vim.lsp.buf.declaration()<CR>'    , opts)
     buf_set_keymap('n', 'mlg', '<CMD>lua vim.lsp.buf.definition()<CR>'     , opts)
     buf_set_keymap('n', 'mlG', '<CMD>lua require(\'telescope.builtin\').lsp_definitions( { jump_type = "tab" } )<CR>', opts)
-    buf_set_keymap('n', 'mlf', '<CMD>lua vim.lsp.buf.formatting()<CR>'     , opts)
+    buf_set_keymap('n', 'mlf', '<CMD>lua vim.lsp.buf.format()<CR>'         , opts)
     buf_set_keymap('n', 'mlk', '<CMD>lua vim.lsp.buf.hover()<CR>'          , opts)
     buf_set_keymap('n', 'mli', '<CMD>lua vim.lsp.buf.implementation()<CR>' , opts)
     buf_set_keymap('n', 'mlr', '<CMD>lua vim.lsp.buf.references()<CR>'     , opts)
