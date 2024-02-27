@@ -1,0 +1,167 @@
+[bell]
+color = "#85678f"
+duration = 30
+
+[colors.bright]
+black = "#373b41"
+blue = "#81a2be"
+cyan = "#8abeb7"
+green = "#b5bd68"
+magenta = "#b294bb"
+red = "#cc6666"
+white = "#c5c8c6"
+yellow = "#f0c674"
+
+[colors.cursor]
+cursor = "#c5c8c6"
+text = "#1c1c1c"
+
+[colors.normal]
+black = "#282a2e"
+blue = "#5f819d"
+cyan = "#5e8d87"
+green = "#8c9440"
+magenta = "#85678f"
+red = "#a54242"
+white = "#707880"
+yellow = "#de935f"
+
+[colors.primary]
+background = "#1c1c1c"
+foreground = "#c5c8c6"
+
+[colors.selection]
+background = "#b294bb"
+text = "#1c1c1c"
+
+[font]
+size = 11.0
+
+[font.bold]
+family = "Iosevka"
+style = "Bold"
+
+[font.bold_italic]
+family = "Iosevka"
+style = "Bold Oblique"
+
+[font.italic]
+family = "Iosevka"
+style = "Oblique"
+
+[font.normal]
+family = "Iosevka"
+style = "Regular"
+
+[hints.mouse.url]
+modifiers = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "F"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "B"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "C"
+mode = "Vi"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Insert"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "NumpadAdd"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "NumpadSubtract"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "D"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "U"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollLineDown"
+key = "J"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ScrollLineUp"
+key = "K"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Equals"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control|Alt|Shift"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control|Alt"
+
+[[mouse.bindings]]
+action = "None"
+mouse = "Middle"
