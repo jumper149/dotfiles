@@ -66,7 +66,7 @@ lua <<EOF
   require('lspconfig')['html'].setup { capabilities = capabilities }
   require('lspconfig')['jsonls'].setup { capabilities = capabilities }
   require('lspconfig')['pyright'].setup { capabilities = capabilities }
-  require('lspconfig')['rnix'].setup { capabilities = capabilities }
+  require('lspconfig')['nil_ls'].setup { capabilities = capabilities }
   require('lspconfig')['vimls'].setup { capabilities = capabilities }
   require('lspconfig')['yamlls'].setup { capabilities = capabilities }
 EOF
@@ -110,7 +110,7 @@ lua << EOF
   require('idris2').setup { server = { on_attach=on_attach } }
   nvim_lsp.jsonls.setup { on_attach=on_attach, cmd={ "json-languageserver", "--stdio" } }
   nvim_lsp.pyright.setup { on_attach=on_attach }
-  nvim_lsp.rnix.setup { on_attach=on_attach }
+  nvim_lsp.nil_ls.setup { on_attach=on_attach }
   nvim_lsp.vimls.setup { on_attach=on_attach }
   nvim_lsp.yamlls.setup { on_attach=on_attach }
 EOF
