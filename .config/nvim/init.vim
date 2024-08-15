@@ -36,6 +36,7 @@ let mapleader='ml'
 
 " Set colorscheme
 if &t_Co >= 256 || has("gui_running")
+  set notermguicolors
   colorscheme wombat256jumper
 else
   colorscheme default
