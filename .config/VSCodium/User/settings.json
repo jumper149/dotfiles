@@ -1,0 +1,103 @@
+{
+  "haskell.manageHLS": "PATH",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/bin/bash",
+      "icon": "terminal-bash",
+      "args": [
+        "-l",
+        "--norc"
+      ]
+    }
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "m",
+        "l",
+        "f"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.formatDocument"
+        }
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "l",
+        "g"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.goToImplementation"
+        }
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "l",
+        "k"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.showDefinitionPreviewHover"
+        }
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "l",
+        " ",
+        "n"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.marker.nextInFiles"
+        }
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "l",
+        " ",
+        "shift+p"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.marker.nextInFiles"
+        }
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "l",
+        " ",
+        "p"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.marker.prevInFiles"
+        }
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "l",
+        " ",
+        "shift+n"
+      ],
+      "commands": [
+        {
+          "command": "editor.action.marker.prevInFiles"
+        }
+      ]
+    },
+  ]
+}
