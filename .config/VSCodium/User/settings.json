@@ -31,7 +31,7 @@
       ],
       "commands": [
         {
-          "command": "editor.action.goToImplementation"
+          "command": "editor.action.goToDeclaration"
         }
       ]
     },
@@ -99,5 +99,6 @@
         }
       ]
     },
-  ]
+  ],
+  "window.menuBarVisibility": "toggle"
 }
