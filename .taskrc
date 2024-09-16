@@ -23,5 +23,6 @@ taskd.server = base.felixspringer.xyz:53589
 taskd.ca=/etc/ssl/certs/ca-certificates.crt
 taskd.certificate=~/.task/keys/public.cert
 taskd.key=~/.task/keys/private.key
+taskd.trust=allow all
 taskd.credentials=private/jumper/b91868b2-0c58-4fb4-9fe7-a29a69e77280
 news.version=2.6.0
