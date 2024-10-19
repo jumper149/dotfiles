@@ -88,3 +88,16 @@ EOF
 
 " LSP, nvim-lspconfig, nvim-cmp
 source $XDG_CONFIG_HOME/nvim/lsp.vim
+
+" nvim-tree
+" empty setup using defaults
+lua << EOF
+require("nvim-tree").setup()
+EOF
+nmap gt :NvimTreeOpen
+
+" Use ctrl-[hjkl] to select the active split
+nmap <c-h> :wincmd h<CR>
+nmap <c-j> :wincmd j<CR>
+nmap <c-k> :wincmd k<CR>
+nmap <c-l> :wincmd l<CR>
