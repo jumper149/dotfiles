@@ -1,19 +1,62 @@
-// Place your key bindings in this file to override the defaults
-[
+ [
     {
-        "key": "ctrl+l",
-        "command": "workbench.action.focusNextGroup"
+        "key": "ctrl+b h",
+        "when": "editorFocus",
+        "command": "workbench.action.focusSideBar",
     },
     {
-        "key": "ctrl+h",
-        "command": "workbench.action.focusPreviousGroup"
+        "key": "ctrl+b h",
+        "when": "panelFocus",
+        "command": "workbench.action.focusLastEditorGroup",
     },
     {
-        "key": "ctrl+k",
-        "command": "workbench.action.focusActiveEditorGroup",
+        "key": "ctrl+b h",
+        "when": "!editorFocus && !panelFocus",
+        "command": "workbench.action.focusSideBar",
     },
     {
-        "key": "ctrl+j",
-        "command": "workbench.action.terminal.focus",
-    }
+        "key": "ctrl+b j",
+        "when": "sideBarFocus",
+        "command": "workbench.action.nextSideBarView",
+    },
+    {
+        "key": "ctrl+b k",
+        "when": "sideBarFocus",
+        "command": "workbench.action.previousSideBarView",
+    },
+    {
+        "key": "ctrl+b j",
+        "when": "editorFocus",
+        "command": "workbench.action.focusPreviousGroup",
+    },
+    {
+        "key": "ctrl+b k",
+        "when": "editorFocus",
+        "command": "workbench.action.focusNextGroup",
+    },
+    {
+        "key": "ctrl+b j",
+        "when": "panelFocus",
+        "command": "workbench.action.previousPanelView",
+    },
+    {
+        "key": "ctrl+b k",
+        "when": "panelFocus",
+        "command": "workbench.action.nextPanelView",
+    },
+    {
+        "key": "ctrl+b l",
+        "when": "sideBarFocus",
+        "command": "workbench.action.focusFirstEditorGroup",
+    },
+    {
+        "key": "ctrl+b l",
+        "when": "editorFocus",
+        "command": "workbench.action.focusPanel",
+    },
+    {
+        "key": "ctrl+b l",
+        "when": "!sideBarFocus && !editorFocus",
+        "command": "workbench.action.focusPanel",
+    },
 ]

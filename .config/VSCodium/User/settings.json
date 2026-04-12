@@ -1,25 +1,15 @@
 {
-  "haskell.manageHLS": "PATH",
-  "terminal.integrated.profiles.linux": {
-    "bash": {
-      "path": "/bin/bash",
-      "icon": "terminal-bash",
-      "args": [
-        "-l",
-        "--norc"
-      ]
-    }
-  },
+  "git.autofetch": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": [
         "m",
         "l",
-        "f"
+        "a",
       ],
       "commands": [
         {
-          "command": "editor.action.formatDocument"
+          "command": "editor.action.codeAction",
         }
       ]
     },
@@ -27,11 +17,11 @@
       "before": [
         "m",
         "l",
-        "g"
+        "f",
       ],
       "commands": [
         {
-          "command": "editor.action.goToDeclaration"
+          "command": "editor.action.formatDocument",
         }
       ]
     },
@@ -39,11 +29,11 @@
       "before": [
         "m",
         "l",
-        "k"
+        "g",
       ],
       "commands": [
         {
-          "command": "editor.action.showDefinitionPreviewHover"
+          "command": "editor.action.goToDeclaration",
         }
       ]
     },
@@ -51,25 +41,11 @@
       "before": [
         "m",
         "l",
-        " ",
-        "n"
+        "k",
       ],
       "commands": [
         {
-          "command": "editor.action.marker.nextInFiles"
-        }
-      ]
-    },
-    {
-      "before": [
-        "m",
-        "l",
-        " ",
-        "shift+p"
-      ],
-      "commands": [
-        {
-          "command": "editor.action.marker.nextInFiles"
+          "command": "editor.action.showDefinitionPreviewHover",
         }
       ]
     },
@@ -78,11 +54,11 @@
         "m",
         "l",
         " ",
-        "p"
+        "n",
       ],
       "commands": [
         {
-          "command": "editor.action.marker.prevInFiles"
+          "command": "editor.action.marker.nextInFiles",
         }
       ]
     },
@@ -91,14 +67,43 @@
         "m",
         "l",
         " ",
-        "shift+n"
+        "shift+p",
       ],
       "commands": [
         {
-          "command": "editor.action.marker.prevInFiles"
+          "command": "editor.action.marker.nextInFiles",
+        }
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "l",
+        " ",
+        "p",
+      ],
+      "commands": [
+        {
+          "command": "editor.action.marker.prevInFiles",
+        }
+      ]
+    },
+    {
+      "before": [
+        "m",
+        "l",
+        " ",
+        "shift+n",
+      ],
+      "commands": [
+        {
+          "command": "editor.action.marker.prevInFiles",
         }
       ]
     },
   ],
-  "window.menuBarVisibility": "toggle"
+  "workbench.panel.defaultLocation": "right",
+  "editor.minimap.autohide": "mouseover",
+  "window.menuBarVisibility": "toggle",
+  "elmLS.elmReviewDiagnostics": "warning",
 }
