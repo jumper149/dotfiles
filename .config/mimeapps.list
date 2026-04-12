@@ -36,6 +36,7 @@ application/x-extension-xht=firefox.desktop
 x-scheme-handler/about=qutebrowser.desktop;
 x-scheme-handler/unknown=qutebrowser.desktop;
 x-scheme-handler/tg=org.telegram.desktop.desktop
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -49,3 +50,4 @@ application/xhtml+xml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-6HQIY1.desktop;org.telegram.desktop.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;
