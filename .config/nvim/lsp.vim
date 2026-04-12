@@ -56,19 +56,6 @@ lua <<EOF
       { name = 'cmdline' }
     })
   })
-
-  -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  require('lspconfig')['bashls'].setup { capabilities = capabilities }
-  require('lspconfig')['cssls'].setup { capabilities = capabilities }
-  require('lspconfig')['dhall_lsp_server'].setup { capabilities = capabilities }
-  require('lspconfig')['hls'].setup { capabilities = capabilities }
-  require('lspconfig')['html'].setup { capabilities = capabilities }
-  require('lspconfig')['jsonls'].setup { capabilities = capabilities }
-  require('lspconfig')['pyright'].setup { capabilities = capabilities }
-  require('lspconfig')['nil_ls'].setup { capabilities = capabilities }
-  require('lspconfig')['vimls'].setup { capabilities = capabilities }
-  require('lspconfig')['yamlls'].setup { capabilities = capabilities }
 EOF
 set signcolumn=no " Don't show Hints, Warnings and Errors on the left of line numbers (line numbers are recolored instead)
 sign define LspDiagnosticsSignError text=E texthl=LspDiagnosticsSignError linehl= numhl=LspDiagnosticsSignError
@@ -76,7 +63,6 @@ sign define LspDiagnosticsSignWarning text=W texthl=LspDiagnosticsSignWarning li
 sign define LspDiagnosticsSignInformation text=W texthl=LspDiagnosticsSignInformation linehl= numhl=LspDiagnosticsSignInformation
 sign define LspDiagnosticsSignHint text=W texthl=LspDiagnosticsSignHint linehl= numhl=LspDiagnosticsSignHint
 lua << EOF
-  local nvim_lsp = require('lspconfig')
   local on_attach = function(client, bufnr)
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
     buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -101,16 +87,29 @@ lua << EOF
     buf_set_keymap('n', 'ml<SPACE>n', '<CMD>lua vim.diagnostic.goto_next()<CR>'                        , opts)
     buf_set_keymap('n', 'ml<SPACE>q', '<CMD>lua vim.diagnostic.set_loclist()<CR>'                      , opts)
   end
-  nvim_lsp.bashls.setup { on_attach=on_attach }
-  nvim_lsp.cssls.setup { on_attach=on_attach, cmd={ "css-languageserver", "--stdio" } }
-  nvim_lsp.dhall_lsp_server.setup { on_attach=on_attach }
-  nvim_lsp.elmls.setup { on_attach=on_attach }
-  nvim_lsp.hls.setup { on_attach=on_attach, settings={ haskell={ formattingProvider="fourmolu" } } }
-  nvim_lsp.html.setup { on_attach=on_attach, cmd={ "html-languageserver", "--stdio" } }
-  require('idris2').setup { server = { on_attach=on_attach } }
-  nvim_lsp.jsonls.setup { on_attach=on_attach, cmd={ "json-languageserver", "--stdio" } }
-  nvim_lsp.pyright.setup { on_attach=on_attach }
-  nvim_lsp.nil_ls.setup { on_attach=on_attach }
-  nvim_lsp.vimls.setup { on_attach=on_attach }
-  nvim_lsp.yamlls.setup { on_attach=on_attach }
+  vim.lsp.config("bashls", { on_attach=on_attach, capabilities = capabilities })
+  vim.lsp.config("cssls", { on_attach=on_attach, capabilities = capabilities, cmd={ "css-languageserver", "--stdio" } })
+  vim.lsp.config("dhall_lsp_server", { on_attach=on_attach, capabilities = capabilities })
+  vim.lsp.config("elmls", { on_attach=on_attach, capabilities = capabilities })
+  vim.lsp.config("hls", { on_attach=on_attach, capabilities = capabilities, settings={ haskell={ formattingProvider="fourmolu" } } })
+  vim.lsp.config("html", { on_attach=on_attach, capabilities = capabilities, cmd={ "html-languageserver", "--stdio" } })
+  require('idris2').setup({ server = { on_attach=on_attach, capabilities = capabilities } })
+  vim.lsp.config("jsonls", { on_attach=on_attach, capabilities = capabilities, cmd={ "json-languageserver", "--stdio" } })
+  vim.lsp.config("pyright", { on_attach=on_attach, capabilities = capabilities })
+  vim.lsp.config("nil_ls", { on_attach=on_attach, capabilities = capabilities })
+  vim.lsp.config("vimls", { on_attach=on_attach, capabilities = capabilities })
+  vim.lsp.config("yamlls", { on_attach=on_attach, capabilities = capabilities })
+  vim.lsp.enable({
+    "bashls",
+    "cssls",
+    "dhall_lsp_server",
+    "elmls",
+    "hls",
+    "html",
+    "jsonls",
+    "pyright",
+    "nil_ls",
+    "cimls",
+    "yamlls",
+  })
 EOF
