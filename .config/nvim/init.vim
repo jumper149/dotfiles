@@ -94,7 +94,7 @@ source $XDG_CONFIG_HOME/nvim/lsp.vim
 lua << EOF
 require("nvim-tree").setup()
 EOF
-nmap gt :NvimTreeOpen
+nmap gT :NvimTreeOpen<CR>
 
 " Use ctrl-[hjkl] to select the active split
 nmap <c-h> :wincmd h<CR>
