@@ -9,6 +9,7 @@ alias mv='mv --interactive'
 # dotfiles
 alias dotgit='git --git-dir=${HOME}/.dotfiles --work-tree=${HOME}'
 alias safegit='git --git-dir=${HOME}/.dotsafe --work-tree=${HOME}'
+alias congit='git -C ${HOME}/.contacts'
 
 # pastebin
 alias sprunge='curl -F "sprunge=<-" http://sprunge.us'

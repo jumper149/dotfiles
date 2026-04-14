@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+
+ssh jumper@nixbase.wireguard <<'EOF'
+cd /var/lib/radicale/collections/collection-root/jumper149/8ecc206c-91e0-4704-b87c-c84912f73003
+umask 0002
+git pull --ff-only
+EOF
