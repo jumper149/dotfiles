@@ -83,7 +83,12 @@ let g:indent_blankline_context_char = '│'
 let g:indent_blankline_show_current_context = v:true
 lua << EOF
 -- Enable tree-sitter syntax highlighting
-require'nvim-treesitter'.setup { highlight = { enable = true } }
+--require'nvim-treesitter'.setup { highlight = { enable = true } }
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+  end,
+})
 EOF
 
 
