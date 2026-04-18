@@ -83,8 +83,9 @@ let g:indent_blankline_context_char = '│'
 let g:indent_blankline_show_current_context = v:true
 lua << EOF
 -- Enable tree-sitter syntax highlighting
-require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+require'nvim-treesitter'.setup { highlight = { enable = true } }
 EOF
+
 
 " LSP, nvim-lspconfig, nvim-cmp
 source $XDG_CONFIG_HOME/nvim/lsp.vim
