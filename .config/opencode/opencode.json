@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "model": "ollama/opencode-qwen3.5:9b",
+  "permission": {
+    "*": "ask"
+  },
+  "provider": {
+    "ollama": {
+      "models": {
+        "opencode-qwen3.5:9b": {
+          "name": "opencode-qwen3.5:9b"
+        }
+      },
+      "name": "Ollama",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      }
+    }
+  }
+}
