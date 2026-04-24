@@ -1,15 +1,18 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "autoupdate": false,
-  "model": "ollama/opencode-qwen3.5:9b",
+  "model": "ollama/opencode-qwen3.5:4b",
   "permission": {
     "*": "ask"
   },
   "provider": {
     "ollama": {
       "models": {
+        "opencode-qwen3.5:4b": {
+          "name": "qwen3.5:4b"
+        },
         "opencode-qwen3.5:9b": {
-          "name": "opencode-qwen3.5:9b"
+          "name": "qwen3.5:9b"
         }
       },
       "name": "Ollama",
