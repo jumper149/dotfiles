@@ -125,7 +125,7 @@ bind browser       y          noop # exit
 bind browser       cd         change-dir
 
 # editor
-macro editor       <esc>      "<enter><shell-escape>xdotool key control+g<enter>" "Escape from command line"
+macro editor       <esc>      "Try <ctrl>+g" "Escape from command line"
 
 # generic
 bind generic       *          noop # last-entry
