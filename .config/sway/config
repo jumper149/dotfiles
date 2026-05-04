@@ -44,7 +44,11 @@ client.placeholder      #000000     #0c0c0c     #ffffff     #000000     #0c0c0c
 client.background       #ffffff
 
 # set wallpaper
+output DP-1 scale 2
+output DP-1 resolution 3840x2160@120Hz
 output * background ~/.local/share/wallpaper/gradientBlack.png fill
+
+seat seat0 xcursor_theme volantes_light_cursors 24
 
 # fix screen sharing
 exec "~/.config/sway/fix-screen-sharing.sh"
@@ -230,16 +234,16 @@ bar {
 }
 
 # gaps
-set $gaps_inner 6
-set $gaps_outer 16
+set $gaps_inner 12
+set $gaps_outer 32
 gaps inner $gaps_inner
 gaps outer $gaps_outer
 bindsym $mod+Shift+t gaps inner all set 0; gaps outer all set 0
 bindsym $mod+t gaps inner all set $gaps_inner; gaps outer all set $gaps_outer
 
 # window decoration
-default_border pixel 4
-default_floating_border pixel 2
+default_border pixel 2
+default_floating_border pixel 1
 
 # backlight/brightness
 #bindsym XF86MonBrightnessUp exec --no-startup-id "brightness up"

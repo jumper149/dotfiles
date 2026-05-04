@@ -27,7 +27,7 @@ white = "#707880"
 yellow = "#de935f"
 
 [colors.primary]
-background = "#1c1c1c"
+background = "#232323"
 foreground = "#c5c8c6"
 
 [colors.selection]
@@ -35,7 +35,7 @@ background = "#b294bb"
 text = "#1c1c1c"
 
 [font]
-size = 11.0
+size = 12.0
 
 [font.bold]
 family = "Iosevka"
