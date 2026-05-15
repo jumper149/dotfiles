@@ -49,6 +49,7 @@ output DP-1 resolution 3840x2160@120Hz
 output * background ~/.local/share/wallpaper/gradientBlack.png fill
 
 seat seat0 xcursor_theme volantes_light_cursors 24
+seat seat0 hide_cursor 5000
 
 # fix screen sharing
 exec "~/.config/sway/fix-screen-sharing.sh"
@@ -77,6 +78,7 @@ bindsym $mod+Shift+q kill
 
 # lock screen
 bindsym $mod+Shift+w exec "swaylock --color 000000 --show-failed-attempts"
+exec swayidle -w timeout 600 "swaylock --color 000000 --show-failed-attempts"
 
 # start rofi to launch a program
 bindsym $mod+d exec "rofi -show 'run'"
