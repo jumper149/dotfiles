@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+file=$(realpath "$1")
+
+pandocFlags=(
+  --pdf-engine=typst
+  -V 'mainfont=Libertinus Serif'
+  -V 'sansfont=DejaVu Sans'
+  -V 'monofont=DejaVu Sans Mono'
+  -t pdf
+  -o /dev/stdout
+)
+zathuraFlags=(
+  -
+)
+
+pandoc "$file" "${pandocFlags[@]}" | zathura "${zathuraFlags[@]}"
